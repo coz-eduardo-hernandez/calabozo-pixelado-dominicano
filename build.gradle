@@ -9,15 +9,14 @@ buildscript {
 }
 
 allprojects {
-
     ext {
-        appName = 'Shattered Pixel Dungeon'
+        appName = 'Calabozo Pixelado Dominicano'
         appPackageName = 'com.shatteredpixel.shatteredpixeldungeon'
 
         appVersionCode = 722
         appVersionName = '2.1.0'
 
-        appJavaCompatibility = JavaVersion.VERSION_1_8
+        appJavaCompatibility = JavaVersion.VERSION_17
 
         appAndroidCompileSDK = 33
         appAndroidMinSDK = 14
@@ -34,5 +33,4 @@ allprojects {
         mavenCentral()
         maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
     }
-
 }
