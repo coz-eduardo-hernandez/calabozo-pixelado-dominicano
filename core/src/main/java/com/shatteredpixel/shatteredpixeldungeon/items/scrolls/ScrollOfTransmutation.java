@@ -52,7 +52,6 @@ import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
 import com.shatteredpixel.shatteredpixeldungeon.plants.Plant;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 import com.shatteredpixel.shatteredpixeldungeon.utils.GLog;
-import com.sun.tools.javac.jvm.Gen;
 import com.watabou.utils.Random;
 import com.watabou.utils.Reflection;
 
