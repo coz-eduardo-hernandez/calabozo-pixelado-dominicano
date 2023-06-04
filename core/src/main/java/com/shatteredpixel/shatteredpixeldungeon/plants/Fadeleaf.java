@@ -24,7 +24,6 @@ package com.shatteredpixel.shatteredpixeldungeon.plants;
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
 import com.shatteredpixel.shatteredpixeldungeon.actors.Char;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Hero;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.HeroSubClass;
 import com.shatteredpixel.shatteredpixeldungeon.actors.mobs.Mob;
 import com.shatteredpixel.shatteredpixeldungeon.effects.CellEmitter;
 import com.shatteredpixel.shatteredpixeldungeon.effects.Speck;
@@ -48,7 +47,7 @@ public class Fadeleaf extends Plant {
 			
 			((Hero)ch).curAction = null;
 			
-			if (((Hero) ch).subClass == HeroSubClass.WARDEN && Dungeon.interfloorTeleportAllowed()){
+/*			if (((Hero) ch).subClass == HeroSubClass.WARDEN && Dungeon.interfloorTeleportAllowed()){
 
 				Level.beforeTransition();
 				InterlevelScene.mode = InterlevelScene.Mode.RETURN;
@@ -57,9 +56,9 @@ public class Fadeleaf extends Plant {
 				InterlevelScene.returnPos = -2;
 				Game.switchScene( InterlevelScene.class );
 				
-			} else {
+			} else {*/
 				ScrollOfTeleportation.teleportChar(ch, Fadeleaf.class);
-			}
+			//}
 			
 		} else if (ch instanceof Mob && !ch.properties().contains(Char.Property.IMMOVABLE)) {
 

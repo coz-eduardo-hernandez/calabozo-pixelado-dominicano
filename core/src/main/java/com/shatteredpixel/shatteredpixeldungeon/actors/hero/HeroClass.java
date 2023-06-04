@@ -75,7 +75,12 @@ import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
 import com.watabou.utils.DeviceCompat;
 
 public enum HeroClass {
-
+	WARRIOR,
+	MAGE,
+	ROGUE,
+	HUNTRESS,
+	DUELIST;
+/*
 	WARRIOR( HeroSubClass.BERSERKER, HeroSubClass.GLADIATOR ),
 	MAGE( HeroSubClass.BATTLEMAGE, HeroSubClass.WARLOCK ),
 	ROGUE( HeroSubClass.ASSASSIN, HeroSubClass.FREERUNNER ),
@@ -87,7 +92,7 @@ public enum HeroClass {
 	HeroClass( HeroSubClass...subClasses ) {
 		this.subClasses = subClasses;
 	}
-
+*/
 	public void initHero( Hero hero ) {
 
 		hero.heroClass = this;
@@ -240,10 +245,7 @@ public enum HeroClass {
 		return Messages.get(HeroClass.class, name()+"_desc_short");
 	}
 
-	public HeroSubClass[] subClasses() {
-		return subClasses;
-	}
-
+	/*
 	public ArmorAbility[] armorAbilities(){
 		switch (this) {
 			case WARRIOR: default:
@@ -257,7 +259,7 @@ public enum HeroClass {
 			case DUELIST:
 				return new ArmorAbility[]{new Challenge(), new ElementalStrike(), new Feint()};
 		}
-	}
+	}*/
 
 	public String spritesheet() {
 		switch (this) {

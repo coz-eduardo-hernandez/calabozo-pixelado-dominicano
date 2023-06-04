@@ -36,7 +36,6 @@ import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.ScrollEmpower;
 import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.SoulMark;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Hero;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.HeroClass;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.HeroSubClass;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Talent;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.mage.WildMagic;
 import com.shatteredpixel.shatteredpixeldungeon.effects.MagicMissile;
@@ -197,13 +196,13 @@ public abstract class Wand extends Item {
 			int dur = 5 + 5*Dungeon.hero.pointsInTalent(Talent.ARCANE_VISION);
 			Buff.append(Dungeon.hero, TalismanOfForesight.CharAwareness.class, dur).charID = target.id();
 		}
-
+/*
 		if (target != Dungeon.hero &&
 				Dungeon.hero.subClass == HeroSubClass.WARLOCK &&
 				//standard 1 - 0.92^x chance, plus 7%. Starts at 15%
 				Random.Float() > (Math.pow(0.92f, (wandLevel*chargesUsed)+1) - 0.07f)){
 			SoulMark.prolong(target, SoulMark.class, SoulMark.DURATION + wandLevel);
-		}
+		}*/
 	}
 
 	@Override
@@ -260,9 +259,9 @@ public abstract class Wand extends Item {
 			desc += "\n\n" + Messages.get(Wand.class, "not_cursed");
 		}
 
-		if (Dungeon.hero.subClass == HeroSubClass.BATTLEMAGE){
+		/*if (Dungeon.hero.subClass == HeroSubClass.BATTLEMAGE){
 			desc += "\n\n" + Messages.get(this, "bmage_desc");
-		}
+		}*/
 
 		return desc;
 	}

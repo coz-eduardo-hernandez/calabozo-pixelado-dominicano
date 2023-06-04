@@ -28,7 +28,6 @@ import com.shatteredpixel.shatteredpixeldungeon.actors.Actor;
 import com.shatteredpixel.shatteredpixeldungeon.actors.Char;
 import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Buff;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Hero;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.HeroSubClass;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Talent;
 import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
 import com.shatteredpixel.shatteredpixeldungeon.scenes.GameScene;
@@ -50,7 +49,7 @@ abstract public class KindOfWeapon extends EquipableItem {
 	
 	@Override
 	public void execute(Hero hero, String action) {
-		if (hero.subClass == HeroSubClass.CHAMPION && action.equals(AC_EQUIP)){
+		/*if (hero.subClass == HeroSubClass.CHAMPION && action.equals(AC_EQUIP)){
 			usesTargeting = false;
 			String primaryName = Messages.titleCase(hero.belongings.weapon != null ? hero.belongings.weapon.trueName() : Messages.get(KindOfWeapon.class, "empty"));
 			String secondaryName = Messages.titleCase(hero.belongings.secondWep != null ? hero.belongings.secondWep.trueName() : Messages.get(KindOfWeapon.class, "empty"));
@@ -88,9 +87,9 @@ abstract public class KindOfWeapon extends EquipableItem {
 					}
 				}
 			});
-		} else {
+		} else {*/
 			super.execute(hero, action);
-		}
+		//}
 	}
 
 	@Override

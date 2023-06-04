@@ -188,7 +188,6 @@ public class Hero extends Char {
 	private static final float HUNGER_FOR_SEARCH	= 6f;
 	
 	public HeroClass heroClass = HeroClass.ROGUE;
-	public HeroSubClass subClass = HeroSubClass.NONE;
 	public ArmorAbility armorAbility = null;
 	public ArrayList<LinkedHashMap<Talent, Integer>> talents = new ArrayList<>();
 	public LinkedHashMap<Talent, Talent> metamorphedTalents = new LinkedHashMap<>();
@@ -268,7 +267,6 @@ public class Hero extends Char {
 	}
 
 	private static final String CLASS       = "class";
-	private static final String SUBCLASS    = "subClass";
 	private static final String ABILITY     = "armorAbility";
 
 	private static final String ATTACK		= "attackSkill";
@@ -284,9 +282,8 @@ public class Hero extends Char {
 		super.storeInBundle( bundle );
 
 		bundle.put( CLASS, heroClass );
-		bundle.put( SUBCLASS, subClass );
 		bundle.put( ABILITY, armorAbility );
-		Talent.storeTalentsInBundle( bundle, this );
+	//	Talent.storeTalentsInBundle( bundle, this );
 		
 		bundle.put( ATTACK, attackSkill );
 		bundle.put( DEFENSE, defenseSkill );
@@ -312,7 +309,6 @@ public class Hero extends Char {
 		super.restoreFromBundle( bundle );
 
 		heroClass = bundle.getEnum( CLASS, HeroClass.class );
-		subClass = bundle.getEnum( SUBCLASS, HeroSubClass.class );
 		armorAbility = (ArmorAbility)bundle.get( ABILITY );
 		Talent.restoreTalentsFromBundle( bundle, this );
 		
@@ -332,7 +328,6 @@ public class Hero extends Char {
 		info.ht = bundle.getInt( Char.TAG_HT );
 		info.shld = bundle.getInt( Char.TAG_SHLD );
 		info.heroClass = bundle.getEnum( CLASS, HeroClass.class );
-		info.subClass = bundle.getEnum( SUBCLASS, HeroSubClass.class );
 		Belongings.preview( info, bundle );
 	}
 
@@ -366,7 +361,7 @@ public class Hero extends Char {
 		return total;
 	}
 
-	public int talentPointsAvailable(int tier){
+	/*public int talentPointsAvailable(int tier){
 		if (lvl < (Talent.tierLevelThresholds[tier] - 1)
 			|| (tier == 3 && subClass == HeroSubClass.NONE)
 			|| (tier == 4 && armorAbility == null)) {
@@ -376,9 +371,9 @@ public class Hero extends Char {
 		} else {
 			return 1 + lvl - Talent.tierLevelThresholds[tier] - talentPointsSpent(tier) + bonusTalentPoints(tier);
 		}
-	}
+	}*/
 
-	public int bonusTalentPoints(int tier){
+	/*public int bonusTalentPoints(int tier){
 		if (lvl < (Talent.tierLevelThresholds[tier]-1)
 				|| (tier == 3 && subClass == HeroSubClass.NONE)
 				|| (tier == 4 && armorAbility == null)) {
@@ -389,10 +384,11 @@ public class Hero extends Char {
 		} else {
 			return 0;
 		}
-	}
+	}*/
 	
 	public String className() {
-		return subClass == null || subClass == HeroSubClass.NONE ? heroClass.title() : subClass.title();
+		//return subClass == null || subClass == HeroSubClass.NONE ? heroClass.title() : subClass.title();
+		return heroClass.title();
 	}
 
 	@Override
@@ -452,11 +448,11 @@ public class Hero extends Char {
 		boolean hit = attack( enemy );
 		Invisibility.dispel();
 		belongings.thrownWeapon = null;
-
+/*
 		if (hit && subClass == HeroSubClass.GLADIATOR && wasEnemy){
 			Buff.affect( this, Combo.class ).hit( enemy );
 		}
-
+*/
 		if (hit && heroClass == HeroClass.DUELIST && wasEnemy){
 			Buff.affect( this, Sai.ComboStrikeTracker.class).addHit();
 		}
@@ -1281,7 +1277,7 @@ public class Hero extends Char {
 		if (wep != null) damage = wep.proc( this, enemy, damage );
 
 		damage = Talent.onAttackProc( this, enemy, damage );
-		
+		/*
 		switch (subClass) {
 		case SNIPER:
 			if (wep instanceof MissileWeapon && !(wep instanceof SpiritBow.SpiritArrow) && enemy != this) {
@@ -1305,18 +1301,18 @@ public class Hero extends Char {
 			break;
 		default:
 		}
-		
+		*/
 		return damage;
 	}
 	
 	@Override
 	public int defenseProc( Char enemy, int damage ) {
 		
-		if (damage > 0 && subClass == HeroSubClass.BERSERKER){
+/*		if (damage > 0 && subClass == HeroSubClass.BERSERKER){
 			Berserk berserk = Buff.affect(this, Berserk.class);
 			berserk.damage(damage);
 		}
-		
+*/
 		if (belongings.armor() != null) {
 			damage = belongings.armor().proc( enemy, this, damage );
 		}
@@ -1565,10 +1561,10 @@ public class Hero extends Char {
 				return false;
 			}
 
-			if (subClass == HeroSubClass.FREERUNNER){
+		/*	if (subClass == HeroSubClass.FREERUNNER){
 				Buff.affect(this, Momentum.class).gainStack();
 			}
-			
+		*/
 			sprite.move(pos, step);
 			move(step);
 
@@ -2008,9 +2004,9 @@ public class Hero extends Char {
 		Invisibility.dispel();
 		spend( attackDelay() );
 
-		if (hit && subClass == HeroSubClass.GLADIATOR && wasEnemy){
+		/*if (hit && subClass == HeroSubClass.GLADIATOR && wasEnemy){
 			Buff.affect( this, Combo.class ).hit( enemy );
-		}
+		}*/
 
 		if (hit && heroClass == HeroClass.DUELIST && wasEnemy){
 			Buff.affect( this, Sai.ComboStrikeTracker.class).addHit();

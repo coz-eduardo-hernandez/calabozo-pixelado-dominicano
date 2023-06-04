@@ -23,7 +23,6 @@ package com.shatteredpixel.shatteredpixeldungeon;
 
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Hero;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.HeroClass;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.HeroSubClass;
 import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.FileUtils;
@@ -146,7 +145,6 @@ public class GamesInProgress {
 		info.ht = Dungeon.hero.HT;
 		info.shld = Dungeon.hero.shielding();
 		info.heroClass = Dungeon.hero.heroClass;
-		info.subClass = Dungeon.hero.subClass;
 		info.armorTier = Dungeon.hero.tier();
 		
 		info.goldCollected = Statistics.goldCollected;
@@ -183,7 +181,6 @@ public class GamesInProgress {
 		public int ht;
 		public int shld;
 		public HeroClass heroClass;
-		public HeroSubClass subClass;
 		public int armorTier;
 		
 		public int goldCollected;

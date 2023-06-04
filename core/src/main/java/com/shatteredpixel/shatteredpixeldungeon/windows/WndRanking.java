@@ -31,7 +31,6 @@ import com.shatteredpixel.shatteredpixeldungeon.SPDSettings;
 import com.shatteredpixel.shatteredpixeldungeon.ShatteredPixelDungeon;
 import com.shatteredpixel.shatteredpixeldungeon.Statistics;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Belongings;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.HeroSubClass;
 import com.shatteredpixel.shatteredpixeldungeon.items.Item;
 import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
 import com.shatteredpixel.shatteredpixeldungeon.scenes.PixelScene;
@@ -106,7 +105,7 @@ public class WndRanking extends WndTabbed {
 			Icons[] icons =
 					{Icons.RANKINGS, Icons.TALENT, Icons.BACKPACK_LRG, Icons.BADGES, Icons.CHALLENGE_ON};
 			Group[] pages =
-					{new StatsTab(), new TalentsTab(), new ItemsTab(), new BadgesTab(), null};
+					{new StatsTab(), new ItemsTab(), new BadgesTab(), null};
 
 			if (Dungeon.challenges != 0) pages[4] = new ChallengesTab();
 
@@ -306,7 +305,7 @@ public class WndRanking extends WndTabbed {
 		}
 	}
 
-	private class TalentsTab extends Group{
+	/*private class TalentsTab extends Group{
 
 		public TalentsTab(){
 			super();
@@ -321,15 +320,15 @@ public class WndRanking extends WndTabbed {
 				Dungeon.hero.talents.remove(Dungeon.hero.talents.size()-1);
 			}
 
-	/*		TalentsPane p = new TalentsPane(TalentButton.Mode.INFO);
+			TalentsPane p = new TalentsPane(TalentButton.Mode.INFO);
 			add(p);
 			p.setPos(0, 0);
 			p.setSize(WIDTH, HEIGHT);
 			p.setPos(0, 0);
-*/
+
 		}
 
-	}
+	}*/
 
 	private class ItemsTab extends Group {
 		

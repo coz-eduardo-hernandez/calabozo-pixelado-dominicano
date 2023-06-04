@@ -25,7 +25,6 @@ import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.Badges;
 import com.shatteredpixel.shatteredpixeldungeon.actors.Actor;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Hero;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.HeroSubClass;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Talent;
 import com.shatteredpixel.shatteredpixeldungeon.effects.Speck;
 import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
@@ -86,7 +85,7 @@ public class TengusMask extends Item {
 	public boolean isIdentified() {
 		return true;
 	}
-	
+	/*
 	public void choose( HeroSubClass way ) {
 		
 		detach( curUser.belongings.backpack );
@@ -105,5 +104,5 @@ public class TengusMask extends Item {
 		e.start(Speck.factory(Speck.MASK), 0.05f, 20);
 		GLog.p( Messages.get(this, "used"));
 		
-	}
+	}*/
 }

@@ -25,7 +25,6 @@ import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
 import com.shatteredpixel.shatteredpixeldungeon.GamesInProgress;
 import com.shatteredpixel.shatteredpixeldungeon.ShatteredPixelDungeon;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Hero;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.HeroSubClass;
 import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
 import com.shatteredpixel.shatteredpixeldungeon.scenes.InterlevelScene;
 import com.shatteredpixel.shatteredpixeldungeon.scenes.PixelScene;
@@ -58,11 +57,11 @@ public class WndGameInProgress extends Window {
 		final GamesInProgress.Info info = GamesInProgress.check(slot);
 		
 		String className = null;
-		if (info.subClass != HeroSubClass.NONE){
+		/*if (info.subClass != HeroSubClass.NONE){
 			className = info.subClass.title();
-		} else {
+		} else {*/
 			className = info.heroClass.title();
-		}
+		//}
 		
 		IconTitle title = new IconTitle();
 		title.icon( HeroSprite.avatar(info.heroClass, info.armorTier) );

@@ -718,7 +718,7 @@ public class Badges {
 		victoryClassBadges.put(HeroClass.HUNTRESS, Badge.VICTORY_HUNTRESS);
 		victoryClassBadges.put(HeroClass.DUELIST, Badge.VICTORY_DUELIST);
 	}
-
+/*
 	private static LinkedHashMap<HeroSubClass, Badge> thirdBossSubclassBadges = new LinkedHashMap<>();
 	static {
 		thirdBossSubclassBadges.put(HeroSubClass.BERSERKER, Badge.BOSS_SLAIN_3_BERSERKER);
@@ -732,7 +732,7 @@ public class Badges {
 		thirdBossSubclassBadges.put(HeroSubClass.CHAMPION, Badge.BOSS_SLAIN_3_CHAMPION);
 		thirdBossSubclassBadges.put(HeroSubClass.MONK, Badge.BOSS_SLAIN_3_MONK);
 	}
-	
+*/
 	public static void validateBossSlain() {
 		Badge badge = null;
 		switch (Dungeon.depth) {
@@ -776,7 +776,7 @@ public class Badges {
 				}
 			} else if (badge == Badge.BOSS_SLAIN_3) {
 
-				badge = thirdBossSubclassBadges.get(Dungeon.hero.subClass);
+				/*badge = thirdBossSubclassBadges.get(Dungeon.hero.subClass);
 				if (badge == null) return;
 				local.add( badge );
 				unlock(badge);
@@ -793,7 +793,7 @@ public class Badges {
 					if (!isUnlocked( badge )) {
 						displayBadge( badge );
 					}
-				}
+				}*/
 			}
 		}
 	}
@@ -1227,14 +1227,14 @@ public class Badges {
 			return result;
 
 		} else if (badge == Badge.BOSS_SLAIN_3_ALL_SUBCLASSES){
-
+/*
 			for (HeroSubClass cls : HeroSubClass.values()){
 				if (cls == HeroSubClass.NONE) continue;
 				result += "\n";
 				if (isUnlocked(thirdBossSubclassBadges.get(cls)))   result += "_" + Messages.titleCase(cls.title()) + "_";
 				else                                                result += Messages.titleCase(cls.title()) ;
 			}
-
+*/
 			return result;
 		}
 

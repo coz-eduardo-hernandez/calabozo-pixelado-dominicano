@@ -48,7 +48,6 @@ import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.SoulMark;
 import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Terror;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Hero;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.HeroClass;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.HeroSubClass;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Talent;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.duelist.Feint;
 import com.shatteredpixel.shatteredpixeldungeon.actors.mobs.npcs.DirectableAlly;
@@ -788,10 +787,10 @@ public abstract class Mob extends Char {
 					Dungeon.hero.sprite.showStatus(CharSprite.POSITIVE, Messages.get(this, "exp", exp));
 				}
 				Dungeon.hero.earnExp(exp, getClass());
-
+/*
 				if (Dungeon.hero.subClass == HeroSubClass.MONK){
 					Buff.affect(Dungeon.hero, MonkEnergy.class).gainEnergy(this);
-				}
+				}*/
 			}
 		}
 	}

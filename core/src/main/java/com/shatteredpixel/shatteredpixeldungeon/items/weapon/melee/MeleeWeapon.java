@@ -33,7 +33,6 @@ import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.MonkEnergy;
 import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Recharging;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Hero;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.HeroClass;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.HeroSubClass;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Talent;
 import com.shatteredpixel.shatteredpixeldungeon.items.Item;
 import com.shatteredpixel.shatteredpixeldungeon.items.KindOfWeapon;
@@ -476,7 +475,7 @@ public class MeleeWeapon extends Weapon {
 				partialCharge = 0;
 			}
 
-			if (Dungeon.hero.subClass == HeroSubClass.CHAMPION
+			/*if (Dungeon.hero.subClass == HeroSubClass.CHAMPION
 					&& secondCharges < secondChargeCap()) {
 				if (lock == null || lock.regenOn()) {
 					// 80 to 60 turns per charge without talent
@@ -490,13 +489,13 @@ public class MeleeWeapon extends Weapon {
 					updateQuickslot();
 				}
 
-			} else {
+			} else {*/
 				secondPartialCharge = 0;
-			}
+			//}
 
-			if (ActionIndicator.action != this && Dungeon.hero.subClass == HeroSubClass.CHAMPION) {
+			/*if (ActionIndicator.action != this && Dungeon.hero.subClass == HeroSubClass.CHAMPION) {
 				ActionIndicator.setAction(this);
-			}
+			}*/
 
 			spend(TICK);
 			return true;
@@ -504,9 +503,9 @@ public class MeleeWeapon extends Weapon {
 
 		@Override
 		public void fx(boolean on) {
-			if (on && Dungeon.hero.subClass == HeroSubClass.CHAMPION) {
+		/*	if (on && Dungeon.hero.subClass == HeroSubClass.CHAMPION) {
 				ActionIndicator.setAction(this);
-			}
+			}*/
 		}
 
 		@Override
@@ -606,9 +605,9 @@ public class MeleeWeapon extends Weapon {
 
 		@Override
 		public void doAction() {
-			if (Dungeon.hero.subClass != HeroSubClass.CHAMPION){
+			/*if (Dungeon.hero.subClass != HeroSubClass.CHAMPION){
 				return;
-			}
+			}*/
 
 			if (Dungeon.hero.belongings.secondWep == null && Dungeon.hero.belongings.backpack.items.size() >= Dungeon.hero.belongings.backpack.capacity()){
 				GLog.w(Messages.get(MeleeWeapon.class, "swap_full"));

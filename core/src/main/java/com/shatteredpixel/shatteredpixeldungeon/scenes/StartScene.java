@@ -25,7 +25,6 @@ import com.shatteredpixel.shatteredpixeldungeon.Badges;
 import com.shatteredpixel.shatteredpixeldungeon.Chrome;
 import com.shatteredpixel.shatteredpixeldungeon.GamesInProgress;
 import com.shatteredpixel.shatteredpixeldungeon.ShatteredPixelDungeon;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.HeroSubClass;
 import com.shatteredpixel.shatteredpixeldungeon.journal.Journal;
 import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
 import com.shatteredpixel.shatteredpixeldungeon.ui.Archs;
@@ -166,12 +165,12 @@ public class StartScene extends PixelScene {
 				}
 			} else {
 				
-				if (info.subClass != HeroSubClass.NONE){
+			/*	if (info.subClass != HeroSubClass.NONE){
 					name.text(Messages.titleCase(info.subClass.title()));
-				} else {
+				} else {*/
 					name.text(Messages.titleCase(info.heroClass.title()));
-				}
-				
+			//	}
+
 				if (hero == null){
 					hero = new Image(info.heroClass.spritesheet(), 0, 15*info.armorTier, 12, 15);
 					add(hero);

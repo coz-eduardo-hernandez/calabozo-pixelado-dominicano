@@ -70,7 +70,6 @@ import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Vertigo;
 import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Vulnerable;
 import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Weakness;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Hero;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.HeroSubClass;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Talent;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.duelist.Challenge;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.rogue.DeathMark;
@@ -250,10 +249,10 @@ public abstract class Char extends Actor {
 		
 		c.spend( 1 / c.speed() );
 
-		if (c == Dungeon.hero){
+		if (c == Dungeon.hero){/*
 			if (Dungeon.hero.subClass == HeroSubClass.FREERUNNER){
 				Buff.affect(Dungeon.hero, Momentum.class).gainStack();
-			}
+			}*/
 
 			Dungeon.hero.busy();
 		}
@@ -340,7 +339,7 @@ public abstract class Char extends Actor {
 			
 			if (this instanceof Hero){
 				Hero h = (Hero)this;
-				if (h.belongings.attackingWeapon() instanceof MissileWeapon
+	/*			if (h.belongings.attackingWeapon() instanceof MissileWeapon
 						&& h.subClass == HeroSubClass.SNIPER
 						&& !Dungeon.level.adjacent(h.pos, enemy.pos)){
 					dr = 0;
@@ -351,7 +350,7 @@ public abstract class Char extends Actor {
 				} else if (h.subClass == HeroSubClass.MONK) {
 					//3 turns with standard attack delay
 					Buff.prolong(h, MonkEnergy.MonkAbility.JustHitTracker.class, 4f);
-				}
+				}*/
 			}
 
 			//we use a float here briefly so that we don't have to constantly round while

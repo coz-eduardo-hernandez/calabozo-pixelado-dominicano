@@ -40,7 +40,7 @@ import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Recharging;
 import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.RevealedArea;
 import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Roots;
 import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.WandEmpower;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.ArmorAbility;
+//import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.ArmorAbility;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.Ratmogrify;
 import com.shatteredpixel.shatteredpixeldungeon.actors.mobs.Mob;
 import com.shatteredpixel.shatteredpixeldungeon.effects.CellEmitter;
@@ -836,7 +836,7 @@ public enum Talent {
 		//tier4
 		//TBD
 	}
-
+/*
 	public static void initSubclassTalents( Hero hero ){
 		initSubclassTalents( hero.subClass, hero.talents );
 	}
@@ -930,7 +930,7 @@ public enum Talent {
 		}
 		bundle.put("replacements", replacementsBundle);
 	}
-
+*/
 	private static final HashMap<String, String> renamedTalents = new HashMap<>();
 	static{
 		//v2.0.0
@@ -953,12 +953,12 @@ public enum Talent {
 		}
 
 		if (hero.heroClass != null)     initClassTalents(hero);
-		if (hero.subClass != null)      initSubclassTalents(hero);
-		if (hero.armorAbility != null)  initArmorTalents(hero);
+		//if (hero.subClass != null)      initSubclassTalents(hero);
+		//if (hero.armorAbility != null)  initArmorTalents(hero);
 
 		for (int i = 0; i < MAX_TALENT_TIERS; i++){
 			LinkedHashMap<Talent, Integer> tier = hero.talents.get(i);
-			Bundle tierBundle = bundle.contains(TALENT_TIER+(i+1)) ? bundle.getBundle(TALENT_TIER+(i+1)) : null;
+			/*Bundle tierBundle = bundle.contains(TALENT_TIER+(i+1)) ? bundle.getBundle(TALENT_TIER+(i+1)) : null;
 
 			if (tierBundle != null){
 				for (String tName : tierBundle.getKeys()){
@@ -973,7 +973,7 @@ public enum Talent {
 						ShatteredPixelDungeon.reportException(e);
 					}
 				}
-			}
+			}*/
 		}
 	}
 
