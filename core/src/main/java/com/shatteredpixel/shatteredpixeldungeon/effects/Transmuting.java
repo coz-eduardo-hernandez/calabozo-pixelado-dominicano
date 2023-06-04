@@ -25,7 +25,6 @@ import com.shatteredpixel.shatteredpixeldungeon.actors.Char;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Talent;
 import com.shatteredpixel.shatteredpixeldungeon.items.Item;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSprite;
-import com.shatteredpixel.shatteredpixeldungeon.ui.TalentIcon;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.Image;
 import com.watabou.noosa.ui.Component;
@@ -68,7 +67,7 @@ public class Transmuting extends Component {
 	}
 
 	public Transmuting( Talent oldTalent, Talent newTalent ){
-		oldSprite = new TalentIcon(oldTalent);
+/*		oldSprite = new TalentIcon(oldTalent);
 		oldSprite.originToCenter();
 		add(oldSprite);
 		newSprite = new TalentIcon(newTalent);
@@ -77,7 +76,7 @@ public class Transmuting extends Component {
 
 		oldSprite.alpha(0f);
 		newSprite.alpha(0f);
-
+*/
 		phase = Phase.FADE_IN;
 		duration = FADE_IN_TIME;
 		passed = 0;

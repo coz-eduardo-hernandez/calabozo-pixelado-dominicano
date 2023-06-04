@@ -34,8 +34,6 @@ import com.shatteredpixel.shatteredpixeldungeon.scenes.PixelScene;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSprite;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 import com.shatteredpixel.shatteredpixeldungeon.ui.RenderedTextBlock;
-import com.shatteredpixel.shatteredpixeldungeon.ui.TalentButton;
-import com.shatteredpixel.shatteredpixeldungeon.ui.TalentsPane;
 import com.shatteredpixel.shatteredpixeldungeon.ui.Window;
 import com.shatteredpixel.shatteredpixeldungeon.windows.IconTitle;
 import com.shatteredpixel.shatteredpixeldungeon.windows.WndOptions;
@@ -104,7 +102,7 @@ public class ScrollOfMetamorphosis extends ExoticScroll {
 
 		public static WndMetamorphChoose INSTANCE;
 
-		TalentsPane pane;
+	//	TalentsPane pane;
 
 		public WndMetamorphChoose(){
 			super();
@@ -135,13 +133,13 @@ public class ScrollOfMetamorphosis extends ExoticScroll {
 					tier.put(talent, Dungeon.hero.pointsInTalent(talent));
 				}
 			}
-
+/*
 			pane = new TalentsPane(TalentButton.Mode.METAMORPH_CHOOSE, talents);
 			add(pane);
 			pane.setPos(0, top);
 			pane.setSize(120, pane.content().height());
 			resize((int)pane.width(), (int)pane.bottom());
-			pane.setPos(0, top);
+			pane.setPos(0, top);*/
 		}
 
 		@Override
@@ -164,7 +162,7 @@ public class ScrollOfMetamorphosis extends ExoticScroll {
 		@Override
 		public void offset(int xOffset, int yOffset) {
 			super.offset(xOffset, yOffset);
-			pane.setPos(pane.left(), pane.top()); //triggers layout
+	//		pane.setPos(pane.left(), pane.top()); //triggers layout
 		}
 	}
 
@@ -244,14 +242,14 @@ public class ScrollOfMetamorphosis extends ExoticScroll {
 
 			top = text.bottom() + 2;
 
-			TalentsPane.TalentTierPane optionsPane = new TalentsPane.TalentTierPane(replaceOptions, tier, TalentButton.Mode.METAMORPH_REPLACE);
+			/*TalentsPane.TalentTierPane optionsPane = new TalentsPane.TalentTierPane(replaceOptions, tier, TalentButton.Mode.METAMORPH_REPLACE);
 			add(optionsPane);
 			optionsPane.title.text(" ");
 			optionsPane.setPos(0, top);
 			optionsPane.setSize(120, optionsPane.height());
 			resize((int)optionsPane.width(), (int)optionsPane.bottom());
 
-			resize(120, (int)optionsPane.bottom());
+			resize(120, (int)optionsPane.bottom());*/
 		}
 
 		@Override

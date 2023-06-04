@@ -32,7 +32,6 @@ import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
 import com.shatteredpixel.shatteredpixeldungeon.scenes.GameScene;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 import com.shatteredpixel.shatteredpixeldungeon.utils.GLog;
-import com.shatteredpixel.shatteredpixeldungeon.windows.WndChooseSubclass;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.noosa.particles.Emitter;
 
@@ -67,7 +66,7 @@ public class TengusMask extends Item {
 			
 			curUser = hero;
 
-			GameScene.show( new WndChooseSubclass( this, hero ) );
+//			GameScene.show( new WndChooseSubclass( this, hero ) );
 			
 		}
 	}

@@ -31,7 +31,6 @@ import com.shatteredpixel.shatteredpixeldungeon.scenes.GameScene;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSprite;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 import com.shatteredpixel.shatteredpixeldungeon.ui.StatusPane;
-import com.shatteredpixel.shatteredpixeldungeon.ui.TalentsPane;
 import com.shatteredpixel.shatteredpixeldungeon.utils.GLog;
 import com.shatteredpixel.shatteredpixeldungeon.windows.WndHero;
 import com.shatteredpixel.shatteredpixeldungeon.windows.WndOptions;
@@ -78,11 +77,11 @@ public class PotionOfDivineInspiration extends ExoticPotion {
 		GameScene.show(new WndOptions(
 				new ItemSprite(this),
 				Messages.titleCase(trueName()),
-				Messages.get(PotionOfDivineInspiration.class, "select_tier"),
+				Messages.get(PotionOfDivineInspiration.class, "select_tier")/*,
 				Messages.titleCase(Messages.get(TalentsPane.class, "tier", 1)),
 				Messages.titleCase(Messages.get(TalentsPane.class, "tier", 2)),
 				Messages.titleCase(Messages.get(TalentsPane.class, "tier", 3)),
-				Messages.titleCase(Messages.get(TalentsPane.class, "tier", 4))
+				Messages.titleCase(Messages.get(TalentsPane.class, "tier", 4))*/
 		){
 			@Override
 			protected boolean enabled(int index) {
@@ -105,18 +104,6 @@ public class PotionOfDivineInspiration extends ExoticPotion {
 					curUser.sprite.operate(curUser.pos);
 
 					curUser.spendAndNext(1f);
-
-					boolean unspentTalents = false;
-					for (int i = 1; i <= Dungeon.hero.talents.size(); i++){
-						if (Dungeon.hero.talentPointsAvailable(i) > 0){
-							unspentTalents = true;
-							break;
-						}
-					}
-					if (unspentTalents){
-						StatusPane.talentBlink = 10f;
-						WndHero.lastIdx = 1;
-					}
 
 					GameScene.showlevelUpStars();
 

@@ -44,8 +44,6 @@ import com.shatteredpixel.shatteredpixeldungeon.ui.Icons;
 import com.shatteredpixel.shatteredpixeldungeon.ui.ItemSlot;
 import com.shatteredpixel.shatteredpixeldungeon.ui.RedButton;
 import com.shatteredpixel.shatteredpixeldungeon.ui.RenderedTextBlock;
-import com.shatteredpixel.shatteredpixeldungeon.ui.TalentButton;
-import com.shatteredpixel.shatteredpixeldungeon.ui.TalentsPane;
 import com.shatteredpixel.shatteredpixeldungeon.ui.Window;
 import com.shatteredpixel.shatteredpixeldungeon.utils.DungeonSeed;
 import com.watabou.noosa.ColorBlock;
@@ -323,12 +321,12 @@ public class WndRanking extends WndTabbed {
 				Dungeon.hero.talents.remove(Dungeon.hero.talents.size()-1);
 			}
 
-			TalentsPane p = new TalentsPane(TalentButton.Mode.INFO);
+	/*		TalentsPane p = new TalentsPane(TalentButton.Mode.INFO);
 			add(p);
 			p.setPos(0, 0);
 			p.setSize(WIDTH, HEIGHT);
 			p.setPos(0, 0);
-
+*/
 		}
 
 	}

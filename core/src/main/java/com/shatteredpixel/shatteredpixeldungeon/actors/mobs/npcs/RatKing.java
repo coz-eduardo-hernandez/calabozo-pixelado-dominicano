@@ -30,7 +30,6 @@ import com.shatteredpixel.shatteredpixeldungeon.items.KingsCrown;
 import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
 import com.shatteredpixel.shatteredpixeldungeon.scenes.GameScene;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.RatKingSprite;
-import com.shatteredpixel.shatteredpixeldungeon.windows.WndInfoArmorAbility;
 import com.shatteredpixel.shatteredpixeldungeon.windows.WndOptions;
 import com.watabou.noosa.Game;
 import com.watabou.utils.Callback;
@@ -140,9 +139,9 @@ public class RatKing extends NPC {
 									crown.upgradeArmor(Dungeon.hero, Dungeon.hero.belongings.armor(), new Ratmogrify());
 									((RatKingSprite)sprite).resetAnims();
 									yell(Messages.get(RatKing.class, "crown_thankyou"));
-								} else if (index == 1) {
+/*								} else if (index == 1) {
 									GameScene.show(new WndInfoArmorAbility(Dungeon.hero.heroClass, new Ratmogrify()));
-								} else {
+*/								} else {
 									yell(Messages.get(RatKing.class, "crown_fine"));
 								}
 							}

@@ -41,7 +41,6 @@ import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 import com.shatteredpixel.shatteredpixeldungeon.tiles.DungeonTileSheet;
 import com.shatteredpixel.shatteredpixeldungeon.utils.GLog;
 import com.shatteredpixel.shatteredpixeldungeon.windows.WndBag;
-import com.shatteredpixel.shatteredpixeldungeon.windows.WndChooseAbility;
 import com.shatteredpixel.shatteredpixeldungeon.windows.WndOptions;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
@@ -184,7 +183,7 @@ abstract public class ClassArmor extends Armor {
 		if (action.equals(AC_ABILITY)){
 
 			if (hero.armorAbility == null){
-				GameScene.show(new WndChooseAbility(null, this, hero));
+//				GameScene.show(new WndChooseAbility(null, this, hero));
 			} else if (!isEquipped( hero )) {
 				usesTargeting = false;
 				GLog.w( Messages.get(this, "not_equipped") );

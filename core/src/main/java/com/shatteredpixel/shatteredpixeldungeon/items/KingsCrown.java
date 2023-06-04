@@ -35,7 +35,6 @@ import com.shatteredpixel.shatteredpixeldungeon.scenes.GameScene;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.HeroSprite;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 import com.shatteredpixel.shatteredpixeldungeon.utils.GLog;
-import com.shatteredpixel.shatteredpixeldungeon.windows.WndChooseAbility;
 import com.watabou.noosa.audio.Sample;
 
 import java.util.ArrayList;
@@ -68,7 +67,7 @@ public class KingsCrown extends Item {
 
 			curUser = hero;
 			if (hero.belongings.armor() != null){
-				GameScene.show( new WndChooseAbility(this, hero.belongings.armor(), hero));
+//				GameScene.show( new WndChooseAbility(this, hero.belongings.armor(), hero));
 			} else {
 				GLog.w( Messages.get(this, "naked"));
 			}
