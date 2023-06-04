@@ -10,7 +10,8 @@ Los tipos son:
 - build : cambia el sistema de compilación
 - docs : cambia documentación
 - revert : revierte una confirmación
-- feat : agrega código del juego
+- feat : agrega funcionalidad al juego
+- remove: quita funcionalidad al juego
 - change: cambia la funcionalidad del juego
 - fix : arregla un problema del juego
 - refactor : un cambio que mantiene la funcionalidad del juego
