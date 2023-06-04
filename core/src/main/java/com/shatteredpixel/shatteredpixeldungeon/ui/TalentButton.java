@@ -83,7 +83,7 @@ public class TalentButton extends Button {
 		fill = new ColorBlock(0, 4, 0xFFFFFF44);
 		add(fill);
 
-		bg = new Image(Assets.Interfaces.TALENT_BUTTON);
+//		bg = new Image(Assets.Interfaces.TALENT_BUTTON);
 		add(bg);
 	}
 

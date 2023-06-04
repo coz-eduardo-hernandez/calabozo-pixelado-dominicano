@@ -36,7 +36,7 @@ public class TalentIcon extends Image {
 	}
 
 	public TalentIcon(int icon){
-		super( Assets.Interfaces.TALENT_ICONS );
+//		super( Assets.Interfaces.TALENT_ICONS );
 
 		if (film == null) film = new TextureFilm(texture, SIZE, SIZE);
 
