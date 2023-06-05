@@ -69,7 +69,7 @@ public class LostBackpack extends Item {
 			}
 		}
 
-		hero.updateHT(false);
+		hero.updateHT(0,false);
 
 		Item.updateQuickslot();
 		Sample.INSTANCE.play( Assets.Sounds.DEWDROP );

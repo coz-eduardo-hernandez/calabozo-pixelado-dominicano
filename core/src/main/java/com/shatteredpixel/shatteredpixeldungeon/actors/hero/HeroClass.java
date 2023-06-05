@@ -168,7 +168,7 @@ public enum HeroClass {
 	}*/
 
 	private static void initWarrior( Hero hero ) {
-		hero.HP = hero.HT = 25;
+		hero.HP = hero.baseHT = hero.HT = 25;
 		hero.STR++;
 
 		new PotionBandolier().collect();
@@ -192,7 +192,7 @@ public enum HeroClass {
 	}
 
 	private static void initMage( Hero hero ) {
-		hero.HP = hero.HT = 15;
+		hero.HP = hero.baseHT = hero.HT = 15;
 		hero.STR--;
 		hero.attackSkill--;
 		hero.defenseSkill--;
@@ -230,7 +230,7 @@ public enum HeroClass {
 	}
 
 	private static void initRogue( Hero hero ) {
-		hero.HP = hero.HT = 20;
+		hero.HP = hero.baseHT = hero.HT = 20;
 		hero.attackSkill++;
 		hero.defenseSkill++;
 		(hero.belongings.weapon = new Dagger()).identify();
@@ -268,7 +268,7 @@ public enum HeroClass {
 	}
 
 	private static void initHuntress( Hero hero ) {
-		hero.HP = hero.HT = 20;
+		hero.HP = hero.baseHT = hero.HT = 20;
 		hero.attackSkill++;
 		hero.defenseSkill++;
 
@@ -292,7 +292,7 @@ public enum HeroClass {
 	}
 
 	private static void initDuelist( Hero hero ) {
-		hero.HP = hero.HT = 20;
+		hero.HP = hero.baseHT = hero.HT = 20;
 		hero.attackSkill++;
 		hero.defenseSkill++;
 

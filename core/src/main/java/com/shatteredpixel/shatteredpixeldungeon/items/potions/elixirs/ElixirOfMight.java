@@ -53,7 +53,7 @@ public class ElixirOfMight extends Elixir {
 		HTBoost boost = Buff.affect(hero, HTBoost.class);
 		boost.reset();
 		
-		hero.updateHT( true );
+		hero.updateHT( 0,true );
 		hero.sprite.showStatus( CharSprite.POSITIVE, Messages.get(this, "msg_1", boost.boost() ));
 		GLog.p( Messages.get(this, "msg_2") );
 

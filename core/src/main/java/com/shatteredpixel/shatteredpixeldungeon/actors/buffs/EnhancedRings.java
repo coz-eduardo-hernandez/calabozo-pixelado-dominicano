@@ -38,7 +38,7 @@ public class EnhancedRings extends FlavourBuff{
 	@Override
 	public boolean attachTo(Char target) {
 		if (super.attachTo(target)){
-			if (target instanceof Hero) ((Hero) target).updateHT(false);
+			if (target instanceof Hero) ((Hero) target).updateHT(0, false);
 			return true;
 		}
 		return false;
@@ -47,7 +47,7 @@ public class EnhancedRings extends FlavourBuff{
 	@Override
 	public void detach() {
 		super.detach();
-		if (target instanceof Hero) ((Hero) target).updateHT(false);
+		if (target instanceof Hero) ((Hero) target).updateHT( 0,false);
 	}
 
 	@Override
