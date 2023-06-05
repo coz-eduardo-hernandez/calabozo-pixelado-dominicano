@@ -48,12 +48,12 @@ import java.util.List;
 
 public class Badges {
 	
-	public enum Badge {
+	public enum Badge {/*
 		MASTERY_WARRIOR,
 		MASTERY_MAGE,
 		MASTERY_ROGUE,
 		MASTERY_HUNTRESS,
-		MASTERY_DUELIST,
+		MASTERY_DUELIST,*/
 		FOUND_RATMOGRIFY,
 
 		//bronze
@@ -824,7 +824,7 @@ public class Badges {
 		}
 	}
 	
-	public static void validateMastery() {
+/*	public static void validateMastery() {
 		
 		Badge badge = null;
 		switch (Dungeon.hero.heroClass) {
@@ -846,7 +846,7 @@ public class Badges {
 		}
 		
 		unlock(badge);
-	}
+	}*/
 
 	public static void validateRatmogrify(){
 		unlock(Badge.FOUND_RATMOGRIFY);
