@@ -66,7 +66,7 @@ public class MagesStaff extends MeleeWeapon {
 	public static final String AC_IMBUE = "IMBUE";
 	public static final String AC_ZAP	= "ZAP";
 
-	private static final float STAFF_SCALE_FACTOR = 0.75f;
+	private static final float STAFF_SCALE_FACTOR = 0.65f;
 
 	{
 		image = ItemSpriteSheet.MAGES_STAFF;
@@ -88,7 +88,7 @@ public class MagesStaff extends MeleeWeapon {
 
 	@Override
 	public int max(int lvl) {
-		return  Math.round(3f*(tier+1)) +   //6 base damage, down from 10
+		return  Math.round(2f*(tier+1)) +   //4 base damage, down from 6
 				lvl*(tier+1);               //scaling unaffected
 	}
 
@@ -218,6 +218,14 @@ public class MagesStaff extends MeleeWeapon {
 		if (wand != null) wand.stopCharging();
 	}
 
+	@Override
+	protected int STRReq(int tier, int lvl){
+		lvl = Math.max(0, lvl);
+
+		//strength req decreases at +1,+3,+6,+10,etc.
+		return (7 + tier * 2) - (int)(Math.sqrt(8 * lvl + 1) - 1)/2;
+	}
+
 	public Item imbueWand(Wand wand, Char owner){
 
 		int oldStaffcharges = this.wand != null ? this.wand.curCharges : 0;
@@ -320,8 +328,9 @@ public class MagesStaff extends MeleeWeapon {
 		if (wand != null) {
 			int curCharges = wand.curCharges;
 			wand.level(level());
-			//gives the wand one additional max charge
-			wand.maxCharges = Math.min(wand.maxCharges + 1, 10);
+
+			//wand.maxCharges = Math.min(wand.maxCharges + 1, 10);
+			wand.maxCharges = Math.min(wand.maxCharges + 7, 20);
 			wand.curCharges = Math.min(curCharges + (levelled ? 1 : 0), wand.maxCharges);
 			updateQuickslot();
 		}
@@ -383,7 +392,7 @@ public class MagesStaff extends MeleeWeapon {
 		super.restoreFromBundle(bundle);
 		wand = (Wand) bundle.get(WAND);
 		if (wand != null) {
-			wand.maxCharges = Math.min(wand.maxCharges + 1, 10);
+			wand.maxCharges = Math.min(wand.maxCharges + 7, 20);
 		}
 	}
 

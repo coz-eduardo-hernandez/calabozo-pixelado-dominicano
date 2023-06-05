@@ -243,7 +243,7 @@ abstract public class Weapon extends KindOfWeapon {
 
 	public abstract int STRReq(int lvl);
 
-	protected static int STRReq(int tier, int lvl){
+	protected int STRReq(int tier, int lvl){
 		lvl = Math.max(0, lvl);
 
 		//strength req decreases at +1,+3,+6,+10,etc.
