@@ -192,8 +192,8 @@ public class Hero extends Char {
 	public ArrayList<LinkedHashMap<Talent, Integer>> talents = new ArrayList<>();
 	public LinkedHashMap<Talent, Talent> metamorphedTalents = new LinkedHashMap<>();
 	
-	private int attackSkill = 10;
-	private int defenseSkill = 5;
+	protected int attackSkill = 10;
+	protected int defenseSkill = 5;
 
 	public boolean ready = false;
 	public boolean damageInterrupt = true;
@@ -224,7 +224,7 @@ public class Hero extends Char {
 	public Hero() {
 		super();
 
-		HP = HT = 20;
+		//HP = HT = 20;
 		STR = STARTING_STR;
 		
 		belongings = new Belongings( this );

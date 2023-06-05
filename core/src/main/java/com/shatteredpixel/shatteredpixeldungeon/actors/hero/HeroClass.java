@@ -162,6 +162,8 @@ public enum HeroClass {
 	}
 
 	private static void initWarrior( Hero hero ) {
+		hero.HP = hero.HT = 25;
+		hero.STR++;
 		(hero.belongings.weapon = new WornShortsword()).identify();
 		ThrowingStone stones = new ThrowingStone();
 		stones.quantity(3).collect();
@@ -176,6 +178,10 @@ public enum HeroClass {
 	}
 
 	private static void initMage( Hero hero ) {
+		hero.HP = hero.HT = 15;
+		hero.STR--;
+		hero.attackSkill--;
+		hero.defenseSkill--;
 		MagesStaff staff;
 
 		staff = new MagesStaff(new WandOfMagicMissile());
@@ -190,6 +196,9 @@ public enum HeroClass {
 	}
 
 	private static void initRogue( Hero hero ) {
+		hero.HP = hero.HT = 20;
+		hero.attackSkill++;
+		hero.defenseSkill++;
 		(hero.belongings.weapon = new Dagger()).identify();
 
 		CloakOfShadows cloak = new CloakOfShadows();
@@ -207,6 +216,9 @@ public enum HeroClass {
 	}
 
 	private static void initHuntress( Hero hero ) {
+		hero.HP = hero.HT = 20;
+		hero.attackSkill++;
+		hero.defenseSkill++;
 
 		(hero.belongings.weapon = new Gloves()).identify();
 		SpiritBow bow = new SpiritBow();
@@ -219,7 +231,9 @@ public enum HeroClass {
 	}
 
 	private static void initDuelist( Hero hero ) {
-
+		hero.HP = hero.HT = 20;
+		hero.attackSkill++;
+		hero.defenseSkill++;
 		(hero.belongings.weapon = new Rapier()).identify();
 		hero.belongings.weapon.activate(hero);
 
