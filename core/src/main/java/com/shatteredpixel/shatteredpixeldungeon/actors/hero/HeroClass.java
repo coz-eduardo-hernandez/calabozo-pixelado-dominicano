@@ -52,18 +52,27 @@ import com.shatteredpixel.shatteredpixeldungeon.items.bags.ScrollHolder;
 import com.shatteredpixel.shatteredpixeldungeon.items.bags.VelvetPouch;
 import com.shatteredpixel.shatteredpixeldungeon.items.bags.PotionBandolier;
 import com.shatteredpixel.shatteredpixeldungeon.items.bags.MagicalHolster;
-import com.shatteredpixel.shatteredpixeldungeon.items.bags.ScrollHolder;
+//import com.shatteredpixel.shatteredpixeldungeon.items.bags.ScrollHolder;
+import com.shatteredpixel.shatteredpixeldungeon.items.bombs.Bomb;
+import com.shatteredpixel.shatteredpixeldungeon.items.food.SmallRation;
 import com.shatteredpixel.shatteredpixeldungeon.items.food.Food;
+import com.shatteredpixel.shatteredpixeldungeon.items.potions.PotionOfHaste;
 import com.shatteredpixel.shatteredpixeldungeon.items.potions.PotionOfHealing;
 import com.shatteredpixel.shatteredpixeldungeon.items.potions.PotionOfInvisibility;
 import com.shatteredpixel.shatteredpixeldungeon.items.potions.PotionOfLiquidFlame;
 import com.shatteredpixel.shatteredpixeldungeon.items.potions.PotionOfMindVision;
 import com.shatteredpixel.shatteredpixeldungeon.items.potions.PotionOfStrength;
+import com.shatteredpixel.shatteredpixeldungeon.items.potions.PotionOfToxicGas;
+import com.shatteredpixel.shatteredpixeldungeon.items.rings.RingOfAccuracy;
+import com.shatteredpixel.shatteredpixeldungeon.items.rings.RingOfArcana;
+import com.shatteredpixel.shatteredpixeldungeon.items.rings.RingOfFuror;
+import com.shatteredpixel.shatteredpixeldungeon.items.rings.RingOfHaste;
+import com.shatteredpixel.shatteredpixeldungeon.items.rings.RingOfMight;
 import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.ScrollOfIdentify;
 import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.ScrollOfLullaby;
 import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.ScrollOfMagicMapping;
 import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.ScrollOfMirrorImage;
-import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.ScrollOfRage;
+//import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.ScrollOfRage;
 import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.ScrollOfUpgrade;
 import com.shatteredpixel.shatteredpixeldungeon.items.wands.WandOfMagicMissile;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.SpiritBow;
@@ -75,6 +84,7 @@ import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.WornShortswor
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.ThrowingKnife;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.ThrowingSpike;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.ThrowingStone;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.darts.Dart;
 import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
 import com.watabou.utils.DeviceCompat;
 
@@ -105,13 +115,8 @@ public enum HeroClass {
 		Item i = new ClothArmor().identify();
 		if (!Challenges.isItemBlocked(i)) hero.belongings.armor = (ClothArmor)i;
 
-		i = new Food();
-		if (!Challenges.isItemBlocked(i)) i.collect();
-
 		Waterskin waterskin = new Waterskin();
 		waterskin.collect();
-
-		new ScrollOfIdentify().identify();
 
 		switch (this) {
 			case WARRIOR:
@@ -169,6 +174,9 @@ public enum HeroClass {
 		new PotionBandolier().collect();
 		Dungeon.LimitedDrops.POTION_BANDOLIER.drop();
 
+		Item i = new SmallRation();
+		if (!Challenges.isItemBlocked(i)) i.quantity(3).collect();
+
 		(hero.belongings.weapon = new WornShortsword()).identify();
 		ThrowingStone stones = new ThrowingStone();
 		stones.quantity(3).collect();
@@ -179,7 +187,8 @@ public enum HeroClass {
 		}
 
 		new PotionOfHealing().identify();
-		new ScrollOfRage().identify();
+		new PotionOfStrength().identify();
+		//new ScrollOfRage().identify();
 	}
 
 	private static void initMage( Hero hero ) {
@@ -193,6 +202,9 @@ public enum HeroClass {
 		new PotionBandolier().collect();
 		Dungeon.LimitedDrops.POTION_BANDOLIER.drop();
 
+		Item i = new Food();
+		if (!Challenges.isItemBlocked(i)) i.collect();
+
 		MagesStaff staff;
 		staff = new MagesStaff(new WandOfMagicMissile());
 
@@ -201,8 +213,20 @@ public enum HeroClass {
 
 		Dungeon.quickslot.setSlot(0, staff);
 
-		new ScrollOfUpgrade().identify();
-		new PotionOfLiquidFlame().identify();
+		i = new ScrollOfIdentify();
+		i.identify();
+		i.collect();
+
+		i = new PotionOfHealing();
+		i.identify();
+		i.collect();
+
+		i = new PotionOfLiquidFlame();
+		i.identify();
+		i.collect();
+
+		//new ScrollOfUpgrade().identify();
+		//new PotionOfLiquidFlame().identify();
 	}
 
 	private static void initRogue( Hero hero ) {
@@ -213,18 +237,34 @@ public enum HeroClass {
 
 		hero.belongings.backpack.capacity = 15;
 
+		Item i = new Food();
+		if (!Challenges.isItemBlocked(i)) i.collect();
+
 		CloakOfShadows cloak = new CloakOfShadows();
 		(hero.belongings.artifact = cloak).identify();
 		hero.belongings.artifact.activate( hero );
-
-		ThrowingKnife knives = new ThrowingKnife();
-		knives.quantity(3).collect();
-
 		Dungeon.quickslot.setSlot(0, cloak);
-		Dungeon.quickslot.setSlot(1, knives);
 
-		new ScrollOfMagicMapping().identify();
+/*		ThrowingKnife knives = new ThrowingKnife();
+		knives.quantity(3).collect();
+*/
+		i = new Dart();
+		i.quantity(5).collect();
+		Dungeon.quickslot.setSlot(1, i);
+
+		i = new PotionOfToxicGas();
+		i.identify();
+		i.collect();
+
+		i = new ScrollOfMagicMapping();
+		i.identify();
+		i.collect();
+
+		new Bomb().collect();
+
 		new PotionOfInvisibility().identify();
+		new PotionOfHaste().identify();
+
 	}
 
 	private static void initHuntress( Hero hero ) {
@@ -238,6 +278,9 @@ public enum HeroClass {
 		new MagicalHolster().collect();
 		Dungeon.LimitedDrops.MAGICAL_HOLSTER.drop();
 
+		Item i = new Food();
+		if (!Challenges.isItemBlocked(i)) i.quantity(2).collect();
+
 		(hero.belongings.weapon = new Gloves()).identify();
 		SpiritBow bow = new SpiritBow();
 		bow.identify().collect();
@@ -245,13 +288,17 @@ public enum HeroClass {
 		Dungeon.quickslot.setSlot(0, bow);
 
 		new PotionOfMindVision().identify();
-		new ScrollOfLullaby().identify();
+		new ScrollOfMirrorImage().identify();
 	}
 
 	private static void initDuelist( Hero hero ) {
 		hero.HP = hero.HT = 20;
 		hero.attackSkill++;
 		hero.defenseSkill++;
+
+		Item i = new Food();
+		if (!Challenges.isItemBlocked(i)) i.collect();
+
 		(hero.belongings.weapon = new Rapier()).identify();
 		hero.belongings.weapon.activate(hero);
 
@@ -263,6 +310,12 @@ public enum HeroClass {
 
 		new PotionOfStrength().identify();
 		new ScrollOfMirrorImage().identify();
+
+		new RingOfAccuracy().identify();
+		new RingOfMight().identify();
+		new RingOfHaste().identify();
+		new RingOfFuror().identify();
+		new RingOfArcana().identify();
 	}
 
 	public String title() {
