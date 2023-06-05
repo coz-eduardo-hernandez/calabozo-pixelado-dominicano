@@ -43,10 +43,6 @@ public class ScrollHolder extends Bag {
 		}
 	}
 
-	public int capacity(){
-		return 19;
-	}
-	
 	@Override
 	public void onDetach( ) {
 		super.onDetach();

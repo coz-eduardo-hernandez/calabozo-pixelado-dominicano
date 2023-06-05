@@ -211,6 +211,8 @@ public enum HeroClass {
 		hero.defenseSkill++;
 		(hero.belongings.weapon = new Dagger()).identify();
 
+		hero.belongings.backpack.capacity = 15;
+
 		CloakOfShadows cloak = new CloakOfShadows();
 		(hero.belongings.artifact = cloak).identify();
 		hero.belongings.artifact.activate( hero );

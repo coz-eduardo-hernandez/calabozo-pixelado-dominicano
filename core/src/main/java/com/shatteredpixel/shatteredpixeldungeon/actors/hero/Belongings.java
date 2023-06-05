@@ -53,7 +53,7 @@ public class Belongings implements Iterable<Item> {
 			image = ItemSpriteSheet.BACKPACK;
 		}
 		public int capacity(){
-			int cap = super.capacity();
+			int cap = capacity;
 			for (Item item : items){
 				if (item instanceof Bag){
 					cap++;
