@@ -193,7 +193,7 @@ public abstract class Level implements Bundlable {
 			if (Dungeon.isChallenged(Challenges.DARKNESS)){
 				addItemToSpawn( new Torch() );
 			}
-
+/*
 			if (Dungeon.posNeeded()) {
 				addItemToSpawn( new PotionOfStrength() );
 				Dungeon.LimitedDrops.STRENGTH_POTIONS.count++;
@@ -201,7 +201,7 @@ public abstract class Level implements Bundlable {
 			if (Dungeon.souNeeded()) {
 				addItemToSpawn( new ScrollOfUpgrade() );
 				Dungeon.LimitedDrops.UPGRADE_SCROLLS.count++;
-			}
+			}*/
 			if (Dungeon.asNeeded()) {
 				addItemToSpawn( new Stylus() );
 				Dungeon.LimitedDrops.ARCANE_STYLI.count++;
