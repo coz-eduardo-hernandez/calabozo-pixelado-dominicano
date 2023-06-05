@@ -27,6 +27,10 @@ import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
 import com.shatteredpixel.shatteredpixeldungeon.SPDSettings;
 import com.shatteredpixel.shatteredpixeldungeon.actors.Actor;
 import com.shatteredpixel.shatteredpixeldungeon.actors.Char;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Buff;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Vertigo;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Blindness;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Cripple;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Hero;
 import com.shatteredpixel.shatteredpixeldungeon.effects.CellEmitter;
 import com.shatteredpixel.shatteredpixeldungeon.effects.particles.BlastParticle;
@@ -179,7 +183,8 @@ public class Bomb extends Item {
 					continue;
 				}
 
-				int dmg = Random.NormalIntRange(5 + Dungeon.scalingDepth(), 10 + Dungeon.scalingDepth()*2);
+				//int dmg = Random.NormalIntRange(5 + Dungeon.scalingDepth(), 10 + Dungeon.scalingDepth()*2);
+				int dmg = Random.NormalIntRange(25, 60);
 
 				//those not at the center of the blast take less damage
 				if (ch.pos != cell){
@@ -191,6 +196,10 @@ public class Bomb extends Item {
 				if (dmg > 0) {
 					ch.damage(dmg, this);
 				}
+
+				Buff.affect(ch, Vertigo.class, 2);
+				Buff.affect(ch, Blindness.class, 2);
+				Buff.affect(ch, Cripple.class, 2);
 				
 				if (ch == Dungeon.hero && !ch.isAlive()) {
 					if (this instanceof MagicalBomb){
