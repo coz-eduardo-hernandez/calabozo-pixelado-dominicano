@@ -140,9 +140,9 @@ public class BadgeBanner extends Image {
 	private static HashMap<Integer, Point> highlightPositions = new HashMap<>();
 
 	//we also hardcode any special cases
-	static {
+	/*static {
 		highlightPositions.put(Badges.Badge.MASTERY_COMBO.image, new Point(3, 7));
-	}
+	}*/
 
 	//adds a shine to an appropriate pixel on a badge
 	public static void highlight( Image image, int index ) {

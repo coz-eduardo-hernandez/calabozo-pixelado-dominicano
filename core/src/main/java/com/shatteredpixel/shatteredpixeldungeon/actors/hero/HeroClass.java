@@ -290,11 +290,13 @@ public enum HeroClass {
 				return Assets.Splashes.DUELIST;
 		}
 	}
-	
+
 	public boolean isUnlocked(){
 		//always unlock on debug builds
 		if (DeviceCompat.isDebug()) return true;
 
+		return true;
+		/*
 		switch (this){
 			case WARRIOR: default:
 				return true;
@@ -306,7 +308,7 @@ public enum HeroClass {
 				return Badges.isUnlocked(Badges.Badge.UNLOCK_HUNTRESS);
 			case DUELIST:
 				return Badges.isUnlocked(Badges.Badge.UNLOCK_DUELIST);
-		}
+		}*/
 	}
 	
 	public String unlockMsg() {

@@ -57,8 +57,8 @@ public class ElixirOfMight extends Elixir {
 		hero.sprite.showStatus( CharSprite.POSITIVE, Messages.get(this, "msg_1", boost.boost() ));
 		GLog.p( Messages.get(this, "msg_2") );
 
-		Badges.validateStrengthAttained();
-		Badges.validateDuelistUnlock();
+		//Badges.validateStrengthAttained();
+		//Badges.validateDuelistUnlock();
 	}
 	
 	public String desc() {

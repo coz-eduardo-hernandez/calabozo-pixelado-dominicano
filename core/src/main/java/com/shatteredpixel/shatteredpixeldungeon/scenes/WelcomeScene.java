@@ -244,11 +244,11 @@ public class WelcomeScene extends PixelScene {
 			Journal.loadGlobal();
 
 			//pre-unlock Duelist for those who already have a win
-			if (previousVersion <= ShatteredPixelDungeon.v2_0_2){
+			/*if (previousVersion <= ShatteredPixelDungeon.v2_0_2){
 				if (Badges.isUnlocked(Badges.Badge.VICTORY) && !Badges.isUnlocked(Badges.Badge.UNLOCK_DUELIST)){
 					Badges.unlock(Badges.Badge.UNLOCK_DUELIST);
 				}
-			}
+			}*/
 
 			try {
 				Rankings.INSTANCE.load();
