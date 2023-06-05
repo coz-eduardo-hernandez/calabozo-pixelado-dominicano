@@ -240,17 +240,17 @@ public enum HeroClass {
 		Item i = new Food();
 		if (!Challenges.isItemBlocked(i)) i.collect();
 
-		CloakOfShadows cloak = new CloakOfShadows();
+/*		CloakOfShadows cloak = new CloakOfShadows();
 		(hero.belongings.artifact = cloak).identify();
 		hero.belongings.artifact.activate( hero );
 		Dungeon.quickslot.setSlot(0, cloak);
 
-/*		ThrowingKnife knives = new ThrowingKnife();
+		ThrowingKnife knives = new ThrowingKnife();
 		knives.quantity(3).collect();
 */
 		i = new Dart();
 		i.quantity(5).collect();
-		Dungeon.quickslot.setSlot(1, i);
+		Dungeon.quickslot.setSlot(0, i);
 
 		i = new PotionOfToxicGas();
 		i.identify();
