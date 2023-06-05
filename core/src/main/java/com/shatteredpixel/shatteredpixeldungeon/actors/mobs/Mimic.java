@@ -58,6 +58,7 @@ public class Mimic extends Mob {
 		properties.add(Property.DEMONIC);
 
 		EXP = 0;
+		baseSpeed = 0.8f;
 		
 		//mimics are neutral when hidden
 		alignment = Alignment.NEUTRAL;
@@ -193,15 +194,15 @@ public class Mimic extends Mob {
 	@Override
 	public int damageRoll() {
 		if (alignment == Alignment.NEUTRAL){
-			return Random.NormalIntRange( 2 + 2*level, 2 + 2*level);
+			return Random.NormalIntRange( 4 + 2*level, 4 + 2*level);
 		} else {
-			return Random.NormalIntRange( 1 + level, 2 + 2*level);
+			return Random.NormalIntRange( 2 + level, 4 + 2*level);
 		}
 	}
 
 	@Override
 	public int drRoll() {
-		return super.drRoll() + Random.NormalIntRange(0, 1 + level/2);
+		return super.drRoll() + Random.NormalIntRange(1 + level/4, 2 + level);
 	}
 
 	@Override

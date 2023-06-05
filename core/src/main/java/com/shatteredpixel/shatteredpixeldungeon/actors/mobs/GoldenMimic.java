@@ -24,6 +24,9 @@ package com.shatteredpixel.shatteredpixeldungeon.actors.mobs;
 import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
 import com.shatteredpixel.shatteredpixeldungeon.actors.Actor;
+import com.shatteredpixel.shatteredpixeldungeon.actors.Char;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Buff;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Paralysis;
 import com.shatteredpixel.shatteredpixeldungeon.effects.CellEmitter;
 import com.shatteredpixel.shatteredpixeldungeon.effects.Speck;
 import com.shatteredpixel.shatteredpixeldungeon.items.EquipableItem;
@@ -78,7 +81,17 @@ public class GoldenMimic extends Mimic {
 
 	@Override
 	public void setLevel(int level) {
-		super.setLevel(Math.round(level*1.33f));
+		super.setLevel(Math.round(level*1.5f));
+	}
+
+	@Override
+	public int attackProc(Char enemy, int damage ) {
+		if (Random.Int( 5 ) > 2) {
+			Buff.affect( enemy, Paralysis.class, Random.NormalIntRange(1, 5) );
+			enemy.sprite.burst( 0xFFFFFF, 5 );
+		}
+
+		return super.attackProc( enemy, damage );
 	}
 
 	@Override
