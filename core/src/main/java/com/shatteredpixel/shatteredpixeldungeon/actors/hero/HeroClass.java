@@ -189,6 +189,14 @@ public enum HeroClass {
 		new PotionOfHealing().identify();
 		new PotionOfStrength().identify();
 		//new ScrollOfRage().identify();
+
+		hero.upgradeTalent(Talent.HEARTY_MEAL);
+		hero.upgradeTalent(Talent.VETERANS_INTUITION);
+		hero.upgradeTalent(Talent.IRON_WILL);
+		hero.upgradeTalent(Talent.IRON_WILL);
+		hero.upgradeTalent(Talent.HOLD_FAST);
+		hero.upgradeTalent(Talent.PATIENT_STRIKE);
+		hero.upgradeTalent(Talent.PATIENT_STRIKE);
 	}
 
 	private static void initMage( Hero hero ) {
@@ -227,6 +235,8 @@ public enum HeroClass {
 
 		//new ScrollOfUpgrade().identify();
 		//new PotionOfLiquidFlame().identify();
+		hero.upgradeTalent(Talent.SCHOLARS_INTUITION);
+		hero.upgradeTalent(Talent.SCHOLARS_INTUITION);
 	}
 
 	private static void initRogue( Hero hero ) {
@@ -252,10 +262,6 @@ public enum HeroClass {
 		i.quantity(5).collect();
 		Dungeon.quickslot.setSlot(0, i);
 
-		i = new PotionOfToxicGas();
-		i.identify();
-		i.collect();
-
 		i = new ScrollOfMagicMapping();
 		i.identify();
 		i.collect();
@@ -265,6 +271,13 @@ public enum HeroClass {
 		new PotionOfInvisibility().identify();
 		new PotionOfHaste().identify();
 
+		i = new PotionOfShroudingFog();
+		i.collect();
+
+		hero.upgradeTalent(Talent.SUCKER_PUNCH);
+		hero.upgradeTalent(Talent.SUCKER_PUNCH);
+		hero.upgradeTalent(Talent.SILENT_STEPS);
+		hero.upgradeTalent(Talent.SILENT_STEPS);
 	}
 
 	private static void initHuntress( Hero hero ) {
@@ -289,6 +302,9 @@ public enum HeroClass {
 
 		new PotionOfMindVision().identify();
 		new ScrollOfMirrorImage().identify();
+
+		hero.upgradeTalent(Talent.FOLLOWUP_STRIKE);
+		hero.upgradeTalent(Talent.FARSIGHT);
 	}
 
 	private static void initDuelist( Hero hero ) {
@@ -316,6 +332,9 @@ public enum HeroClass {
 		new RingOfHaste().identify();
 		new RingOfFuror().identify();
 		new RingOfArcana().identify();
+
+		hero.upgradeTalent(Talent.ADVENTURERS_INTUITION);
+		hero.upgradeTalent(Talent.ADVENTURERS_INTUITION);
 	}
 
 	public String title() {
