@@ -41,6 +41,7 @@ import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSprite;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 import com.shatteredpixel.shatteredpixeldungeon.tiles.DungeonTerrainTilemap;
 import com.shatteredpixel.shatteredpixeldungeon.windows.WndBag;
+import com.shatteredpixel.shatteredpixeldungeon.windows.WndDeveloperTools;
 import com.shatteredpixel.shatteredpixeldungeon.windows.WndKeyBindings;
 import com.shatteredpixel.shatteredpixeldungeon.windows.WndMessage;
 import com.shatteredpixel.shatteredpixeldungeon.windows.WndQuickBag;
@@ -54,6 +55,7 @@ import com.watabou.noosa.Gizmo;
 import com.watabou.noosa.Image;
 import com.watabou.noosa.PointerArea;
 import com.watabou.noosa.ui.Component;
+import com.watabou.utils.DeviceCompat;
 import com.watabou.utils.Point;
 import com.watabou.utils.PointF;
 
@@ -63,7 +65,10 @@ public class Toolbar extends Component {
 
 	private Tool btnWait;
 	private Tool btnSearch;
+
+	private Tool btnDeveloper;
 	private Tool btnInventory;
+
 	private QuickslotTool[] btnQuick;
 	private SlotSwapTool btnSwap;
 	
@@ -316,6 +321,27 @@ public class Toolbar extends Component {
 			}
 		});
 		btnSearch.icon( 192, 0, 16, 16 );
+
+		if (DeviceCompat.isDebug()) {
+			add(btnDeveloper = new Tool(44, 0, 20, 26) {
+				@Override
+				protected void onClick() {
+					super.onClick();
+					GameScene.show(new WndDeveloperTools());
+				}
+
+				@Override
+				public GameAction keyAction() {
+					return SPDAction.DEVELOPER_TOOLS;
+				}
+
+				@Override
+				protected String hoverText() {
+					return Messages.titleCase(Messages.get(WndKeyBindings.class, "developer_tools"));
+				}
+			});
+			btnDeveloper.icon(208, 0, 16, 16);
+		}
 		
 		add(btnInventory = new Tool(0, 0, 24, 26) {
 			private CurrencyIndicator ind;
@@ -518,6 +544,8 @@ public class Toolbar extends Component {
 			btnWait.setPos(btnInventory.left() - btnWait.width(), y);
 			btnSearch.setPos(btnWait.left() - btnSearch.width(), y);
 
+			if (DeviceCompat.isDebug()) btnDeveloper.setPos(btnSearch.left() - btnSearch.width(), y);
+
 			right = btnSearch.left();
 			for(int i = endingSlot; i >= startingSlot; i--) {
 				if (i == endingSlot){
@@ -559,6 +587,7 @@ public class Toolbar extends Component {
 			case SPLIT:
 				btnWait.setPos(x, y);
 				btnSearch.setPos(btnWait.right(), y);
+				if (DeviceCompat.isDebug()) btnDeveloper.setPos(btnSearch.right(), y);
 
 				btnInventory.setPos(right - btnInventory.width(), y);
 
@@ -589,7 +618,10 @@ public class Toolbar extends Component {
 			case GROUP:
 				btnWait.setPos(right - btnWait.width(), y);
 				btnSearch.setPos(btnWait.left() - btnSearch.width(), y);
-				btnInventory.setPos(btnSearch.left() - btnInventory.width(), y);
+				if (DeviceCompat.isDebug()){
+					btnDeveloper.setPos(btnSearch.left() - btnDeveloper.width(), y);
+					btnInventory.setPos(btnDeveloper.left() - btnInventory.width(), y);
+				} else btnInventory.setPos(btnSearch.left() - btnInventory.width(), y);
 
 				btnQuick[startingSlot].setPos(btnInventory.left() - btnQuick[startingSlot].width(), y + 2);
 				for (int i = startingSlot+1; i <= endingSlot; i++) {
@@ -620,8 +652,9 @@ public class Toolbar extends Component {
 		if (SPDSettings.flipToolbar()) {
 
 			btnWait.setPos( (right - btnWait.right()), y);
-			btnSearch.setPos( (right - btnSearch.right()), y);
-			btnInventory.setPos( (right - btnInventory.right()), y);
+			btnSearch.setPos( right - btnSearch.right(), y);
+			if (DeviceCompat.isDebug()) btnDeveloper.setPos( right - btnDeveloper.right(), y);
+			btnInventory.setPos( right - btnInventory.right(), y);
 
 			for(int i = startingSlot; i <= endingSlot; i++) {
 				btnQuick[i].setPos( right - btnQuick[i].right(), y+2);
@@ -661,6 +694,7 @@ public class Toolbar extends Component {
 	public void alpha( float value ){
 		btnWait.alpha( value );
 		btnSearch.alpha( value );
+		if (DeviceCompat.isDebug()) btnDeveloper.alpha(value);
 		btnInventory.alpha( value );
 		for (QuickslotTool tool : btnQuick){
 			tool.alpha(value);
