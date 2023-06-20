@@ -227,10 +227,10 @@ public class MeleeWeapon extends Weapon {
 	}
 
 	protected void afterAbilityUsed( Hero hero ){
-		hero.belongings.abilityWeapon = null;
+		/*hero.belongings.abilityWeapon = null;
 		if (hero.hasTalent(Talent.PRECISE_ASSAULT)){
 			Buff.prolong(hero, Talent.PreciseAssaultTracker.class, hero.cooldown()+4f);
-		}
+		}*/
 		if (hero.hasTalent(Talent.COMBINED_LETHALITY)) {
 			Talent.CombinedLethalityAbilityTracker tracker = hero.buff(Talent.CombinedLethalityAbilityTracker.class);
 			if (tracker == null || tracker.weapon == this || tracker.weapon == null){
@@ -315,8 +315,10 @@ public class MeleeWeapon extends Weapon {
 	public float accuracyFactor(Char owner, Char target) {
 		float ACC = super.accuracyFactor(owner, target);
 
-		if (owner instanceof Hero
-				&& ((Hero) owner).hasTalent(Talent.PRECISE_ASSAULT)
+		if (owner instanceof Hero && ((Hero) owner).hasTalent(Talent.PRECISE_ASSAULT)){
+			ACC *= 1f + 0.1f * ((Hero) owner).pointsInTalent(Talent.PRECISE_ASSAULT);
+		}
+		/*
 				//does not trigger on ability attacks
 				&& ((Hero) owner).belongings.abilityWeapon != this) {
 			if (((Hero) owner).heroClass != HeroClass.DUELIST) {
@@ -329,7 +331,7 @@ public class MeleeWeapon extends Weapon {
 				ACC *= Math.pow(2, ((Hero) owner).pointsInTalent(Talent.PRECISE_ASSAULT));
 				owner.buff(Talent.PreciseAssaultTracker.class).detach();
 			}
-		}
+		}*/
 
 		return ACC;
 	}
