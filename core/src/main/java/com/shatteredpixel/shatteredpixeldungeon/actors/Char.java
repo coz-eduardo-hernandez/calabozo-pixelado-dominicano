@@ -284,6 +284,8 @@ public abstract class Char extends Actor {
 	
 	protected static final String POS       = "pos";
 	protected static final String TAG_HP    = "HP";
+
+	protected static final String TAG_BASEHT  = "BASEHT";
 	protected static final String TAG_HT    = "HT";
 	protected static final String TAG_SHLD  = "SHLD";
 	protected static final String BUFFS	    = "buffs";
@@ -295,6 +297,7 @@ public abstract class Char extends Actor {
 		
 		bundle.put( POS, pos );
 		bundle.put( TAG_HP, HP );
+		bundle.put( TAG_BASEHT, baseHT );
 		bundle.put( TAG_HT, HT );
 		bundle.put( BUFFS, buffs );
 	}
@@ -306,6 +309,7 @@ public abstract class Char extends Actor {
 		
 		pos = bundle.getInt( POS );
 		HP = bundle.getInt( TAG_HP );
+		baseHT = bundle.getInt( TAG_BASEHT );
 		HT = bundle.getInt( TAG_HT );
 		
 		for (Bundlable b : bundle.getCollection( BUFFS )) {
