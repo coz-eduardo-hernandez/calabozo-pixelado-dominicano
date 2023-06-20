@@ -665,6 +665,18 @@ public abstract class Mob extends Char {
 			Badges.validateHuntressUnlock();
 		}*/
 
+		for (int k : PathFinder.NEIGHBOURS7X7) {
+			Char ch = Actor.findChar(pos + k);
+			if (ch != null && ch instanceof Mob) {
+				Mob mob = (Mob)ch;
+
+				if (mob.state instanceof Sleeping){
+					((Sleeping) mob.state).awaken(false);
+				}
+
+			}
+		}
+
 		if (surprisedBy(enemy)) {
 			/*Statistics.sneakAttacks++;
 			Badges.validateRogueUnlock();*/
