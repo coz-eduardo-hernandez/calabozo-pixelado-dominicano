@@ -99,7 +99,7 @@ public class WndHero extends WndTabbed {
 		add( new IconTab( Icons.get(Icons.BUFFS) ) {
 			protected void select( boolean value ) {
 				super.select( value );
-				if (selected) lastIdx = 2;
+				if (selected) lastIdx = 1;
 				buffs.visible = buffs.active = selected;
 			}
 		} );
