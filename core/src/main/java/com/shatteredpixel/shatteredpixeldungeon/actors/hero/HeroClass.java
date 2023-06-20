@@ -19,73 +19,75 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package com.shatteredpixel.shatteredpixeldungeon.actors.hero;
+package com.coz.calabozopixeladodominicano.actors.hero;
 
-import com.shatteredpixel.shatteredpixeldungeon.Assets;
-import com.shatteredpixel.shatteredpixeldungeon.Badges;
-import com.shatteredpixel.shatteredpixeldungeon.Challenges;
-import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
-import com.shatteredpixel.shatteredpixeldungeon.QuickSlot;
-import com.shatteredpixel.shatteredpixeldungeon.SPDSettings;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.ArmorAbility;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.duelist.Challenge;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.duelist.ElementalStrike;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.duelist.Feint;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.huntress.NaturesPower;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.huntress.SpectralBlades;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.huntress.SpiritHawk;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.mage.ElementalBlast;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.mage.WarpBeacon;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.mage.WildMagic;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.rogue.DeathMark;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.rogue.ShadowClone;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.rogue.SmokeBomb;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.warrior.Endure;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.warrior.HeroicLeap;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.warrior.Shockwave;
-import com.shatteredpixel.shatteredpixeldungeon.items.BrokenSeal;
-import com.shatteredpixel.shatteredpixeldungeon.items.Item;
-import com.shatteredpixel.shatteredpixeldungeon.items.Waterskin;
-import com.shatteredpixel.shatteredpixeldungeon.items.armor.ClothArmor;
-import com.shatteredpixel.shatteredpixeldungeon.items.artifacts.CloakOfShadows;
-import com.shatteredpixel.shatteredpixeldungeon.items.bags.ScrollHolder;
-import com.shatteredpixel.shatteredpixeldungeon.items.bags.VelvetPouch;
-import com.shatteredpixel.shatteredpixeldungeon.items.bags.PotionBandolier;
-import com.shatteredpixel.shatteredpixeldungeon.items.bags.MagicalHolster;
-//import com.shatteredpixel.shatteredpixeldungeon.items.bags.ScrollHolder;
-import com.shatteredpixel.shatteredpixeldungeon.items.bombs.Bomb;
-import com.shatteredpixel.shatteredpixeldungeon.items.food.SmallRation;
-import com.shatteredpixel.shatteredpixeldungeon.items.food.Food;
-import com.shatteredpixel.shatteredpixeldungeon.items.potions.PotionOfHaste;
-import com.shatteredpixel.shatteredpixeldungeon.items.potions.PotionOfHealing;
-import com.shatteredpixel.shatteredpixeldungeon.items.potions.PotionOfInvisibility;
-import com.shatteredpixel.shatteredpixeldungeon.items.potions.PotionOfLiquidFlame;
-import com.shatteredpixel.shatteredpixeldungeon.items.potions.PotionOfMindVision;
-import com.shatteredpixel.shatteredpixeldungeon.items.potions.PotionOfStrength;
-import com.shatteredpixel.shatteredpixeldungeon.items.potions.PotionOfToxicGas;
-import com.shatteredpixel.shatteredpixeldungeon.items.rings.RingOfAccuracy;
-import com.shatteredpixel.shatteredpixeldungeon.items.rings.RingOfArcana;
-import com.shatteredpixel.shatteredpixeldungeon.items.rings.RingOfFuror;
-import com.shatteredpixel.shatteredpixeldungeon.items.rings.RingOfHaste;
-import com.shatteredpixel.shatteredpixeldungeon.items.rings.RingOfMight;
-import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.ScrollOfIdentify;
-import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.ScrollOfLullaby;
-import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.ScrollOfMagicMapping;
-import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.ScrollOfMirrorImage;
-//import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.ScrollOfRage;
-import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.ScrollOfUpgrade;
-import com.shatteredpixel.shatteredpixeldungeon.items.wands.WandOfMagicMissile;
-import com.shatteredpixel.shatteredpixeldungeon.items.weapon.SpiritBow;
-import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Dagger;
-import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Gloves;
-import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.MagesStaff;
-import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Rapier;
-import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.WornShortsword;
-import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.ThrowingKnife;
-import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.ThrowingSpike;
-import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.ThrowingStone;
-import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.darts.Dart;
-import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
+import com.coz.calabozopixeladodominicano.Assets;
+import com.coz.calabozopixeladodominicano.Badges;
+import com.coz.calabozopixeladodominicano.Challenges;
+import com.coz.calabozopixeladodominicano.Dungeon;
+import com.coz.calabozopixeladodominicano.QuickSlot;
+import com.coz.calabozopixeladodominicano.SPDSettings;
+import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
+import com.coz.calabozopixeladodominicano.actors.hero.abilities.duelist.Challenge;
+import com.coz.calabozopixeladodominicano.actors.hero.abilities.duelist.ElementalStrike;
+import com.coz.calabozopixeladodominicano.actors.hero.abilities.duelist.Feint;
+import com.coz.calabozopixeladodominicano.actors.hero.abilities.huntress.NaturesPower;
+import com.coz.calabozopixeladodominicano.actors.hero.abilities.huntress.SpectralBlades;
+import com.coz.calabozopixeladodominicano.actors.hero.abilities.huntress.SpiritHawk;
+import com.coz.calabozopixeladodominicano.actors.hero.abilities.mage.ElementalBlast;
+import com.coz.calabozopixeladodominicano.actors.hero.abilities.mage.WarpBeacon;
+import com.coz.calabozopixeladodominicano.actors.hero.abilities.mage.WildMagic;
+import com.coz.calabozopixeladodominicano.actors.hero.abilities.rogue.DeathMark;
+import com.coz.calabozopixeladodominicano.actors.hero.abilities.rogue.ShadowClone;
+import com.coz.calabozopixeladodominicano.actors.hero.abilities.rogue.SmokeBomb;
+import com.coz.calabozopixeladodominicano.actors.hero.abilities.warrior.Endure;
+import com.coz.calabozopixeladodominicano.actors.hero.abilities.warrior.HeroicLeap;
+import com.coz.calabozopixeladodominicano.actors.hero.abilities.warrior.Shockwave;
+import com.coz.calabozopixeladodominicano.items.BrokenSeal;
+import com.coz.calabozopixeladodominicano.items.Gold;
+import com.coz.calabozopixeladodominicano.items.Item;
+import com.coz.calabozopixeladodominicano.items.Waterskin;
+import com.coz.calabozopixeladodominicano.items.armor.ClothArmor;
+import com.coz.calabozopixeladodominicano.items.artifacts.CloakOfShadows;
+import com.coz.calabozopixeladodominicano.items.bags.ScrollHolder;
+import com.coz.calabozopixeladodominicano.items.bags.VelvetPouch;
+import com.coz.calabozopixeladodominicano.items.bags.PotionBandolier;
+import com.coz.calabozopixeladodominicano.items.bags.MagicalHolster;
+//import com.coz.calabozopixeladodominicano.items.bags.ScrollHolder;
+import com.coz.calabozopixeladodominicano.items.bombs.Bomb;
+import com.coz.calabozopixeladodominicano.items.food.SmallRation;
+import com.coz.calabozopixeladodominicano.items.food.Food;
+import com.coz.calabozopixeladodominicano.items.potions.PotionOfHaste;
+import com.coz.calabozopixeladodominicano.items.potions.PotionOfHealing;
+import com.coz.calabozopixeladodominicano.items.potions.PotionOfInvisibility;
+import com.coz.calabozopixeladodominicano.items.potions.PotionOfLiquidFlame;
+import com.coz.calabozopixeladodominicano.items.potions.PotionOfMindVision;
+import com.coz.calabozopixeladodominicano.items.potions.PotionOfStrength;
+import com.coz.calabozopixeladodominicano.items.potions.PotionOfToxicGas;
+import com.coz.calabozopixeladodominicano.items.potions.exotic.PotionOfShroudingFog;
+import com.coz.calabozopixeladodominicano.items.rings.RingOfAccuracy;
+import com.coz.calabozopixeladodominicano.items.rings.RingOfArcana;
+import com.coz.calabozopixeladodominicano.items.rings.RingOfFuror;
+import com.coz.calabozopixeladodominicano.items.rings.RingOfHaste;
+import com.coz.calabozopixeladodominicano.items.rings.RingOfMight;
+import com.coz.calabozopixeladodominicano.items.scrolls.ScrollOfIdentify;
+import com.coz.calabozopixeladodominicano.items.scrolls.ScrollOfLullaby;
+import com.coz.calabozopixeladodominicano.items.scrolls.ScrollOfMagicMapping;
+import com.coz.calabozopixeladodominicano.items.scrolls.ScrollOfMirrorImage;
+//import com.coz.calabozopixeladodominicano.items.scrolls.ScrollOfRage;
+import com.coz.calabozopixeladodominicano.items.scrolls.ScrollOfUpgrade;
+import com.coz.calabozopixeladodominicano.items.wands.WandOfMagicMissile;
+import com.coz.calabozopixeladodominicano.items.weapon.SpiritBow;
+import com.coz.calabozopixeladodominicano.items.weapon.melee.Dagger;
+import com.coz.calabozopixeladodominicano.items.weapon.melee.Gloves;
+import com.coz.calabozopixeladodominicano.items.weapon.melee.MagesStaff;
+import com.coz.calabozopixeladodominicano.items.weapon.melee.Rapier;
+import com.coz.calabozopixeladodominicano.items.weapon.melee.WornShortsword;
+import com.coz.calabozopixeladodominicano.items.weapon.missiles.ThrowingKnife;
+import com.coz.calabozopixeladodominicano.items.weapon.missiles.ThrowingSpike;
+import com.coz.calabozopixeladodominicano.items.weapon.missiles.ThrowingStone;
+import com.coz.calabozopixeladodominicano.items.weapon.missiles.darts.Dart;
+import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.watabou.utils.DeviceCompat;
 
 public enum HeroClass {
@@ -114,9 +116,6 @@ public enum HeroClass {
 
 		Item i = new ClothArmor().identify();
 		if (!Challenges.isItemBlocked(i)) hero.belongings.armor = (ClothArmor)i;
-
-		Waterskin waterskin = new Waterskin();
-		waterskin.collect();
 
 		switch (this) {
 			case WARRIOR:
@@ -178,9 +177,28 @@ public enum HeroClass {
 		if (!Challenges.isItemBlocked(i)) i.quantity(3).collect();
 
 		(hero.belongings.weapon = new WornShortsword()).identify();
-		ThrowingStone stones = new ThrowingStone();
-		stones.quantity(3).collect();
-		Dungeon.quickslot.setSlot(0, stones);
+
+		i = new ThrowingStone();
+		i.quantity(3).collect();
+		Dungeon.quickslot.setSlot(0, i);
+
+		Waterskin waterskin = new Waterskin();
+		waterskin.collect();
+		Dungeon.quickslot.setSlot(1, waterskin);
+
+		Dungeon.gold = 99;
+		//hero.belongings.misc.
+		//new Gold().quantity(99).collect();
+
+		i = new ThrowingStone();
+		i.quantity(3).collect();
+		Dungeon.quickslot.setSlot(0, i);
+
+		Waterskin waterskin = new Waterskin();
+		waterskin.collect();
+		Dungeon.quickslot.setSlot(1, waterskin);
+
+		Dungeon.gold = 99;
 
 		if (hero.belongings.armor != null){
 			hero.belongings.armor.affixSeal(new BrokenSeal());
