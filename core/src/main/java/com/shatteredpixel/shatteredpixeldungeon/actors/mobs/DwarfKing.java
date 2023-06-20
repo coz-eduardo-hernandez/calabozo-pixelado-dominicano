@@ -531,11 +531,11 @@ public class DwarfKing extends Mob {
 			h.destroy();
 		}
 
-		if (Dungeon.level.solid[pos]){
+		/*if (Dungeon.level.solid[pos]){
 			Dungeon.level.drop(new KingsCrown(), pos + Dungeon.level.width()).sprite.drop(pos);
 		} else {
 			Dungeon.level.drop(new KingsCrown(), pos).sprite.drop();
-		}
+		}*/
 
 		Badges.validateBossSlain();
 		if (Statistics.qualifiedForBossChallengeBadge){
