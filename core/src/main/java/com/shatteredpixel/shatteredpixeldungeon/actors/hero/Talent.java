@@ -938,12 +938,6 @@ public enum Talent {
 		bundle.put("replacements", replacementsBundle);
 	}
 
-	private static final HashSet<String> removedTalents = new HashSet<>();
-	static{
-		//v1.4.0
-		removedTalents.add("BERSERKING_STAMINA");
-	}
-
 	private static final HashMap<String, String> renamedTalents = new HashMap<>();
 	static{
 		//v2.0.0
