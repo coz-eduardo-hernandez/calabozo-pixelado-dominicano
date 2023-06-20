@@ -33,6 +33,7 @@ import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.CounterBuff;
 import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.EnhancedRings;
 import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.FlavourBuff;
 import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Haste;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.HoldFast;
 import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.LostInventory;
 import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.PhysicalEmpower;
 import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Recharging;
@@ -693,6 +694,12 @@ public enum Talent {
 			SpiritBow bow = hero.belongings.getItem(SpiritBow.class);
 			if (bow != null) dmg = bow.proc( hero, enemy, dmg );
 			hero.buff(Talent.SpiritBladesTracker.class).detach();
+		}
+
+		if (hero.hasTalent(HOLD_FAST)){
+			if (!(hero.belongings.attackingWeapon() instanceof MissileWeapon)){
+				dmg += Random.IntRange(0,1);
+			}
 		}
 
 		if (hero.hasTalent(PATIENT_STRIKE)){
