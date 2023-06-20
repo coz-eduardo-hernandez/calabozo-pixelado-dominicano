@@ -96,7 +96,9 @@ public class Dart extends MissileWeapon {
 					2*lvl;  //scaling unchanged
 		}
 	}
-	
+	public int STRReq(int lvl){
+		return STRReq(tier, lvl) - 2; //2 less str than normal for their tier
+	}
 	private static Crossbow bow;
 	
 	private void updateCrossbow(){
