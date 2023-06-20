@@ -191,52 +191,87 @@ public enum HeroClass {
 		//new ScrollOfRage().identify();
 
 		hero.upgradeTalent(Talent.HEARTY_MEAL);
+		hero.upgradeTalent(Talent.HEARTY_MEAL);
 		hero.upgradeTalent(Talent.VETERANS_INTUITION);
-		hero.upgradeTalent(Talent.IRON_WILL);
-		hero.upgradeTalent(Talent.IRON_WILL);
+		//hero.upgradeTalent(Talent.IRON_WILL);
+		//hero.upgradeTalent(Talent.IRON_WILL);
+		hero.upgradeTalent(Talent.RUNIC_TRANSFERENCE);
+		hero.upgradeTalent(Talent.RUNIC_TRANSFERENCE);
 		hero.upgradeTalent(Talent.HOLD_FAST);
-		hero.upgradeTalent(Talent.PATIENT_STRIKE);
-		hero.upgradeTalent(Talent.PATIENT_STRIKE);
+		//hero.upgradeTalent(Talent.PATIENT_STRIKE);
+		//hero.upgradeTalent(Talent.PATIENT_STRIKE);
 	}
 
-	private static void initMage( Hero hero ) {
-		hero.HP = hero.baseHT = hero.HT = 15;
-		hero.STR--;
-		hero.attackSkill--;
-		hero.defenseSkill--;
+	private static void initDuelist( Hero hero ) {
+		hero.HP = hero.baseHT = hero.HT = 20;
+		hero.attackSkill++;
+		hero.defenseSkill++;
 
-		new ScrollHolder().collect();
-		Dungeon.LimitedDrops.SCROLL_HOLDER.drop();
-		new PotionBandolier().collect();
-		Dungeon.LimitedDrops.POTION_BANDOLIER.drop();
 
 		Item i = new Food();
 		if (!Challenges.isItemBlocked(i)) i.collect();
 
-		MagesStaff staff;
-		staff = new MagesStaff(new WandOfMagicMissile());
-
-		(hero.belongings.weapon = staff).identify();
+		(hero.belongings.weapon = new Rapier()).identify();
 		hero.belongings.weapon.activate(hero);
+		Dungeon.quickslot.setSlot(0, hero.belongings.weapon);
+/*
+		ThrowingSpike spikes = new ThrowingSpike();
+		spikes.quantity(2).collect();
 
-		Dungeon.quickslot.setSlot(0, staff);
 
-		i = new ScrollOfIdentify();
-		i.identify();
-		i.collect();
+		Dungeon.quickslot.setSlot(0, spikes);
+*/
+		Waterskin waterskin = new Waterskin();
+		waterskin.collect();
+		Dungeon.quickslot.setSlot(1, waterskin);
 
-		i = new PotionOfHealing();
-		i.identify();
-		i.collect();
+		new PotionOfStrength().identify();
+		new ScrollOfMirrorImage().identify();
 
-		i = new PotionOfLiquidFlame();
-		i.identify();
-		i.collect();
+		new RingOfAccuracy().identify();
+		new RingOfMight().identify();
+		new RingOfHaste().identify();
+		new RingOfFuror().identify();
+		new RingOfArcana().identify();
 
-		//new ScrollOfUpgrade().identify();
-		//new PotionOfLiquidFlame().identify();
-		hero.upgradeTalent(Talent.SCHOLARS_INTUITION);
-		hero.upgradeTalent(Talent.SCHOLARS_INTUITION);
+		hero.upgradeTalent(Talent.ADVENTURERS_INTUITION);
+		hero.upgradeTalent(Talent.ADVENTURERS_INTUITION);
+		//hero.upgradeTalent(Talent.PATIENT_STRIKE);
+		hero.upgradeTalent(Talent.PRECISE_ASSAULT);
+		//hero.upgradeTalent(Talent.LETHAL_MOMENTUM); //Warrior's
+		//hero.upgradeTalent(Talent.LETHAL_MOMENTUM);
+	}
+
+	private static void initHuntress( Hero hero ) {
+		hero.HP = hero.baseHT = hero.HT = 20;
+		hero.attackSkill++;
+		hero.defenseSkill++;
+
+		new VelvetPouch().collect();
+		Dungeon.LimitedDrops.VELVET_POUCH.drop();
+
+		new MagicalHolster().collect();
+		Dungeon.LimitedDrops.MAGICAL_HOLSTER.drop();
+
+		Item i = new Food();
+		if (!Challenges.isItemBlocked(i)) i.quantity(2).collect();
+
+		(hero.belongings.weapon = new Gloves()).identify();
+		SpiritBow bow = new SpiritBow();
+		bow.identify().collect();
+
+		Dungeon.quickslot.setSlot(0, bow);
+
+		Waterskin waterskin = new Waterskin();
+		waterskin.collect();
+		waterskin.fill();
+		Dungeon.quickslot.setSlot(1, waterskin);
+
+		new PotionOfMindVision().identify();
+		new ScrollOfMirrorImage().identify();
+
+		hero.upgradeTalent(Talent.FOLLOWUP_STRIKE);
+		//hero.upgradeTalent(Talent.FARSIGHT); T3 Sniper
 	}
 
 	private static void initRogue( Hero hero ) {
@@ -280,61 +315,48 @@ public enum HeroClass {
 		hero.upgradeTalent(Talent.SILENT_STEPS);
 	}
 
-	private static void initHuntress( Hero hero ) {
-		hero.HP = hero.baseHT = hero.HT = 20;
-		hero.attackSkill++;
-		hero.defenseSkill++;
+	private static void initMage( Hero hero ) {
+		hero.HP = hero.baseHT = hero.HT = 15;
+		hero.STR--;
+		hero.attackSkill--;
+		hero.defenseSkill--;
 
-		new VelvetPouch().collect();
-		Dungeon.LimitedDrops.VELVET_POUCH.drop();
-
-		new MagicalHolster().collect();
-		Dungeon.LimitedDrops.MAGICAL_HOLSTER.drop();
-
-		Item i = new Food();
-		if (!Challenges.isItemBlocked(i)) i.quantity(2).collect();
-
-		(hero.belongings.weapon = new Gloves()).identify();
-		SpiritBow bow = new SpiritBow();
-		bow.identify().collect();
-
-		Dungeon.quickslot.setSlot(0, bow);
-
-		new PotionOfMindVision().identify();
-		new ScrollOfMirrorImage().identify();
-
-		hero.upgradeTalent(Talent.FOLLOWUP_STRIKE);
-		hero.upgradeTalent(Talent.FARSIGHT);
-	}
-
-	private static void initDuelist( Hero hero ) {
-		hero.HP = hero.baseHT = hero.HT = 20;
-		hero.attackSkill++;
-		hero.defenseSkill++;
+		new ScrollHolder().collect();
+		Dungeon.LimitedDrops.SCROLL_HOLDER.drop();
+		new PotionBandolier().collect();
+		Dungeon.LimitedDrops.POTION_BANDOLIER.drop();
 
 		Item i = new Food();
 		if (!Challenges.isItemBlocked(i)) i.collect();
 
-		(hero.belongings.weapon = new Rapier()).identify();
+		MagesStaff staff;
+		staff = new MagesStaff(new WandOfMagicMissile());
+
+		(hero.belongings.weapon = staff).identify();
 		hero.belongings.weapon.activate(hero);
 
-		ThrowingSpike spikes = new ThrowingSpike();
-		spikes.quantity(2).collect();
+		Dungeon.quickslot.setSlot(0, staff);
 
-		Dungeon.quickslot.setSlot(0, hero.belongings.weapon);
-		Dungeon.quickslot.setSlot(1, spikes);
+		Waterskin waterskin = new Waterskin();
+		waterskin.collect();
+		Dungeon.quickslot.setSlot(1, waterskin);
 
-		new PotionOfStrength().identify();
-		new ScrollOfMirrorImage().identify();
+		i = new ScrollOfIdentify();
+		i.identify();
+		i.collect();
 
-		new RingOfAccuracy().identify();
-		new RingOfMight().identify();
-		new RingOfHaste().identify();
-		new RingOfFuror().identify();
-		new RingOfArcana().identify();
+		i = new PotionOfHealing();
+		i.identify();
+		i.collect();
 
-		hero.upgradeTalent(Talent.ADVENTURERS_INTUITION);
-		hero.upgradeTalent(Talent.ADVENTURERS_INTUITION);
+		i = new PotionOfLiquidFlame();
+		i.identify();
+		i.collect();
+
+		//new ScrollOfUpgrade().identify();
+		//new PotionOfLiquidFlame().identify();
+		hero.upgradeTalent(Talent.SCHOLARS_INTUITION);
+		hero.upgradeTalent(Talent.SCHOLARS_INTUITION);
 	}
 
 	public String title() {
