@@ -88,12 +88,12 @@ public class TitleScene extends PixelScene {
 		placeTorch(title.x + title.width - 22, title.y + 46);
 
 		Image signs = new Image( BannerSprites.get( BannerSprites.Type.PIXEL_DUNGEON_SIGNS ) ) {
-			private float time = 0;
+			private float time = -1.2f;
 			@Override
 			public void update() {
 				super.update();
-				am = Math.max(0f, (float)Math.sin( time += Game.elapsed ));
-				if (time >= 1.5f*Math.PI) time = 0;
+				am = Math.max(0f, (float)Math.sin( time += Game.elapsed * 0.4f ));
+				if (time >= 1.5f*Math.PI) time = -1.5f;
 			}
 			@Override
 			public void draw() {
