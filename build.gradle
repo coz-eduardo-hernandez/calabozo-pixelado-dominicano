@@ -11,7 +11,7 @@ buildscript {
 allprojects {
     ext {
         appName = 'Calabozo Pixelado Dominicano'
-        appPackageName = 'com.shatteredpixel.shatteredpixeldungeon'
+        appPackageName = 'com.coz.calabozopixeladodominicano'
 
         appVersionCode = 734
         appVersionName = '2.1.3'
