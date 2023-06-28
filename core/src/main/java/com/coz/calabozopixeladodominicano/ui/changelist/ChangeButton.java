@@ -47,11 +47,7 @@ public class ChangeButton extends Component {
 		
 		layout();
 	}
-	
-	public ChangeButton(Item item, String message ){
-		this( new ItemSprite(item), item.name(), message);
-	}
-	
+
 	protected void onClick() {
 		ChangesScene.showChangeInfo(new Image(icon), title, messages);
 	}
@@ -59,7 +55,7 @@ public class ChangeButton extends Component {
 	@Override
 	protected void layout() {
 		super.layout();
-		
+
 		icon.x = x + (width - icon.width()) / 2f;
 		icon.y = y + (height - icon.height()) / 2f;
 		PixelScene.align(icon);
