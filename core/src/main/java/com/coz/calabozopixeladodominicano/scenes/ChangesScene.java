@@ -277,7 +277,7 @@ public class ChangesScene extends PixelScene {
 		btn0_6.setRect(btn0_7.right()-2, btn0_8.top(), 21, changesSelected == 5 ? 19 : 15);
 		addToBack(btn0_6);
 		
-		StyledButton btnOld = new StyledButton(Chrome.Type.GREY_BUTTON_TR, "0.5-1"){
+		StyledButton btnOld = new StyledButton(Chrome.Type.GREY_BUTTON_TR, "0.0.1"){
 			@Override
 			protected void onClick() {
 				super.onClick();
