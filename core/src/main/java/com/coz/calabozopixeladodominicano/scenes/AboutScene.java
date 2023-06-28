@@ -62,8 +62,21 @@ public class AboutScene extends PixelScene {
 		Component content = list.content();
 		content.clear();
 
-		//*** Shattered Pixel Dungeon Credits ***
+		//*** Créditos de Calabozo Pixelado Dominicano ***
+		String githubRepo = "https://github.com/coz-eduardo-hernandez/calabozo-pixelado-dominicano";
 
+		CreditsBlock CPD = new CreditsBlock(true, Window.WHITE,
+				"Calabozo Pixelado Dominicano",
+				Icons.CPD.get(),
+				"Desarrollado por: _coz_\nBasado en el código libre de Shattered Pixel Dungeon",
+				"Repository de código",
+				githubRepo);
+		CPD.setRect((w - fullWidth)/2f, 20, fullWidth, 0);
+		content.add(CPD);
+
+		//addLine(CPD.bottom() + 2, content);
+
+		//*** Shattered Pixel Dungeon Credits ***
 		String shpxLink = "https://ShatteredPixel.com";
 		//tracking codes, so that the website knows where this pageview came from
 		shpxLink += "?utm_source=shatteredpd";
@@ -77,9 +90,9 @@ public class AboutScene extends PixelScene {
 				"ShatteredPixel.com",
 				shpxLink);
 		if (landscape()){
-			shpx.setRect((w - fullWidth)/2f - 6, 10, 120, 0);
+			shpx.setRect((w - fullWidth)/2f - 6, CPD.bottom()+25, 120, 0);
 		} else {
-			shpx.setRect((w - fullWidth)/2f, 6, 120, 0);
+			shpx.setRect((w - fullWidth)/2f, CPD.bottom()+15, 120, 0);
 		}
 		content.add(shpx);
 
@@ -131,7 +144,7 @@ public class AboutScene extends PixelScene {
 		}
 		content.add(wata);
 
-		addLine(wata.top() - 4, content);
+		//addLine(wata.top() - 4, content);
 
 		CreditsBlock cube = new CreditsBlock(false, WATA_COLOR,
 				"Music:",
@@ -164,7 +177,7 @@ public class AboutScene extends PixelScene {
 		}
 		content.add(gdx);
 
-		addLine(gdx.top() - 4, content);
+		//addLine(gdx.top() - 4, content);
 
 		CreditsBlock arcnor = new CreditsBlock(false, GDX_COLOR,
 				"Pixel Dungeon GDX:",
@@ -201,9 +214,9 @@ public class AboutScene extends PixelScene {
 		transifex.setRect((Camera.main.width - colWidth)/2f, purigro.bottom() + 12, colWidth, 0);
 		content.add(transifex);
 
-		addLine(transifex.top() - 4, content);
+		//addLine(transifex.top() - 4, content);
 
-		addLine(transifex.bottom() + 4, content);
+		//addLine(transifex.bottom() + 4, content);
 
 		//*** Freesound Credits ***
 
@@ -254,12 +267,12 @@ public class AboutScene extends PixelScene {
 	protected void onBackPressed() {
 		ShatteredPixelDungeon.switchScene(TitleScene.class);
 	}
-
+/*
 	private void addLine( float y, Group content ){
 		ColorBlock line = new ColorBlock(Camera.main.width, 1, 0xFF333333);
 		line.y = y;
 		content.add(line);
-	}
+	}*/
 
 	private static class CreditsBlock extends Component {
 
@@ -392,7 +405,6 @@ public class AboutScene extends PixelScene {
 				linkUnderline.size(link.width(), PixelScene.align(0.49f));
 				linkUnderline.x = link.left();
 				linkUnderline.y = link.bottom()+1;
-
 			}
 
 			topY -= 2;
