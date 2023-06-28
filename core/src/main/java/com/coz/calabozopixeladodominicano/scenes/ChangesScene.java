@@ -37,7 +37,7 @@ import com.coz.calabozopixeladodominicano.ui.Window;
 import com.coz.calabozopixeladodominicano.ui.changelist.ChangeInfo;
 import com.coz.calabozopixeladodominicano.ui.changelist.WndChanges;
 import com.coz.calabozopixeladodominicano.ui.changelist.WndChangesTabbed;
-import com.coz.calabozopixeladodominicano.ui.changelist.v0_1_X_Changes;
+import com.coz.calabozopixeladodominicano.ui.changelist.v0_0_X_Changes;
 import com.coz.calabozopixeladodominicano.windows.IconTitle;
 import com.watabou.noosa.Camera;
 import com.watabou.noosa.Image;
@@ -137,7 +137,7 @@ public class ChangesScene extends PixelScene {
 		
 		switch (changesSelected){
 			case 0: default:
-				v0_1_X_Changes.addAllChanges(changeInfos);
+				v0_0_X_Changes.addAllChanges(changeInfos);
 				break;
 		}
 
