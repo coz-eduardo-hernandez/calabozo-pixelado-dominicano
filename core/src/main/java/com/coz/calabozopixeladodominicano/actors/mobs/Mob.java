@@ -118,7 +118,7 @@ public abstract class Mob extends Char {
 	
 	protected Char enemy;
 	protected int enemyID = -1; //used for save/restore
-	protected boolean enemySeen;
+	public boolean enemySeen;
 	protected boolean alerted = false;
 
 	protected static final float TIME_TO_WAKE_UP = 1f;

@@ -24,6 +24,7 @@ package com.coz.calabozopixeladodominicano.windows;
 import com.coz.calabozopixeladodominicano.Dungeon;
 import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
 import com.coz.calabozopixeladodominicano.actors.Actor;
+import com.coz.calabozopixeladodominicano.actors.Char;
 import com.coz.calabozopixeladodominicano.actors.hero.Belongings;
 import com.coz.calabozopixeladodominicano.actors.hero.HeroAction;
 import com.coz.calabozopixeladodominicano.actors.mobs.Acidic;
@@ -366,6 +367,7 @@ import com.watabou.noosa.Image;
 import com.watabou.noosa.ui.Component;
 import com.watabou.utils.Callback;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -552,6 +554,15 @@ public class WndDeveloperTools extends WndTabbed {
 					return;
 				}
 
+
+				mob.state = mob.HUNTING;
+				mob.enemySeen = true;
+				//mob.enemy = Dungeon.hero;
+				//mob.state.act(true,false);
+				/*mob.enemySeen = true;
+				mob.target = Dungeon.hero.pos;
+				mob.enemy = Dungeon.hero.pos;
+*/
 				sprite = mob.sprite();
 				add(sprite);
 
@@ -581,7 +592,119 @@ public class WndDeveloperTools extends WndTabbed {
 
 			@Override
 			protected String hoverText() {
-				return Messages.titleCase(mob.name());
+				return Messages.titleCase(mob.name()) + mobStatText();
+			}
+
+			private String mobStatText(){
+				final int TESTS = 500; // I've found with less than 10000, results easily vary by 1 turn
+										// however 10000 induces slowdown against powerful enemies
+				final int MAX_TURNS = 50000;
+				final float INCREMENT = 1f; //This is only useful
+				final float PLAYER_ATTACK_DELAY = Dungeon.hero.attackDelay();
+				final float MOB_ATTACK_DELAY = mob.attackDelay();
+
+
+				float pc_win_turns = 0f;
+				float pc_win_nomiss_turns = 0f;
+				float mob_win_turns = 0f;
+				float mob_win_nomiss_turns = 0f;
+
+				float time;
+				int hp;
+
+				for(int i = 0; i < TESTS; i++) {
+					time = 0f;
+					hp = mob.HP;
+
+					while (hp >= 0 && pc_win_turns < MAX_TURNS && time < 60f) {
+						if (time > PLAYER_ATTACK_DELAY) {
+							pc_win_turns++;
+
+							time -= PLAYER_ATTACK_DELAY;
+							boolean hit = Char.hit(Dungeon.hero, mob, false);
+							if (hit) {
+								hp -= Dungeon.hero.damageRoll();
+							}
+						}
+						time += INCREMENT;
+					}
+				}
+				if(!(pc_win_turns < MAX_TURNS)){
+					pc_win_turns = Float.POSITIVE_INFINITY;
+				}
+				else {
+					pc_win_turns /= TESTS;
+				}
+
+				for(int i = 0; i < TESTS; i++) {
+					time = 0f;
+					hp = mob.HP;
+
+					while (hp >= 0 && pc_win_nomiss_turns < MAX_TURNS && time < 60f) {
+						if (time > PLAYER_ATTACK_DELAY) {
+							pc_win_nomiss_turns++;
+							time -= PLAYER_ATTACK_DELAY;
+							hp -= Dungeon.hero.damageRoll();
+						}
+						time += INCREMENT;
+					}
+				}
+				if(!(pc_win_nomiss_turns < MAX_TURNS)){
+					pc_win_nomiss_turns = Float.POSITIVE_INFINITY;
+				}
+				else {
+					pc_win_nomiss_turns /= TESTS;
+				}
+
+				for(int i = 0; i < TESTS; i++) {
+					time = 0f;
+					hp = Dungeon.hero.HP;
+
+					while (hp >= 0 && mob_win_turns < MAX_TURNS && time < 60f) {
+						if (time > MOB_ATTACK_DELAY) {
+							mob_win_turns++;
+							time -= MOB_ATTACK_DELAY;
+							boolean hit = Char.hit(mob, Dungeon.hero, false);
+							if (hit) {
+								hp -= mob.damageRoll();
+							}
+						}
+						time += INCREMENT;
+					}
+				}
+				if(!(mob_win_turns < MAX_TURNS)){
+					mob_win_turns = Float.POSITIVE_INFINITY;
+				}
+				else {
+					mob_win_turns /= TESTS;
+				}
+
+				for(int i = 0; i < TESTS; i++) {
+					time = 0f;
+					hp = Dungeon.hero.HP;
+
+					while (hp >= 0 && mob_win_nomiss_turns < MAX_TURNS && time < 60f) {
+						if (time > MOB_ATTACK_DELAY) {
+							mob_win_nomiss_turns++;
+							time -= MOB_ATTACK_DELAY;
+							hp -= mob.damageRoll();
+						}
+						time += INCREMENT;
+					}
+				}
+				if(!(mob_win_nomiss_turns < MAX_TURNS)){
+					mob_win_nomiss_turns = Float.POSITIVE_INFINITY;
+				}
+				else {
+					mob_win_nomiss_turns /= TESTS;
+				}
+
+				DecimalFormat format = new DecimalFormat("#.0");
+
+				return "\nPC wins in " + format.format(pc_win_turns) + " turns"
+					+ "\nWith no misses " + format.format(pc_win_nomiss_turns) + " turns"
+					+ "\nMob wins in " + format.format(mob_win_turns) + " turns"
+					+ "\nWith no misses " + format.format(mob_win_nomiss_turns) + " turns";
 			}
 
 			@Override
