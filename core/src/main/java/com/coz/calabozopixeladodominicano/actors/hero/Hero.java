@@ -1838,7 +1838,10 @@ public class Hero extends Char {
 						}
 						break;
 					case MAGE:
-						updateHT( 2, true );
+						if ((lvl - 1) % 2 == 0){
+							updateHT( 3, true );
+						}
+						else updateHT( 2, true );
 						if (lvl % 7 == 0) STR++;
 						if (lvl - 1 % 2 == 0) attackSkill++;
 						if (lvl % 2 == 0) defenseSkill++;
