@@ -14,7 +14,7 @@ allprojects {
         appPackageName = 'com.coz.calabozopixeladodominicano'
 
         appVersionCode = 734
-        appVersionName = '0.0.1'
+        appVersionName = '0.1.0'
 
         appJavaCompatibility = JavaVersion.VERSION_17
 
