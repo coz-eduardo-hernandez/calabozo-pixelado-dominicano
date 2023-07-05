@@ -23,7 +23,7 @@ package com.coz.calabozopixeladodominicano.windows;
 
 import com.coz.calabozopixeladodominicano.Challenges;
 import com.coz.calabozopixeladodominicano.SPDSettings;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.coz.calabozopixeladodominicano.scenes.PixelScene;
 import com.coz.calabozopixeladodominicano.ui.CheckBox;
@@ -82,7 +82,7 @@ public class WndChallenges extends Window {
 				@Override
 				protected void onClick() {
 					super.onClick();
-					ShatteredPixelDungeon.scene().add(
+					CalabozoPixeladoDominicano.scene().add(
 							new WndMessage(Messages.get(Challenges.class, challenge+"_desc"))
 					);
 				}

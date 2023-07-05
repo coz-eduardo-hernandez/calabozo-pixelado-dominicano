@@ -23,7 +23,7 @@ package com.coz.calabozopixeladodominicano.items.potions.exotic;
 
 import com.coz.calabozopixeladodominicano.Assets;
 import com.coz.calabozopixeladodominicano.Dungeon;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.actors.Actor;
 import com.coz.calabozopixeladodominicano.actors.Char;
 import com.coz.calabozopixeladodominicano.actors.blobs.Blob;
@@ -91,7 +91,7 @@ public class PotionOfDragonsBreath extends ExoticPotion {
 
 			if (cell == null && identifiedByUse){
 				showingWindow = true;
-				ShatteredPixelDungeon.runOnRenderThread(new Callback() {
+				CalabozoPixeladoDominicano.runOnRenderThread(new Callback() {
 					@Override
 					public void call() {
 						GameScene.show( new WndOptions(new ItemSprite(PotionOfDragonsBreath.this),

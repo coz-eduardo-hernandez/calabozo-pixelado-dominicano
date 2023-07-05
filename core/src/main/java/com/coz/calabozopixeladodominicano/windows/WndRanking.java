@@ -28,7 +28,7 @@ import com.coz.calabozopixeladodominicano.Dungeon;
 import com.coz.calabozopixeladodominicano.QuickSlot;
 import com.coz.calabozopixeladodominicano.Rankings;
 import com.coz.calabozopixeladodominicano.SPDSettings;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.Statistics;
 import com.coz.calabozopixeladodominicano.actors.hero.Belongings;
 import com.coz.calabozopixeladodominicano.items.Item;
@@ -209,7 +209,7 @@ public class WndRanking extends WndTabbed {
 					@Override
 					protected void onClick() {
 						super.onClick();
-						ShatteredPixelDungeon.scene().addToFront(new WndScoreBreakdown());
+						CalabozoPixeladoDominicano.scene().addToFront(new WndScoreBreakdown());
 					}
 				};
 				scoreInfo.setSize(16, 16);
@@ -264,7 +264,7 @@ public class WndRanking extends WndTabbed {
 					@Override
 					protected void onClick() {
 						super.onClick();
-						ShatteredPixelDungeon.scene().addToFront(new WndOptions(new Image(icon),
+						CalabozoPixeladoDominicano.scene().addToFront(new WndOptions(new Image(icon),
 								Messages.get(WndRanking.StatsTab.this, "copy_seed"),
 								Messages.get(WndRanking.StatsTab.this, "copy_seed_desc"),
 								Messages.get(WndRanking.StatsTab.this, "copy_seed_copy"),
@@ -435,7 +435,7 @@ public class WndRanking extends WndTabbed {
 					@Override
 					protected void onClick() {
 						super.onClick();
-						ShatteredPixelDungeon.scene().add(
+						CalabozoPixeladoDominicano.scene().add(
 								new WndMessage(Messages.get(Challenges.class, challenge+"_desc"))
 						);
 					}

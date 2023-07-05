@@ -25,7 +25,7 @@ import com.coz.calabozopixeladodominicano.Assets;
 import com.coz.calabozopixeladodominicano.Chrome;
 import com.coz.calabozopixeladodominicano.Dungeon;
 import com.coz.calabozopixeladodominicano.GamesInProgress;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.Statistics;
 import com.coz.calabozopixeladodominicano.actors.Actor;
 import com.coz.calabozopixeladodominicano.actors.buffs.Buff;
@@ -359,7 +359,7 @@ public class InterlevelScene extends PixelScene {
 					s += "\n";
 					s += t.toString();
 				}
-				ShatteredPixelDungeon.reportException(
+				CalabozoPixeladoDominicano.reportException(
 						new RuntimeException("waited more than 10 seconds on levelgen. " +
 								"Seed:" + Dungeon.seed + " depth:" + Dungeon.depth + " trace:" +
 								s)

@@ -28,7 +28,7 @@ import com.coz.calabozopixeladodominicano.Dungeon;
 import com.coz.calabozopixeladodominicano.GamesInProgress;
 import com.coz.calabozopixeladodominicano.Rankings;
 import com.coz.calabozopixeladodominicano.SPDSettings;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.effects.BannerSprites;
 import com.coz.calabozopixeladodominicano.effects.Fireball;
 import com.coz.calabozopixeladodominicano.journal.Document;
@@ -53,7 +53,7 @@ import java.util.Collections;
 
 public class WelcomeScene extends PixelScene {
 
-	private static final int LATEST_UPDATE = ShatteredPixelDungeon.v2_1_0;
+	private static final int LATEST_UPDATE = CalabozoPixeladoDominicano.v2_1_0;
 
 	//used so that the game does not keep showing the window forever if cleaning fails
 	private static boolean triedCleaningTemp = false;
@@ -74,14 +74,14 @@ public class WelcomeScene extends PixelScene {
 				public void hide() {
 					super.hide();
 					triedCleaningTemp = true;
-					ShatteredPixelDungeon.resetScene();
+					CalabozoPixeladoDominicano.resetScene();
 				}
 			});
 			return;
 		}
 
-		if (ShatteredPixelDungeon.versionCode == previousVersion && !SPDSettings.intro()) {
-			ShatteredPixelDungeon.switchNoFade(TitleScene.class);
+		if (CalabozoPixeladoDominicano.versionCode == previousVersion && !SPDSettings.intro()) {
+			CalabozoPixeladoDominicano.switchNoFade(TitleScene.class);
 			return;
 		}
 
@@ -144,18 +144,18 @@ public class WelcomeScene extends PixelScene {
 						updateVersion(previousVersion);
 					}
 
-					SPDSettings.version(ShatteredPixelDungeon.versionCode);
+					SPDSettings.version(CalabozoPixeladoDominicano.versionCode);
 					GamesInProgress.selectedClass = null;
 					GamesInProgress.curSlot = GamesInProgress.firstEmpty();
 					if (GamesInProgress.curSlot == -1){
 						SPDSettings.intro(false);
-						ShatteredPixelDungeon.switchScene(TitleScene.class);
+						CalabozoPixeladoDominicano.switchScene(TitleScene.class);
 					} else {
-						ShatteredPixelDungeon.switchScene(HeroSelectScene.class);
+						CalabozoPixeladoDominicano.switchScene(HeroSelectScene.class);
 					}
 				} else {
 					updateVersion(previousVersion);
-					ShatteredPixelDungeon.switchScene(TitleScene.class);
+					CalabozoPixeladoDominicano.switchScene(TitleScene.class);
 				}
 			}
 		};
@@ -168,7 +168,7 @@ public class WelcomeScene extends PixelScene {
 				protected void onClick() {
 					super.onClick();
 					updateVersion(previousVersion);
-					ShatteredPixelDungeon.switchScene(ChangesScene.class);
+					CalabozoPixeladoDominicano.switchScene(ChangesScene.class);
 				}
 			};
 			okay.setRect(title.x, buttonY, (title.width()/2)-2, 20);
@@ -188,7 +188,7 @@ public class WelcomeScene extends PixelScene {
 		String message;
 		if (previousVersion == 0 || SPDSettings.intro()) {
 			message = Document.INTROS.pageBody(0);
-		} else if (previousVersion <= ShatteredPixelDungeon.versionCode) {
+		} else if (previousVersion <= CalabozoPixeladoDominicano.versionCode) {
 			if (previousVersion < LATEST_UPDATE){
 				message = Messages.get(this, "update_intro");
 				message += "\n\n" + Messages.get(this, "update_msg");
@@ -240,7 +240,7 @@ public class WelcomeScene extends PixelScene {
 			Journal.loadGlobal();
 
 			//pre-unlock Duelist for those who already have a win
-			/*if (previousVersion <= ShatteredPixelDungeon.v2_0_2){
+			/*if (previousVersion <= CalabozoPixeladoDominicano.v2_0_2){
 				if (Badges.isUnlocked(Badges.Badge.VICTORY) && !Badges.isUnlocked(Badges.Badge.UNLOCK_DUELIST)){
 					Badges.unlock(Badges.Badge.UNLOCK_DUELIST);
 				}
@@ -282,7 +282,7 @@ public class WelcomeScene extends PixelScene {
 
 		}
 
-		SPDSettings.version(ShatteredPixelDungeon.versionCode);
+		SPDSettings.version(CalabozoPixeladoDominicano.versionCode);
 	}
 	
 }

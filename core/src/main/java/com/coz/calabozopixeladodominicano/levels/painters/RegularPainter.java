@@ -23,7 +23,7 @@ package com.coz.calabozopixeladodominicano.levels.painters;
 
 import com.coz.calabozopixeladodominicano.Dungeon;
 import com.coz.calabozopixeladodominicano.SPDSettings;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.journal.Document;
 import com.coz.calabozopixeladodominicano.levels.Level;
 import com.coz.calabozopixeladodominicano.levels.Patch;
@@ -159,7 +159,7 @@ public abstract class RegularPainter extends Painter {
 						doorSpots.add(p);
 				}
 				if (doorSpots.isEmpty()){
-					ShatteredPixelDungeon.reportException(
+					CalabozoPixeladoDominicano.reportException(
 							new RuntimeException("Could not place a door! " +
 									"r=" + r.getClass().getSimpleName() +
 									" n=" + n.getClass().getSimpleName()));

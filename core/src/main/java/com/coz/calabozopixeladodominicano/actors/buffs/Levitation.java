@@ -22,7 +22,7 @@
 package com.coz.calabozopixeladodominicano.actors.buffs;
 
 import com.coz.calabozopixeladodominicano.Dungeon;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.actors.Char;
 import com.coz.calabozopixeladodominicano.items.artifacts.TimekeepersHourglass;
 import com.coz.calabozopixeladodominicano.plants.Swiftthistle;
@@ -55,7 +55,7 @@ public class Levitation extends FlavourBuff {
 		target.flying = false;
 		super.detach();
 		//only press tiles if we're current in the game screen
-		if (ShatteredPixelDungeon.scene() instanceof GameScene) {
+		if (CalabozoPixeladoDominicano.scene() instanceof GameScene) {
 			Dungeon.level.occupyCell(target );
 		}
 	}

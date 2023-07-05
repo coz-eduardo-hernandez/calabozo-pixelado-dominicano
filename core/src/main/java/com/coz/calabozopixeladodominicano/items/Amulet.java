@@ -24,7 +24,7 @@ package com.coz.calabozopixeladodominicano.items;
 import com.coz.calabozopixeladodominicano.Badges;
 import com.coz.calabozopixeladodominicano.Challenges;
 import com.coz.calabozopixeladodominicano.Dungeon;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.Statistics;
 import com.coz.calabozopixeladodominicano.actors.Actor;
 import com.coz.calabozopixeladodominicano.actors.buffs.AscensionChallenge;
@@ -109,7 +109,7 @@ public class Amulet extends Item {
 					Dungeon.saveAll();
 					Badges.saveGlobal();
 				} catch (IOException e) {
-					ShatteredPixelDungeon.reportException(e);
+					CalabozoPixeladoDominicano.reportException(e);
 				}
 			}
 		});

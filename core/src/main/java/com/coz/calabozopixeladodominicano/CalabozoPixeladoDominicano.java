@@ -31,7 +31,7 @@ import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.DeviceCompat;
 import com.watabou.utils.PlatformSupport;
 
-public class ShatteredPixelDungeon extends Game {
+public class CalabozoPixeladoDominicano extends Game {
 
 	//variable constants for specific older versions of shattered, used for data conversion
 	//versions older than v1.2.3 are no longer supported, and data from them is ignored
@@ -42,7 +42,7 @@ public class ShatteredPixelDungeon extends Game {
 	public static final int v2_0_2  = 700;
 	public static final int v2_1_0  = 722;
 	
-	public ShatteredPixelDungeon( PlatformSupport platform ) {
+	public CalabozoPixeladoDominicano (PlatformSupport platform ) {
 		super( sceneClass == null ? WelcomeScene.class : sceneClass, platform );
 
 		//pre-v1.3.0

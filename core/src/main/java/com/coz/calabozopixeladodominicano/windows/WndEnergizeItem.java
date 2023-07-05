@@ -22,7 +22,7 @@
 package com.coz.calabozopixeladodominicano.windows;
 
 import com.coz.calabozopixeladodominicano.Dungeon;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.items.EnergyCrystal;
 import com.coz.calabozopixeladodominicano.items.EquipableItem;
@@ -115,10 +115,10 @@ public class WndEnergizeItem extends WndInfoItem {
 		}
 		item.detachAll( hero.belongings.backpack );
 
-		if (ShatteredPixelDungeon.scene() instanceof AlchemyScene){
+		if (CalabozoPixeladoDominicano.scene() instanceof AlchemyScene){
 
 			Dungeon.energy += item.energyVal();
-			((AlchemyScene) ShatteredPixelDungeon.scene()).createEnergy();
+			((AlchemyScene) CalabozoPixeladoDominicano.scene()).createEnergy();
 
 		} else {
 
@@ -140,10 +140,10 @@ public class WndEnergizeItem extends WndInfoItem {
 
 			item = item.detach( hero.belongings.backpack );
 
-			if (ShatteredPixelDungeon.scene() instanceof AlchemyScene){
+			if (CalabozoPixeladoDominicano.scene() instanceof AlchemyScene){
 
 				Dungeon.energy += item.energyVal();
-				((AlchemyScene) ShatteredPixelDungeon.scene()).createEnergy();
+				((AlchemyScene) CalabozoPixeladoDominicano.scene()).createEnergy();
 
 			} else {
 
@@ -156,11 +156,11 @@ public class WndEnergizeItem extends WndInfoItem {
 	}
 
 	public static WndBag openItemSelector(){
-		if (ShatteredPixelDungeon.scene() instanceof GameScene) {
+		if (CalabozoPixeladoDominicano.scene() instanceof GameScene) {
 			return GameScene.selectItem( selector );
 		} else {
 			WndBag window = WndBag.getBag( selector );
-			ShatteredPixelDungeon.scene().addToFront(window);
+			CalabozoPixeladoDominicano.scene().addToFront(window);
 			return window;
 		}
 	}
@@ -180,10 +180,10 @@ public class WndEnergizeItem extends WndInfoItem {
 		public void onSelect(Item item) {
 			if (item != null) {
 				WndBag parentWnd = openItemSelector();
-				if (ShatteredPixelDungeon.scene() instanceof GameScene) {
+				if (CalabozoPixeladoDominicano.scene() instanceof GameScene) {
 					GameScene.show(new WndEnergizeItem(item, parentWnd));
 				} else {
-					ShatteredPixelDungeon.scene().addToFront(new WndEnergizeItem(item, parentWnd));
+					CalabozoPixeladoDominicano.scene().addToFront(new WndEnergizeItem(item, parentWnd));
 				}
 			}
 		}

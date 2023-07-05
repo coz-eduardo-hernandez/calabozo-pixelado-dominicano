@@ -24,7 +24,7 @@ package com.coz.calabozopixeladodominicano.levels.traps;
 import com.coz.calabozopixeladodominicano.Assets;
 import com.coz.calabozopixeladodominicano.Badges;
 import com.coz.calabozopixeladodominicano.Dungeon;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.actors.Actor;
 import com.coz.calabozopixeladodominicano.actors.Char;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
@@ -72,7 +72,7 @@ public class DisintegrationTrap extends Trap {
 		if (target != null) {
 			if (Dungeon.level.heroFOV[pos] || Dungeon.level.heroFOV[target.pos]) {
 				Sample.INSTANCE.play(Assets.Sounds.RAY);
-				ShatteredPixelDungeon.scene().add(new Beam.DeathRay(DungeonTilemap.tileCenterToWorld(pos), target.sprite.center()));
+				CalabozoPixeladoDominicano.scene().add(new Beam.DeathRay(DungeonTilemap.tileCenterToWorld(pos), target.sprite.center()));
 			}
 			target.damage( Random.NormalIntRange(30, 50) + Dungeon.depth, this );
 			if (target == Dungeon.hero){

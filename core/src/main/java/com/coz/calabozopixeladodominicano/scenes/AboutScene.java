@@ -21,7 +21,7 @@
 
 package com.coz.calabozopixeladodominicano.scenes;
 
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.effects.Flare;
 import com.coz.calabozopixeladodominicano.ui.Archs;
 import com.coz.calabozopixeladodominicano.ui.ExitButton;
@@ -32,7 +32,6 @@ import com.coz.calabozopixeladodominicano.ui.Window;
 import com.watabou.input.PointerEvent;
 import com.watabou.noosa.Camera;
 import com.watabou.noosa.ColorBlock;
-import com.watabou.noosa.Group;
 import com.watabou.noosa.Image;
 import com.watabou.noosa.PointerArea;
 import com.watabou.noosa.ui.Component;
@@ -265,7 +264,7 @@ public class AboutScene extends PixelScene {
 	
 	@Override
 	protected void onBackPressed() {
-		ShatteredPixelDungeon.switchScene(TitleScene.class);
+		CalabozoPixeladoDominicano.switchScene(TitleScene.class);
 	}
 /*
 	private void addLine( float y, Group content ){
@@ -327,7 +326,7 @@ public class AboutScene extends PixelScene {
 				linkButton = new PointerArea(0, 0, 0, 0){
 					@Override
 					protected void onClick( PointerEvent event ) {
-						ShatteredPixelDungeon.platform.openURI( linkUrl );
+						CalabozoPixeladoDominicano.platform.openURI( linkUrl );
 					}
 				};
 				add(linkButton);

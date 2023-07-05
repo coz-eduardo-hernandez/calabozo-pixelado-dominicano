@@ -22,7 +22,7 @@
 package com.coz.calabozopixeladodominicano.windows;
 
 import com.coz.calabozopixeladodominicano.Rankings;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.coz.calabozopixeladodominicano.scenes.PixelScene;
 import com.coz.calabozopixeladodominicano.ui.IconButton;
@@ -67,7 +67,7 @@ public class WndDailies extends Window {
 			IconButton replayInfo = new IconButton(Icons.get(Icons.CALENDAR)){
 				@Override
 				protected void onClick() {
-					ShatteredPixelDungeon.scene().addToFront(new WndRanking(Rankings.INSTANCE.latestDailyReplay));
+					CalabozoPixeladoDominicano.scene().addToFront(new WndRanking(Rankings.INSTANCE.latestDailyReplay));
 				}
 
 				@Override
@@ -121,7 +121,7 @@ public class WndDailies extends Window {
 				IconButton latestInfo = new IconButton(Icons.INFO.get()){
 					@Override
 					protected void onClick() {
-						ShatteredPixelDungeon.scene().addToFront(new WndRanking(Rankings.INSTANCE.latestDaily));
+						CalabozoPixeladoDominicano.scene().addToFront(new WndRanking(Rankings.INSTANCE.latestDaily));
 					}
 				};
 				latestInfo.setRect(day.right()+2, top - 5, 16, 16);

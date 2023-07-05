@@ -25,7 +25,7 @@ import com.coz.calabozopixeladodominicano.Assets;
 import com.coz.calabozopixeladodominicano.Badges;
 import com.coz.calabozopixeladodominicano.Challenges;
 import com.coz.calabozopixeladodominicano.Dungeon;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.actors.Actor;
 import com.coz.calabozopixeladodominicano.actors.Char;
 import com.coz.calabozopixeladodominicano.actors.blobs.Blob;
@@ -382,7 +382,7 @@ public class CursedWand {
 						//Don't bother doing this joke to none-english speakers, I doubt it would translate.
 						return cursedEffect(origin, user, targetPos);
 					} else {
-						ShatteredPixelDungeon.runOnRenderThread(
+						CalabozoPixeladoDominicano.runOnRenderThread(
 								new Callback() {
 									@Override
 									public void call() {
@@ -411,7 +411,7 @@ public class CursedWand {
 						return false;
 					}
 				} catch(IOException e){
-					ShatteredPixelDungeon.reportException(e);
+					CalabozoPixeladoDominicano.reportException(e);
 					//maybe don't kill the game if the save failed.
 					return cursedEffect(origin, user, targetPos);
 				}

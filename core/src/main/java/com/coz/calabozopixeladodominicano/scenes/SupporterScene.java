@@ -22,7 +22,7 @@
 package com.coz.calabozopixeladodominicano.scenes;
 
 import com.coz.calabozopixeladodominicano.Chrome;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.messages.Languages;
 import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.coz.calabozopixeladodominicano.ui.Archs;
@@ -82,7 +82,7 @@ public class SupporterScene extends PixelScene {
 				link += "?utm_source=shatteredpd";
 				link += "&utm_medium=supporter_page";
 				link += "&utm_campaign=ingame_link";
-				ShatteredPixelDungeon.platform.openURI(link);
+				CalabozoPixeladoDominicano.platform.openURI(link);
 			}
 		};
 		link.icon(Icons.get(Icons.GOLD));
@@ -105,7 +105,7 @@ public class SupporterScene extends PixelScene {
 
 	@Override
 	protected void onBackPressed() {
-		ShatteredPixelDungeon.switchNoFade( TitleScene.class );
+		CalabozoPixeladoDominicano.switchNoFade( TitleScene.class );
 	}
 
 	private static class SupporterMessage extends Component {

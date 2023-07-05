@@ -28,7 +28,7 @@ import com.badlogic.gdx.backends.lwjgl3.Lwjgl3FileHandle;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Preferences;
 import com.badlogic.gdx.utils.SharedLibraryLoader;
 import com.coz.calabozopixeladodominicano.SPDSettings;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.services.news.News;
 import com.coz.calabozopixeladodominicano.services.news.NewsImpl;
 import com.coz.calabozopixeladodominicano.services.updates.UpdateImpl;
@@ -187,6 +187,6 @@ public class DesktopLauncher {
 		config.setWindowIcon("icons/icon_16.png", "icons/icon_32.png", "icons/icon_48.png",
 				"icons/icon_64.png", "icons/icon_128.png", "icons/icon_256.png");
 
-		new Lwjgl3Application(new ShatteredPixelDungeon(new DesktopPlatformSupport()), config);
+		new Lwjgl3Application(new CalabozoPixeladoDominicano(new DesktopPlatformSupport()), config);
 	}
 }

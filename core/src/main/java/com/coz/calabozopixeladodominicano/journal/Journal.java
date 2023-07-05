@@ -21,7 +21,7 @@
 
 package com.coz.calabozopixeladodominicano.journal;
 
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.FileUtils;
 
@@ -73,7 +73,7 @@ public class Journal {
 			FileUtils.bundleToFile( JOURNAL_FILE, bundle );
 			saveNeeded = false;
 		} catch (IOException e) {
-			ShatteredPixelDungeon.reportException(e);
+			CalabozoPixeladoDominicano.reportException(e);
 		}
 		
 	}

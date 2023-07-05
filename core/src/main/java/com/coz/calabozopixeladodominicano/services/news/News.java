@@ -24,7 +24,7 @@ package com.coz.calabozopixeladodominicano.services.news;
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.coz.calabozopixeladodominicano.SPDSettings;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.sprites.ItemSprite;
 import com.coz.calabozopixeladodominicano.ui.Icons;
 import com.watabou.noosa.Image;
@@ -116,7 +116,7 @@ public class News {
 
 		//if we run into any formatting errors (or icon is null), default to the news icon
 		} catch (Exception e){
-			if (article.icon != null) ShatteredPixelDungeon.reportException(e);
+			if (article.icon != null) CalabozoPixeladoDominicano.reportException(e);
 			return Icons.get(Icons.NEWS);
 		}
 	}

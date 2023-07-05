@@ -23,7 +23,7 @@ package com.coz.calabozopixeladodominicano.levels.traps;
 
 import com.coz.calabozopixeladodominicano.Assets;
 import com.coz.calabozopixeladodominicano.Dungeon;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.Statistics;
 import com.coz.calabozopixeladodominicano.actors.Actor;
 import com.coz.calabozopixeladodominicano.actors.Char;
@@ -91,7 +91,7 @@ public class PoisonDartTrap extends Trap {
 				if (target != null) {
 					final Char finalTarget = target;
 					if (Dungeon.level.heroFOV[pos] || Dungeon.level.heroFOV[target.pos]) {
-						((MissileSprite) ShatteredPixelDungeon.scene().recycle(MissileSprite.class)).
+						((MissileSprite) CalabozoPixeladoDominicano.scene().recycle(MissileSprite.class)).
 								reset(pos, finalTarget.sprite, new PoisonDart(), new Callback() {
 									@Override
 									public void call() {

@@ -21,7 +21,7 @@
 
 package com.coz.calabozopixeladodominicano.levels.rooms.standard;
 
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.actors.mobs.Mob;
 import com.coz.calabozopixeladodominicano.actors.mobs.npcs.Imp;
 import com.coz.calabozopixeladodominicano.actors.mobs.npcs.ImpShopkeeper;
@@ -86,7 +86,7 @@ public class ImpShopRoom extends ShopRoom {
 
 		Mob shopkeeper = new ImpShopkeeper();
 		shopkeeper.pos = pos;
-		if (ShatteredPixelDungeon.scene() instanceof GameScene) {
+		if (CalabozoPixeladoDominicano.scene() instanceof GameScene) {
 			GameScene.add(shopkeeper);
 		} else {
 			level.mobs.add(shopkeeper);

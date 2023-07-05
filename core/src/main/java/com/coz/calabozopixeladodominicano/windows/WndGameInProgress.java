@@ -23,7 +23,7 @@ package com.coz.calabozopixeladodominicano.windows;
 
 import com.coz.calabozopixeladodominicano.Dungeon;
 import com.coz.calabozopixeladodominicano.GamesInProgress;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.coz.calabozopixeladodominicano.scenes.InterlevelScene;
@@ -123,7 +123,7 @@ public class WndGameInProgress extends Window {
 				Dungeon.daily = Dungeon.dailyReplay = false;
 				ActionIndicator.clearAction();
 				InterlevelScene.mode = InterlevelScene.Mode.CONTINUE;
-				ShatteredPixelDungeon.switchScene(InterlevelScene.class);
+				CalabozoPixeladoDominicano.switchScene(InterlevelScene.class);
 			}
 		};
 		
@@ -132,7 +132,7 @@ public class WndGameInProgress extends Window {
 			protected void onClick() {
 				super.onClick();
 				
-				ShatteredPixelDungeon.scene().add(new WndOptions(Icons.get(Icons.WARNING),
+				CalabozoPixeladoDominicano.scene().add(new WndOptions(Icons.get(Icons.WARNING),
 						Messages.get(WndGameInProgress.class, "erase_warn_title"),
 						Messages.get(WndGameInProgress.class, "erase_warn_body"),
 						Messages.get(WndGameInProgress.class, "erase_warn_yes"),
@@ -141,7 +141,7 @@ public class WndGameInProgress extends Window {
 					protected void onSelect( int index ) {
 						if (index == 0) {
 							Dungeon.deleteGame(slot, true);
-							ShatteredPixelDungeon.switchNoFade(StartScene.class);
+							CalabozoPixeladoDominicano.switchNoFade(StartScene.class);
 						}
 					}
 				} );

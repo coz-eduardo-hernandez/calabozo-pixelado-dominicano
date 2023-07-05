@@ -27,7 +27,7 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.g2d.PixmapPacker;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.coz.calabozopixeladodominicano.SPDSettings;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.watabou.noosa.Game;
 import com.watabou.utils.PlatformSupport;
 
@@ -70,7 +70,7 @@ public class IOSPlatformSupport extends PlatformSupport {
 		int prevInset = Game.bottomInset;
 		updateDisplaySize();
 		if (prevInset != Game.bottomInset) {
-			ShatteredPixelDungeon.seamlessResetScene();
+			CalabozoPixeladoDominicano.seamlessResetScene();
 		}
 	}
 

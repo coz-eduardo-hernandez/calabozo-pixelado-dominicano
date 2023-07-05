@@ -27,7 +27,7 @@ import com.coz.calabozopixeladodominicano.Bones;
 import com.coz.calabozopixeladodominicano.Dungeon;
 import com.coz.calabozopixeladodominicano.GamesInProgress;
 import com.coz.calabozopixeladodominicano.SPDSettings;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.Statistics;
 import com.coz.calabozopixeladodominicano.actors.Actor;
 import com.coz.calabozopixeladodominicano.actors.Char;
@@ -59,7 +59,6 @@ import com.coz.calabozopixeladodominicano.actors.buffs.Paralysis;
 import com.coz.calabozopixeladodominicano.actors.buffs.PhysicalEmpower;
 import com.coz.calabozopixeladodominicano.actors.buffs.Recharging;
 import com.coz.calabozopixeladodominicano.actors.buffs.Regeneration;
-import com.coz.calabozopixeladodominicano.actors.buffs.SnipersMark;
 import com.coz.calabozopixeladodominicano.actors.buffs.Vertigo;
 import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
 import com.coz.calabozopixeladodominicano.actors.hero.abilities.duelist.Challenge;
@@ -107,7 +106,6 @@ import com.coz.calabozopixeladodominicano.items.potions.Potion;
 import com.coz.calabozopixeladodominicano.items.potions.PotionOfExperience;
 import com.coz.calabozopixeladodominicano.items.potions.PotionOfHealing;
 import com.coz.calabozopixeladodominicano.items.potions.elixirs.ElixirOfMight;
-import com.coz.calabozopixeladodominicano.items.potions.exotic.PotionOfDivineInspiration;
 import com.coz.calabozopixeladodominicano.items.quest.DarkGold;
 import com.coz.calabozopixeladodominicano.items.quest.Pickaxe;
 import com.coz.calabozopixeladodominicano.items.rings.RingOfAccuracy;
@@ -122,7 +120,6 @@ import com.coz.calabozopixeladodominicano.items.scrolls.ScrollOfMagicMapping;
 import com.coz.calabozopixeladodominicano.items.scrolls.exotic.ScrollOfChallenge;
 import com.coz.calabozopixeladodominicano.items.wands.Wand;
 import com.coz.calabozopixeladodominicano.items.wands.WandOfLivingEarth;
-import com.coz.calabozopixeladodominicano.items.weapon.SpiritBow;
 import com.coz.calabozopixeladodominicano.items.weapon.Weapon;
 import com.coz.calabozopixeladodominicano.items.weapon.melee.Flail;
 import com.coz.calabozopixeladodominicano.items.weapon.melee.MagesStaff;
@@ -958,7 +955,7 @@ public class Hero extends Char {
 			}
 
 			AlchemyScene.clearToolkit();
-			ShatteredPixelDungeon.switchScene(AlchemyScene.class);
+			CalabozoPixeladoDominicano.switchScene(AlchemyScene.class);
 			return false;
 
 		} else if (getCloser( dst )) {
@@ -1222,7 +1219,7 @@ public class Hero extends Char {
 			} else if (transition.type == LevelTransition.Type.REGULAR_ENTRANCE
 					&& Dungeon.depth == 25
 					//ascension challenge only works on runs started on v1.3+
-					&& Dungeon.initialVersion > ShatteredPixelDungeon.v1_2_3
+					&& Dungeon.initialVersion > CalabozoPixeladoDominicano.v1_2_3
 					&& belongings.getItem(Amulet.class) != null
 					&& buff(AscensionChallenge.class) == null) {
 

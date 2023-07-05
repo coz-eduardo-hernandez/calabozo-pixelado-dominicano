@@ -27,7 +27,7 @@ import com.badlogic.gdx.backends.iosrobovm.IOSApplicationConfiguration;
 import com.badlogic.gdx.backends.iosrobovm.IOSPreferences;
 import com.badlogic.gdx.graphics.glutils.HdpiMode;
 import com.coz.calabozopixeladodominicano.SPDSettings;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.services.news.News;
 import com.coz.calabozopixeladodominicano.services.news.NewsImpl;
 import com.coz.calabozopixeladodominicano.services.updates.UpdateImpl;
@@ -171,7 +171,7 @@ public class IOSLauncher extends IOSApplication.Delegate {
 		config.addIosDevice("IPAD_PRO_12.9_6G", "iPad14,5", 264);
 		config.addIosDevice("IPAD_PRO_12.9_6G", "iPad14,6", 264);
 
-		return new IOSApplication(new ShatteredPixelDungeon(new IOSPlatformSupport()), config);
+		return new IOSApplication(new CalabozoPixeladoDominicano(new IOSPlatformSupport()), config);
 	}
 
 	public static void main(String[] argv) {

@@ -24,7 +24,7 @@ package com.coz.calabozopixeladodominicano.scenes;
 import com.coz.calabozopixeladodominicano.Badges;
 import com.coz.calabozopixeladodominicano.Chrome;
 import com.coz.calabozopixeladodominicano.GamesInProgress;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.journal.Journal;
 import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.coz.calabozopixeladodominicano.ui.Archs;
@@ -115,7 +115,7 @@ public class StartScene extends PixelScene {
 	
 	@Override
 	protected void onBackPressed() {
-		ShatteredPixelDungeon.switchNoFade( TitleScene.class );
+		CalabozoPixeladoDominicano.switchNoFade( TitleScene.class );
 	}
 	
 	private static class SaveSlotButton extends Button {
@@ -272,9 +272,9 @@ public class StartScene extends PixelScene {
 			if (newGame) {
 				GamesInProgress.selectedClass = null;
 				GamesInProgress.curSlot = slot;
-				ShatteredPixelDungeon.switchScene(HeroSelectScene.class);
+				CalabozoPixeladoDominicano.switchScene(HeroSelectScene.class);
 			} else {
-				ShatteredPixelDungeon.scene().add( new WndGameInProgress(slot));
+				CalabozoPixeladoDominicano.scene().add( new WndGameInProgress(slot));
 			}
 		}
 	}

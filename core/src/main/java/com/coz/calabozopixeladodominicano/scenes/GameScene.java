@@ -29,7 +29,7 @@ import com.coz.calabozopixeladodominicano.Dungeon;
 import com.coz.calabozopixeladodominicano.GamesInProgress;
 import com.coz.calabozopixeladodominicano.Rankings;
 import com.coz.calabozopixeladodominicano.SPDSettings;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.Statistics;
 import com.coz.calabozopixeladodominicano.actors.Actor;
 import com.coz.calabozopixeladodominicano.actors.Char;
@@ -204,7 +204,7 @@ public class GameScene extends PixelScene {
 	public void create() {
 		
 		if (Dungeon.hero == null || Dungeon.level == null){
-			ShatteredPixelDungeon.switchNoFade(TitleScene.class);
+			CalabozoPixeladoDominicano.switchNoFade(TitleScene.class);
 			return;
 		}
 
@@ -631,7 +631,7 @@ public class GameScene extends PixelScene {
 			try {
 				actorThread.wait(msToWait);
 			} catch (InterruptedException e) {
-				ShatteredPixelDungeon.reportException(e);
+				CalabozoPixeladoDominicano.reportException(e);
 			}
 			return !Actor.processing();
 		}
@@ -644,7 +644,7 @@ public class GameScene extends PixelScene {
 			Badges.saveGlobal();
 			Journal.saveGlobal();
 		} catch (IOException e) {
-			ShatteredPixelDungeon.reportException(e);
+			CalabozoPixeladoDominicano.reportException(e);
 		}
 	}
 
@@ -1263,7 +1263,7 @@ public class GameScene extends PixelScene {
 			protected void onClick() {
 				GamesInProgress.selectedClass = Dungeon.hero.heroClass;
 				GamesInProgress.curSlot = GamesInProgress.firstEmpty();
-				ShatteredPixelDungeon.switchScene(HeroSelectScene.class);
+				CalabozoPixeladoDominicano.switchScene(HeroSelectScene.class);
 			}
 
 			@Override

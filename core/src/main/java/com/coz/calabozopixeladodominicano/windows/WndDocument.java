@@ -21,7 +21,7 @@
 
 package com.coz.calabozopixeladodominicano.windows;
 
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.journal.Document;
 import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.coz.calabozopixeladodominicano.ui.ScrollingListPane;
@@ -47,7 +47,7 @@ public class WndDocument extends Window {
 				@Override
 				public boolean onClick(float x, float y) {
 					if (inside( x, y ) && found) {
-						ShatteredPixelDungeon.scene().addToFront( new WndStory(
+						CalabozoPixeladoDominicano.scene().addToFront( new WndStory(
 								doc.pageSprite(page),
 								doc.pageTitle(page),
 								doc.pageBody(page) ));

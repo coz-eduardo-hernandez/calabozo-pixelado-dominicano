@@ -22,7 +22,7 @@
 package com.coz.calabozopixeladodominicano.actors.mobs.npcs;
 
 import com.coz.calabozopixeladodominicano.Dungeon;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.Statistics;
 import com.coz.calabozopixeladodominicano.actors.Char;
 import com.coz.calabozopixeladodominicano.actors.buffs.AscensionChallenge;
@@ -104,7 +104,7 @@ public class Shopkeeper extends NPC {
 		super.destroy();
 		for (Heap heap: Dungeon.level.heaps.valueList()) {
 			if (heap.type == Heap.Type.FOR_SALE) {
-				if (ShatteredPixelDungeon.scene() instanceof GameScene) {
+				if (CalabozoPixeladoDominicano.scene() instanceof GameScene) {
 					CellEmitter.get(heap.pos).burst(ElmoParticle.FACTORY, 4);
 				}
 				if (heap.size() == 1) {

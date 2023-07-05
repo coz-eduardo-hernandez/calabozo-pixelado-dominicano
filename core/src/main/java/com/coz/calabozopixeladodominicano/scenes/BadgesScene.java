@@ -23,7 +23,7 @@ package com.coz.calabozopixeladodominicano.scenes;
 
 import com.coz.calabozopixeladodominicano.Assets;
 import com.coz.calabozopixeladodominicano.Badges;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.coz.calabozopixeladodominicano.ui.Archs;
 import com.coz.calabozopixeladodominicano.ui.BadgesGrid;
@@ -88,7 +88,7 @@ public class BadgesScene extends PixelScene {
 
 	@Override
 	protected void onBackPressed() {
-		ShatteredPixelDungeon.switchNoFade( TitleScene.class );
+		CalabozoPixeladoDominicano.switchNoFade( TitleScene.class );
 	}
 
 }

@@ -25,7 +25,7 @@ import com.coz.calabozopixeladodominicano.Assets;
 import com.coz.calabozopixeladodominicano.Badges;
 import com.coz.calabozopixeladodominicano.Chrome;
 import com.coz.calabozopixeladodominicano.Dungeon;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.Statistics;
 import com.coz.calabozopixeladodominicano.actors.hero.Belongings;
 import com.coz.calabozopixeladodominicano.effects.Speck;
@@ -280,7 +280,7 @@ public class AlchemyScene extends PixelScene {
 			Badges.saveGlobal();
 			Journal.saveGlobal();
 		} catch (IOException e) {
-			ShatteredPixelDungeon.reportException(e);
+			CalabozoPixeladoDominicano.reportException(e);
 		}
 	}
 	
@@ -446,7 +446,7 @@ public class AlchemyScene extends PixelScene {
 			try {
 				Dungeon.saveAll();
 			} catch (IOException e) {
-				ShatteredPixelDungeon.reportException(e);
+				CalabozoPixeladoDominicano.reportException(e);
 			}
 			
 			synchronized (inputs) {
@@ -509,7 +509,7 @@ public class AlchemyScene extends PixelScene {
 			Badges.saveGlobal();
 			Journal.saveGlobal();
 		} catch (IOException e) {
-			ShatteredPixelDungeon.reportException(e);
+			CalabozoPixeladoDominicano.reportException(e);
 		}
 		super.destroy();
 	}

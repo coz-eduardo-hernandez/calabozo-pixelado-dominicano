@@ -38,7 +38,7 @@ import com.badlogic.gdx.backends.android.AsynchronousAndroidAudio;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeType;
 import com.badlogic.gdx.utils.GdxNativesLoader;
 import com.coz.calabozopixeladodominicano.SPDSettings;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.services.news.News;
 import com.coz.calabozopixeladodominicano.services.news.NewsImpl;
 import com.coz.calabozopixeladodominicano.services.updates.UpdateImpl;
@@ -130,7 +130,7 @@ public class AndroidLauncher extends AndroidApplication {
 
 		Button.longClick = ViewConfiguration.getLongPressTimeout()/1000f;
 		
-		initialize(new ShatteredPixelDungeon(support), config);
+		initialize(new CalabozoPixeladoDominicano(support), config);
 		
 	}
 

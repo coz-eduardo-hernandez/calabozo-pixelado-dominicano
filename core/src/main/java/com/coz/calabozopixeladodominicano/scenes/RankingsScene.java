@@ -24,7 +24,7 @@ package com.coz.calabozopixeladodominicano.scenes;
 import com.coz.calabozopixeladodominicano.Assets;
 import com.coz.calabozopixeladodominicano.Dungeon;
 import com.coz.calabozopixeladodominicano.Rankings;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.actors.hero.HeroClass;
 import com.coz.calabozopixeladodominicano.effects.Flare;
 import com.coz.calabozopixeladodominicano.messages.Messages;
@@ -147,7 +147,7 @@ public class RankingsScene extends PixelScene {
 			IconButton btnDailies = new IconButton(Icons.CALENDAR.get()) {
 				@Override
 				protected void onClick() {
-					ShatteredPixelDungeon.scene().addToFront(new WndDailies());
+					CalabozoPixeladoDominicano.scene().addToFront(new WndDailies());
 				}
 
 				@Override
@@ -177,7 +177,7 @@ public class RankingsScene extends PixelScene {
 
 	@Override
 	protected void onBackPressed() {
-		ShatteredPixelDungeon.switchNoFade(TitleScene.class);
+		CalabozoPixeladoDominicano.switchNoFade(TitleScene.class);
 	}
 	
 	public static class Record extends Button {

@@ -21,7 +21,7 @@
 
 package com.coz.calabozopixeladodominicano.ui;
 
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.coz.calabozopixeladodominicano.scenes.TitleScene;
 import com.coz.calabozopixeladodominicano.windows.WndKeyBindings;
@@ -42,7 +42,7 @@ public class ExitButton extends IconButton {
 		if (Game.scene() instanceof TitleScene) {
 			Game.instance.finish();
 		} else {
-			ShatteredPixelDungeon.switchNoFade( TitleScene.class );
+			CalabozoPixeladoDominicano.switchNoFade( TitleScene.class );
 		}
 	}
 

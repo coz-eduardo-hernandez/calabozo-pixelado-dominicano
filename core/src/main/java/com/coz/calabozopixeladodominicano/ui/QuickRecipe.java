@@ -22,7 +22,7 @@
 package com.coz.calabozopixeladodominicano.ui;
 
 import com.coz.calabozopixeladodominicano.Dungeon;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.items.ArcaneResin;
 import com.coz.calabozopixeladodominicano.items.Generator;
 import com.coz.calabozopixeladodominicano.items.Item;
@@ -112,7 +112,7 @@ public class QuickRecipe extends Component {
 
 				@Override
 				protected void onClick() {
-					ShatteredPixelDungeon.scene().addToFront(new WndInfoItem(in));
+					CalabozoPixeladoDominicano.scene().addToFront(new WndInfoItem(in));
 				}
 			};
 			
@@ -140,7 +140,7 @@ public class QuickRecipe extends Component {
 		}
 		if (hasInputs) {
 			arrow.icon.tint(1, 1, 0, 1);
-			if (!(ShatteredPixelDungeon.scene() instanceof AlchemyScene)) {
+			if (!(CalabozoPixeladoDominicano.scene() instanceof AlchemyScene)) {
 				arrow.enable(false);
 			}
 		} else {
@@ -153,7 +153,7 @@ public class QuickRecipe extends Component {
 		this.output = new ItemSlot(output){
 			@Override
 			protected void onClick() {
-				ShatteredPixelDungeon.scene().addToFront(new WndInfoItem(output));
+				CalabozoPixeladoDominicano.scene().addToFront(new WndInfoItem(output));
 			}
 		};
 		if (!hasInputs){
@@ -248,7 +248,7 @@ public class QuickRecipe extends Component {
 				}
 			}
 			
-			((AlchemyScene)ShatteredPixelDungeon.scene()).populate(ingredients, Dungeon.hero.belongings);
+			((AlchemyScene) CalabozoPixeladoDominicano.scene()).populate(ingredients, Dungeon.hero.belongings);
 		}
 		
 		public void hardlightText(int color ){

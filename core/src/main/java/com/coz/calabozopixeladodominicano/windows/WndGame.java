@@ -24,7 +24,7 @@ package com.coz.calabozopixeladodominicano.windows;
 import com.coz.calabozopixeladodominicano.Dungeon;
 import com.coz.calabozopixeladodominicano.GamesInProgress;
 import com.coz.calabozopixeladodominicano.SPDSettings;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.coz.calabozopixeladodominicano.scenes.GameScene;
 import com.coz.calabozopixeladodominicano.scenes.HeroSelectScene;
@@ -94,7 +94,7 @@ public class WndGame extends Window {
 				protected void onClick() {
 					GamesInProgress.selectedClass = Dungeon.hero.heroClass;
 					GamesInProgress.curSlot = GamesInProgress.firstEmpty();
-					ShatteredPixelDungeon.switchScene(HeroSelectScene.class);
+					CalabozoPixeladoDominicano.switchScene(HeroSelectScene.class);
 				}
 			} );
 			curBtn.icon(Icons.get(Icons.ENTER));
@@ -117,7 +117,7 @@ public class WndGame extends Window {
 				try {
 					Dungeon.saveAll();
 				} catch (IOException e) {
-					ShatteredPixelDungeon.reportException(e);
+					CalabozoPixeladoDominicano.reportException(e);
 				}
 				Game.switchScene(TitleScene.class);
 			}

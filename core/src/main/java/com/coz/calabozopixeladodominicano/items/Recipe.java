@@ -21,7 +21,7 @@
 
 package com.coz.calabozopixeladodominicano.items;
 
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.items.bombs.Bomb;
 import com.coz.calabozopixeladodominicano.items.food.Blandfruit;
 import com.coz.calabozopixeladodominicano.items.food.MeatPie;
@@ -154,7 +154,7 @@ public abstract class Recipe {
 				result.quantity(outQuantity);
 				return result;
 			} catch (Exception e) {
-				ShatteredPixelDungeon.reportException( e );
+				CalabozoPixeladoDominicano.reportException( e );
 				return null;
 			}
 		}

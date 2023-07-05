@@ -26,7 +26,7 @@ import com.coz.calabozopixeladodominicano.Chrome;
 import com.coz.calabozopixeladodominicano.Dungeon;
 import com.coz.calabozopixeladodominicano.GamesInProgress;
 import com.coz.calabozopixeladodominicano.SPDSettings;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.effects.BannerSprites;
 import com.coz.calabozopixeladodominicano.effects.Fireball;
 import com.coz.calabozopixeladodominicano.messages.Languages;
@@ -114,9 +114,9 @@ public class TitleScene extends PixelScene {
 				if (GamesInProgress.checkAll().size() == 0){
 					GamesInProgress.selectedClass = null;
 					GamesInProgress.curSlot = 1;
-					ShatteredPixelDungeon.switchScene(HeroSelectScene.class);
+					CalabozoPixeladoDominicano.switchScene(HeroSelectScene.class);
 				} else {
-					ShatteredPixelDungeon.switchNoFade( StartScene.class );
+					CalabozoPixeladoDominicano.switchNoFade( StartScene.class );
 				}
 			}
 			
@@ -126,7 +126,7 @@ public class TitleScene extends PixelScene {
 				if (DeviceCompat.isDebug()) {
 					GamesInProgress.selectedClass = null;
 					GamesInProgress.curSlot = 1;
-					ShatteredPixelDungeon.switchScene(HeroSelectScene.class);
+					CalabozoPixeladoDominicano.switchScene(HeroSelectScene.class);
 					return true;
 				}
 				return super.onLongClick();
@@ -142,7 +142,7 @@ public class TitleScene extends PixelScene {
 		StyledButton btnRankings = new StyledButton(GREY_TR,Messages.get(this, "rankings")){
 			@Override
 			protected void onClick() {
-				ShatteredPixelDungeon.switchNoFade( RankingsScene.class );
+				CalabozoPixeladoDominicano.switchNoFade( RankingsScene.class );
 			}
 		};
 		btnRankings.icon(Icons.get(Icons.RANKINGS));
@@ -152,7 +152,7 @@ public class TitleScene extends PixelScene {
 		StyledButton btnBadges = new StyledButton(GREY_TR, Messages.get(this, "badges")){
 			@Override
 			protected void onClick() {
-				ShatteredPixelDungeon.switchNoFade( BadgesScene.class );
+				CalabozoPixeladoDominicano.switchNoFade( BadgesScene.class );
 			}
 		};
 		btnBadges.icon(Icons.get(Icons.BADGES));
@@ -172,7 +172,7 @@ public class TitleScene extends PixelScene {
 		StyledButton btnAbout = new StyledButton(GREY_TR, Messages.get(this, "about")){
 			@Override
 			protected void onClick() {
-				ShatteredPixelDungeon.switchScene( AboutScene.class );
+				CalabozoPixeladoDominicano.switchScene( AboutScene.class );
 			}
 		};
 		btnAbout.icon(Icons.get(Icons.SHPX));
@@ -263,7 +263,7 @@ public class TitleScene extends PixelScene {
 		@Override
 		protected void onClick() {
 			super.onClick();
-			ShatteredPixelDungeon.switchNoFade( NewsScene.class );
+			CalabozoPixeladoDominicano.switchNoFade( NewsScene.class );
 		}
 	}
 
@@ -299,7 +299,7 @@ public class TitleScene extends PixelScene {
 			} else if (Updates.updateAvailable()){
 				AvailableUpdateData update = Updates.updateData();
 
-				ShatteredPixelDungeon.scene().addToFront( new WndOptions(
+				CalabozoPixeladoDominicano.scene().addToFront(new WndOptions(
 						Icons.get(Icons.CHANGES),
 						update.versionName == null ? Messages.get(this,"title") : Messages.get(this,"versioned_title", update.versionName),
 						update.desc == null ? Messages.get(this,"desc") : update.desc,
@@ -312,14 +312,14 @@ public class TitleScene extends PixelScene {
 							Updates.launchUpdate(Updates.updateData());
 						} else if (index == 1){
 							ChangesScene.changesSelected = 0;
-							ShatteredPixelDungeon.switchNoFade( ChangesScene.class );
+							CalabozoPixeladoDominicano.switchNoFade( ChangesScene.class );
 						}
 					}
 				});
 
 			} else {
 				ChangesScene.changesSelected = 0;
-				ShatteredPixelDungeon.switchNoFade( ChangesScene.class );
+				CalabozoPixeladoDominicano.switchNoFade( ChangesScene.class );
 			}
 		}
 
@@ -351,7 +351,7 @@ public class TitleScene extends PixelScene {
 			if (Messages.lang().status() == Languages.Status.UNFINISHED){
 				WndSettings.last_index = 4;
 			}
-			ShatteredPixelDungeon.scene().add(new WndSettings());
+			CalabozoPixeladoDominicano.scene().add(new WndSettings());
 		}
 	}
 
@@ -365,7 +365,7 @@ public class TitleScene extends PixelScene {
 
 		@Override
 		protected void onClick() {
-			ShatteredPixelDungeon.switchNoFade(SupporterScene.class);
+			CalabozoPixeladoDominicano.switchNoFade(SupporterScene.class);
 		}
 	}
 }

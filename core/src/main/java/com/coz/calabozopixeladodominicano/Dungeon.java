@@ -484,7 +484,7 @@ public class Dungeon {
 		try {
 			saveAll();
 		} catch (IOException e) {
-			ShatteredPixelDungeon.reportException(e);
+			CalabozoPixeladoDominicano.reportException(e);
 			/*This only catches IO errors. Yes, this means things can go wrong, and they can go wrong catastrophically.
 			But when they do the user will get a nice 'report this issue' dialogue, and I can fix the bug.*/
 		}
@@ -632,7 +632,7 @@ public class Dungeon {
 			
 		} catch (IOException e) {
 			GamesInProgress.setUnknown( save );
-			ShatteredPixelDungeon.reportException(e);
+			CalabozoPixeladoDominicano.reportException(e);
 		}
 	}
 	

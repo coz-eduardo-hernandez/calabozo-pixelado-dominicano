@@ -21,16 +21,8 @@
 
 package com.coz.calabozopixeladodominicano.items.keys;
 
-import com.coz.calabozopixeladodominicano.Dungeon;
-import com.coz.calabozopixeladodominicano.SPDSettings;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.sprites.ItemSpriteSheet;
-import com.coz.calabozopixeladodominicano.windows.WndSupportPrompt;
-import com.watabou.noosa.Game;
-import com.watabou.utils.Callback;
-
-import java.io.IOException;
 
 public class SkeletonKey extends Key {
 	
@@ -55,11 +47,11 @@ public class SkeletonKey extends Key {
 				Game.runOnRenderThread(new Callback() {
 					@Override
 					public void call() {
-						ShatteredPixelDungeon.scene().add(new WndSupportPrompt());
+						CalabozoPixeladoDominicano.scene().add(new WndSupportPrompt());
 					}
 				});
 			} catch (IOException e) {
-				ShatteredPixelDungeon.reportException(e);
+				CalabozoPixeladoDominicano.reportException(e);
 			}
 			
 		}*/

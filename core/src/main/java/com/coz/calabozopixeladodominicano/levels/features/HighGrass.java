@@ -22,7 +22,7 @@
 package com.coz.calabozopixeladodominicano.levels.features;
 
 import com.coz.calabozopixeladodominicano.Dungeon;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.actors.Actor;
 import com.coz.calabozopixeladodominicano.actors.Char;
 import com.coz.calabozopixeladodominicano.actors.buffs.Buff;
@@ -152,7 +152,7 @@ public class HighGrass {
 		
 		freezeTrample = false;
 		
-		if (ShatteredPixelDungeon.scene() instanceof GameScene) {
+		if (CalabozoPixeladoDominicano.scene() instanceof GameScene) {
 			GameScene.updateMap(pos);
 			
 			CellEmitter.get(pos).burst(LeafParticle.LEVEL_SPECIFIC, 4);

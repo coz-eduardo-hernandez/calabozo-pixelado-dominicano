@@ -22,7 +22,7 @@
 package com.coz.calabozopixeladodominicano.windows;
 
 import com.coz.calabozopixeladodominicano.Dungeon;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.items.Item;
 import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
 import com.coz.calabozopixeladodominicano.items.potions.Potion;
@@ -633,7 +633,7 @@ public class WndJournal extends WndTabbed {
 					@Override
 					public boolean onClick(float x, float y) {
 						if (inside( x, y ) && found) {
-							ShatteredPixelDungeon.scene().addToFront( new WndDocument( doc ));
+							CalabozoPixeladoDominicano.scene().addToFront( new WndDocument( doc ));
 							return true;
 						} else {
 							return false;

@@ -23,7 +23,7 @@ package com.coz.calabozopixeladodominicano.items.artifacts;
 
 import com.coz.calabozopixeladodominicano.Assets;
 import com.coz.calabozopixeladodominicano.Dungeon;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.actors.Actor;
 import com.coz.calabozopixeladodominicano.actors.Char;
 import com.coz.calabozopixeladodominicano.actors.blobs.CorrosiveGas;
@@ -224,7 +224,7 @@ public class DriedRose extends Artifact {
 	@Override
 	public String desc() {
 		if (!Ghost.Quest.completed()
-				&& (ShatteredPixelDungeon.scene() instanceof GameScene || ShatteredPixelDungeon.scene() instanceof AlchemyScene)){
+				&& (CalabozoPixeladoDominicano.scene() instanceof GameScene || CalabozoPixeladoDominicano.scene() instanceof AlchemyScene)){
 			return Messages.get(this, "desc_no_quest");
 		}
 		
@@ -278,7 +278,7 @@ public class DriedRose extends Artifact {
 					ghostID = 0;
 				}
 			} catch ( ClassCastException e ){
-				ShatteredPixelDungeon.reportException(e);
+				CalabozoPixeladoDominicano.reportException(e);
 				ghostID = 0;
 			}
 		}
@@ -797,7 +797,7 @@ public class DriedRose extends Artifact {
 						break;
 				}
 			}
-			if (ShatteredPixelDungeon.scene() instanceof GameScene) {
+			if (CalabozoPixeladoDominicano.scene() instanceof GameScene) {
 				Sample.INSTANCE.play( Assets.Sounds.GHOST );
 			}
 		}

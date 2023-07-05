@@ -22,7 +22,7 @@
 package com.coz.calabozopixeladodominicano.windows;
 
 import com.coz.calabozopixeladodominicano.SPDSettings;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.messages.Languages;
 import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.coz.calabozopixeladodominicano.scenes.PixelScene;
@@ -66,7 +66,7 @@ public class WndSupportPrompt extends Window {
 				link += "?utm_source=shatteredpd";
 				link += "&utm_medium=supporter_prompt";
 				link += "&utm_campaign=ingame_link";
-				ShatteredPixelDungeon.platform.openURI(link);
+				CalabozoPixeladoDominicano.platform.openURI(link);
 				SPDSettings.supportNagged(true);
 				WndSupportPrompt.super.hide();
 			}

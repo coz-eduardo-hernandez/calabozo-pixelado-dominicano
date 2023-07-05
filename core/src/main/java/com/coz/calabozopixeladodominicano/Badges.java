@@ -21,14 +21,8 @@
 
 package com.coz.calabozopixeladodominicano;
 
-import com.coz.calabozopixeladodominicano.actors.hero.HeroClass;
 import com.coz.calabozopixeladodominicano.items.Item;
 import com.coz.calabozopixeladodominicano.items.artifacts.Artifact;
-import com.coz.calabozopixeladodominicano.items.bags.MagicalHolster;
-import com.coz.calabozopixeladodominicano.items.bags.PotionBandolier;
-import com.coz.calabozopixeladodominicano.items.bags.ScrollHolder;
-import com.coz.calabozopixeladodominicano.items.bags.VelvetPouch;
-import com.coz.calabozopixeladodominicano.items.weapon.melee.MeleeWeapon;
 import com.coz.calabozopixeladodominicano.journal.Catalog;
 import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.coz.calabozopixeladodominicano.scenes.PixelScene;
@@ -43,7 +37,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.List;
 
 public class Badges {
@@ -247,7 +240,7 @@ public class Badges {
 					badges.add( Badge.valueOf( names[i] ) );
 				}
 			} catch (Exception e) {
-				ShatteredPixelDungeon.reportException(e);
+				CalabozoPixeladoDominicano.reportException(e);
 			}
 		}
 
@@ -302,7 +295,7 @@ public class Badges {
 				FileUtils.bundleToFile(BADGES_FILE, bundle);
 				saveNeeded = false;
 			} catch (IOException e) {
-				ShatteredPixelDungeon.reportException(e);
+				CalabozoPixeladoDominicano.reportException(e);
 			}
 		}
 	}

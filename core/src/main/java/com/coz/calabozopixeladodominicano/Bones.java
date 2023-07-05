@@ -71,7 +71,7 @@ public class Bones {
 		try {
 			FileUtils.bundleToFile( BONES_FILE, bundle );
 		} catch (IOException e) {
-			ShatteredPixelDungeon.reportException(e);
+			CalabozoPixeladoDominicano.reportException(e);
 		}
 	}
 
@@ -177,7 +177,7 @@ public class Bones {
 				try {
 					FileUtils.bundleToFile( BONES_FILE, emptyBones );
 				} catch (IOException e) {
-					ShatteredPixelDungeon.reportException(e);
+					CalabozoPixeladoDominicano.reportException(e);
 				}
 				depth = 0;
 

@@ -23,7 +23,7 @@ package com.coz.calabozopixeladodominicano.scenes;
 
 import com.coz.calabozopixeladodominicano.Chrome;
 import com.coz.calabozopixeladodominicano.SPDSettings;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.messages.Languages;
 import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.coz.calabozopixeladodominicano.services.news.News;
@@ -150,7 +150,7 @@ public class NewsScene extends PixelScene {
 				link += "?utm_source=shatteredpd";
 				link += "&utm_medium=news_page";
 				link += "&utm_campaign=ingame_link";
-				ShatteredPixelDungeon.platform.openURI(link);
+				CalabozoPixeladoDominicano.platform.openURI(link);
 			}
 		};
 		btnSite.icon(Icons.get(Icons.NEWS));
@@ -162,13 +162,13 @@ public class NewsScene extends PixelScene {
 
 	@Override
 	protected void onBackPressed() {
-		ShatteredPixelDungeon.switchNoFade( TitleScene.class );
+		CalabozoPixeladoDominicano.switchNoFade( TitleScene.class );
 	}
 
 	@Override
 	public void update() {
 		if (displayingNoArticles && News.articlesAvailable()){
-			ShatteredPixelDungeon.seamlessResetScene();
+			CalabozoPixeladoDominicano.seamlessResetScene();
 		}
 		super.update();
 	}
@@ -201,7 +201,7 @@ public class NewsScene extends PixelScene {
 								super.onClick();
 								SPDSettings.WiFi(false);
 								News.checkForNews();
-								ShatteredPixelDungeon.seamlessResetScene();
+								CalabozoPixeladoDominicano.seamlessResetScene();
 							}
 						};
 						add(button);
@@ -217,7 +217,7 @@ public class NewsScene extends PixelScene {
 							super.onClick();
 							SPDSettings.news(true);
 							News.checkForNews();
-							ShatteredPixelDungeon.seamlessResetScene();
+							CalabozoPixeladoDominicano.seamlessResetScene();
 						}
 					};
 					add(button);
@@ -304,7 +304,7 @@ public class NewsScene extends PixelScene {
 			if (article.date.getTime() > SPDSettings.newsLastRead()){
 				SPDSettings.newsLastRead(article.date.getTime());
 			}
-			ShatteredPixelDungeon.scene().addToFront(new WndArticle(article));
+			CalabozoPixeladoDominicano.scene().addToFront(new WndArticle(article));
 		}
 	}
 
@@ -322,7 +322,7 @@ public class NewsScene extends PixelScene {
 					link += "?utm_source=shatteredpd";
 					link += "&utm_medium=news_page";
 					link += "&utm_campaign=ingame_link";
-					ShatteredPixelDungeon.platform.openURI(link);
+					CalabozoPixeladoDominicano.platform.openURI(link);
 				}
 			};
 			link.setRect(0, height + 2, width, BTN_HEIGHT);

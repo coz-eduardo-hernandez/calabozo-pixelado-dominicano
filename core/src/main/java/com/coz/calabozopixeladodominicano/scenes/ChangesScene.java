@@ -23,7 +23,7 @@ package com.coz.calabozopixeladodominicano.scenes;
 
 import com.coz.calabozopixeladodominicano.Assets;
 import com.coz.calabozopixeladodominicano.Chrome;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.messages.Languages;
 import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.coz.calabozopixeladodominicano.sprites.CharSprite;
@@ -191,7 +191,7 @@ public class ChangesScene extends PixelScene {
 				super.onClick();
 				if (changesSelected != 6) {
 					changesSelected = 6;
-					ShatteredPixelDungeon.seamlessResetScene();
+					CalabozoPixeladoDominicano.seamlessResetScene();
 				}
 			}
 		};
@@ -230,7 +230,7 @@ public class ChangesScene extends PixelScene {
 	}
 
 	public static void showChangeInfo(Image icon, String title, String... messages){
-		Scene s = ShatteredPixelDungeon.scene();
+		Scene s = CalabozoPixeladoDominicano.scene();
 		if (s instanceof ChangesScene){
 			((ChangesScene) s).updateChangesText(icon, title, messages);
 			return;
@@ -244,7 +244,7 @@ public class ChangesScene extends PixelScene {
 	
 	@Override
 	protected void onBackPressed() {
-		ShatteredPixelDungeon.switchNoFade(TitleScene.class);
+		CalabozoPixeladoDominicano.switchNoFade(TitleScene.class);
 	}
 
 }

@@ -23,7 +23,7 @@ package com.coz.calabozopixeladodominicano.actors.hero;
 
 import com.coz.calabozopixeladodominicano.Dungeon;
 import com.coz.calabozopixeladodominicano.GamesInProgress;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.actors.Actor;
 import com.coz.calabozopixeladodominicano.actors.Char;
 import com.coz.calabozopixeladodominicano.actors.buffs.ArtifactRecharge;
@@ -33,7 +33,6 @@ import com.coz.calabozopixeladodominicano.actors.buffs.CounterBuff;
 import com.coz.calabozopixeladodominicano.actors.buffs.EnhancedRings;
 import com.coz.calabozopixeladodominicano.actors.buffs.FlavourBuff;
 import com.coz.calabozopixeladodominicano.actors.buffs.Haste;
-import com.coz.calabozopixeladodominicano.actors.buffs.HoldFast;
 import com.coz.calabozopixeladodominicano.actors.buffs.LostInventory;
 import com.coz.calabozopixeladodominicano.actors.buffs.PhysicalEmpower;
 import com.coz.calabozopixeladodominicano.actors.buffs.Recharging;
@@ -965,7 +964,7 @@ public enum Talent {
 					try {
 						hero.metamorphedTalents.put(Talent.valueOf(key), Talent.valueOf(value));
 					} catch (Exception e) {
-						ShatteredPixelDungeon.reportException(e);
+						CalabozoPixeladoDominicano.reportException(e);
 					}
 				}
 			}
@@ -990,7 +989,7 @@ public enum Talent {
 								tier.put(talent, Math.min(points, talent.maxPoints()));
 							}
 						} catch (Exception e) {
-							ShatteredPixelDungeon.reportException(e);
+							CalabozoPixeladoDominicano.reportException(e);
 						}
 					}
 				}

@@ -24,7 +24,7 @@ package com.coz.calabozopixeladodominicano.levels;
 import com.coz.calabozopixeladodominicano.Assets;
 import com.coz.calabozopixeladodominicano.Challenges;
 import com.coz.calabozopixeladodominicano.Dungeon;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.Statistics;
 import com.coz.calabozopixeladodominicano.actors.Actor;
 import com.coz.calabozopixeladodominicano.actors.Char;
@@ -49,7 +49,6 @@ import com.coz.calabozopixeladodominicano.actors.hero.abilities.huntress.SpiritH
 import com.coz.calabozopixeladodominicano.actors.mobs.Bestiary;
 import com.coz.calabozopixeladodominicano.actors.mobs.Mob;
 import com.coz.calabozopixeladodominicano.actors.mobs.Piranha;
-import com.coz.calabozopixeladodominicano.actors.mobs.YogFist;
 import com.coz.calabozopixeladodominicano.actors.mobs.npcs.Sheep;
 import com.coz.calabozopixeladodominicano.effects.particles.FlowParticle;
 import com.coz.calabozopixeladodominicano.effects.particles.WindParticle;
@@ -60,8 +59,6 @@ import com.coz.calabozopixeladodominicano.items.Stylus;
 import com.coz.calabozopixeladodominicano.items.Torch;
 import com.coz.calabozopixeladodominicano.items.artifacts.TalismanOfForesight;
 import com.coz.calabozopixeladodominicano.items.artifacts.TimekeepersHourglass;
-import com.coz.calabozopixeladodominicano.items.potions.PotionOfStrength;
-import com.coz.calabozopixeladodominicano.items.scrolls.ScrollOfUpgrade;
 import com.coz.calabozopixeladodominicano.items.stones.StoneOfEnchantment;
 import com.coz.calabozopixeladodominicano.items.stones.StoneOfIntuition;
 import com.coz.calabozopixeladodominicano.items.wands.WandOfRegrowth;
@@ -329,7 +326,7 @@ public abstract class Level implements Bundlable {
 		version = bundle.getInt( VERSION );
 		
 		//saves from before v1.2.3 are not supported
-		if (version < ShatteredPixelDungeon.v1_2_3){
+		if (version < CalabozoPixeladoDominicano.v1_2_3){
 			throw new RuntimeException("old save");
 		}
 
@@ -936,7 +933,7 @@ public abstract class Level implements Bundlable {
 			heap.drop(item);
 		}
 		
-		if (Dungeon.level != null && ShatteredPixelDungeon.scene() instanceof GameScene) {
+		if (Dungeon.level != null && CalabozoPixeladoDominicano.scene() instanceof GameScene) {
 			pressCell( cell );
 		}
 		

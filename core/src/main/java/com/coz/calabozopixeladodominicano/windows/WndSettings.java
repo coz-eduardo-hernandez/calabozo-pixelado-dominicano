@@ -24,7 +24,7 @@ package com.coz.calabozopixeladodominicano.windows;
 import com.coz.calabozopixeladodominicano.Assets;
 import com.coz.calabozopixeladodominicano.Chrome;
 import com.coz.calabozopixeladodominicano.SPDSettings;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.messages.Languages;
 import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.coz.calabozopixeladodominicano.scenes.GameScene;
@@ -203,7 +203,7 @@ public class WndSettings extends WndTabbed {
 	public void hide() {
 		super.hide();
 		//resets generators because there's no need to retain chars for languages not selected
-		ShatteredPixelDungeon.seamlessResetScene(new Game.SceneChangeCallback() {
+		CalabozoPixeladoDominicano.seamlessResetScene(new Game.SceneChangeCallback() {
 			@Override
 			public void beforeCreate() {
 				Game.platform.resetGenerators();
@@ -260,7 +260,7 @@ public class WndSettings extends WndTabbed {
 						super.onClick();
 						if (checked()) {
 							checked(!checked());
-							ShatteredPixelDungeon.scene().add(new WndOptions(Icons.get(Icons.DISPLAY),
+							CalabozoPixeladoDominicano.scene().add(new WndOptions(Icons.get(Icons.DISPLAY),
 									Messages.get(DisplayTab.class, "saver"),
 									Messages.get(DisplayTab.class, "saver_desc"),
 									Messages.get(DisplayTab.class, "okay"),
@@ -437,7 +437,7 @@ public class WndSettings extends WndTabbed {
 					@Override
 					protected void onChange() {
 						SPDSettings.interfaceSize(getSelectedValue());
-						ShatteredPixelDungeon.seamlessResetScene();
+						CalabozoPixeladoDominicano.seamlessResetScene();
 					}
 				};
 				optUIMode.setSelectedValue(SPDSettings.interfaceSize());
@@ -454,7 +454,7 @@ public class WndSettings extends WndTabbed {
 					protected void onChange() {
 						if (getSelectedValue() != SPDSettings.scale()) {
 							SPDSettings.scale(getSelectedValue());
-							ShatteredPixelDungeon.seamlessResetScene();
+							CalabozoPixeladoDominicano.seamlessResetScene();
 						}
 					}
 				};
@@ -466,7 +466,7 @@ public class WndSettings extends WndTabbed {
 				btnToolbarSettings = new RedButton(Messages.get(this, "toolbar_settings"), 9){
 					@Override
 					protected void onClick() {
-						ShatteredPixelDungeon.scene().addToFront(new Window(){
+						CalabozoPixeladoDominicano.scene().addToFront(new Window(){
 
 							RenderedTextBlock barDesc;
 							RedButton btnSplit; RedButton btnGrouped; RedButton btnCentered;
@@ -615,7 +615,7 @@ public class WndSettings extends WndTabbed {
 				@Override
 				protected void onClick() {
 					super.onClick();
-					ShatteredPixelDungeon.seamlessResetScene(new Game.SceneChangeCallback() {
+					CalabozoPixeladoDominicano.seamlessResetScene(new Game.SceneChangeCallback() {
 						@Override
 						public void beforeCreate() {
 							SPDSettings.systemFont(checked());
@@ -701,7 +701,7 @@ public class WndSettings extends WndTabbed {
 					@Override
 					protected void onClick() {
 						super.onClick();
-						ShatteredPixelDungeon.scene().addToFront(new WndKeyBindings(false));
+						CalabozoPixeladoDominicano.scene().addToFront(new WndKeyBindings(false));
 					}
 				};
 
@@ -713,7 +713,7 @@ public class WndSettings extends WndTabbed {
 					@Override
 					protected void onClick() {
 						super.onClick();
-						ShatteredPixelDungeon.scene().addToFront(new WndKeyBindings(true));
+						CalabozoPixeladoDominicano.scene().addToFront(new WndKeyBindings(true));
 					}
 				};
 
@@ -1107,7 +1107,7 @@ public class WndSettings extends WndTabbed {
 					protected void onClick() {
 						super.onClick();
 						Messages.setup(langs.get(langIndex));
-						ShatteredPixelDungeon.seamlessResetScene(new Game.SceneChangeCallback() {
+						CalabozoPixeladoDominicano.seamlessResetScene(new Game.SceneChangeCallback() {
 							@Override
 							public void beforeCreate() {
 								SPDSettings.language(langs.get(langIndex));
@@ -1219,7 +1219,7 @@ public class WndSettings extends WndTabbed {
 						credits.add(text);
 
 						credits.resize(w, (int) text.bottom() + 2);
-						ShatteredPixelDungeon.scene().addToFront(credits);
+						CalabozoPixeladoDominicano.scene().addToFront(credits);
 					}
 				};
 				add(btnCredits);

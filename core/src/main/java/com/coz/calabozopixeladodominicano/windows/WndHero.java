@@ -22,7 +22,7 @@
 package com.coz.calabozopixeladodominicano.windows;
 
 import com.coz.calabozopixeladodominicano.Dungeon;
-import com.coz.calabozopixeladodominicano.ShatteredPixelDungeon;
+import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.Statistics;
 import com.coz.calabozopixeladodominicano.actors.buffs.Buff;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
@@ -36,7 +36,6 @@ import com.coz.calabozopixeladodominicano.ui.IconButton;
 import com.coz.calabozopixeladodominicano.ui.Icons;
 import com.coz.calabozopixeladodominicano.ui.RenderedTextBlock;
 import com.coz.calabozopixeladodominicano.ui.ScrollPane;
-import com.coz.calabozopixeladodominicano.ui.StatusPane;
 import com.coz.calabozopixeladodominicano.ui.Window;
 import com.coz.calabozopixeladodominicano.utils.DungeonSeed;
 import com.watabou.noosa.Gizmo;
@@ -153,10 +152,10 @@ public class WndHero extends WndTabbed {
 				@Override
 				protected void onClick() {
 					super.onClick();
-					if (ShatteredPixelDungeon.scene() instanceof GameScene){
+					if (CalabozoPixeladoDominicano.scene() instanceof GameScene){
 						GameScene.show(new WndHeroInfo(hero.heroClass));
 					} else {
-						ShatteredPixelDungeon.scene().addToFront(new WndHeroInfo(hero.heroClass));
+						CalabozoPixeladoDominicano.scene().addToFront(new WndHeroInfo(hero.heroClass));
 					}
 				}
 
