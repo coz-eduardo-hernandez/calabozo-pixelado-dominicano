@@ -43,3 +43,60 @@ Para agregar una configuración de escritorio
 
 Selecciona la configuración deseada, y presiona el triángulo verde para compilar y correr el programa. También puedes escribir en la línea de comandos desde el directorio base del proyecto `./gradlew <configuración>
 
+## Estructura de archivos y directorios
+Este es un resumen de cómo estan organizados los archivos. Puede parecer mucho, pero después de entender la
+organización es fácil recordar dónde está todo
+
+El nivel superior del repositorio tiene los siguientes archivos:
+- AUTORES.md : resumen histórico del desarrollo
+- GRACIAS.md : personas que han asistido al desarrollo
+- LICENCIA.txt : traducción no official al español de la GPLv3
+- LICENSE.txt : GPLv3 en inglés
+- README.md : introducción multilenguaje a LEEME.es.md
+- build.gradle : guión de configuración de la construcción del programa
+- gradle.properties : guión de configuración del constructor
+- gradlew : guión de invocación de Gradle para POSIX
+- gradlew.bat : guión de invocación de Gradle para Windows
+- settings.gradle : guión de configuración de construcción global
+- .gitignore : especifica archivos ignorados por git
+
+El nivel superior tiene los siguientes directorios:
+- core/ : fuente del programa usado por todas las plataformas
+- SDP-classes/ : librería para juegos para Android
+- services/ : código para obtener actualizaciones desde internet
+- android/ : empaquetamiento para Android
+- ios/ : empaquetamiento para iOS
+- desktop/ : empaquetamiento para Linux, MacOS y Windows
+- docs/ : documentos para el público en general
+- docs_desarrollo : documentos para los desarrolladores
+
+Además según tu uso, puedes tener los siguientes directorios en el nivel superior:
+- .git/ : información del repositorio, si clonaste el código con git
+- .gradle/ : información que Gradle guarda al correr
+- gradle/ : el programa que corren los guiones de invocación para llamar a Gradle
+- .idea/ : información guardada por IntelliJ IDEA, en el que se basa Android Studio
+
+Dentro de cada directorio con archivos fuente pueden estar:
+- .gradle/ : igual que arriba, correspondiente al directorio
+- build.gradle : igual que arriba, correspondiente al directorio
+- src/ : archivos fuente
+- build/ : archivos temporales de compilación
+- libs/ : dependencias
+
+Algunos archivos y directorios son dependientes de la plataforma:
+- android/proguard-rules.pro : reglas para optimizar al programa final
+- desktop/macos-entitlements.plist : permisos requeridos en MacOS
+- desktop/notarize.sh : guión para automatizar la notarización por Apple
+- ios/assets/ : imágenes y música que acompañan al programa
+- ios/Info.plist : información acerca programa para el ecosistema de iOS
+- ios/robovm.xml : configuración de RoboVM
+- ios/robovm.properties : valores a reemplazar en la configuración de RoboVM
+
+Las fuentes principales del programa están en:
+- core/src/java/com/coz/calabozopixeladodominicano/ : código fuente
+- core/src/assets : imágenes y sonidos del programa
+- code/src/src_assets : fuentes de las imágenes y sonidos
+
+## Flujo y estructura del programa
+1. Primero se llama la función main() que está en desktop/ o android/ o ios/
+2. Todas estas funciones llaman a Game?
