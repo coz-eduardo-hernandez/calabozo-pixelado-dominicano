@@ -44,8 +44,8 @@ Para agregar una configuración de escritorio
 Selecciona la configuración deseada, y presiona el triángulo verde para compilar y correr el programa. También puedes escribir en la línea de comandos desde el directorio base del proyecto `./gradlew <configuración>`
 
 ## Estructura de archivos y directorios
-Este es un resumen de cómo estan organizados los archivos. Puede parecer mucho, pero después de entender la
-organización es fácil recordar dónde está todo
+Este es un resumen de cómo estan organizados los archivos. Aunque el resumen no tiene todos los archivos, puede
+parecer mucho, pero después de entender la organización es fácil recordar dónde está todo
 
 El nivel superior del repositorio tiene los siguientes archivos:
 - AUTORES.md : resumen histórico del desarrollo
@@ -67,8 +67,7 @@ El nivel superior tiene los siguientes directorios:
 - android/ : empaquetamiento para Android
 - ios/ : empaquetamiento para iOS
 - desktop/ : empaquetamiento para Linux, MacOS y Windows
-- docs/ : documentos para el público en general
-- docs_desarrollo : documentos para los desarrolladores
+- docs/ : documentación
 
 Además según tu uso, puedes tener los siguientes directorios en el nivel superior:
 - .git/ : información del repositorio, si clonaste el código con git
@@ -98,5 +97,50 @@ Las fuentes principales del programa están en:
 - code/src/src_assets : fuentes de las imágenes y sonidos
 
 ## Flujo y estructura del programa
-1. Primero se llama la función main() que está en desktop/ o android/ o ios/
-2. Todas estas funciones llaman a Game?
+El punto de entrada depende de la plataforma:
+- En Android el punto de inicio está en
+android/java/com/coz/calabozopixeladodominicano/android/AndroidLauncher.java en la función onCreate(), ya que el programa
+corre como una actividad de la clase android.app.Activity
+- En iOS inicia en ios/java/com/coz/calabozopixeladodominicano/ios/IOSLauncher.java en la función main()
+- En el escritorio inicia den escritorio, el inicio es
+desktop/java/coz/calabozopixeladodominicano/desktop/DesktopLauncher.java en la función main()
+
+El empaquetamientode cada plataforma configura el ambiente el resto del programa, como la máquina virtual de Java,
+la plataforma, los directorios y crea la ventana. Al final todas las plataformas crean una instancia de la clase
+CalabozoPixeladoDominicano, donde inicia realmente el juego
+
+En el programa depende de libGDX con LWJGL3; en todas las plataformas el ciclo del juego sigue el
+[ciclo de vida de libGDX](https://libgdx.com/wiki/app/the-life-cycle) donde las funciones se llaman en diferentes
+momentos:
+1. CalabozoPixeladoDominicano.create() al principio
+2. CalabozoPixeladoDominicano.resize() al principio y al cambiar el tamaño de la ventana
+3. CalabozoPixeladoDominicano.render() cada vez que se va a dibujar el programa. Procesa la lógica del juego
+4. CalabozoPixeladoDominicano.pause() cuando la aplicación se inactiva, deja de estar visible o termina
+5. CalabozoPixeladoDominicano.resume() cuando la aplicación se reactiva o vuelve a visibilizarse
+6. CalabozoPixeladoDominicano.dispose() al terminar
+
+render(), pause(), resume() y dispose() se heredan sin cambios desde la clase Game en
+SPD-classes/src/main/java/watabou/noosa/Game.java. CalabozoPixeladoDominicano tiene otras funciones no detalladas
+aquí
+
+render() llama a Game.step() -> Game.update() -> Scene.update(). Scene.update() localizado en
+SPD-classes/src/main/java/watabou/noosa/Scene.java. Scene.update() es heredado sin cambios desde la clase
+Group en SPD-classes/src/main/java/watabou/noosa/Group.java el cual llama update() en todos sus miembros
+
+El programa está dividido en escenas, y sólo existe una escene activa en todo momento. Estas escenas son clases
+derivadas de Scene. En CalabozoPixeladoDominicano.create() se apunta a la primera escena, y al llamar los métodos
+de la clase se usa la función heredada Group.add() para agregar miembros a la escena, que son instancias de la
+clase Gizmo en SPD-classes/src/main/java/watabou/noosa/Gizmo.java. La misma clase Group hereda de la clase Gizmo
+
+CalabozoPixeladoDominicano tiene otras funciones para manejar la escena, tales como switchScene() para cambiar la
+escena
+
+A partir de aquí se pueden crear clases derivadas de Gizmo, agregarse a la escena con Group.add(), usar sus
+propios constructores y se llamaran las funciones derivadas de Gizmo en sus respectivos momentos
+
+A final de cuentas, el juego inicia con la escena a la que se apunta en CalabozoPixeladoDominicano.create(), se
+agregan instancias derivadas de Gizmo con Scene.add(), y se procesa la lógica al llamar Gizmo.update() en los
+miembros de la escena a la que se apunta
+
+Para saber más de cómo funciona el juego, revisa el código de la escena que te interesa :)
+
