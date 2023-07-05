@@ -41,7 +41,7 @@ Para agregar una configuración de escritorio
 - Nombra la configuración como 'escritorio:depurar'
 - Presiona 'OK'
 
-Selecciona la configuración deseada, y presiona el triángulo verde para compilar y correr el programa. También puedes escribir en la línea de comandos desde el directorio base del proyecto `./gradlew <configuración>
+Selecciona la configuración deseada, y presiona el triángulo verde para compilar y correr el programa. También puedes escribir en la línea de comandos desde el directorio base del proyecto `./gradlew <configuración>`
 
 ## Estructura de archivos y directorios
 Este es un resumen de cómo estan organizados los archivos. Puede parecer mucho, pero después de entender la
