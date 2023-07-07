@@ -399,22 +399,9 @@ public enum Icons {
 			return 0;
 		}
 	}
-	
+
 	public static Image get( HeroClass cl ) {
-		switch (cl) {
-			case WARRIOR:
-				return get( Icons.WARRIOR );
-			case MAGE:
-				return get( Icons.MAGE );
-			case ROGUE:
-				return get( Icons.ROGUE );
-			case HUNTRESS:
-				return get( Icons.HUNTRESS );
-			case DUELIST:
-				return get( Icons.DUELIST );
-			default:
-				return null;
-		}
+		return get(cl.getIcon());
 	}
 
 	public static Image get(Level.Feeling feeling){

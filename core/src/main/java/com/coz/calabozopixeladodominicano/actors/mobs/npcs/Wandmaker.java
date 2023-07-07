@@ -148,20 +148,20 @@ public class Wandmaker extends NPC {
 
 			String msg1 = "";
 			String msg2 = "";
-			switch(Dungeon.hero.heroClass){
-				case WARRIOR:
+			switch(Dungeon.hero.heroClass.getName()){
+				case "warrior":
 					msg1 += Messages.get(this, "intro_warrior");
 					break;
-				case ROGUE:
+				case "rogue":
 					msg1 += Messages.get(this, "intro_rogue");
 					break;
-				case MAGE:
+				case "mage":
 					msg1 += Messages.get(this, "intro_mage", Messages.titleCase(Dungeon.hero.name()));
 					break;
-				case HUNTRESS:
+				case "huntress":
 					msg1 += Messages.get(this, "intro_huntress");
 					break;
-				case DUELIST:
+				case "duelist":
 					msg1 += Messages.get(this, "intro_duelist");
 					break;
 			}

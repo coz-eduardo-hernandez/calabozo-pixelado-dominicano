@@ -156,7 +156,7 @@ public class WndRanking extends WndTabbed {
 		public StatsTab() {
 			super();
 			
-			String heroClass = record.heroClass.name();
+			String heroClass = record.heroClass.getName();
 			if (Dungeon.hero != null){
 				heroClass = Dungeon.hero.className();
 			}

@@ -284,7 +284,7 @@ public class Hero extends Char {
 
 		super.storeInBundle( bundle );
 
-		bundle.put( CLASS, heroClass );
+		bundle.put( CLASS, heroClass);
 		bundle.put( ABILITY, armorAbility );
 	//	Talent.storeTalentsInBundle( bundle, this );
 		
@@ -311,7 +311,7 @@ public class Hero extends Char {
 
 		super.restoreFromBundle( bundle );
 
-		heroClass = bundle.getEnum( CLASS, HeroClass.class );
+		heroClass = (HeroClass)bundle.get( CLASS );
 		armorAbility = (ArmorAbility)bundle.get( ABILITY );
 		Talent.restoreTalentsFromBundle( bundle, this );
 		
@@ -330,7 +330,7 @@ public class Hero extends Char {
 		info.hp = bundle.getInt( Char.TAG_HP );
 		info.ht = bundle.getInt( Char.TAG_HT );
 		info.shld = bundle.getInt( Char.TAG_SHLD );
-		info.heroClass = bundle.getEnum( CLASS, HeroClass.class );
+		info.heroClass = (HeroClass) bundle.get( CLASS );
 		Belongings.preview( info, bundle );
 	}
 
@@ -1776,74 +1776,7 @@ public class Hero extends Char {
 					buff(ElixirOfMight.HTBoost.class).onLevelUp();
 				}
 
-				switch(this.heroClass){
-					case WARRIOR:
-						updateHT( 5, true );
-						if (lvl % 3 == 0) STR++;
-						switch(lvl - 1 % 4){
-							case 1:
-								attackSkill++;
-								break;
-							case 2:
-								defenseSkill++;
-								break;
-							case 3:
-							case 4:
-								attackSkill++;
-								defenseSkill++;
-								break;
-						}
-						break;
-					case DUELIST:
-						if ((lvl - 1) % 3 == 0){
-							updateHT( 4, true );
-						}
-						else updateHT( 3, true );
-						if (lvl % 4 == 0) STR++;
-						switch(lvl - 1 % 4){
-							case 4:
-								attackSkill++;
-							case 1:
-							case 2:
-							case 3:
-								attackSkill++;
-								break;
-						}
-						defenseSkill++;
-						break;
-					case HUNTRESS:
-						updateHT( 3, true );
-						if (lvl % 5 == 0) STR++;
-						attackSkill++;
-						if (lvl % 4 != 0) defenseSkill++;
-						break;
-					case ROGUE:
-						if ((lvl - 1) % 3 == 1){
-							updateHT( 3, true );
-						}
-						else updateHT( 4, true );
-						if (lvl % 4 == 0) STR++;
-						attackSkill++;
-						switch(lvl - 1 % 4){
-							case 4:
-								defenseSkill++;
-							case 1:
-							case 2:
-							case 3:
-								defenseSkill++;
-								break;
-						}
-						break;
-					case MAGE:
-						if ((lvl - 1) % 2 == 0){
-							updateHT( 3, true );
-						}
-						else updateHT( 2, true );
-						if (lvl % 7 == 0) STR++;
-						if (lvl - 1 % 2 == 0) attackSkill++;
-						if (lvl % 2 == 0) defenseSkill++;
-						break;
-				}
+				this.heroClass.levelUp(this);
 			} else {
 				Buff.prolong(this, Bless.class, Bless.DURATION);
 				this.exp = 0;

@@ -407,7 +407,7 @@ public class SurfaceScene extends PixelScene {
 		
 		public Avatar( HeroClass cl ) {
 			super( Assets.Sprites.AVATARS );
-			frame( new TextureFilm( texture, WIDTH, HEIGHT ).get( cl.ordinal() ) );
+			frame( new TextureFilm( texture, WIDTH, HEIGHT ).get( cl.getAvatar() ) );
 		}
 	}
 	

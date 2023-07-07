@@ -516,7 +516,7 @@ public enum Rankings {
 			customSeed  = bundle.getString( SEED );
 			daily       = bundle.getBoolean( DAILY );
 
-			heroClass	= bundle.getEnum( CLASS, HeroClass.class );
+			heroClass	= (HeroClass)bundle.get( CLASS );
 			armorTier	= bundle.getInt( TIER );
 			herolevel   = bundle.getInt( LEVEL );
 			depth       = bundle.getInt( DEPTH );

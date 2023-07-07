@@ -49,24 +49,7 @@ public class WndHeroInfo extends WndTabbed {
 
 	public WndHeroInfo( HeroClass cl ){
 
-		Image tabIcon;
-		switch (cl){
-			case WARRIOR: default:
-				tabIcon = new ItemSprite(ItemSpriteSheet.SEAL, null);
-				break;
-			case MAGE:
-				tabIcon = new ItemSprite(ItemSpriteSheet.MAGES_STAFF, null);
-				break;
-			case ROGUE:
-				tabIcon = new ItemSprite(ItemSpriteSheet.ARTIFACT_CLOAK, null);
-				break;
-			case HUNTRESS:
-				tabIcon = new ItemSprite(ItemSpriteSheet.SPIRIT_BOW, null);
-				break;
-			case DUELIST:
-				tabIcon = new ItemSprite(ItemSpriteSheet.RAPIER, null);
-				break;
-		}
+		Image tabIcon = new ItemSprite(cl.getItemSprite(),null);
 
 		int finalHeight = MIN_HEIGHT;
 
@@ -117,30 +100,30 @@ public class WndHeroInfo extends WndTabbed {
 				add(info[i]);
 			}
 
-			switch (cls){
-				case WARRIOR: default:
+			switch (cls.getName()){
+				case "warrior": default:
 					icons = new Image[]{ new ItemSprite(ItemSpriteSheet.SEAL),
 							new ItemSprite(ItemSpriteSheet.WORN_SHORTSWORD),
 							new ItemSprite(ItemSpriteSheet.SCROLL_ISAZ)};
 					break;
-				case MAGE:
+				case "mage":
 					icons = new Image[]{ new ItemSprite(ItemSpriteSheet.MAGES_STAFF),
 							new ItemSprite(ItemSpriteSheet.WAND_MAGIC_MISSILE),
 							new ItemSprite(ItemSpriteSheet.SCROLL_ISAZ)};
 					break;
-				case ROGUE:
+				case "rogue":
 					icons = new Image[]{ new ItemSprite(ItemSpriteSheet.ARTIFACT_CLOAK),
 							Icons.get(Icons.STAIRS),
 							new ItemSprite(ItemSpriteSheet.DAGGER),
 							new ItemSprite(ItemSpriteSheet.SCROLL_ISAZ)};
 					break;
-				case HUNTRESS:
+				case "huntress":
 					icons = new Image[]{ new ItemSprite(ItemSpriteSheet.SPIRIT_BOW),
 							new Image(Assets.Environment.TILES_SEWERS, 112, 96, 16, 16),
 							new ItemSprite(ItemSpriteSheet.GLOVES),
 							new ItemSprite(ItemSpriteSheet.SCROLL_ISAZ)};
 					break;
-				case DUELIST:
+				case "duelist":
 					icons = new Image[]{ new ItemSprite(ItemSpriteSheet.RAPIER),
 							new ItemSprite(ItemSpriteSheet.WAR_HAMMER),
 							new ItemSprite(ItemSpriteSheet.THROWING_SPIKE),

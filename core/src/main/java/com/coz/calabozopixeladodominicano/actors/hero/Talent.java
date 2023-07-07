@@ -345,30 +345,19 @@ public enum Talent {
 		this.icon = icon;
 		this.maxPoints = maxPoints;
 	}
-
+/*
 	public int icon(){
 		if (this == HEROIC_ENERGY){
 			if (Ratmogrify.useRatroicEnergy){
 				return 218;
 			}
 			HeroClass cls = Dungeon.hero != null ? Dungeon.hero.heroClass : GamesInProgress.selectedClass;
-			switch (cls){
-				case WARRIOR: default:
-					return 26;
-				case MAGE:
-					return 58;
-				case ROGUE:
-					return 90;
-				case HUNTRESS:
-					return 122;
-				case DUELIST:
-					return 154;
-			}
+			//return cls.getIcon();
 		} else {
 			return icon;
 		}
 	}
-
+*/
 	public int maxPoints(){
 		return maxPoints;
 	}
@@ -758,85 +747,32 @@ public enum Talent {
 			talents.add(new LinkedHashMap<>());
 		}
 
-		ArrayList<Talent> tierTalents = new ArrayList<>();
+		ArrayList<Talent> tierTalents = cls.getTier1Talents();
 
-		//tier 1
-		switch (cls){
-			case WARRIOR: default:
-				Collections.addAll(tierTalents, HEARTY_MEAL, VETERANS_INTUITION, TEST_SUBJECT, IRON_WILL);
-				break;
-			case MAGE:
-				Collections.addAll(tierTalents, EMPOWERING_MEAL, SCHOLARS_INTUITION, TESTED_HYPOTHESIS, BACKUP_BARRIER);
-				break;
-			case ROGUE:
-				Collections.addAll(tierTalents, CACHED_RATIONS, THIEFS_INTUITION, SUCKER_PUNCH, PROTECTIVE_SHADOWS);
-				break;
-			case HUNTRESS:
-				Collections.addAll(tierTalents, NATURES_BOUNTY, SURVIVALISTS_INTUITION, FOLLOWUP_STRIKE, NATURES_AID);
-				break;
-			case DUELIST:
-				Collections.addAll(tierTalents, STRENGTHENING_MEAL, ADVENTURERS_INTUITION, PATIENT_STRIKE, AGGRESSIVE_BARRIER);
-				break;
-		}
 		for (Talent talent : tierTalents){
 			if (replacements.containsKey(talent)){
 				talent = replacements.get(talent);
 			}
 			talents.get(0).put(talent, 0);
 		}
-		tierTalents.clear();
 
-		//tier 2
-		switch (cls){
-			case WARRIOR: default:
-				Collections.addAll(tierTalents, IRON_STOMACH, RESTORED_WILLPOWER, RUNIC_TRANSFERENCE, LETHAL_MOMENTUM, IMPROVISED_PROJECTILES);
-				break;
-			case MAGE:
-				Collections.addAll(tierTalents, ENERGIZING_MEAL, ENERGIZING_UPGRADE, WAND_PRESERVATION, ARCANE_VISION, SHIELD_BATTERY);
-				break;
-			case ROGUE:
-				Collections.addAll(tierTalents, MYSTICAL_MEAL, MYSTICAL_UPGRADE, WIDE_SEARCH, SILENT_STEPS, ROGUES_FORESIGHT);
-				break;
-			case HUNTRESS:
-				Collections.addAll(tierTalents, INVIGORATING_MEAL, RESTORED_NATURE, REJUVENATING_STEPS, HEIGHTENED_SENSES, DURABLE_PROJECTILES);
-				break;
-			case DUELIST:
-				Collections.addAll(tierTalents, FOCUSED_MEAL, RESTORED_AGILITY, WEAPON_RECHARGING, LETHAL_HASTE, SWIFT_EQUIP);
-				break;
-		}
+		tierTalents = cls.getTier2Talents();
+
 		for (Talent talent : tierTalents){
 			if (replacements.containsKey(talent)){
 				talent = replacements.get(talent);
 			}
 			talents.get(1).put(talent, 0);
 		}
-		tierTalents.clear();
 
-		//tier 3
-		switch (cls){
-			case WARRIOR: default:
-				Collections.addAll(tierTalents, HOLD_FAST, STRONGMAN);
-				break;
-			case MAGE:
-				Collections.addAll(tierTalents, EMPOWERING_SCROLLS, ALLY_WARP);
-				break;
-			case ROGUE:
-				Collections.addAll(tierTalents, ENHANCED_RINGS, LIGHT_CLOAK);
-				break;
-			case HUNTRESS:
-				Collections.addAll(tierTalents, POINT_BLANK, SEER_SHOT);
-				break;
-			case DUELIST:
-				Collections.addAll(tierTalents, PRECISE_ASSAULT, DEADLY_FOLLOWUP);
-				break;
-		}
+		tierTalents = cls.getTier3Talents();
+
 		for (Talent talent : tierTalents){
 			if (replacements.containsKey(talent)){
 				talent = replacements.get(talent);
 			}
 			talents.get(2).put(talent, 0);
 		}
-		tierTalents.clear();
 
 		//tier4
 		//TBD
