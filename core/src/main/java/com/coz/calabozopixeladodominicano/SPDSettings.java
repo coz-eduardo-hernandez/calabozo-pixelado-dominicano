@@ -220,13 +220,13 @@ public class SPDSettings extends GameSettings {
 		return getBoolean( KEY_INTRO, true );
 	}
 	
-	public static void lastClass( int value ) {
-		put( KEY_LAST_CLASS, value );
+	/*public static void lastClass( int value ) {
+		put(KEY_LAST_CLASS, value);
 	}
 	
 	public static int lastClass() {
-		return getInt( KEY_LAST_CLASS, 0, 0, 3 );
-	}
+		return getInt(KEY_LAST_CLASS, 0, 0, 3);
+	}*/
 	
 	public static void challenges( int value ) {
 		put( KEY_CHALLENGES, value );

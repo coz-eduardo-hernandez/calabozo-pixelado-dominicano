@@ -210,7 +210,7 @@ public class GameScene extends PixelScene {
 
 		Dungeon.level.playLevelMusic();
 
-		SPDSettings.lastClass(Dungeon.hero.heroClass.ordinal());
+		//SPDSettings.lastClass(Dungeon.hero.heroClass.getAvatar());
 		
 		super.create();
 		Camera.main.zoom( GameMath.gate(minZoom, defaultZoom + SPDSettings.zoom(), maxZoom));
