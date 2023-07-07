@@ -97,8 +97,8 @@ public class Dungeon {
 	//could all be their own separate numbers, but this allows iterating, much nicer for bundling/initializing.
 	public static enum LimitedDrops {
 		//limited world drops
-		STRENGTH_POTIONS,
-		UPGRADE_SCROLLS,
+		//STRENGTH_POTIONS,
+		//UPGRADE_SCROLLS,
 		ARCANE_STYLI,
 
 		//Health potion sources
