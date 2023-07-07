@@ -94,7 +94,7 @@ abstract public class ClassArmor extends Armor {
 		return user.armorAbility.targetedPos(user, dst);
 	}
 
-	public static ClassArmor upgrade (Hero owner, Armor armor ) {
+	/*public static ClassArmor upgrade (Hero owner, Armor armor ) {
 		
 		ClassArmor classArmor = null;
 		
@@ -132,7 +132,7 @@ abstract public class ClassArmor extends Armor {
 		classArmor.charge = 50;
 		
 		return classArmor;
-	}
+	}*/
 
 	private static final String ARMOR_TIER	= "armortier";
 	private static final String CHARGE	    = "charge";
