@@ -39,11 +39,66 @@ import com.watabou.utils.Point;
 
 import org.lwjgl.util.tinyfd.TinyFileDialogs;
 
+import java.awt.Desktop;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Locale;
 
-public class DesktopLauncher {
+public final class DesktopLauncher {
+
+	public final class BasePath {
+		private String path = "";
+		private Files.FileType fileType = null;
+
+		public BasePath(final String title){
+			//if I were implementing this from scratch I would use the full implementation title for saves
+			// (e.g. /.shatteredpixel/shatteredpixeldungeon), but we have too much existing save
+			// date to worry about transferring at this point.
+			String vendor = DesktopLauncher.class.getPackage().getImplementationTitle();
+			if (vendor == null) {
+				vendor = System.getProperty("Implementation-Title");
+			}
+			vendor = vendor.split("\\.")[1];
+
+			if (SharedLibraryLoader.isWindows) {
+				if (System.getProperties().getProperty("os.name").equals("Windows XP")) {
+					path = "Application Data/." + vendor + "/" + title + "/";
+				} else {
+					path = "AppData/Roaming/." + vendor + "/" + title + "/";
+				}
+				fileType = Files.FileType.External;
+			} else if (SharedLibraryLoader.isMac) {
+				path = "Library/Application Support/" + title + "/";
+				fileType = Files.FileType.External;
+			} else if (SharedLibraryLoader.isLinux) {
+				String XDGHome = System.getenv("XDG_DATA_HOME");
+				if (XDGHome == null) XDGHome = System.getProperty("user.home") + "/.local/share";
+
+				String titleLinux = title.toLowerCase(Locale.ROOT).replace(" ", "-");
+				path = XDGHome + "/." + vendor + "/" + titleLinux + "/";
+
+				fileType = Files.FileType.Absolute;
+			}
+		}
+
+		public String getPath(){
+			return path;
+		}
+
+		public Files.FileType getFileType(){
+			return fileType;
+		}
+	}
+
+	public final class Title{
+		public String getTitle(){
+			if (DesktopLauncher.class.getPackage().getSpecificationTitle() == null){
+				return System.getProperty("Specification-Title");
+			} else {
+				return DesktopLauncher.class.getPackage().getSpecificationTitle();
+			}
+		}
+	}
 
 	public static void main (String[] args) {
 
@@ -59,14 +114,10 @@ public class DesktopLauncher {
 			SharedLibraryLoader.isIos = false;
 			SharedLibraryLoader.is64Bit = System.getProperty("os.arch").contains("64") || System.getProperty("os.arch").startsWith("armv8");
 		}
-		
-		final String title;
-		if (DesktopLauncher.class.getPackage().getSpecificationTitle() == null){
-			title = System.getProperty("Specification-Title");
-		} else {
-			title = DesktopLauncher.class.getPackage().getSpecificationTitle();
-		}
-		
+
+		DesktopLauncher launcher = new DesktopLauncher();
+		Title title = launcher.new Title();
+
 		Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
 			@Override
 			public void uncaughtException(Thread thread, Throwable throwable) {
@@ -93,14 +144,14 @@ public class DesktopLauncher {
 				}
 
 				if (exceptionMsg.contains("Couldnt create window")){
-					TinyFileDialogs.tinyfd_messageBox(title + " Has Crashed!",
+					TinyFileDialogs.tinyfd_messageBox(title.getTitle() + " Has Crashed!",
 							title + " was not able to initialize its graphics display, sorry about that!\n\n" +
 									"This usually happens when your graphics card does not support OpenGL 2.0+, or has misconfigured graphics drivers.\n\n" +
 									"If you are certain the game should be working on your computer, feel free to " +
 									"fill a bug report at https://github.com/coz-eduardo-hernandez/calabozo-pixelado-dominicano/issues\n\n" +
 									"version: " + Game.version, "ok", "error", false);
 				} else {
-					TinyFileDialogs.tinyfd_messageBox(title + " Has Crashed!",
+					TinyFileDialogs.tinyfd_messageBox(title.getTitle() + " Has Crashed!",
 							title + " has run into an error it cannot recover from and has crashed, sorry about that!\n\n" +
 									"If you could, please fill a bug report at https://github" +
 									".com/coz-eduardo-hernandez/calabozo-pixelado-dominicano/issues\n\n" +
@@ -132,42 +183,14 @@ public class DesktopLauncher {
 		
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
 		
-		config.setTitle( title );
+		config.setTitle( title.getTitle() );
 
-		//if I were implementing this from scratch I would use the full implementation title for saves
-		// (e.g. /.shatteredpixel/shatteredpixeldungeon), but we have too much existing save
-		// date to worry about transferring at this point.
-		String vendor = DesktopLauncher.class.getPackage().getImplementationTitle();
-		if (vendor == null) {
-			vendor = System.getProperty("Implementation-Title");
-		}
-		vendor = vendor.split("\\.")[1];
+		BasePath basePath = launcher.new BasePath(title.getTitle());
 
-		String basePath = "";
-		Files.FileType baseFileType = null;
-		if (SharedLibraryLoader.isWindows) {
-			if (System.getProperties().getProperty("os.name").equals("Windows XP")) {
-				basePath = "Application Data/." + vendor + "/" + title + "/";
-			} else {
-				basePath = "AppData/Roaming/." + vendor + "/" + title + "/";
-			}
-			baseFileType = Files.FileType.External;
-		} else if (SharedLibraryLoader.isMac) {
-			basePath = "Library/Application Support/" + title + "/";
-			baseFileType = Files.FileType.External;
-		} else if (SharedLibraryLoader.isLinux) {
-			String XDGHome = System.getenv("XDG_DATA_HOME");
-			if (XDGHome == null) XDGHome = System.getProperty("user.home") + "/.local/share";
-
-			String titleLinux = title.toLowerCase(Locale.ROOT).replace(" ", "-");
-			basePath = XDGHome + "/." + vendor + "/" + titleLinux + "/";
-
-			baseFileType = Files.FileType.Absolute;
-		}
-
-		config.setPreferencesConfig( basePath, baseFileType );
-		SPDSettings.set( new Lwjgl3Preferences( new Lwjgl3FileHandle(basePath + SPDSettings.DEFAULT_PREFS_FILE, baseFileType) ));
-		FileUtils.setDefaultFileProperties( baseFileType, basePath );
+		config.setPreferencesConfig( basePath.getPath(), basePath.getFileType() );
+		SPDSettings.set( new Lwjgl3Preferences( new Lwjgl3FileHandle(basePath.getPath() + SPDSettings.DEFAULT_PREFS_FILE,
+				basePath.getFileType()) ));
+		FileUtils.setDefaultFileProperties( basePath.getFileType(), basePath.getPath() );
 		
 		config.setWindowSizeLimits( 720, 400, -1, -1 );
 		Point p = SPDSettings.windowResolution();
