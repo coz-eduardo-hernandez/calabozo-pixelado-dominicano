@@ -17,7 +17,7 @@ task debug(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
     ignoreExitValue = true
 
-    main = appMainClass
+    getMainClass().set(appMainClass)
     systemProperty 'Specification-Title', appName
     systemProperty 'Implementation-Title', appPackageName
     systemProperty 'Specification-Version', appVersionName + "-INDEV"
