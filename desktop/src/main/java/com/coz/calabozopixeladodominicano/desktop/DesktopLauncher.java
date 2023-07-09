@@ -44,13 +44,23 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Locale;
 
+/**
+ * Punto de entrada para abrir el juego en plataformas de escritorio
+ */
 public final class DesktopLauncher {
 
+	/**
+	 * Localización de los datos modificables (como las grabaciones) en el formato que usa libgdx
+	 */
 	public final class BasePath {
 		private String path = "";
 		private Files.FileType fileType = null;
 
-		public BasePath(final String title){
+		/**
+		 * Constructor de BasePath
+		 * @param spec_title título de especificación del JAR
+		 */
+		public BasePath(final String spec_title){
 			//if I were implementing this from scratch I would use the full implementation title for saves
 			// (e.g. /.shatteredpixel/shatteredpixeldungeon), but we have too much existing save
 			// date to worry about transferring at this point.
@@ -62,25 +72,24 @@ public final class DesktopLauncher {
 
 			if (SharedLibraryLoader.isWindows) {
 				if (System.getProperties().getProperty("os.name").equals("Windows XP")) {
-					path = "Application Data/." + vendor + "/" + title + "/";
+					path = "Application Data/." + vendor + "/" + spec_title + "/";
 				} else {
-					path = "AppData/Roaming/." + vendor + "/" + title + "/";
+					path = "AppData/Roaming/." + vendor + "/" + spec_title + "/";
 				}
 				fileType = Files.FileType.External;
 			} else if (SharedLibraryLoader.isMac) {
-				path = "Library/Application Support/" + title + "/";
+				path = "Library/Application Support/" + spec_title + "/";
 				fileType = Files.FileType.External;
 			} else if (SharedLibraryLoader.isLinux) {
 				String XDGHome = System.getenv("XDG_DATA_HOME");
 				if (XDGHome == null) XDGHome = System.getProperty("user.home") + "/.local/share";
 
-				String titleLinux = title.toLowerCase(Locale.ROOT).replace(" ", "-");
+				String titleLinux = spec_title.toLowerCase(Locale.ROOT).replace(" ", "-");
 				path = XDGHome + "/." + vendor + "/" + titleLinux + "/";
 
 				fileType = Files.FileType.Absolute;
 			}
 		}
-
 		public String getPath(){
 			return path;
 		}
@@ -90,8 +99,18 @@ public final class DesktopLauncher {
 		}
 	}
 
-	public final class Title{
-		public String getTitle(){
+	/**
+	 * Título de especificación generado incluso cuando no hay un manifiesto
+	 */
+	public final class SpecificationTitle{
+		/**
+		 * Obtiene el título de especificación del paquete
+		 * <p>
+		 * Si no está disponible el título de especificación desde el paquete, se toma de un propiedad especificada
+		 * por el sistema de construcción de la applicación
+		 * @return título de especificación
+		 */
+		public String getSpecTitle(){
 			if (DesktopLauncher.class.getPackage().getSpecificationTitle() == null){
 				return System.getProperty("Specification-Title");
 			} else {
@@ -116,7 +135,7 @@ public final class DesktopLauncher {
 		}
 
 		DesktopLauncher launcher = new DesktopLauncher();
-		Title title = launcher.new Title();
+		SpecificationTitle title = launcher.new SpecificationTitle();
 
 		Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
 			@Override
@@ -144,14 +163,14 @@ public final class DesktopLauncher {
 				}
 
 				if (exceptionMsg.contains("Couldnt create window")){
-					TinyFileDialogs.tinyfd_messageBox(title.getTitle() + " Has Crashed!",
+					TinyFileDialogs.tinyfd_messageBox(title.getSpecTitle() + " Has Crashed!",
 							title + " was not able to initialize its graphics display, sorry about that!\n\n" +
 									"This usually happens when your graphics card does not support OpenGL 2.0+, or has misconfigured graphics drivers.\n\n" +
 									"If you are certain the game should be working on your computer, feel free to " +
 									"fill a bug report at https://github.com/coz-eduardo-hernandez/calabozo-pixelado-dominicano/issues\n\n" +
 									"version: " + Game.version, "ok", "error", false);
 				} else {
-					TinyFileDialogs.tinyfd_messageBox(title.getTitle() + " Has Crashed!",
+					TinyFileDialogs.tinyfd_messageBox(title.getSpecTitle() + " Has Crashed!",
 							title + " has run into an error it cannot recover from and has crashed, sorry about that!\n\n" +
 									"If you could, please fill a bug report at https://github" +
 									".com/coz-eduardo-hernandez/calabozo-pixelado-dominicano/issues\n\n" +
@@ -183,9 +202,9 @@ public final class DesktopLauncher {
 		
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
 		
-		config.setTitle( title.getTitle() );
+		config.setTitle( title.getSpecTitle() );
 
-		BasePath basePath = launcher.new BasePath(title.getTitle());
+		BasePath basePath = launcher.new BasePath(title.getSpecTitle());
 
 		config.setPreferencesConfig( basePath.getPath(), basePath.getFileType() );
 		SPDSettings.set( new Lwjgl3Preferences( new Lwjgl3FileHandle(basePath.getPath() + SPDSettings.DEFAULT_PREFS_FILE,

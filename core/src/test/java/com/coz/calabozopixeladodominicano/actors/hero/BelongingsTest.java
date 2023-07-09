@@ -7,7 +7,7 @@ import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.desktop.DesktopLauncher;
-import com.coz.calabozopixeladodominicano.desktop.DesktopLauncher.Title;
+import com.coz.calabozopixeladodominicano.desktop.DesktopLauncher.SpecificationTitle;
 import com.coz.calabozopixeladodominicano.desktop.DesktopLauncher.BasePath;
 import com.coz.calabozopixeladodominicano.sprites.ItemSpriteSheet;
 import com.coz.calabozopixeladodominicano.desktop.DesktopPlatformSupport;
@@ -26,8 +26,8 @@ class BelongingsTest {
     void setUp () {
         Game.version = System.getProperty("Specification-Version");
         DesktopLauncher launcher = new DesktopLauncher();
-        Title title = launcher.new Title();
-        BasePath basePath = launcher.new BasePath(title.getTitle());
+        SpecificationTitle title = launcher.new SpecificationTitle();
+        BasePath basePath = launcher.new BasePath(title.getSpecTitle());
         FileUtils.setDefaultFileProperties( basePath.getFileType(), basePath.getPath() );
         Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
         CPD = new CalabozoPixeladoDominicano(new DesktopPlatformSupport());
