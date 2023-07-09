@@ -1072,7 +1072,7 @@ public abstract class Char extends Actor {
 
 	//similar to isImmune, but only factors in damage.
 	//Is used in AI decision-making
-	public boolean isInvulnerable( Class effect ){
+	public boolean isInvulnerable( Class<?> effect ){
 		return buff(Challenge.SpectatorFreeze.class) != null;
 	}
 

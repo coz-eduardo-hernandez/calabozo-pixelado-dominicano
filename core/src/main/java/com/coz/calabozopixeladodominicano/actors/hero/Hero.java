@@ -162,7 +162,6 @@ import com.coz.calabozopixeladodominicano.scenes.PixelScene;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
-import com.watabou.utils.Callback;
 import com.watabou.utils.GameMath;
 import com.watabou.utils.PathFinder;
 import com.watabou.utils.Point;
@@ -190,7 +189,7 @@ public class Hero extends Char {
 	
 	public HeroClass heroClass = HeroClass.ROGUE;
 	public ArmorAbility armorAbility = null;
-	public ArrayList<LinkedHashMap<Talent, Integer>> talents = new ArrayList<>();
+	public final ArrayList<LinkedHashMap<Talent, Integer>> talents = new ArrayList<>();
 	public LinkedHashMap<Talent, Talent> metamorphedTalents = new LinkedHashMap<>();
 	
 	public int attackSkill = 10;
@@ -209,7 +208,7 @@ public class Hero extends Char {
 	
 	public int STR;
 	
-	public float awareness;
+	//public float awareness;
 	
 	public int lvl = 1;
 	public int exp = 0;
@@ -220,7 +219,7 @@ public class Hero extends Char {
 
 	//This list is maintained so that some logic checks can be skipped
 	// for enemies we know we aren't seeing normally, resulting in better performance
-	public ArrayList<Mob> mindVisionEnemies = new ArrayList<>();
+	public final ArrayList<Mob> mindVisionEnemies = new ArrayList<>();
 
 	public Hero() {
 		super();
@@ -356,13 +355,13 @@ public class Hero extends Char {
 		Talent.onTalentUpgraded(this, talent);
 	}
 
-	public int talentPointsSpent(int tier){
+	/*public int talentPointsSpent(int tier){
 		int total = 0;
 		for (int i : talents.get(tier-1).values()){
 			total += i;
 		}
 		return total;
-	}
+	}*/
 
 	/*public int talentPointsAvailable(int tier){
 		if (lvl < (Talent.tierLevelThresholds[tier] - 1)
@@ -442,8 +441,8 @@ public class Hero extends Char {
 	public boolean shoot( Char enemy, MissileWeapon wep ) {
 
 		this.enemy = enemy;
-		boolean wasEnemy = enemy.alignment == Alignment.ENEMY
-				|| (enemy instanceof Mimic && enemy.alignment == Alignment.NEUTRAL);
+		/*boolean wasEnemy = enemy.alignment == Alignment.ENEMY
+				|| (enemy instanceof Mimic && enemy.alignment == Alignment.NEUTRAL);*/
 
 		//temporarily set the hero's weapon to the missile weapon being used
 		//TODO improve this!
@@ -456,9 +455,9 @@ public class Hero extends Char {
 			Buff.affect( this, Combo.class ).hit( enemy );
 		}
 */
-		if (hit && heroClass == HeroClass.DUELIST && wasEnemy){
+		/*if (hit && heroClass == HeroClass.DUELIST && wasEnemy){
 			Buff.affect( this, Sai.ComboStrikeTracker.class).addHit();
-		}
+		}*/
 
 		return hit;
 	}
@@ -922,12 +921,7 @@ public class Hero extends Char {
 			
 			Heap heap = Dungeon.level.heaps.get( dst );
 			if (heap != null && heap.type == Type.FOR_SALE && heap.size() == 1) {
-				Game.runOnRenderThread(new Callback() {
-					@Override
-					public void call() {
-						GameScene.show( new WndTradeItem( heap ) );
-					}
-				});
+				Game.runOnRenderThread(() -> GameScene.show( new WndTradeItem( heap ) ));
 			}
 
 			return false;
@@ -1142,38 +1136,35 @@ public class Hero extends Char {
 			path = null;
 			if ((Dungeon.level.map[action.dst] == Terrain.WALL || Dungeon.level.map[action.dst] == Terrain.WALL_DECO)
 				&& Dungeon.level.insideMap(action.dst)){
-				sprite.attack(action.dst, new Callback() {
-					@Override
-					public void call() {
+				sprite.attack(action.dst, () -> {
 
-						if (Dungeon.level.map[action.dst] == Terrain.WALL_DECO){
-							DarkGold gold = new DarkGold();
-							if (gold.doPickUp( Dungeon.hero )) {
-								GLog.i( Messages.capitalize(Messages.get(Dungeon.hero, "you_now_have", gold.name())) );
-							} else {
-								Dungeon.level.drop( gold, pos ).sprite.drop();
-							}
-							CellEmitter.center( action.dst ).burst( Speck.factory( Speck.STAR ), 7 );
-							Sample.INSTANCE.play( Assets.Sounds.EVOKE );
+					if (Dungeon.level.map[action.dst] == Terrain.WALL_DECO){
+						DarkGold gold = new DarkGold();
+						if (gold.doPickUp( Dungeon.hero )) {
+							GLog.i( Messages.capitalize(Messages.get(Dungeon.hero, "you_now_have", gold.name())) );
 						} else {
-							CellEmitter.get( action.dst ).burst( Speck.factory( Speck.ROCK ), 2 );
-							Sample.INSTANCE.play( Assets.Sounds.MINE );
+							Dungeon.level.drop( gold, pos ).sprite.drop();
 						}
-
-						PixelScene.shake(0.5f, 0.5f);
-
-						Level.set( action.dst, Terrain.EMPTY_DECO );
-						for (int i : PathFinder.NEIGHBOURS9) {
-							Dungeon.level.discoverable[action.dst + i] = true;
-						}
-						for (int i : PathFinder.NEIGHBOURS9) {
-							GameScene.updateMap( action.dst+i );
-						}
-
-						Dungeon.observe();
-
-						spendAndNext(TICK);
+						CellEmitter.center( action.dst ).burst( Speck.factory( Speck.STAR ), 7 );
+						Sample.INSTANCE.play( Assets.Sounds.EVOKE );
+					} else {
+						CellEmitter.get( action.dst ).burst( Speck.factory( Speck.ROCK ), 2 );
+						Sample.INSTANCE.play( Assets.Sounds.MINE );
 					}
+
+					PixelScene.shake(0.5f, 0.5f);
+
+					Level.set( action.dst, Terrain.EMPTY_DECO );
+					for (int i : PathFinder.NEIGHBOURS9) {
+						Dungeon.level.discoverable[action.dst + i] = true;
+					}
+					for (int i : PathFinder.NEIGHBOURS9) {
+						GameScene.updateMap( action.dst+i );
+					}
+
+					Dungeon.observe();
+
+					spendAndNext(TICK);
 				});
 			} else {
 				ready();
@@ -1201,12 +1192,7 @@ public class Hero extends Char {
 
 			if (transition.type == LevelTransition.Type.SURFACE){
 				if (belongings.getItem( Amulet.class ) == null) {
-					Game.runOnRenderThread(new Callback() {
-						@Override
-						public void call() {
-							GameScene.show( new WndMessage( Messages.get(Hero.this, "leave") ) );
-						}
-					});
+					Game.runOnRenderThread(() -> GameScene.show( new WndMessage( Messages.get(Hero.this, "leave") ) ));
 					ready();
 				} else {
 					Statistics.ascended = true;
@@ -1223,25 +1209,20 @@ public class Hero extends Char {
 					&& belongings.getItem(Amulet.class) != null
 					&& buff(AscensionChallenge.class) == null) {
 
-				Game.runOnRenderThread(new Callback() {
+				Game.runOnRenderThread(() -> GameScene.show(new WndOptions( new ItemSprite(ItemSpriteSheet.AMULET),
+						Messages.get(Amulet.class, "ascent_title"),
+						Messages.get(Amulet.class, "ascent_desc"),
+						Messages.get(Amulet.class, "ascent_yes"),
+						Messages.get(Amulet.class, "ascent_no")){
 					@Override
-					public void call() {
-						GameScene.show( new WndOptions( new ItemSprite(ItemSpriteSheet.AMULET),
-								Messages.get(Amulet.class, "ascent_title"),
-								Messages.get(Amulet.class, "ascent_desc"),
-								Messages.get(Amulet.class, "ascent_yes"),
-								Messages.get(Amulet.class, "ascent_no")){
-							@Override
-							protected void onSelect(int index) {
-								if (index == 0){
-									Buff.affect(Hero.this, AscensionChallenge.class);
-									Statistics.highestAscent = 25;
-									actTransition(action);
-								}
-							}
-						} );
+					protected void onSelect(int index) {
+						if (index == 0){
+							Buff.affect(Hero.this, AscensionChallenge.class);
+							Statistics.highestAscent = 25;
+							actTransition(action);
+						}
 					}
-				});
+				} ));
 				ready();
 
 			} else {
@@ -1529,9 +1510,9 @@ public class Hero extends Char {
 		return visibleEnemies.get(index % visibleEnemies.size());
 	}
 
-	public ArrayList<Mob> getVisibleEnemies(){
+	/*public ArrayList<Mob> getVisibleEnemies(){
 		return new ArrayList<>(visibleEnemies);
-	}
+	}*/
 	
 	private boolean walkingToVisibleTrapInFog = false;
 	
@@ -1683,16 +1664,11 @@ public class Hero extends Char {
 				(heap.type != Type.HEAP && heap.type != Type.FOR_SALE))) {
 
 			switch (heap.type) {
-			case HEAP:
-				curAction = new HeroAction.PickUp( cell );
-				break;
-			case FOR_SALE:
-				curAction = heap.size() == 1 && heap.peek().value() > 0 ?
-					new HeroAction.Buy( cell ) :
-					new HeroAction.PickUp( cell );
-				break;
-			default:
-				curAction = new HeroAction.OpenChest( cell );
+				case HEAP -> curAction = new HeroAction.PickUp(cell);
+				case FOR_SALE -> curAction = heap.size() == 1 && heap.peek().value() > 0 ?
+						new HeroAction.Buy(cell) :
+						new HeroAction.PickUp(cell);
+				default -> curAction = new HeroAction.OpenChest(cell);
 			}
 			
 		} else if (Dungeon.level.map[cell] == Terrain.LOCKED_DOOR || Dungeon.level.map[cell] == Terrain.CRYSTAL_DOOR || Dungeon.level.map[cell] == Terrain.LOCKED_EXIT) {
@@ -1708,7 +1684,7 @@ public class Hero extends Char {
 			curAction = new HeroAction.LvlTransition( cell );
 			
 		}  else {
-			
+
 			if (!Dungeon.level.visited[cell] && !Dungeon.level.mapped[cell]
 					&& Dungeon.level.traps.get(cell) != null && Dungeon.level.traps.get(cell).visible) {
 				walkingToVisibleTrapInFog = true;
@@ -1724,7 +1700,7 @@ public class Hero extends Char {
 		return true;
 	}
 	
-	public void earnExp( int exp, Class source ) {
+	public void earnExp( int exp, Class<?> source ) {
 
 		//xp granted by ascension challenge is only for on-exp gain effects
 		if (source != AscensionChallenge.class) {
@@ -1913,12 +1889,7 @@ public class Hero extends Char {
 				//this is needed because the actual creation of the window is delayed here
 				WndResurrect.instance = new Object();
 				Ankh finalAnkh = ankh;
-				Game.runOnRenderThread(new Callback() {
-					@Override
-					public void call() {
-						GameScene.show( new WndResurrect(finalAnkh) );
-					}
-				});
+				Game.runOnRenderThread(() -> GameScene.show( new WndResurrect(finalAnkh) ));
 
 				if (cause instanceof Hero.Doom) {
 					((Hero.Doom)cause).onDeath();
@@ -1993,12 +1964,9 @@ public class Hero extends Char {
 			}
 		}
 
-		Game.runOnRenderThread(new Callback() {
-			@Override
-			public void call() {
-				GameScene.gameOver();
-				Sample.INSTANCE.play( Assets.Sounds.DEATH );
-			}
+		Game.runOnRenderThread(() -> {
+			GameScene.gameOver();
+			Sample.INSTANCE.play( Assets.Sounds.DEATH );
 		});
 
 		if (cause instanceof Hero.Doom) {
@@ -2103,7 +2071,7 @@ public class Hero extends Char {
 		
 		if (curAction instanceof HeroAction.Unlock) {
 
-			int doorCell = ((HeroAction.Unlock)curAction).dst;
+			int doorCell = curAction.dst;
 			int door = Dungeon.level.map[doorCell];
 			
 			if (Dungeon.level.distance(pos, doorCell) <= 1) {
@@ -2132,7 +2100,7 @@ public class Hero extends Char {
 			
 		} else if (curAction instanceof HeroAction.OpenChest) {
 			
-			Heap heap = Dungeon.level.heaps.get( ((HeroAction.OpenChest)curAction).dst );
+			Heap heap = Dungeon.level.heaps.get( curAction.dst );
 			
 			if (Dungeon.level.distance(pos, heap.pos) <= 1){
 				boolean hasKey = true;
@@ -2159,7 +2127,7 @@ public class Hero extends Char {
 		}
 	}
 
-	@Override
+	/*@Override
 	public boolean isImmune(Class effect) {
 		if (effect == Burning.class
 				&& belongings.armor() != null
@@ -2167,10 +2135,10 @@ public class Hero extends Char {
 			return true;
 		}
 		return super.isImmune(effect);
-	}
+	}*/
 
 	@Override
-	public boolean isInvulnerable(Class effect) {
+	public boolean isInvulnerable(Class<?> effect) {
 		return super.isInvulnerable(effect) || buff(AnkhInvulnerability.class) != null;
 	}
 
@@ -2359,7 +2327,7 @@ public class Hero extends Char {
 			super.next();
 	}
 
-	public static interface Doom {
-		public void onDeath();
+	public interface Doom {
+		void onDeath();
 	}
 }
