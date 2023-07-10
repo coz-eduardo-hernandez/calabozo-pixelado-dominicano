@@ -31,6 +31,9 @@ import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.DeviceCompat;
 import com.watabou.utils.PlatformSupport;
 
+/**
+ * Programa común para todas las plataformas
+ */
 public class CalabozoPixeladoDominicano extends Game {
 
 	//variable constants for specific older versions of shattered, used for data conversion
@@ -41,10 +44,15 @@ public class CalabozoPixeladoDominicano extends Game {
 
 	public static final int v2_0_2  = 700;
 	public static final int v2_1_0  = 722;
-	
-	public CalabozoPixeladoDominicano (PlatformSupport platform ) {
-		super( sceneClass == null ? WelcomeScene.class : sceneClass, platform );
 
+	/**
+	 * Constructor de CPD
+	 * @param platform  plataforma donde está corriendo el programa (escritorio, iOS o Android)
+	 */
+	public CalabozoPixeladoDominicano (PlatformSupport platform ) {
+		//super( sceneClass == null ? WelcomeScene.class : sceneClass, platform );
+		super( WelcomeScene.class, platform );
+/*
 		//pre-v1.3.0
 		com.watabou.utils.Bundle.addAlias(
 				com.coz.calabozopixeladodominicano.actors.buffs.Bleeding.class,
@@ -61,7 +69,7 @@ public class CalabozoPixeladoDominicano extends Game {
 				"com.coz.calabozopixeladodominicano.items.weapon.curses.Exhausting" );
 		com.watabou.utils.Bundle.addAlias(
 				com.coz.calabozopixeladodominicano.items.weapon.curses.Explosive.class,
-				"com.coz.calabozopixeladodominicano.items.weapon.curses.Fragile" );
+				"com.coz.calabozopixeladodominicano.items.weapon.curses.Fragile" );*/
 	}
 	
 	@Override
