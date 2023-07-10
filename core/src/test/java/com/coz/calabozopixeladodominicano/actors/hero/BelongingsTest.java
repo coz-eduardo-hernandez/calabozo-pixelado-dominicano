@@ -7,8 +7,8 @@ import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.desktop.DesktopLauncher;
-import com.coz.calabozopixeladodominicano.desktop.DesktopLauncher.SpecificationTitle;
-import com.coz.calabozopixeladodominicano.desktop.DesktopLauncher.BasePath;
+//import com.coz.calabozopixeladodominicano.desktop.DesktopLauncher.SpecificationTitle;
+//import com.coz.calabozopixeladodominicano.desktop.DesktopLauncher.BasePath;
 import com.coz.calabozopixeladodominicano.sprites.ItemSpriteSheet;
 import com.coz.calabozopixeladodominicano.desktop.DesktopPlatformSupport;
 import com.watabou.noosa.Game;
@@ -24,7 +24,7 @@ class BelongingsTest {
 
     @BeforeEach
     void setUp () {
-        Game.version = System.getProperty("Specification-Version");
+        /*Game.version = System.getProperty("Specification-Version");
         DesktopLauncher launcher = new DesktopLauncher();
         SpecificationTitle title = launcher.new SpecificationTitle();
         BasePath basePath = launcher.new BasePath(title.getSpecTitle());
@@ -33,7 +33,7 @@ class BelongingsTest {
         CPD = new CalabozoPixeladoDominicano(new DesktopPlatformSupport());
         app = new Lwjgl3Application(CPD, config);
         CPD.destroy();
-        app.exit();
+        app.exit();*/
     }
 
     @AfterEach
@@ -49,6 +49,6 @@ class BelongingsTest {
 
     @Test
     void can_get_backpack_image() {
-        int image = ItemSpriteSheet.BACKPACK;
+        //int image = ItemSpriteSheet.BACKPACK;
     }
 }

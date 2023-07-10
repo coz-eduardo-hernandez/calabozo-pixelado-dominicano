@@ -52,7 +52,7 @@ public final class DesktopLauncher {
 	/**
 	 * Localización de los datos modificables (como las grabaciones) en el formato que usa libgdx
 	 */
-	public final class BasePath {
+	private final class BasePath {
 		private String path = "";
 		private Files.FileType fileType = null;
 
@@ -102,7 +102,7 @@ public final class DesktopLauncher {
 	/**
 	 * Título de especificación generado incluso cuando no hay un manifiesto
 	 */
-	public final class SpecificationTitle{
+	private final class SpecificationTitle{
 		/**
 		 * Obtiene el título de especificación del paquete
 		 * <p>
