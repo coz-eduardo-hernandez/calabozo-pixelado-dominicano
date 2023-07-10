@@ -180,7 +180,7 @@ public class Hero extends Char {
 	}
 	
 	public HeroClass heroClass = HeroClass.ROGUE;
-	public ArmorAbility armorAbility = null;
+	//public ArmorAbility armorAbility = null;
 	public final ArrayList<LinkedHashMap<Talent, Integer>> talents = new ArrayList<>();
 	public LinkedHashMap<Talent, Talent> metamorphedTalents = new LinkedHashMap<>();
 
@@ -284,7 +284,7 @@ public class Hero extends Char {
 		super.storeInBundle( bundle );
 
 		bundle.put( CLASS, heroClass);
-		bundle.put( ABILITY, armorAbility );
+	//	bundle.put( ABILITY, armorAbility );
 	//	Talent.storeTalentsInBundle( bundle, this );
 		
 		bundle.put( ATTACK, attackSkill );
@@ -311,7 +311,7 @@ public class Hero extends Char {
 		super.restoreFromBundle( bundle );
 
 		heroClass = (HeroClass)bundle.get( CLASS );
-		armorAbility = (ArmorAbility)bundle.get( ABILITY );
+	//	armorAbility = (ArmorAbility)bundle.get( ABILITY );
 		Talent.restoreTalentsFromBundle( bundle, this );
 		
 		attackSkill = bundle.getInt( ATTACK );
