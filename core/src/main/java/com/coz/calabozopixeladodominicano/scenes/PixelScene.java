@@ -26,8 +26,6 @@ import com.coz.calabozopixeladodominicano.Assets;
 import com.coz.calabozopixeladodominicano.Badges;
 import com.coz.calabozopixeladodominicano.SPDSettings;
 import com.coz.calabozopixeladodominicano.effects.BadgeBanner;
-import com.coz.calabozopixeladodominicano.messages.Languages;
-import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.coz.calabozopixeladodominicano.ui.RenderedTextBlock;
 import com.coz.calabozopixeladodominicano.ui.Tooltip;
 import com.coz.calabozopixeladodominicano.ui.Window;
