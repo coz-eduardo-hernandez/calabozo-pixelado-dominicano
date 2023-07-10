@@ -152,7 +152,7 @@ import com.coz.calabozopixeladodominicano.ui.BuffIndicator;
 import com.coz.calabozopixeladodominicano.ui.QuickSlotButton;
 import com.coz.calabozopixeladodominicano.ui.StatusPane;
 import com.coz.calabozopixeladodominicano.utils.GLog;
-import com.coz.calabozopixeladodominicano.windows.WndHero;
+//import com.coz.calabozopixeladodominicano.windows.WndHero;
 import com.coz.calabozopixeladodominicano.windows.WndMessage;
 import com.coz.calabozopixeladodominicano.windows.WndOptions;
 import com.coz.calabozopixeladodominicano.windows.WndResurrect;
@@ -1775,7 +1775,7 @@ public class Hero extends Char {
 					GLog.newLine();
 					GLog.p( Messages.get(this, "new_talent") );
 					StatusPane.talentBlink = 10f;
-					WndHero.lastIdx = 1;
+					//WndHero.lastIdx = 1;
 				}
 			}
 			
