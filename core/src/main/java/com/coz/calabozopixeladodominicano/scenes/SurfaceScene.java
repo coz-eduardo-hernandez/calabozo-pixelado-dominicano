@@ -81,9 +81,9 @@ public class SurfaceScene extends PixelScene {
 
 	private Camera viewport;
 	@Override
-	public void create() {
+	public void build () {
 		
-		super.create();
+		super.build();
 
 		Music.INSTANCE.playTracks(
 				new String[]{Assets.Music.THEME_2, Assets.Music.THEME_1},

@@ -82,8 +82,8 @@ public class HeroSelectScene extends PixelScene {
 	private IconButton btnExit;
 
 	@Override
-	public void create() {
-		super.create();
+	public void build () {
+		super.build();
 
 		Dungeon.hero = null;
 

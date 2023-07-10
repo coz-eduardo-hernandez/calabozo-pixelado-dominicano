@@ -60,8 +60,8 @@ public class AmuletScene extends PixelScene {
 	StyledButton btnStay = null;
 	
 	@Override
-	public void create() {
-		super.create();
+	public void build () {
+		super.build();
 		
 		RenderedTextBlock text = null;
 		if (!noText) {

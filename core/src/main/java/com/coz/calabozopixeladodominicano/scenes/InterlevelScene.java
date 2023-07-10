@@ -102,8 +102,8 @@ public class InterlevelScene extends PixelScene {
 	}
 	
 	@Override
-	public void create() {
-		super.create();
+	public void build () {
+		super.build();
 		
 		String loadingAsset;
 		int loadingDepth;

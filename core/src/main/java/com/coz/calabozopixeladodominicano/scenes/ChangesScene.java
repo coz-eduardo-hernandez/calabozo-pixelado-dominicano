@@ -55,8 +55,8 @@ public class ChangesScene extends PixelScene {
 	private RenderedTextBlock changeBody;
 	
 	@Override
-	public void create() {
-		super.create();
+	public void build () {
+		super.build();
 
 		Music.INSTANCE.playTracks(
 				new String[]{Assets.Music.THEME_1, Assets.Music.THEME_2},

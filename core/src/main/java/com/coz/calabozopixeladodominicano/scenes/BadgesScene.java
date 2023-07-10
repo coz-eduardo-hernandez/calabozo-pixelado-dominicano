@@ -36,9 +36,9 @@ import com.watabou.noosa.audio.Music;
 public class BadgesScene extends PixelScene {
 
 	@Override
-	public void create() {
+	public void build () {
 
-		super.create();
+		super.build();
 
 		Music.INSTANCE.playTracks(
 				new String[]{Assets.Music.THEME_1, Assets.Music.THEME_2},

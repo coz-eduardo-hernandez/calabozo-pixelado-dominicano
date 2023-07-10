@@ -57,9 +57,9 @@ public class RankingsScene extends PixelScene {
 	private Archs archs;
 
 	@Override
-	public void create() {
+	public void build () {
 		
-		super.create();
+		super.build();
 
 		Music.INSTANCE.playTracks(
 				new String[]{Assets.Music.THEME_1, Assets.Music.THEME_2},

@@ -56,9 +56,9 @@ import java.util.Date;
 public class TitleScene extends PixelScene {
 	
 	@Override
-	public void create() {
+	public void build () {
 		
-		super.create();
+		super.build();
 
 		Music.INSTANCE.playTracks(
 				new String[]{Assets.Music.THEME_1, Assets.Music.THEME_2},

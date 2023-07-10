@@ -89,9 +89,9 @@ abstract public class PixelScene extends Scene {
 	private Signal.Listener<KeyEvent> fullscreenListener;
 
 	@Override
-	public void create() {
+	public void build () {
 
-		super.create();
+		super.build();
 
 		GameScene.scene = null;
 

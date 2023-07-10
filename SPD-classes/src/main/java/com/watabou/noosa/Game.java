@@ -225,7 +225,7 @@ public class Game implements ApplicationListener {
 		instance.requestedReset = true;
 		instance.onChange = callback;
 	}
-	
+
 	public static Scene scene() {
 		return instance.scene;
 	}
@@ -248,11 +248,11 @@ public class Game implements ApplicationListener {
 	protected void draw() {
 		if (scene != null) scene.draw();
 	}
-	
+
 	protected void switchScene() {
 
 		Camera.reset();
-		
+
 		if (scene != null) {
 			scene.destroy();
 		}
@@ -260,10 +260,10 @@ public class Game implements ApplicationListener {
 		Vertexbuffer.clear();
 		scene = requestedScene;
 		if (onChange != null) onChange.beforeCreate();
-		scene.create();
+		scene.build();
 		if (onChange != null) onChange.afterCreate();
 		onChange = null;
-		
+
 		Game.elapsed = 0f;
 		Game.timeScale = 1f;
 		Game.timeTotal = 0f;

@@ -54,8 +54,8 @@ public class NewsScene extends PixelScene {
 	private static final int BTN_WIDTH = 100;
 
 	@Override
-	public void create() {
-		super.create();
+	public void build () {
+		super.build();
 
 		uiCamera.visible = false;
 

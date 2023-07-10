@@ -47,8 +47,8 @@ public class StartScene extends PixelScene {
 	private static final int SLOT_HEIGHT = 30;
 	
 	@Override
-	public void create() {
-		super.create();
+	public void build () {
+		super.build();
 		
 		Badges.loadGlobal();
 		Journal.loadGlobal();

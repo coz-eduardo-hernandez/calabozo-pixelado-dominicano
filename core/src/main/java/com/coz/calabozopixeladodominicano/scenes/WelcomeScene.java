@@ -59,8 +59,8 @@ public class WelcomeScene extends PixelScene {
 	private static boolean triedCleaningTemp = false;
 
 	@Override
-	public void create() {
-		super.create();
+	public void build () {
+		super.build();
 
 		final int previousVersion = SPDSettings.version();
 

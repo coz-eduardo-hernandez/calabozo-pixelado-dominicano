@@ -39,8 +39,8 @@ import com.watabou.noosa.ui.Component;
 public class AboutScene extends PixelScene {
 
 	@Override
-	public void create() {
-		super.create();
+	public void build () {
+		super.build();
 
 		final float colWidth = 120;
 		final float fullWidth = colWidth * (landscape() ? 2 : 1);

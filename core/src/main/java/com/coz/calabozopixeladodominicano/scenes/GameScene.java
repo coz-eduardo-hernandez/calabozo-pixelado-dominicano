@@ -201,7 +201,7 @@ public class GameScene extends PixelScene {
 	}
 	
 	@Override
-	public void create() {
+	public void build () {
 		
 		if (Dungeon.hero == null || Dungeon.level == null){
 			CalabozoPixeladoDominicano.switchNoFade(TitleScene.class);
@@ -212,7 +212,7 @@ public class GameScene extends PixelScene {
 
 		//SPDSettings.lastClass(Dungeon.hero.heroClass.getAvatar());
 		
-		super.create();
+		super.build();
 		Camera.main.zoom( GameMath.gate(minZoom, defaultZoom + SPDSettings.zoom(), maxZoom));
 		Camera.main.edgeScroll.set(1);
 

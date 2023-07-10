@@ -30,7 +30,7 @@ abstract public class Scene extends Group {
 	
 	private Signal.Listener<KeyEvent> keyListener;
 	
-	public void create() {
+	public void build () {
 		KeyEvent.addKeyListener( keyListener = new Signal.Listener<KeyEvent>() {
 			@Override
 			public boolean onSignal( KeyEvent event ) {

@@ -91,8 +91,8 @@ public class AlchemyScene extends PixelScene {
 	}
 	
 	@Override
-	public void create() {
-		super.create();
+	public void build () {
+		super.build();
 		
 		water = new SkinnedBlock(
 				Camera.main.width, Camera.main.height,

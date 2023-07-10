@@ -42,8 +42,8 @@ public class SupporterScene extends PixelScene {
 	private static final int GAP = 2;
 
 	@Override
-	public void create() {
-		super.create();
+	public void build () {
+		super.build();
 
 		uiCamera.visible = false;
 
