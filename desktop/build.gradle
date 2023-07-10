@@ -16,6 +16,7 @@ def osName = System.getProperty('os.name').toLowerCase(Locale.ROOT)
 task debug(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
     ignoreExitValue = true
+    enableAssertions = true
 
     getMainClass().set(appMainClass)
     systemProperty 'Specification-Title', appName
