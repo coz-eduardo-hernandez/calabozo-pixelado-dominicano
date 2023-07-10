@@ -179,7 +179,7 @@ public class Hero extends Char {
 		alignment = Alignment.ALLY;
 	}
 	
-	public static final int MAX_LEVEL = 30;
+	private final int MAX_LEVEL = 30;
 
 	public static final int STARTING_STR = 10;
 	
@@ -331,6 +331,10 @@ public class Hero extends Char {
 		info.shld = bundle.getInt( Char.TAG_SHLD );
 		info.heroClass = (HeroClass) bundle.get( CLASS );
 		Belongings.preview( info, bundle );
+	}
+
+	public int getLevelCap(){
+		return MAX_LEVEL;
 	}
 
 	public boolean hasTalent( Talent talent ){
