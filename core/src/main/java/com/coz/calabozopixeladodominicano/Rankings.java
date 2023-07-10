@@ -56,9 +56,9 @@ import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public enum Rankings {
+public class Rankings {
 	
-	INSTANCE;
+	public static Rankings INSTANCE = new Rankings();
 	
 	public static final int TABLE_SIZE	= 11;
 	
@@ -441,6 +441,7 @@ public enum Rankings {
 			}
 
 		} catch (IOException e) {
+			//TODO: shouldn't this be filled?
 		}
 	}
 	
