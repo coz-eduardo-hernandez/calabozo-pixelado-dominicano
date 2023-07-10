@@ -179,19 +179,11 @@ public class Hero extends Char {
 		alignment = Alignment.ALLY;
 	}
 	
-	private final int MAX_LEVEL = 30;
-
-	public static final int STARTING_STR = 10;
-	
-	private static final float TIME_TO_REST		    = 1f;
-	private static final float TIME_TO_SEARCH	    = 2f;
-	private static final float HUNGER_FOR_SEARCH	= 6f;
-	
 	public HeroClass heroClass = HeroClass.ROGUE;
 	public ArmorAbility armorAbility = null;
 	public final ArrayList<LinkedHashMap<Talent, Integer>> talents = new ArrayList<>();
 	public LinkedHashMap<Talent, Talent> metamorphedTalents = new LinkedHashMap<>();
-	
+
 	public int attackSkill = 10;
 	public int defenseSkill = 5;
 
@@ -200,26 +192,34 @@ public class Hero extends Char {
 	public HeroAction curAction = null;
 	public HeroAction lastAction = null;
 
-	private Char enemy;
-	
 	public boolean resting = false;
-	
+
 	public Belongings belongings;
-	
+
 	public int STR;
-	
+
 	//public float awareness;
-	
+
 	public int lvl = 1;
 	public int exp = 0;
-	
+
 	public int HTBoost = 0;
-	
-	private ArrayList<Mob> visibleEnemies;
 
 	//This list is maintained so that some logic checks can be skipped
 	// for enemies we know we aren't seeing normally, resulting in better performance
 	public final ArrayList<Mob> mindVisionEnemies = new ArrayList<>();
+
+	private static final int STARTING_STR = 10;
+
+	private final int MAX_LEVEL = 30;
+
+	private static final float TIME_TO_REST		    = 1f;
+	private static final float TIME_TO_SEARCH	    = 2f;
+	private static final float HUNGER_FOR_SEARCH	= 6f;
+
+	private Char enemy;
+
+	private ArrayList<Mob> visibleEnemies;
 
 	public Hero() {
 		super();
