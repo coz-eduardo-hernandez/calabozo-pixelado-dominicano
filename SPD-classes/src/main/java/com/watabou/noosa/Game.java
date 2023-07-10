@@ -74,7 +74,7 @@ public class Game implements ApplicationListener {
 	// callback to perform logic during scene change
 	protected SceneChangeCallback onChange;
 	// New scene class
-	protected static Class<? extends Scene> sceneClass;
+	private static Class<? extends Scene> sceneClass;
 	
 	public static float timeScale = 1f;
 	public static float elapsed = 0f;
