@@ -60,11 +60,11 @@ import com.coz.calabozopixeladodominicano.actors.buffs.PhysicalEmpower;
 import com.coz.calabozopixeladodominicano.actors.buffs.Recharging;
 import com.coz.calabozopixeladodominicano.actors.buffs.Regeneration;
 import com.coz.calabozopixeladodominicano.actors.buffs.Vertigo;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.duelist.Challenge;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.duelist.ElementalStrike;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.huntress.NaturesPower;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.warrior.Endure;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.duelist.Challenge;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.duelist.ElementalStrike;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.huntress.NaturesPower;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.warrior.Endure;
 import com.coz.calabozopixeladodominicano.actors.mobs.Mimic;
 import com.coz.calabozopixeladodominicano.actors.mobs.Mob;
 import com.coz.calabozopixeladodominicano.actors.mobs.Monk;
@@ -82,7 +82,7 @@ import com.coz.calabozopixeladodominicano.items.Heap.Type;
 import com.coz.calabozopixeladodominicano.items.Item;
 import com.coz.calabozopixeladodominicano.items.KindOfWeapon;
 import com.coz.calabozopixeladodominicano.items.armor.Armor;
-import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
+//import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
 import com.coz.calabozopixeladodominicano.items.armor.glyphs.AntiMagic;
 import com.coz.calabozopixeladodominicano.items.armor.glyphs.Brimstone;
 import com.coz.calabozopixeladodominicano.items.armor.glyphs.Viscosity;
@@ -433,9 +433,9 @@ public class Hero extends Char {
 	
 	public int tier() {
 		Armor armor = belongings.armor();
-		if (armor instanceof ClassArmor){
+		/*if (armor instanceof ClassArmor){
 			return 6;
-		} else if (armor != null){
+		} else*/ if (armor != null){
 			return armor.tier;
 		} else {
 			return 0;
@@ -642,10 +642,10 @@ public class Hero extends Char {
 			((HeroSprite)sprite).sprint( 1f );
 		}
 
-		NaturesPower.naturesPowerTracker natStrength = buff(NaturesPower.naturesPowerTracker.class);
+		/*NaturesPower.naturesPowerTracker natStrength = buff(NaturesPower.naturesPowerTracker.class);
 		if (natStrength != null){
 			speed *= (2f + 0.25f*pointsInTalent(Talent.GROWING_POWER));
-		}
+		}*/
 
 		speed = AscensionChallenge.modifyHeroSpeed(speed);
 		
@@ -744,9 +744,9 @@ public class Hero extends Char {
 		//calls to dungeon.observe will also update hero's local FOV.
 		fieldOfView = Dungeon.level.heroFOV;
 
-		if (buff(Endure.EndureTracker.class) != null){
+		/*if (buff(Endure.EndureTracker.class) != null){
 			buff(Endure.EndureTracker.class).endEnduring();
-		}
+		}*/
 		
 		if (!ready) {
 			//do a full observe (including fog update) if not resting.
@@ -1387,12 +1387,12 @@ public class Hero extends Char {
 			GLog.w( Messages.get(this, "pain_resist") );
 		}
 
-		Endure.EndureTracker endure = buff(Endure.EndureTracker.class);
+		//Endure.EndureTracker endure = buff(Endure.EndureTracker.class);
 		if (!(src instanceof Char)){
 			//reduce damage here if it isn't coming from a character (if it is we already reduced it)
-			if (endure != null){
+			/*if (endure != null){
 				dmg = Math.round(endure.adjustDamageTaken(dmg));
-			}
+			}*/
 			//the same also applies to challenge scroll damage reduction
 			if (buff(ScrollOfChallenge.ChallengeArena.class) != null){
 				dmg *= 0.67f;
@@ -1430,9 +1430,9 @@ public class Hero extends Char {
 
 		if (effectiveDamage <= 0) return;
 
-		if (buff(Challenge.DuelParticipant.class) != null){
+		/*if (buff(Challenge.DuelParticipant.class) != null){
 			buff(Challenge.DuelParticipant.class).addDamage(effectiveDamage);
-		}
+		}*/
 
 		//flash red when hit for serious damage.
 		float percentDMG = effectiveDamage / (float)preHP; //percent of current HP that was taken
@@ -1737,12 +1737,12 @@ public class Hero extends Char {
 					buff(Talent.RejuvenatingStepsFurrow.class).detach();
 				}
 			}
-			if (buff(ElementalStrike.ElementalStrikeFurrowCounter.class) != null){
+			/*if (buff(ElementalStrike.ElementalStrikeFurrowCounter.class) != null){
 				buff(ElementalStrike.ElementalStrikeFurrowCounter.class).countDown(percent*20f);
 				if (buff(ElementalStrike.ElementalStrikeFurrowCounter.class).count() <= 0){
 					buff(ElementalStrike.ElementalStrikeFurrowCounter.class).detach();
 				}
-			}
+			}*/
 		}
 		
 		boolean levelUp = false;

@@ -22,11 +22,11 @@
 package com.coz.calabozopixeladodominicano.items.armor;
 
 import com.coz.calabozopixeladodominicano.sprites.ItemSpriteSheet;
-
+/*
 public class MageArmor extends ClassArmor {
 
 	{
 		image = ItemSpriteSheet.ARMOR_MAGE;
 	}
 
-}
+}*/

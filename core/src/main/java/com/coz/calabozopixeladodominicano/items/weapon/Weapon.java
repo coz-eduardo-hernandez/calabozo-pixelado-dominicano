@@ -28,7 +28,7 @@ import com.coz.calabozopixeladodominicano.actors.buffs.Berserk;
 import com.coz.calabozopixeladodominicano.actors.buffs.MagicImmune;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.Talent;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.duelist.ElementalStrike;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.duelist.ElementalStrike;
 import com.coz.calabozopixeladodominicano.items.Item;
 import com.coz.calabozopixeladodominicano.items.KindOfWeapon;
 import com.coz.calabozopixeladodominicano.items.rings.RingOfArcana;
@@ -388,10 +388,10 @@ abstract public class Weapon extends KindOfWeapon {
 				attacker.buff(RunicBlade.RunicSlashTracker.class).detach();
 			}
 
-			if (attacker.buff(ElementalStrike.DirectedPowerTracker.class) != null){
+			/*if (attacker.buff(ElementalStrike.DirectedPowerTracker.class) != null){
 				multi += attacker.buff(ElementalStrike.DirectedPowerTracker.class).enchBoost;
 				attacker.buff(ElementalStrike.DirectedPowerTracker.class).detach();
-			}
+			}*/
 
 			if (attacker.buff(Talent.SpiritBladesTracker.class) != null
 					&& ((Hero)attacker).pointsInTalent(Talent.SPIRIT_BLADES) == 4){

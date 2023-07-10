@@ -37,7 +37,7 @@ import com.coz.calabozopixeladodominicano.actors.buffs.Sleep;
 import com.coz.calabozopixeladodominicano.actors.buffs.Terror;
 import com.coz.calabozopixeladodominicano.actors.buffs.Vertigo;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.mage.WildMagic;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.mage.WildMagic;
 import com.coz.calabozopixeladodominicano.actors.mobs.DwarfKing;
 import com.coz.calabozopixeladodominicano.actors.mobs.npcs.NPC;
 import com.coz.calabozopixeladodominicano.effects.MagicMissile;
@@ -277,7 +277,7 @@ public class WandOfRegrowth extends Wand {
 
 	@Override
 	protected int chargesPerCast() {
-		if (cursed || charger != null && charger.target.buff(WildMagic.WildMagicTracker.class) != null){
+		if (cursed /*|| charger != null && charger.target.buff(WildMagic.WildMagicTracker.class) != null*/){
 			return 1;
 		}
 		//consumes 30% of current charges, rounded up, with a min of 1 and a max of 3.

@@ -32,13 +32,13 @@ import com.coz.calabozopixeladodominicano.actors.buffs.FlavourBuff;
 import com.coz.calabozopixeladodominicano.actors.buffs.Invisibility;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.Talent;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
 import com.coz.calabozopixeladodominicano.actors.mobs.Mob;
 import com.coz.calabozopixeladodominicano.actors.mobs.npcs.NPC;
 import com.coz.calabozopixeladodominicano.effects.CellEmitter;
 import com.coz.calabozopixeladodominicano.effects.Speck;
 import com.coz.calabozopixeladodominicano.items.Dewdrop;
-import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
+//import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
 import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.coz.calabozopixeladodominicano.scenes.GameScene;
 import com.coz.calabozopixeladodominicano.scenes.PixelScene;
@@ -51,6 +51,7 @@ import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.PathFinder;
 
+/*
 public class Challenge extends ArmorAbility {
 
 	{
@@ -344,4 +345,4 @@ public class Challenge extends ArmorAbility {
 		}
 
 	}
-}
+}*/

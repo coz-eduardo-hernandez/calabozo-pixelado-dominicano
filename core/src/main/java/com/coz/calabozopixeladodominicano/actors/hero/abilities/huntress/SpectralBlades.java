@@ -28,9 +28,9 @@ import com.coz.calabozopixeladodominicano.actors.buffs.Buff;
 import com.coz.calabozopixeladodominicano.actors.buffs.Invisibility;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.Talent;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
 import com.coz.calabozopixeladodominicano.items.Item;
-import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
+//import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
 import com.coz.calabozopixeladodominicano.items.weapon.missiles.Shuriken;
 import com.coz.calabozopixeladodominicano.mechanics.Ballistica;
 import com.coz.calabozopixeladodominicano.mechanics.ConeAOE;
@@ -41,7 +41,7 @@ import com.coz.calabozopixeladodominicano.utils.GLog;
 import com.watabou.utils.Callback;
 
 import java.util.HashSet;
-
+/*
 public class SpectralBlades extends ArmorAbility {
 
 	{
@@ -164,4 +164,4 @@ public class SpectralBlades extends ArmorAbility {
 	public Talent[] talents() {
 		return new Talent[]{Talent.FAN_OF_BLADES, Talent.PROJECTING_BLADES, Talent.SPIRIT_BLADES, Talent.HEROIC_ENERGY};
 	}
-}
+}*/

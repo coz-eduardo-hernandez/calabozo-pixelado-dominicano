@@ -31,17 +31,17 @@ import com.coz.calabozopixeladodominicano.actors.buffs.FlavourBuff;
 import com.coz.calabozopixeladodominicano.actors.buffs.Invisibility;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.Talent;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
 import com.coz.calabozopixeladodominicano.effects.Speck;
 import com.coz.calabozopixeladodominicano.effects.SpellSprite;
-import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
+//import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
 import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.coz.calabozopixeladodominicano.ui.BuffIndicator;
 import com.coz.calabozopixeladodominicano.ui.HeroIcon;
 import com.watabou.noosa.Image;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
-
+/*
 public class Endure extends ArmorAbility {
 
 	{
@@ -183,4 +183,4 @@ public class Endure extends ArmorAbility {
 	public Talent[] talents() {
 		return new Talent[]{Talent.SUSTAINED_RETRIBUTION, Talent.SHRUG_IT_OFF, Talent.EVEN_THE_ODDS, Talent.HEROIC_ENERGY};
 	}
-}
+}*/

@@ -24,7 +24,7 @@ package com.coz.calabozopixeladodominicano.sprites;
 import com.coz.calabozopixeladodominicano.Assets;
 import com.coz.calabozopixeladodominicano.Dungeon;
 import com.coz.calabozopixeladodominicano.actors.Char;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.Ratmogrify;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.Ratmogrify;
 import com.watabou.noosa.TextureFilm;
 
 import java.util.Calendar;
@@ -48,10 +48,10 @@ public class RatKingSprite extends MobSprite {
 
 		int c = festive ? 8 : 0;
 
-		if (Dungeon.hero != null && Dungeon.hero.armorAbility instanceof Ratmogrify){
+		/*if (Dungeon.hero != null && Dungeon.hero.armorAbility instanceof Ratmogrify){
 			c += 16;
 			if (parent != null) aura(0xFFFF00);
-		}
+		}*/
 
 		texture( Assets.Sprites.RATKING );
 
@@ -77,8 +77,8 @@ public class RatKingSprite extends MobSprite {
 	@Override
 	public void link(Char ch) {
 		super.link(ch);
-		if (Dungeon.hero != null && Dungeon.hero.armorAbility instanceof Ratmogrify){
+		/*if (Dungeon.hero != null && Dungeon.hero.armorAbility instanceof Ratmogrify){
 			aura(0xFFFF00);
-		}
+		}*/
 	}
 }

@@ -24,7 +24,7 @@ package com.coz.calabozopixeladodominicano.actors.hero.abilities;
 import com.coz.calabozopixeladodominicano.actors.Char;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.Talent;
-import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
+//import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
 import com.coz.calabozopixeladodominicano.mechanics.Ballistica;
 import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.coz.calabozopixeladodominicano.scenes.CellSelector;
@@ -32,7 +32,7 @@ import com.coz.calabozopixeladodominicano.scenes.GameScene;
 import com.coz.calabozopixeladodominicano.ui.HeroIcon;
 import com.watabou.utils.Bundlable;
 import com.watabou.utils.Bundle;
-
+/*
 public abstract class ArmorAbility implements Bundlable {
 
 	protected float baseChargeUse = 35;
@@ -104,4 +104,4 @@ public abstract class ArmorAbility implements Bundlable {
 	@Override
 	public void restoreFromBundle(Bundle bundle) {
 	}
-}
+}*/

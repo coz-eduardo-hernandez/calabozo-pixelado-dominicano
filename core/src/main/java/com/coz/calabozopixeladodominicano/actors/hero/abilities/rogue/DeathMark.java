@@ -32,8 +32,8 @@ import com.coz.calabozopixeladodominicano.actors.buffs.FlavourBuff;
 import com.coz.calabozopixeladodominicano.actors.buffs.Terror;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.Talent;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
-import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
+//import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
 import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.coz.calabozopixeladodominicano.ui.BuffIndicator;
 import com.coz.calabozopixeladodominicano.ui.HeroIcon;
@@ -43,7 +43,7 @@ import com.watabou.noosa.Image;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.PathFinder;
-
+/*
 public class DeathMark extends ArmorAbility {
 
 	{
@@ -218,4 +218,4 @@ public class DeathMark extends ArmorAbility {
 		}
 	}
 
-}
+}*/

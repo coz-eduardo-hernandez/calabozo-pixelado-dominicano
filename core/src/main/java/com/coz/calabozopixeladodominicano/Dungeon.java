@@ -32,7 +32,7 @@ import com.coz.calabozopixeladodominicano.actors.buffs.MindVision;
 import com.coz.calabozopixeladodominicano.actors.buffs.RevealedArea;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.Talent;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.huntress.SpiritHawk;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.huntress.SpiritHawk;
 import com.coz.calabozopixeladodominicano.actors.mobs.Mob;
 import com.coz.calabozopixeladodominicano.actors.mobs.npcs.Blacksmith;
 import com.coz.calabozopixeladodominicano.actors.mobs.npcs.Ghost;
@@ -932,7 +932,7 @@ public class Dungeon {
 		for (Char ch : Actor.chars()){
 			if (ch instanceof WandOfWarding.Ward
 					|| ch instanceof WandOfRegrowth.Lotus
-					|| ch instanceof SpiritHawk.HawkAlly){
+					/*|| ch instanceof SpiritHawk.HawkAlly*/){
 				x = ch.pos % level.width();
 				y = ch.pos / level.width();
 

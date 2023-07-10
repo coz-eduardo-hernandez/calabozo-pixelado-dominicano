@@ -33,10 +33,10 @@ import com.coz.calabozopixeladodominicano.actors.buffs.Invisibility;
 import com.coz.calabozopixeladodominicano.actors.buffs.Vulnerable;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.Talent;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
 import com.coz.calabozopixeladodominicano.actors.mobs.Mob;
 import com.coz.calabozopixeladodominicano.items.Item;
-import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
+//import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
 import com.coz.calabozopixeladodominicano.levels.Terrain;
 import com.coz.calabozopixeladodominicano.levels.features.Door;
 import com.coz.calabozopixeladodominicano.messages.Messages;
@@ -51,7 +51,7 @@ import com.watabou.noosa.audio.Sample;
 import com.watabou.noosa.tweeners.AlphaTweener;
 import com.watabou.noosa.tweeners.Delayer;
 import com.watabou.utils.Callback;
-
+/*
 public class Feint extends ArmorAbility {
 
 	{
@@ -253,4 +253,4 @@ public class Feint extends ArmorAbility {
 		}
 
 	}
-}
+}*/

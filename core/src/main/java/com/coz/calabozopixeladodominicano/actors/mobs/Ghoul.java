@@ -28,7 +28,7 @@ import com.coz.calabozopixeladodominicano.actors.blobs.SacrificialFire;
 import com.coz.calabozopixeladodominicano.actors.buffs.AllyBuff;
 import com.coz.calabozopixeladodominicano.actors.buffs.Buff;
 import com.coz.calabozopixeladodominicano.actors.buffs.ChampionEnemy;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.duelist.Challenge;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.duelist.Challenge;
 import com.coz.calabozopixeladodominicano.effects.Pushing;
 import com.coz.calabozopixeladodominicano.items.Gold;
 import com.coz.calabozopixeladodominicano.levels.features.Chasm;
@@ -261,9 +261,10 @@ public class Ghoul extends Mob {
 			}
 
 			//have to delay this manually here are a downed ghouls can't be directly frozen otherwise
-			if (target.buff(Challenge.DuelParticipant.class) == null) {
+			/*if (target.buff(Challenge.DuelParticipant.class) == null) {
 				turnsToRevive--;
-			}
+			}*/
+			turnsToRevive--;
 			if (turnsToRevive <= 0){
 				if (Actor.findChar( ghoul.pos ) != null) {
 					ArrayList<Integer> candidates = new ArrayList<>();
@@ -356,7 +357,7 @@ public class Ghoul extends Mob {
 				//don't count hero ally ghouls or duel frozen ghouls
 				if (ch != dieing && ch instanceof Ghoul
 						&& ch.alignment == dieing.alignment
-						&& ch.buff(Challenge.SpectatorFreeze.class) == null){
+						/*&& ch.buff(Challenge.SpectatorFreeze.class) == null*/){
 					if (ch.fieldOfView == null){
 						ch.fieldOfView = new boolean[Dungeon.level.length()];
 						Dungeon.level.updateFieldOfView( ch, ch.fieldOfView );

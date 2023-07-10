@@ -31,7 +31,7 @@ import com.coz.calabozopixeladodominicano.actors.buffs.Buff;
 import com.coz.calabozopixeladodominicano.actors.buffs.Burning;
 import com.coz.calabozopixeladodominicano.actors.buffs.Cripple;
 import com.coz.calabozopixeladodominicano.actors.buffs.Paralysis;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.mage.WildMagic;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.mage.WildMagic;
 import com.coz.calabozopixeladodominicano.effects.MagicMissile;
 import com.coz.calabozopixeladodominicano.items.weapon.enchantments.Blazing;
 import com.coz.calabozopixeladodominicano.items.weapon.melee.MagesStaff;
@@ -197,7 +197,7 @@ public class WandOfFireblast extends DamageWand {
 
 	@Override
 	protected int chargesPerCast() {
-		if (cursed || charger != null && charger.target.buff(WildMagic.WildMagicTracker.class) != null){
+		if (cursed /*|| charger != null && charger.target.buff(WildMagic.WildMagicTracker.class) != null*/){
 			return 1;
 		}
 		//consumes 30% of current charges, rounded up, with a min of 1 and a max of 3.

@@ -27,7 +27,7 @@ import com.coz.calabozopixeladodominicano.Statistics;
 import com.coz.calabozopixeladodominicano.actors.Actor;
 import com.coz.calabozopixeladodominicano.actors.Char;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.Ratmogrify;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.Ratmogrify;
 import com.coz.calabozopixeladodominicano.actors.mobs.Bat;
 import com.coz.calabozopixeladodominicano.actors.mobs.Brute;
 import com.coz.calabozopixeladodominicano.actors.mobs.Crab;
@@ -105,9 +105,9 @@ public class AscensionChallenge extends Buff {
 			return 1;
 		}
 
-		if (ch instanceof Ratmogrify.TransmogRat){
+		/*if (ch instanceof Ratmogrify.TransmogRat){
 			ch = ((Ratmogrify.TransmogRat) ch).getOriginal();
-		}
+		}*/
 
 		if (ch.buff(AscensionBuffBlocker.class) != null){
 			return 1f;
@@ -160,10 +160,10 @@ public class AscensionChallenge extends Buff {
 		AscensionChallenge chal = Dungeon.hero.buff(AscensionChallenge.class);
 		if (chal == null) return;
 
-		if (enemy instanceof Ratmogrify.TransmogRat){
+		/*if (enemy instanceof Ratmogrify.TransmogRat){
 			enemy = ((Ratmogrify.TransmogRat) enemy).getOriginal();
 			if (enemy == null) return;
-		}
+		}*/
 
 		//only enemies that are boosted count
 		if (enemy.buff(AscensionBuffBlocker.class) != null){
@@ -205,9 +205,9 @@ public class AscensionChallenge extends Buff {
 			return m.EXP;
 		}
 
-		if (m instanceof Ratmogrify.TransmogRat){
+		/*if (m instanceof Ratmogrify.TransmogRat){
 			m = ((Ratmogrify.TransmogRat) m).getOriginal();
-		}
+		}*/
 
 		if (m.buff(AscensionBuffBlocker.class) != null){
 			return m.EXP;

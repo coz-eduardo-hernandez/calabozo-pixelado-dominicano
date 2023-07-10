@@ -37,7 +37,7 @@ import com.coz.calabozopixeladodominicano.actors.mobs.Mob;
 import com.coz.calabozopixeladodominicano.actors.mobs.Rat;
 import com.coz.calabozopixeladodominicano.effects.CellEmitter;
 import com.coz.calabozopixeladodominicano.effects.Speck;
-import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
+//import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
 import com.coz.calabozopixeladodominicano.items.scrolls.ScrollOfTeleportation;
 import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.coz.calabozopixeladodominicano.scenes.GameScene;
@@ -52,7 +52,7 @@ import com.watabou.utils.Random;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-
+/*
 public class Ratmogrify extends ArmorAbility {
 
 	{
@@ -313,4 +313,4 @@ public class Ratmogrify extends ArmorAbility {
 			if (allied) alignment = Alignment.ALLY;
 		}
 	}
-}
+}*/

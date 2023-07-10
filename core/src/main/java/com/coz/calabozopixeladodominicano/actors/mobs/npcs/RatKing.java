@@ -25,7 +25,7 @@ import com.coz.calabozopixeladodominicano.Badges;
 import com.coz.calabozopixeladodominicano.Dungeon;
 import com.coz.calabozopixeladodominicano.actors.Char;
 import com.coz.calabozopixeladodominicano.actors.buffs.Buff;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.Ratmogrify;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.Ratmogrify;
 import com.coz.calabozopixeladodominicano.items.KingsCrown;
 import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.coz.calabozopixeladodominicano.scenes.GameScene;
@@ -135,23 +135,23 @@ public class RatKing extends NPC {
 						){
 							@Override
 							protected void onSelect(int index) {
-								if (index == 0){
+								/*if (index == 0){
 									crown.upgradeArmor(Dungeon.hero, Dungeon.hero.belongings.armor(), new Ratmogrify());
 									((RatKingSprite)sprite).resetAnims();
 									yell(Messages.get(RatKing.class, "crown_thankyou"));
-/*								} else if (index == 1) {
+								} else if (index == 1) {
 									GameScene.show(new WndInfoArmorAbility(Dungeon.hero.heroClass, new Ratmogrify()));
-*/								} else {
+								} else {*/
 									yell(Messages.get(RatKing.class, "crown_fine"));
-								}
+								//}
 							}
 						});
 					}
 				});
 			}
-		} else if (Dungeon.hero.armorAbility instanceof Ratmogrify) {
+		} else/* if (Dungeon.hero.armorAbility instanceof Ratmogrify) {
 			yell( Messages.get(RatKing.class, "crown_after") );
-		} else {
+		} else*/ {
 			yell( Messages.get(this, "what_is_it") );
 		}
 		return true;

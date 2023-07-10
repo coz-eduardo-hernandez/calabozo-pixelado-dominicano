@@ -29,9 +29,9 @@ import com.coz.calabozopixeladodominicano.actors.buffs.FlavourBuff;
 import com.coz.calabozopixeladodominicano.actors.buffs.Invisibility;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.Talent;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
 import com.coz.calabozopixeladodominicano.items.Item;
-import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
+//import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
 import com.coz.calabozopixeladodominicano.items.wands.CursedWand;
 import com.coz.calabozopixeladodominicano.items.wands.Wand;
 import com.coz.calabozopixeladodominicano.mechanics.Ballistica;
@@ -44,7 +44,7 @@ import com.watabou.utils.Callback;
 import com.watabou.utils.Random;
 
 import java.util.ArrayList;
-
+/*
 public class WildMagic extends ArmorAbility {
 
 	{
@@ -226,4 +226,4 @@ public class WildMagic extends ArmorAbility {
 	public Talent[] talents() {
 		return new Talent[]{Talent.WILD_POWER, Talent.FIRE_EVERYTHING, Talent.CONSERVED_MAGIC, Talent.HEROIC_ENERGY};
 	}
-}
+}*/

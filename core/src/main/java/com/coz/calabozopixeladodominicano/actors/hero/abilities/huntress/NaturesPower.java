@@ -28,13 +28,13 @@ import com.coz.calabozopixeladodominicano.actors.buffs.FlavourBuff;
 import com.coz.calabozopixeladodominicano.actors.buffs.Invisibility;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.Talent;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
 import com.coz.calabozopixeladodominicano.effects.particles.LeafParticle;
-import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
+//import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
 import com.coz.calabozopixeladodominicano.ui.BuffIndicator;
 import com.coz.calabozopixeladodominicano.ui.HeroIcon;
 import com.watabou.noosa.audio.Sample;
-
+/*
 public class NaturesPower extends ArmorAbility {
 
 	{
@@ -95,4 +95,4 @@ public class NaturesPower extends ArmorAbility {
 		}
 
 	}
-}
+}*/

@@ -30,8 +30,8 @@ import com.coz.calabozopixeladodominicano.actors.buffs.Invisibility;
 import com.coz.calabozopixeladodominicano.actors.buffs.Vulnerable;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.Talent;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
-import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
+//import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
 import com.coz.calabozopixeladodominicano.items.wands.WandOfBlastWave;
 import com.coz.calabozopixeladodominicano.mechanics.Ballistica;
 import com.coz.calabozopixeladodominicano.messages.Messages;
@@ -41,7 +41,7 @@ import com.coz.calabozopixeladodominicano.ui.HeroIcon;
 import com.watabou.utils.Callback;
 import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
-
+/*
 public class HeroicLeap extends ArmorAbility {
 
 	{
@@ -143,4 +143,4 @@ public class HeroicLeap extends ArmorAbility {
 	public Talent[] talents() {
 		return new Talent[]{Talent.BODY_SLAM, Talent.IMPACT_WAVE, Talent.DOUBLE_JUMP, Talent.HEROIC_ENERGY};
 	}
-}
+}*/

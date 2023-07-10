@@ -29,11 +29,11 @@ import com.coz.calabozopixeladodominicano.actors.buffs.Buff;
 import com.coz.calabozopixeladodominicano.actors.buffs.Invisibility;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.Talent;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
 import com.coz.calabozopixeladodominicano.effects.CellEmitter;
 import com.coz.calabozopixeladodominicano.effects.MagicMissile;
 import com.coz.calabozopixeladodominicano.effects.Pushing;
-import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
+//import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
 import com.coz.calabozopixeladodominicano.items.scrolls.ScrollOfTeleportation;
 import com.coz.calabozopixeladodominicano.levels.Level;
 import com.coz.calabozopixeladodominicano.messages.Messages;
@@ -53,7 +53,7 @@ import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
 
 import java.util.ArrayList;
-
+/*
 public class WarpBeacon extends ArmorAbility {
 
 	{
@@ -274,4 +274,4 @@ public class WarpBeacon extends ArmorAbility {
 	public Talent[] talents() {
 		return new Talent[]{Talent.TELEFRAG, Talent.REMOTE_BEACON, Talent.LONGRANGE_WARP, Talent.HEROIC_ENERGY};
 	}
-}
+}*/

@@ -37,13 +37,13 @@ import com.coz.calabozopixeladodominicano.actors.buffs.Sleep;
 import com.coz.calabozopixeladodominicano.actors.buffs.Terror;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.Talent;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
 import com.coz.calabozopixeladodominicano.actors.mobs.Mob;
 import com.coz.calabozopixeladodominicano.actors.mobs.npcs.NPC;
 import com.coz.calabozopixeladodominicano.effects.CellEmitter;
 import com.coz.calabozopixeladodominicano.effects.Speck;
 import com.coz.calabozopixeladodominicano.items.Item;
-import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
+//import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
 import com.coz.calabozopixeladodominicano.items.scrolls.ScrollOfTeleportation;
 import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.coz.calabozopixeladodominicano.scenes.GameScene;
@@ -56,7 +56,7 @@ import com.watabou.noosa.TextureFilm;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
-
+/*
 public class SmokeBomb extends ArmorAbility {
 
 	{
@@ -229,4 +229,4 @@ public class SmokeBomb extends ArmorAbility {
 		}
 
 	}
-}
+}*/

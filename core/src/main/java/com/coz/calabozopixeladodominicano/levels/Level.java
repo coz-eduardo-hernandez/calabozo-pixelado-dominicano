@@ -45,7 +45,7 @@ import com.coz.calabozopixeladodominicano.actors.buffs.RevealedArea;
 import com.coz.calabozopixeladodominicano.actors.buffs.Shadows;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.Talent;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.huntress.SpiritHawk;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.huntress.SpiritHawk;
 import com.coz.calabozopixeladodominicano.actors.mobs.Bestiary;
 import com.coz.calabozopixeladodominicano.actors.mobs.Mob;
 import com.coz.calabozopixeladodominicano.actors.mobs.Piranha;
@@ -1277,7 +1277,7 @@ public abstract class Level implements Bundlable {
 			}
 		}
 
-		if (c instanceof SpiritHawk.HawkAlly && Dungeon.hero.pointsInTalent(Talent.EAGLE_EYE) >= 3){
+		/*if (c instanceof SpiritHawk.HawkAlly && Dungeon.hero.pointsInTalent(Talent.EAGLE_EYE) >= 3){
 			int range = 1+(Dungeon.hero.pointsInTalent(Talent.EAGLE_EYE)-2);
 			for (Mob mob : mobs) {
 				int p = mob.pos;
@@ -1287,7 +1287,7 @@ public abstract class Level implements Bundlable {
 					}
 				}
 			}
-		}
+		}*/
 
 		//Currently only the hero can get mind vision or awareness
 		if (c.isAlive() && c == Dungeon.hero) {
@@ -1342,7 +1342,7 @@ public abstract class Level implements Bundlable {
 			for (Mob m : mobs){
 				if (m instanceof WandOfWarding.Ward
 						|| m instanceof WandOfRegrowth.Lotus
-						|| m instanceof SpiritHawk.HawkAlly){
+						/*|| m instanceof SpiritHawk.HawkAlly*/){
 					if (m.fieldOfView == null || m.fieldOfView.length != length()){
 						m.fieldOfView = new boolean[length()];
 						Dungeon.level.updateFieldOfView( m, m.fieldOfView );

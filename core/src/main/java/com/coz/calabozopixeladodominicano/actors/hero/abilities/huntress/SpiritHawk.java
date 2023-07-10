@@ -33,11 +33,11 @@ import com.coz.calabozopixeladodominicano.actors.buffs.Cripple;
 import com.coz.calabozopixeladodominicano.actors.buffs.Invisibility;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.Talent;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
 import com.coz.calabozopixeladodominicano.actors.mobs.npcs.DirectableAlly;
 import com.coz.calabozopixeladodominicano.effects.Speck;
 import com.coz.calabozopixeladodominicano.effects.particles.ShaftParticle;
-import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
+//import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
 import com.coz.calabozopixeladodominicano.items.scrolls.ScrollOfTeleportation;
 import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.coz.calabozopixeladodominicano.scenes.GameScene;
@@ -51,7 +51,7 @@ import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
 
 import java.util.ArrayList;
-
+/*
 public class SpiritHawk extends ArmorAbility {
 
 	@Override
@@ -315,4 +315,4 @@ public class SpiritHawk extends ArmorAbility {
 			emitter().start( Speck.factory( Speck.LIGHT ), 0.2f, 3 );
 		}
 	}
-}
+}*/

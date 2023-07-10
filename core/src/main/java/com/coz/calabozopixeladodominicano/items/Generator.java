@@ -24,15 +24,15 @@ package com.coz.calabozopixeladodominicano.items;
 import com.coz.calabozopixeladodominicano.Dungeon;
 import com.coz.calabozopixeladodominicano.items.armor.Armor;
 import com.coz.calabozopixeladodominicano.items.armor.ClothArmor;
-import com.coz.calabozopixeladodominicano.items.armor.DuelistArmor;
-import com.coz.calabozopixeladodominicano.items.armor.HuntressArmor;
+//import com.coz.calabozopixeladodominicano.items.armor.DuelistArmor;
+//import com.coz.calabozopixeladodominicano.items.armor.HuntressArmor;
 import com.coz.calabozopixeladodominicano.items.armor.LeatherArmor;
-import com.coz.calabozopixeladodominicano.items.armor.MageArmor;
+//import com.coz.calabozopixeladodominicano.items.armor.MageArmor;
 import com.coz.calabozopixeladodominicano.items.armor.MailArmor;
 import com.coz.calabozopixeladodominicano.items.armor.PlateArmor;
-import com.coz.calabozopixeladodominicano.items.armor.RogueArmor;
+//import com.coz.calabozopixeladodominicano.items.armor.RogueArmor;
 import com.coz.calabozopixeladodominicano.items.armor.ScaleArmor;
-import com.coz.calabozopixeladodominicano.items.armor.WarriorArmor;
+//import com.coz.calabozopixeladodominicano.items.armor.WarriorArmor;
 import com.coz.calabozopixeladodominicano.items.artifacts.AlchemistsToolkit;
 import com.coz.calabozopixeladodominicano.items.artifacts.Artifact;
 import com.coz.calabozopixeladodominicano.items.artifacts.ChaliceOfBlood;
@@ -407,12 +407,12 @@ public class Generator {
 					LeatherArmor.class,
 					MailArmor.class,
 					ScaleArmor.class,
-					PlateArmor.class,
+					PlateArmor.class/*,
 					WarriorArmor.class,
 					MageArmor.class,
 					RogueArmor.class,
 					HuntressArmor.class,
-					DuelistArmor.class
+					DuelistArmor.class*/
 			};
 			ARMOR.probs = new float[]{ 1, 1, 1, 1, 1, 0, 0, 0, 0, 0 };
 			

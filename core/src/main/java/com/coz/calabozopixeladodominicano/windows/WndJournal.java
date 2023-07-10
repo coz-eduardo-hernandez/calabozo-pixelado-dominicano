@@ -24,7 +24,7 @@ package com.coz.calabozopixeladodominicano.windows;
 import com.coz.calabozopixeladodominicano.Dungeon;
 import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.items.Item;
-import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
+//import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
 import com.coz.calabozopixeladodominicano.items.potions.Potion;
 import com.coz.calabozopixeladodominicano.items.rings.Ring;
 import com.coz.calabozopixeladodominicano.items.scrolls.Scroll;
@@ -572,13 +572,13 @@ public class WndJournal extends WndTabbed {
 					@Override
 					public boolean onClick(float x, float y) {
 						if (inside( x, y ) && itemSeen) {
-							if (item instanceof ClassArmor){
+							/*if (item instanceof ClassArmor){
 								GameScene.show(new WndTitledMessage(new Image(icon),
 										Messages.titleCase(item.trueName()), item.desc()));
-							} else {
+							} else {*/
 								GameScene.show(new WndTitledMessage(new Image(icon),
 										Messages.titleCase(item.trueName()), item.info()));
-							}
+							//}
 							return true;
 						} else {
 							return false;

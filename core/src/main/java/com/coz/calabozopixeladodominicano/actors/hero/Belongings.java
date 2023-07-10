@@ -30,7 +30,7 @@ import com.coz.calabozopixeladodominicano.items.Item;
 import com.coz.calabozopixeladodominicano.items.KindOfWeapon;
 import com.coz.calabozopixeladodominicano.items.KindofMisc;
 import com.coz.calabozopixeladodominicano.items.armor.Armor;
-import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
+//import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
 import com.coz.calabozopixeladodominicano.items.artifacts.Artifact;
 import com.coz.calabozopixeladodominicano.items.bags.Bag;
 import com.coz.calabozopixeladodominicano.items.rings.Ring;
@@ -204,11 +204,12 @@ public class Belongings implements Iterable<Item> {
 	public static void preview( GamesInProgress.Info info, Bundle bundle ) {
 		if (bundle.contains( ARMOR )){
 			Armor armor = ((Armor)bundle.get( ARMOR ));
-			if (armor instanceof ClassArmor){
+			/*if (armor instanceof ClassArmor){
 				info.armorTier = 6;
 			} else {
 				info.armorTier = armor.tier;
-			}
+			}*/
+			info.armorTier = armor.tier;
 		} else {
 			info.armorTier = 0;
 		}

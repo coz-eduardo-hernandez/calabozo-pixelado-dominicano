@@ -71,9 +71,9 @@ import com.coz.calabozopixeladodominicano.actors.buffs.Vulnerable;
 import com.coz.calabozopixeladodominicano.actors.buffs.Weakness;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.Talent;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.duelist.Challenge;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.rogue.DeathMark;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.warrior.Endure;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.duelist.Challenge;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.rogue.DeathMark;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.warrior.Endure;
 import com.coz.calabozopixeladodominicano.actors.mobs.Elemental;
 import com.coz.calabozopixeladodominicano.actors.mobs.Tengu;
 import com.coz.calabozopixeladodominicano.actors.mobs.npcs.MirrorImage;
@@ -391,14 +391,14 @@ public abstract class Char extends Actor {
 			dmg += dmgBonus;
 
 			//friendly endure
-			Endure.EndureTracker endure = buff(Endure.EndureTracker.class);
+			/*Endure.EndureTracker endure = buff(Endure.EndureTracker.class);
 			if (endure != null) dmg = endure.damageFactor(dmg);
 
 			//enemy endure
 			endure = enemy.buff(Endure.EndureTracker.class);
 			if (endure != null){
 				dmg = endure.adjustDamageTaken(dmg);
-			}
+			}*/
 
 			if (enemy.buff(ScrollOfChallenge.ChallengeArena.class) != null){
 				dmg *= 0.67f;
@@ -451,7 +451,7 @@ public abstract class Char extends Actor {
 				} else {
 					//helps with triggering any on-damage effects that need to activate
 					enemy.damage(-1, this);
-					DeathMark.processFearTheReaper(enemy);
+					//DeathMark.processFearTheReaper(enemy);
 				}
 				enemy.sprite.showStatus(CharSprite.NEGATIVE, Messages.get(Preparation.class, "assassinated"));
 			}
@@ -467,7 +467,7 @@ public abstract class Char extends Actor {
 					} else {
 						//helps with triggering any on-damage effects that need to activate
 						enemy.damage(-1, this);
-						DeathMark.processFearTheReaper(enemy);
+						//DeathMark.processFearTheReaper(enemy);
 					}
 					enemy.sprite.showStatus(CharSprite.NEGATIVE, Messages.get(Talent.CombinedLethalityTriggerTracker.class, "executed"));
 				}
@@ -698,9 +698,9 @@ public abstract class Char extends Actor {
 		if (this.buff(Doom.class) != null && !isImmune(Doom.class)){
 			dmg *= 1.67f;
 		}
-		if (alignment != Alignment.ALLY && this.buff(DeathMark.DeathMarkTracker.class) != null){
+		/*if (alignment != Alignment.ALLY && this.buff(DeathMark.DeathMarkTracker.class) != null){
 			dmg *= 1.25f;
-		}
+		}*/
 		
 		Class<?> srcClass = src.getClass();
 		if (isImmune( srcClass )) {
@@ -789,9 +789,9 @@ public abstract class Char extends Actor {
 
 		if (!isAlive()) {
 			die( src );
-		} else if (HP == 0 && buff(DeathMark.DeathMarkTracker.class) != null){
+		}/* else if (HP == 0 && buff(DeathMark.DeathMarkTracker.class) != null){
 			DeathMark.processFearTheReaper(this);
-		}
+		}*/
 	}
 	
 	public void destroy() {
@@ -921,9 +921,9 @@ public abstract class Char extends Actor {
 			}
 		}
 
-		if (sprite != null && buff(Challenge.SpectatorFreeze.class) != null){
+		/*if (sprite != null && buff(Challenge.SpectatorFreeze.class) != null){
 			return false; //can't add buffs while frozen and game is loaded
-		}
+		}*/
 
 		buffs.add( buff );
 		if (Actor.chars().contains(this)) Actor.add( buff );
@@ -1073,7 +1073,8 @@ public abstract class Char extends Actor {
 	//similar to isImmune, but only factors in damage.
 	//Is used in AI decision-making
 	public boolean isInvulnerable( Class<?> effect ){
-		return buff(Challenge.SpectatorFreeze.class) != null;
+		//return buff(Challenge.SpectatorFreeze.class) != null;
+		return false;
 	}
 
 	protected HashSet<Property> properties = new HashSet<>();

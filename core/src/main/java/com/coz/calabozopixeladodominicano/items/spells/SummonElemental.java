@@ -29,7 +29,7 @@ import com.coz.calabozopixeladodominicano.actors.buffs.AllyBuff;
 import com.coz.calabozopixeladodominicano.actors.buffs.Buff;
 import com.coz.calabozopixeladodominicano.actors.buffs.Invisibility;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.huntress.SpiritHawk;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.huntress.SpiritHawk;
 import com.coz.calabozopixeladodominicano.actors.mobs.Elemental;
 import com.coz.calabozopixeladodominicano.effects.MagicMissile;
 import com.coz.calabozopixeladodominicano.effects.particles.FlameParticle;
@@ -120,9 +120,9 @@ public class SummonElemental extends Spell {
 
 			detach(Dungeon.hero.belongings.backpack);
 
-		} else {
+		}/* else {
 			GLog.w(Messages.get(SpiritHawk.class, "no_space"));
-		}
+		}*/
 
 	}
 

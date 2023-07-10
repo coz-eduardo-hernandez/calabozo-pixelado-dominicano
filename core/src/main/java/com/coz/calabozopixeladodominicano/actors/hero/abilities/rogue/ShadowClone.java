@@ -30,11 +30,11 @@ import com.coz.calabozopixeladodominicano.actors.buffs.Burning;
 import com.coz.calabozopixeladodominicano.actors.buffs.Invisibility;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.Talent;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.huntress.SpiritHawk;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.huntress.SpiritHawk;
 import com.coz.calabozopixeladodominicano.actors.mobs.npcs.DirectableAlly;
 import com.coz.calabozopixeladodominicano.effects.particles.SmokeParticle;
-import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
+//import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
 import com.coz.calabozopixeladodominicano.items.armor.glyphs.AntiMagic;
 import com.coz.calabozopixeladodominicano.items.armor.glyphs.Brimstone;
 import com.coz.calabozopixeladodominicano.levels.CityLevel;
@@ -54,7 +54,7 @@ import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
 
 import java.util.ArrayList;
-
+/*
 public class ShadowClone extends ArmorAbility {
 
 	@Override
@@ -426,4 +426,4 @@ public class ShadowClone extends ArmorAbility {
 			}
 		}
 	}
-}
+}*/

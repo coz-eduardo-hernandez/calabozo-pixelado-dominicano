@@ -25,11 +25,11 @@ import com.coz.calabozopixeladodominicano.Assets;
 import com.coz.calabozopixeladodominicano.actors.Actor;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.Talent;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.Ratmogrify;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.Ratmogrify;
 import com.coz.calabozopixeladodominicano.effects.Speck;
 import com.coz.calabozopixeladodominicano.items.armor.Armor;
-import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
+//import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
 import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.coz.calabozopixeladodominicano.scenes.GameScene;
 import com.coz.calabozopixeladodominicano.sprites.HeroSprite;
@@ -85,7 +85,7 @@ public class KingsCrown extends Item {
 		return true;
 	}
 	
-	public void upgradeArmor(Hero hero, Armor armor, ArmorAbility ability) {
+	public void upgradeArmor(Hero hero, Armor armor/*, ArmorAbility ability*/) {
 
 		detach(hero.belongings.backpack);
 
@@ -95,11 +95,11 @@ public class KingsCrown extends Item {
 
 		if (armor != null){
 
-			if (ability instanceof Ratmogrify){
+			/*if (ability instanceof Ratmogrify){
 				GLog.p(Messages.get(this, "ratgraded"));
-			} else {
+			} else {*/
 				GLog.p(Messages.get(this, "upgraded"));
-			}
+			//}
 
 			/*ClassArmor classArmor = ClassArmor.upgrade(hero, armor);
 			if (hero.belongings.armor == armor) {

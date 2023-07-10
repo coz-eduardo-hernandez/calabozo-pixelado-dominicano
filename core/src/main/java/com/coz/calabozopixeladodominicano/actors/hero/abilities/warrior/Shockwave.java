@@ -31,11 +31,11 @@ import com.coz.calabozopixeladodominicano.actors.buffs.Invisibility;
 import com.coz.calabozopixeladodominicano.actors.buffs.Paralysis;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.Talent;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
 import com.coz.calabozopixeladodominicano.actors.mobs.Mimic;
 import com.coz.calabozopixeladodominicano.effects.MagicMissile;
 import com.coz.calabozopixeladodominicano.items.Item;
-import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
+//import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
 import com.coz.calabozopixeladodominicano.mechanics.Ballistica;
 import com.coz.calabozopixeladodominicano.mechanics.ConeAOE;
 import com.coz.calabozopixeladodominicano.messages.Messages;
@@ -45,7 +45,7 @@ import com.coz.calabozopixeladodominicano.utils.GLog;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Callback;
 import com.watabou.utils.Random;
-
+/*
 public class Shockwave extends ArmorAbility {
 
 	{
@@ -126,9 +126,9 @@ public class Shockwave extends ArmorAbility {
 											|| (ch instanceof Mimic && ch.alignment == Char.Alignment.NEUTRAL);
 									damage = hero.attackProc(ch, damage);
 									ch.damage(damage, hero);
-					/*				if (hero.subClass == HeroSubClass.GLADIATOR && wasEnemy){
+									if (hero.subClass == HeroSubClass.GLADIATOR && wasEnemy){
 										Buff.affect( hero, Combo.class ).hit( ch );
-									}*/
+									}
 								} else {
 									ch.damage(damage, hero);
 								}
@@ -159,4 +159,4 @@ public class Shockwave extends ArmorAbility {
 	public Talent[] talents() {
 		return new Talent[]{Talent.EXPANDING_WAVE, Talent.STRIKING_WAVE, Talent.SHOCK_FORCE, Talent.HEROIC_ENERGY};
 	}
-}
+}*/

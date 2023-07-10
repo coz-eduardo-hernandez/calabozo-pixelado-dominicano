@@ -25,7 +25,7 @@ import com.coz.calabozopixeladodominicano.Assets;
 import com.coz.calabozopixeladodominicano.Badges;
 import com.coz.calabozopixeladodominicano.Dungeon;
 import com.coz.calabozopixeladodominicano.actors.hero.HeroClass;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.Ratmogrify;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.Ratmogrify;
 import com.coz.calabozopixeladodominicano.items.artifacts.DriedRose;
 import com.coz.calabozopixeladodominicano.items.wands.WandOfLivingEarth;
 import com.coz.calabozopixeladodominicano.items.wands.WandOfWarding;
@@ -149,7 +149,7 @@ public class SurfaceScene extends PixelScene {
 		a.y = SKY_HEIGHT - a.height;
 		align(a);
 
-		if (Dungeon.hero.armorAbility instanceof Ratmogrify) {
+		/*if (Dungeon.hero.armorAbility instanceof Ratmogrify) {
 			rats = new Pet[30];
 			for (int i = 0; i < rats.length; i++){
 				Pet pet = new Pet();
@@ -160,7 +160,7 @@ public class SurfaceScene extends PixelScene {
 				rats[i] = pet;
 				if (dayTime) pet.brightness( 1.2f );
 			}
-		}
+		}*/
 
 		final Pet pet = new Pet();
 		pet.rm = pet.gm = pet.bm = 1.2f;

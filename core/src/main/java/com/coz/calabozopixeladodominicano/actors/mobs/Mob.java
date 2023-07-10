@@ -49,7 +49,7 @@ import com.coz.calabozopixeladodominicano.actors.buffs.Terror;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.HeroClass;
 import com.coz.calabozopixeladodominicano.actors.hero.Talent;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.duelist.Feint;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.duelist.Feint;
 import com.coz.calabozopixeladodominicano.actors.mobs.npcs.DirectableAlly;
 import com.coz.calabozopixeladodominicano.effects.CellEmitter;
 import com.coz.calabozopixeladodominicano.effects.Speck;
@@ -237,11 +237,11 @@ public abstract class Mob extends Char {
 		boolean enemyInFOV = enemy != null && enemy.isAlive() && fieldOfView[enemy.pos] && enemy.invisible <= 0;
 
 		//prevents action, but still updates enemy seen status
-		if (buff(Feint.AfterImage.FeintConfusion.class) != null){
+	/*	if (buff(Feint.AfterImage.FeintConfusion.class) != null){
 			enemySeen = enemyInFOV;
 			spend( TICK );
 			return true;
-		}
+		}*/
 
 		return state.act( enemyInFOV, justAlerted );
 	}
@@ -392,14 +392,14 @@ public abstract class Mob extends Char {
 					}
 				}
 				//if we were going to target the hero, but an afterimage exists, target that instead
-				if (closest == Dungeon.hero){
+				/*if (closest == Dungeon.hero){
 					for (Char ch : enemies){
 						if (ch instanceof Feint.AfterImage){
 							closest = ch;
 							break;
 						}
 					}
-				}
+				}*/
 
 				return closest;
 			}

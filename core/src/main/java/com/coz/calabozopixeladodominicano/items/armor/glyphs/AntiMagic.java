@@ -28,9 +28,9 @@ import com.coz.calabozopixeladodominicano.actors.buffs.Hex;
 import com.coz.calabozopixeladodominicano.actors.buffs.MagicalSleep;
 import com.coz.calabozopixeladodominicano.actors.buffs.Vulnerable;
 import com.coz.calabozopixeladodominicano.actors.buffs.Weakness;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.duelist.ElementalStrike;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.mage.ElementalBlast;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.mage.WarpBeacon;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.duelist.ElementalStrike;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.mage.ElementalBlast;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.mage.WarpBeacon;
 import com.coz.calabozopixeladodominicano.actors.mobs.DM100;
 import com.coz.calabozopixeladodominicano.actors.mobs.Eye;
 import com.coz.calabozopixeladodominicano.actors.mobs.Shaman;
@@ -83,7 +83,7 @@ public class AntiMagic extends Armor.Glyph {
 		RESISTS.add( ScrollOfPsionicBlast.class );
 		RESISTS.add( ScrollOfTeleportation.class );
 
-		RESISTS.add( ElementalBlast.class );
+		//RESISTS.add( ElementalBlast.class );
 		RESISTS.add( CursedWand.class );
 		RESISTS.add( WandOfBlastWave.class );
 		RESISTS.add( WandOfDisintegration.class );
@@ -96,12 +96,12 @@ public class AntiMagic extends Armor.Glyph {
 		RESISTS.add( WandOfTransfusion.class );
 		RESISTS.add( WandOfWarding.Ward.class );
 
-		RESISTS.add( ElementalStrike.class );
+		//RESISTS.add( ElementalStrike.class );
 		RESISTS.add( Blazing.class );
 		RESISTS.add( Shocking.class );
 		RESISTS.add( Grim.class );
 
-		RESISTS.add( WarpBeacon.class );
+		//RESISTS.add( WarpBeacon.class );
 		
 		RESISTS.add( DM100.LightningBolt.class );
 		RESISTS.add( Shaman.EarthenBolt.class );

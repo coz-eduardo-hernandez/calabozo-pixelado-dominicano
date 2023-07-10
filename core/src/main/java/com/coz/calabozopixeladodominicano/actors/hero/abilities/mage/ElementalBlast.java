@@ -44,13 +44,13 @@ import com.coz.calabozopixeladodominicano.actors.buffs.Recharging;
 import com.coz.calabozopixeladodominicano.actors.buffs.Roots;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.Talent;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
 import com.coz.calabozopixeladodominicano.actors.mobs.Mob;
 import com.coz.calabozopixeladodominicano.effects.MagicMissile;
 import com.coz.calabozopixeladodominicano.effects.Speck;
 import com.coz.calabozopixeladodominicano.effects.SpellSprite;
 import com.coz.calabozopixeladodominicano.effects.particles.ShadowParticle;
-import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
+//import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
 import com.coz.calabozopixeladodominicano.items.scrolls.ScrollOfMagicMapping;
 import com.coz.calabozopixeladodominicano.items.wands.Wand;
 import com.coz.calabozopixeladodominicano.items.wands.WandOfBlastWave;
@@ -84,7 +84,7 @@ import com.watabou.utils.Random;
 import com.watabou.utils.Reflection;
 
 import java.util.HashMap;
-
+/*
 public class ElementalBlast extends ArmorAbility {
 
 	private static final HashMap<Class<?extends Wand>, Integer> effectTypes = new HashMap<>();
@@ -442,4 +442,4 @@ public class ElementalBlast extends ArmorAbility {
 	public Talent[] talents() {
 		return new Talent[]{Talent.BLAST_RADIUS, Talent.ELEMENTAL_POWER, Talent.REACTIVE_BARRIER, Talent.HEROIC_ENERGY};
 	}
-}
+}*/

@@ -26,7 +26,7 @@ import com.coz.calabozopixeladodominicano.actors.Actor;
 import com.coz.calabozopixeladodominicano.actors.Char;
 import com.coz.calabozopixeladodominicano.actors.buffs.PinCushion;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.Ratmogrify;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.Ratmogrify;
 import com.coz.calabozopixeladodominicano.actors.mobs.Mimic;
 import com.coz.calabozopixeladodominicano.actors.mobs.Mob;
 import com.coz.calabozopixeladodominicano.actors.mobs.Statue;
@@ -72,9 +72,9 @@ public class Multiplicity extends Armor.Glyph {
 				} else {
 					Char toDuplicate = attacker;
 
-					if (toDuplicate instanceof Ratmogrify.TransmogRat){
+					/*if (toDuplicate instanceof Ratmogrify.TransmogRat){
 						toDuplicate = ((Ratmogrify.TransmogRat)attacker).getOriginal();
-					}
+					}*/
 
 					//FIXME should probably have a mob property for this
 					if (!(toDuplicate instanceof Mob)

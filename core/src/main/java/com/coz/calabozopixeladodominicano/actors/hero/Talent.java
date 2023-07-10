@@ -40,7 +40,7 @@ import com.coz.calabozopixeladodominicano.actors.buffs.RevealedArea;
 import com.coz.calabozopixeladodominicano.actors.buffs.Roots;
 import com.coz.calabozopixeladodominicano.actors.buffs.WandEmpower;
 //import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.Ratmogrify;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.Ratmogrify;
 import com.coz.calabozopixeladodominicano.actors.mobs.Mob;
 import com.coz.calabozopixeladodominicano.effects.CellEmitter;
 import com.coz.calabozopixeladodominicano.effects.Speck;
@@ -363,9 +363,9 @@ public enum Talent {
 	}
 
 	public String title(){
-		if (this == HEROIC_ENERGY && Ratmogrify.useRatroicEnergy){
+		/*if (this == HEROIC_ENERGY && Ratmogrify.useRatroicEnergy){
 			return Messages.get(this, name() + ".rat_title");
-		}
+		}*/
 		return Messages.get(this, name() + ".title");
 	}
 

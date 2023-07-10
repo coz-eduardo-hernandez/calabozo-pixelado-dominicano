@@ -29,7 +29,7 @@ import com.coz.calabozopixeladodominicano.actors.buffs.Buff;
 import com.coz.calabozopixeladodominicano.actors.buffs.RevealedArea;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.Talent;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.huntress.NaturesPower;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.huntress.NaturesPower;
 import com.coz.calabozopixeladodominicano.effects.Splash;
 import com.coz.calabozopixeladodominicano.effects.particles.LeafParticle;
 import com.coz.calabozopixeladodominicano.items.rings.RingOfSharpshooting;
@@ -100,7 +100,7 @@ public class SpiritBow extends Weapon {
 	@Override
 	public int proc(Char attacker, Char defender, int damage) {
 
-		if (attacker.buff(NaturesPower.naturesPowerTracker.class) != null && !sniperSpecial){
+		/*if (attacker.buff(NaturesPower.naturesPowerTracker.class) != null && !sniperSpecial){
 
 			Actor.add(new Actor() {
 				{
@@ -128,7 +128,7 @@ public class SpiritBow extends Weapon {
 				}
 			});
 
-		}
+		}*/
 
 		return super.proc(attacker, defender, damage);
 	}
@@ -257,10 +257,10 @@ public class SpiritBow extends Weapon {
 	@Override
 	protected float speedMultiplier(Char owner) {
 		float speed = super.speedMultiplier(owner);
-		if (owner.buff(NaturesPower.naturesPowerTracker.class) != null){
+		/*if (owner.buff(NaturesPower.naturesPowerTracker.class) != null){
 			// +33% speed to +50% speed, depending on talent points
 			speed += ((8 + ((Hero)owner).pointsInTalent(Talent.GROWING_POWER)) / 24f);
-		}
+		}*/
 		return speed;
 	}
 
@@ -296,15 +296,15 @@ public class SpiritBow extends Weapon {
 
 		@Override
 		public Emitter emitter() {
-			if (Dungeon.hero.buff(NaturesPower.naturesPowerTracker.class) != null && !sniperSpecial){
+			/*if (Dungeon.hero.buff(NaturesPower.naturesPowerTracker.class) != null && !sniperSpecial){
 				Emitter e = new Emitter();
 				e.pos(5, 5);
 				e.fillTarget = false;
 				e.pour(LeafParticle.GENERAL, 0.01f);
 				return e;
-			} else {
+			} else {*/
 				return super.emitter();
-			}
+			//}
 		}
 
 		@Override

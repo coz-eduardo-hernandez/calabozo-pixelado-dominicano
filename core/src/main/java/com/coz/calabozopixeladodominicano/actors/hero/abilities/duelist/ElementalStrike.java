@@ -44,7 +44,7 @@ import com.coz.calabozopixeladodominicano.actors.buffs.Invisibility;
 import com.coz.calabozopixeladodominicano.actors.buffs.Roots;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.Talent;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.ArmorAbility;
 import com.coz.calabozopixeladodominicano.actors.mobs.Mob;
 import com.coz.calabozopixeladodominicano.effects.CellEmitter;
 import com.coz.calabozopixeladodominicano.effects.MagicMissile;
@@ -52,7 +52,7 @@ import com.coz.calabozopixeladodominicano.effects.Speck;
 import com.coz.calabozopixeladodominicano.effects.particles.ShadowParticle;
 import com.coz.calabozopixeladodominicano.items.Item;
 import com.coz.calabozopixeladodominicano.items.KindOfWeapon;
-import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
+//import com.coz.calabozopixeladodominicano.items.armor.ClassArmor;
 import com.coz.calabozopixeladodominicano.items.bombs.Bomb;
 import com.coz.calabozopixeladodominicano.items.scrolls.ScrollOfTeleportation;
 import com.coz.calabozopixeladodominicano.items.wands.WandOfBlastWave;
@@ -98,6 +98,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 
+/*
 public class ElementalStrike extends ArmorAbility {
 
 	//TODO a few duplicates here (curse duplicates are fine)
@@ -578,4 +579,4 @@ public class ElementalStrike extends ArmorAbility {
 		return new Talent[]{Talent.ELEMENTAL_REACH, Talent.STRIKING_FORCE, Talent.DIRECTED_POWER, Talent.HEROIC_ENERGY};
 	}
 
-}
+}*/

@@ -33,11 +33,11 @@ import com.coz.calabozopixeladodominicano.actors.buffs.MagicImmune;
 import com.coz.calabozopixeladodominicano.actors.buffs.Recharging;
 import com.coz.calabozopixeladodominicano.actors.buffs.Regeneration;
 import com.coz.calabozopixeladodominicano.actors.buffs.ScrollEmpower;
-import com.coz.calabozopixeladodominicano.actors.buffs.SoulMark;
+//import com.coz.calabozopixeladodominicano.actors.buffs.SoulMark;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.HeroClass;
 import com.coz.calabozopixeladodominicano.actors.hero.Talent;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.mage.WildMagic;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.mage.WildMagic;
 import com.coz.calabozopixeladodominicano.effects.MagicMissile;
 import com.coz.calabozopixeladodominicano.items.Item;
 import com.coz.calabozopixeladodominicano.items.artifacts.TalismanOfForesight;
@@ -332,7 +332,7 @@ public abstract class Wand extends Item {
 		int lvl = super.buffedLvl();
 
 		if (charger != null && charger.target != null) {
-			if (charger.target.buff(WildMagic.WildMagicTracker.class) != null){
+			/*if (charger.target.buff(WildMagic.WildMagicTracker.class) != null){
 				int bonus = 4 + ((Hero)charger.target).pointsInTalent(Talent.WILD_POWER);
 				if (Random.Int(2) == 0) bonus++;
 				bonus /= 2; // +2/+2.5/+3/+3.5/+4 at 0/1/2/3/4 talent points
@@ -341,7 +341,7 @@ public abstract class Wand extends Item {
 				if (lvl < maxBonusLevel) {
 					lvl = Math.min(lvl + bonus, maxBonusLevel);
 				}
-			}
+			}*/
 
 			if (charger.target.buff(ScrollEmpower.class) != null){
 				lvl += 3;

@@ -23,7 +23,7 @@ package com.coz.calabozopixeladodominicano.actors.mobs;
 
 import com.coz.calabozopixeladodominicano.Dungeon;
 import com.coz.calabozopixeladodominicano.actors.Char;
-import com.coz.calabozopixeladodominicano.actors.hero.abilities.Ratmogrify;
+//import com.coz.calabozopixeladodominicano.actors.hero.abilities.Ratmogrify;
 import com.coz.calabozopixeladodominicano.sprites.RatSprite;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
@@ -41,10 +41,10 @@ public class Rat extends Mob {
 
 	@Override
 	protected boolean act() {
-		if (Dungeon.level.heroFOV[pos] && Dungeon.hero.armorAbility instanceof Ratmogrify){
+		/*if (Dungeon.level.heroFOV[pos] && Dungeon.hero.armorAbility instanceof Ratmogrify){
 			alignment = Alignment.ALLY;
 			if (state == SLEEPING) state = WANDERING;
-		}
+		}*/
 		return super.act();
 	}
 
