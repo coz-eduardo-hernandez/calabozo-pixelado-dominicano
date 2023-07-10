@@ -26,7 +26,7 @@ import com.watabou.input.KeyBindings;
 import com.watabou.input.KeyEvent;
 import com.watabou.utils.Signal;
 
-public class Scene extends Group {
+abstract public class Scene extends Group {
 	
 	private Signal.Listener<KeyEvent> keyListener;
 	

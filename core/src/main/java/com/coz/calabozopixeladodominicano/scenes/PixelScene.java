@@ -56,7 +56,7 @@ import com.watabou.utils.Signal;
 
 import java.util.ArrayList;
 
-public class PixelScene extends Scene {
+abstract public class PixelScene extends Scene {
 
 	// Minimum virtual display size for mobile portrait orientation
 	public static final float MIN_WIDTH_P = 135;
