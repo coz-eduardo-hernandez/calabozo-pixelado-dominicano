@@ -86,6 +86,11 @@ final class WarriorClass extends HeroClass {
     }
 
     @Override
+    public PlayerClassType getType(){
+        return PlayerClassType.WARRIOR;
+    }
+
+    @Override
     public void levelUp(Hero hero) {
         hero.updateHT( 5, true );
 

@@ -27,6 +27,7 @@ import com.coz.calabozopixeladodominicano.actors.buffs.Buff;
 import com.coz.calabozopixeladodominicano.actors.buffs.MonkEnergy;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.HeroClass;
+import com.coz.calabozopixeladodominicano.actors.hero.PlayerClassType;
 import com.coz.calabozopixeladodominicano.items.weapon.melee.MeleeWeapon;
 import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.coz.calabozopixeladodominicano.sprites.ItemSpriteSheet;
@@ -130,14 +131,14 @@ public class RingOfForce extends Ring {
 	@Override
 	public void activate(Char ch) {
 		super.activate(ch);
-		if (ch instanceof Hero && ((Hero) ch).heroClass == HeroClass.DUELIST){
+		if (ch instanceof Hero && ((Hero) ch).heroClass.getType() == PlayerClassType.DUELIST){
 			Buff.affect(ch, MeleeWeapon.Charger.class);
 		}
 	}
 
 	@Override
 	public String defaultAction() {
-		if (Dungeon.hero != null && Dungeon.hero.heroClass == HeroClass.DUELIST){
+		if (Dungeon.hero != null && Dungeon.hero.heroClass.getType() == PlayerClassType.DUELIST){
 			return AC_ABILITY;
 		} else {
 			return super.defaultAction();
@@ -147,7 +148,7 @@ public class RingOfForce extends Ring {
 	@Override
 	public ArrayList<String> actions(Hero hero) {
 		ArrayList<String> actions = super.actions(hero);
-		if (isEquipped(hero) && hero.heroClass == HeroClass.DUELIST){
+		if (isEquipped(hero) && hero.heroClass.getType() == PlayerClassType.DUELIST){
 			actions.add(AC_ABILITY);
 		}
 		return actions;
@@ -188,7 +189,7 @@ public class RingOfForce extends Ring {
 	public String info() {
 		String info = super.info();
 
-		if (Dungeon.hero.heroClass == HeroClass.DUELIST
+		if (Dungeon.hero.heroClass.getType() == PlayerClassType.DUELIST
 			&& (anonymous || isIdentified() || isEquipped(Dungeon.hero))){
 			info += "\n\n" + Messages.get(this, "ability_desc");
 		}

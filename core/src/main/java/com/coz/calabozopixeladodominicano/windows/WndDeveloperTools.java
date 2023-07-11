@@ -220,7 +220,7 @@ import com.coz.calabozopixeladodominicano.items.scrolls.exotic.ScrollOfDivinatio
 import com.coz.calabozopixeladodominicano.items.scrolls.exotic.ScrollOfDread;
 import com.coz.calabozopixeladodominicano.items.scrolls.exotic.ScrollOfEnchantment;
 import com.coz.calabozopixeladodominicano.items.scrolls.exotic.ScrollOfForesight;
-import com.coz.calabozopixeladodominicano.items.scrolls.exotic.ScrollOfMetamorphosis;
+//import com.coz.calabozopixeladodominicano.items.scrolls.exotic.ScrollOfMetamorphosis;
 import com.coz.calabozopixeladodominicano.items.scrolls.exotic.ScrollOfMysticalEnergy;
 import com.coz.calabozopixeladodominicano.items.scrolls.exotic.ScrollOfPassage;
 import com.coz.calabozopixeladodominicano.items.scrolls.exotic.ScrollOfPrismaticImage;
@@ -878,7 +878,7 @@ public class WndDeveloperTools extends WndTabbed {
 				ScrollOfTransmutation.class, ScrollOfUpgrade.class,
 				ScrollOfAntiMagic.class, ScrollOfChallenge.class, ScrollOfDivination.class,
 				ScrollOfDread.class, ScrollOfEnchantment.class, ScrollOfForesight.class,
-				ScrollOfMetamorphosis.class, ScrollOfMysticalEnergy.class, ScrollOfPassage.class,
+				/*ScrollOfMetamorphosis.class, */ScrollOfMysticalEnergy.class, ScrollOfPassage.class,
 				ScrollOfPrismaticImage.class, ScrollOfPsionicBlast.class, ScrollOfSirensSong.class,
 
 				Alchemize.class, AquaBlast.class, ArcaneCatalyst.class, BeaconOfReturning.class,

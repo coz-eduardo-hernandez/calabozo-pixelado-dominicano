@@ -30,6 +30,7 @@ import com.coz.calabozopixeladodominicano.actors.buffs.Invisibility;
 import com.coz.calabozopixeladodominicano.actors.buffs.Vulnerable;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.HeroClass;
+import com.coz.calabozopixeladodominicano.actors.hero.PlayerClassType;
 import com.coz.calabozopixeladodominicano.actors.mobs.Bat;
 import com.coz.calabozopixeladodominicano.actors.mobs.Bee;
 import com.coz.calabozopixeladodominicano.actors.mobs.Crab;
@@ -164,7 +165,7 @@ public class Pickaxe extends MeleeWeapon {
 
 	@Override
 	public String defaultAction() {
-		if (Dungeon.hero.heroClass == HeroClass.DUELIST && isEquipped(Dungeon.hero)){
+		if (Dungeon.hero.heroClass.getType() == PlayerClassType.DUELIST && isEquipped(Dungeon.hero)){
 			return AC_ABILITY;
 		} else {
 			return AC_MINE;

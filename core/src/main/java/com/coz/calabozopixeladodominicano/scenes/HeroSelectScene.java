@@ -21,6 +21,7 @@
 
 package com.coz.calabozopixeladodominicano.scenes;
 
+import com.coz.calabozopixeladodominicano.Assets;
 import com.coz.calabozopixeladodominicano.Badges;
 import com.coz.calabozopixeladodominicano.Chrome;
 import com.coz.calabozopixeladodominicano.Dungeon;
@@ -28,6 +29,8 @@ import com.coz.calabozopixeladodominicano.GamesInProgress;
 import com.coz.calabozopixeladodominicano.SPDSettings;
 import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.actors.hero.HeroClass;
+import com.coz.calabozopixeladodominicano.actors.hero.HeroClassFactory;
+import com.coz.calabozopixeladodominicano.actors.hero.PlayerClassType;
 import com.coz.calabozopixeladodominicano.journal.Journal;
 import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.coz.calabozopixeladodominicano.ui.ActionIndicator;
@@ -90,7 +93,7 @@ public class HeroSelectScene extends PixelScene {
 		Badges.loadGlobal();
 		Journal.loadGlobal();
 
-		background = new Image(HeroClass.WARRIOR.splashArt()){
+		background = new Image(Assets.Splashes.WARRIOR){
 			@Override
 			public void update() {
 				if (GamesInProgress.selectedClass != null) {
@@ -168,11 +171,18 @@ public class HeroSelectScene extends PixelScene {
 		infoButton.setSize(20, 21);
 		add(infoButton);
 
+		HeroClassFactory hero_class_factory = new HeroClassFactory();
+		for (final PlayerClassType TYPE : PlayerClassType.values()){
+			HeroBtn button = new HeroBtn(hero_class_factory.makeHeroClass(TYPE));
+			add(button);
+			heroBtns.add(button);
+		}
+		/*
 		for (HeroClass cl : HeroClass.getClasses()){
 			HeroBtn button = new HeroBtn(cl);
 			add(button);
 			heroBtns.add(button);
-		}
+		}*/
 
 		optionsPane = new GameOptions();
 		optionsPane.visible = optionsPane.active = false;

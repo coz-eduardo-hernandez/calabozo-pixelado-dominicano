@@ -33,6 +33,7 @@ import com.coz.calabozopixeladodominicano.actors.buffs.Recharging;
 import com.coz.calabozopixeladodominicano.actors.buffs.Regeneration;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.HeroClass;
+import com.coz.calabozopixeladodominicano.actors.hero.PlayerClassType;
 import com.coz.calabozopixeladodominicano.actors.hero.Talent;
 import com.coz.calabozopixeladodominicano.items.Item;
 import com.coz.calabozopixeladodominicano.items.KindOfWeapon;
@@ -62,14 +63,14 @@ public class MeleeWeapon extends Weapon {
 	@Override
 	public void activate(Char ch) {
 		super.activate(ch);
-		if (ch instanceof Hero && ((Hero) ch).heroClass == HeroClass.DUELIST){
+		if (ch instanceof Hero && ((Hero) ch).heroClass.getType() == PlayerClassType.DUELIST){
 			Buff.affect(ch, Charger.class);
 		}
 	}
 
 	@Override
 	public String defaultAction() {
-		if (Dungeon.hero != null && Dungeon.hero.heroClass == HeroClass.DUELIST){
+		if (Dungeon.hero != null && Dungeon.hero.heroClass.getType() == PlayerClassType.DUELIST){
 			return AC_ABILITY;
 		} else {
 			return super.defaultAction();
@@ -79,7 +80,7 @@ public class MeleeWeapon extends Weapon {
 	@Override
 	public ArrayList<String> actions(Hero hero) {
 		ArrayList<String> actions = super.actions(hero);
-		if (isEquipped(hero) && hero.heroClass == HeroClass.DUELIST){
+		if (isEquipped(hero) && hero.heroClass.getType() == PlayerClassType.DUELIST){
 			actions.add(AC_ABILITY);
 		}
 		return actions;
@@ -212,7 +213,7 @@ public class MeleeWeapon extends Weapon {
 			}
 		}
 
-		if (hero.heroClass == HeroClass.DUELIST
+		if (hero.heroClass.getType() == PlayerClassType.DUELIST
 				&& hero.hasTalent(Talent.AGGRESSIVE_BARRIER)
 				&& (hero.HP / (float)hero.HT) < 0.20f*(1+hero.pointsInTalent(Talent.AGGRESSIVE_BARRIER))){
 			Buff.affect(hero, Barrier.class).setShield(3);
@@ -401,7 +402,7 @@ public class MeleeWeapon extends Weapon {
 		}
 
 		//the mage's staff has no ability as it can only be gained by the mage
-		if (Dungeon.hero.heroClass == HeroClass.DUELIST && !(this instanceof MagesStaff)){
+		if (Dungeon.hero.heroClass.getType() == PlayerClassType.DUELIST && !(this instanceof MagesStaff)){
 			info += "\n\n" + Messages.get(this, "ability_desc");
 		}
 		

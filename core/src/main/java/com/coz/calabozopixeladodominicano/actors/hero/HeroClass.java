@@ -84,6 +84,8 @@ import com.coz.calabozopixeladodominicano.items.weapon.missiles.ThrowingStone;
 import com.coz.calabozopixeladodominicano.items.weapon.missiles.darts.Dart;
 import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.coz.calabozopixeladodominicano.ui.Icons;
+import com.coz.calabozopixeladodominicano.actors.hero.PlayerClassType;
+
 import com.watabou.noosa.Image;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.DeviceCompat;
@@ -92,18 +94,18 @@ import com.watabou.utils.Bundlable;
 import java.util.ArrayList;
 
 public abstract class HeroClass implements Bundlable{
-	public final static HeroClass WARRIOR = new WarriorClass();
-	public final static HeroClass DUELIST = new DuelistClass();
-	public final static HeroClass HUNTRESS = new HuntressClass();
-	public final static HeroClass ROGUE = new RogueClass();
-	public final static HeroClass MAGE = new MageClass();
+	//public final static HeroClass WARRIOR = new WarriorClass();
+	//public final static HeroClass DUELIST = new DuelistClass();
+	//public final static HeroClass HUNTRESS = new HuntressClass();
+	//public final static HeroClass ROGUE = new RogueClass();
+	//public final static HeroClass MAGE = new MageClass();
 
-	private final static HeroClass[] classes = new HeroClass[]{HeroClass.WARRIOR,HeroClass.DUELIST,HeroClass.HUNTRESS,
-			HeroClass.ROGUE, HeroClass.MAGE};
+	/*private final static HeroClass[] classes = new HeroClass[]{HeroClass.WARRIOR,HeroClass.DUELIST,HeroClass.HUNTRESS,
+			HeroClass.ROGUE, HeroClass.MAGE};*/
 
-	public final static HeroClass[] getClasses(){
+	/*public final static HeroClass[] getClasses(){
 		return classes;
-	}
+	}*/
 
 	public void initHero(Hero hero) {
 		hero.heroClass = this;
@@ -114,6 +116,8 @@ public abstract class HeroClass implements Bundlable{
 	}
 
 	public abstract void levelUp(Hero hero);
+
+	public abstract PlayerClassType getType();
 
 	public abstract Icons getIcon();
 

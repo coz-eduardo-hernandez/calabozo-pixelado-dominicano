@@ -79,6 +79,11 @@ final class RogueClass extends HeroClass {
     }
 
     @Override
+    public PlayerClassType getType(){
+        return PlayerClassType.ROGUE;
+    }
+
+    @Override
     public void levelUp(Hero hero) {
         if ((hero.lvl - 1) % 3 == 1){
             hero.updateHT( 3, true );

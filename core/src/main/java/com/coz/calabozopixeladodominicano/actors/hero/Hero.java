@@ -179,7 +179,7 @@ public class Hero extends Char {
 		alignment = Alignment.ALLY;
 	}
 	
-	public HeroClass heroClass = HeroClass.ROGUE;
+	public HeroClass heroClass = null;//HeroClass.ROGUE;
 	//public ArmorAbility armorAbility = null;
 	public final ArrayList<LinkedHashMap<Talent, Integer>> talents = new ArrayList<>();
 	public LinkedHashMap<Talent, Talent> metamorphedTalents = new LinkedHashMap<>();
@@ -613,7 +613,7 @@ public class Hero extends Char {
 			Sample.INSTANCE.play(Assets.Sounds.HIT_STRONG, 0.75f, 1.2f);
 		}
 
-		if (heroClass != HeroClass.DUELIST
+		if (heroClass.getType() != PlayerClassType.DUELIST
 				&& hasTalent(Talent.WEAPON_RECHARGING)
 				&& (buff(Recharging.class) != null || buff(ArtifactRecharge.class) != null)){
 			dmg = Math.round(dmg * 1.025f + (.025f*pointsInTalent(Talent.WEAPON_RECHARGING)));
@@ -870,7 +870,7 @@ public class Hero extends Char {
 				//standing in high grass
 				(Dungeon.level.map[pos] == Terrain.HIGH_GRASS ||
 				//standing in furrowed grass and not huntress
-				(heroClass != HeroClass.HUNTRESS && Dungeon.level.map[pos] == Terrain.FURROWED_GRASS) ||
+				(heroClass.getType() != PlayerClassType.HUNTRESS && Dungeon.level.map[pos] == Terrain.FURROWED_GRASS) ||
 				//standing on a plant
 				Dungeon.level.plants.get(pos) != null);
 	}
@@ -1263,7 +1263,7 @@ public class Hero extends Char {
 
 		if (enemy.isAlive() && canAttack( enemy ) && !isCharmedBy( enemy ) && enemy.invisible == 0) {
 
-			if (heroClass != HeroClass.DUELIST
+			if (heroClass.getType() != PlayerClassType.DUELIST
 					&& hasTalent(Talent.AGGRESSIVE_BARRIER)
 					&& buff(Talent.AggressiveBarrierCooldown.class) == null
 					&& (HP / (float)HT) < 0.20f*(1+pointsInTalent(Talent.AGGRESSIVE_BARRIER))){
@@ -2044,7 +2044,7 @@ public class Hero extends Char {
 			Buff.affect( this, Combo.class ).hit( enemy );
 		}*/
 
-		if (hit && heroClass == HeroClass.DUELIST && wasEnemy){
+		if (hit && heroClass.getType() == PlayerClassType.DUELIST && wasEnemy){
 			Buff.affect( this, Sai.ComboStrikeTracker.class).addHit();
 		}
 
@@ -2153,7 +2153,7 @@ public class Hero extends Char {
 		boolean smthFound = false;
 
 		boolean circular = pointsInTalent(Talent.WIDE_SEARCH) == 1;
-		int distance = heroClass == HeroClass.ROGUE ? 2 : 1;
+		int distance = heroClass.getType() == PlayerClassType.ROGUE ? 2 : 1;
 		if (hasTalent(Talent.WIDE_SEARCH)) distance++;
 		
 		boolean foresight = buff(Foresight.class) != null;

@@ -31,6 +31,7 @@ import com.coz.calabozopixeladodominicano.actors.buffs.PinCushion;
 import com.coz.calabozopixeladodominicano.actors.buffs.RevealedArea;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.HeroClass;
+import com.coz.calabozopixeladodominicano.actors.hero.PlayerClassType;
 import com.coz.calabozopixeladodominicano.actors.hero.Talent;
 import com.coz.calabozopixeladodominicano.items.Item;
 import com.coz.calabozopixeladodominicano.items.bags.Bag;
@@ -210,7 +211,7 @@ abstract public class MissileWeapon extends Weapon {
 
 			//metamorphed seer shot logic
 			if (curUser.hasTalent(Talent.SEER_SHOT)
-					&& curUser.heroClass != HeroClass.HUNTRESS
+					&& curUser.heroClass.getType() != PlayerClassType.HUNTRESS
 					&& curUser.buff(Talent.SeerShotCooldown.class) == null){
 				if (Actor.findChar(cell) == null) {
 					RevealedArea a = Buff.affect(curUser, RevealedArea.class, 5 * curUser.pointsInTalent(Talent.SEER_SHOT));

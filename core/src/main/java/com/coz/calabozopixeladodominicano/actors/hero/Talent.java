@@ -385,7 +385,7 @@ public enum Talent {
 
 	public static void onTalentUpgraded( Hero hero, Talent talent ){
 		//for metamorphosis
-		if (talent == IRON_WILL && hero.heroClass != HeroClass.WARRIOR){
+		if (talent == IRON_WILL && hero.heroClass.getType() != PlayerClassType.WARRIOR){
 			Buff.affect(hero, BrokenSeal.WarriorShield.class);
 		}
 
@@ -413,7 +413,7 @@ public enum Talent {
 			Buff.affect(hero, Talent.ProtectiveShadowsTracker.class);
 		}
 
-		if (talent == LIGHT_CLOAK && hero.heroClass == HeroClass.ROGUE){
+		if (talent == LIGHT_CLOAK && hero.heroClass.getType() == PlayerClassType.ROGUE){
 			for (Item item : Dungeon.hero.belongings.backpack){
 				if (item instanceof CloakOfShadows){
 					if (hero.buff(LostInventory.class) == null || item.keptThoughLostInvent) {
@@ -493,7 +493,7 @@ public enum Talent {
 			Buff.affect( hero, PhysicalEmpower.class).set(3, 1 + hero.pointsInTalent(STRENGTHENING_MEAL));
 		}
 		if (hero.hasTalent(FOCUSED_MEAL)){
-			if (hero.heroClass == HeroClass.DUELIST){
+			if (hero.heroClass.getType() == PlayerClassType.DUELIST){
 				//1/1.5 charge for the duelist
 				Buff.affect( hero, MeleeWeapon.Charger.class ).gainCharge(0.5f*(hero.pointsInTalent(FOCUSED_MEAL)+1));
 			} else {
@@ -534,7 +534,7 @@ public enum Talent {
 
 	public static void onHealingPotionUsed( Hero hero ){
 		if (hero.hasTalent(RESTORED_WILLPOWER)){
-			if (hero.heroClass == HeroClass.WARRIOR) {
+			if (hero.heroClass.getType() == PlayerClassType.WARRIOR) {
 				BrokenSeal.WarriorShield shield = hero.buff(BrokenSeal.WarriorShield.class);
 				if (shield != null) {
 					int shieldToGive = Math.round(shield.maxShield() * 0.33f * (1 + hero.pointsInTalent(RESTORED_WILLPOWER)));
@@ -587,7 +587,7 @@ public enum Talent {
 
 	public static void onUpgradeScrollUsed( Hero hero ){
 		if (hero.hasTalent(ENERGIZING_UPGRADE)){
-			if (hero.heroClass == HeroClass.MAGE) {
+			if (hero.heroClass.getType() == PlayerClassType.MAGE) {
 				MagesStaff staff = hero.belongings.getItem(MagesStaff.class);
 				if (staff != null) {
 					staff.gainCharge(2 + 2 * hero.pointsInTalent(ENERGIZING_UPGRADE), true);
@@ -599,7 +599,7 @@ public enum Talent {
 			}
 		}
 		if (hero.hasTalent(MYSTICAL_UPGRADE)){
-			if (hero.heroClass == HeroClass.ROGUE) {
+			if (hero.heroClass.getType() == PlayerClassType.ROGUE) {
 				CloakOfShadows cloak = hero.belongings.getItem(CloakOfShadows.class);
 				if (cloak != null) {
 					cloak.overCharge(1 + hero.pointsInTalent(MYSTICAL_UPGRADE));

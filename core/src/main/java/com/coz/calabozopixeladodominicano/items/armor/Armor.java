@@ -31,6 +31,7 @@ import com.coz.calabozopixeladodominicano.actors.buffs.MagicImmune;
 import com.coz.calabozopixeladodominicano.actors.buffs.Momentum;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.HeroClass;
+import com.coz.calabozopixeladodominicano.actors.hero.PlayerClassType;
 import com.coz.calabozopixeladodominicano.actors.hero.Talent;
 import com.coz.calabozopixeladodominicano.effects.Speck;
 import com.coz.calabozopixeladodominicano.items.BrokenSeal;
@@ -405,7 +406,7 @@ public class Armor extends EquipableItem {
 			} else {
 
 				int lossChanceStart = 4;
-				if (Dungeon.hero != null && Dungeon.hero.heroClass != HeroClass.WARRIOR && Dungeon.hero.hasTalent(Talent.RUNIC_TRANSFERENCE)){
+				if (Dungeon.hero != null && Dungeon.hero.heroClass.getType() != PlayerClassType.WARRIOR && Dungeon.hero.hasTalent(Talent.RUNIC_TRANSFERENCE)){
 					lossChanceStart += 1+Dungeon.hero.pointsInTalent(Talent.RUNIC_TRANSFERENCE);
 				}
 

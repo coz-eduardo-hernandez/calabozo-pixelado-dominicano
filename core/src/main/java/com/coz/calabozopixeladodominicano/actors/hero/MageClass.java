@@ -85,6 +85,11 @@ final class MageClass extends HeroClass{
     }
 
     @Override
+    public PlayerClassType getType(){
+        return PlayerClassType.MAGE;
+    }
+
+    @Override
     public void levelUp(Hero hero) {
         if ((hero.lvl - 1) % 2 == 0){
             hero.updateHT( 3, true );

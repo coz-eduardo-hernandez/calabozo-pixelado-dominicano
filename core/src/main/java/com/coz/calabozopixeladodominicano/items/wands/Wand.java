@@ -36,6 +36,7 @@ import com.coz.calabozopixeladodominicano.actors.buffs.ScrollEmpower;
 //import com.coz.calabozopixeladodominicano.actors.buffs.SoulMark;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.HeroClass;
+import com.coz.calabozopixeladodominicano.actors.hero.PlayerClassType;
 import com.coz.calabozopixeladodominicano.actors.hero.Talent;
 //import com.coz.calabozopixeladodominicano.actors.hero.abilities.mage.WildMagic;
 import com.coz.calabozopixeladodominicano.effects.MagicMissile;
@@ -618,12 +619,12 @@ public abstract class Wand extends Item {
 							&& curWand.charger != null && curWand.charger.target == curUser){
 
 						//regular. If hero owns wand but it isn't in belongings it must be in the staff
-						if (curUser.heroClass == HeroClass.MAGE && !curUser.belongings.contains(curWand)){
+						if (curUser.heroClass.getType() == PlayerClassType.MAGE && !curUser.belongings.contains(curWand)){
 							//grants 3/5 shielding
 							Buff.affect(Dungeon.hero, Barrier.class).setShield(1 + 2 * Dungeon.hero.pointsInTalent(Talent.BACKUP_BARRIER));
 
 						//metamorphed. Triggers if wand is highest level hero has
-						} else if (curUser.heroClass != HeroClass.MAGE) {
+						} else if (curUser.heroClass.getType() != PlayerClassType.MAGE) {
 							boolean highest = true;
 							for (Item i : curUser.belongings.getAllItems(Wand.class)){
 								if (i.level() > curWand.level()){

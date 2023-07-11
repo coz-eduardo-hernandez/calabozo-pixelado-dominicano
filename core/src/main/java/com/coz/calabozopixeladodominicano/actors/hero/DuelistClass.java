@@ -81,6 +81,11 @@ final class DuelistClass extends HeroClass {
     }
 
     @Override
+    public PlayerClassType getType(){
+        return PlayerClassType.DUELIST;
+    }
+
+    @Override
     public void levelUp (Hero hero) {
         if ((hero.lvl - 1) % 3 == 0) {
             hero.updateHT(4, true);

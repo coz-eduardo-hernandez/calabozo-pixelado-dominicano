@@ -48,6 +48,7 @@ import com.coz.calabozopixeladodominicano.actors.buffs.SoulMark;
 import com.coz.calabozopixeladodominicano.actors.buffs.Terror;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.HeroClass;
+import com.coz.calabozopixeladodominicano.actors.hero.PlayerClassType;
 import com.coz.calabozopixeladodominicano.actors.hero.Talent;
 //import com.coz.calabozopixeladodominicano.actors.hero.abilities.duelist.Feint;
 import com.coz.calabozopixeladodominicano.actors.mobs.npcs.DirectableAlly;
@@ -825,7 +826,7 @@ public abstract class Mob extends Char {
 						&& Random.Float() < 0.34f + 0.33f* Dungeon.hero.pointsInTalent(Talent.LETHAL_MOMENTUM)){
 					Buff.affect(Dungeon.hero, Talent.LethalMomentumTracker.class, 0f);
 				}
-				if (Dungeon.hero.heroClass != HeroClass.DUELIST
+				if (Dungeon.hero.heroClass.getType() != PlayerClassType.DUELIST
 						&& Dungeon.hero.hasTalent(Talent.LETHAL_HASTE)
 						&& Dungeon.hero.buff(Talent.LethalHasteCooldown.class) == null){
 					Buff.affect(Dungeon.hero, Talent.LethalHasteCooldown.class, 100f);

@@ -26,6 +26,7 @@ import com.coz.calabozopixeladodominicano.Dungeon;
 import com.coz.calabozopixeladodominicano.actors.Actor;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.HeroClass;
+import com.coz.calabozopixeladodominicano.actors.hero.PlayerClassType;
 import com.coz.calabozopixeladodominicano.actors.hero.Talent;
 import com.coz.calabozopixeladodominicano.effects.Speck;
 import com.coz.calabozopixeladodominicano.items.bags.Bag;
@@ -176,7 +177,7 @@ public class ArcaneResin extends Item {
 
 			Item output = new ArcaneResin().quantity(2*(level+1));
 
-			if (Dungeon.hero.heroClass != HeroClass.MAGE && Dungeon.hero.hasTalent(Talent.WAND_PRESERVATION)){
+			if (Dungeon.hero.heroClass.getType() != PlayerClassType.MAGE && Dungeon.hero.hasTalent(Talent.WAND_PRESERVATION)){
 				output.quantity(output.quantity() + Dungeon.hero.pointsInTalent(Talent.WAND_PRESERVATION));
 			}
 

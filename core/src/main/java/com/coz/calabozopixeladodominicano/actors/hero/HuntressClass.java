@@ -69,6 +69,11 @@ final class HuntressClass extends HeroClass {
     }
 
     @Override
+    public PlayerClassType getType(){
+        return PlayerClassType.HUNTRESS;
+    }
+
+    @Override
     public void levelUp(Hero hero) {
         hero.updateHT( 3, true );
 

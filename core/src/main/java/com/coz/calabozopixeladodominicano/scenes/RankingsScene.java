@@ -26,6 +26,7 @@ import com.coz.calabozopixeladodominicano.Dungeon;
 import com.coz.calabozopixeladodominicano.Rankings;
 import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.actors.hero.HeroClass;
+import com.coz.calabozopixeladodominicano.actors.hero.PlayerClassType;
 import com.coz.calabozopixeladodominicano.effects.Flare;
 import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.coz.calabozopixeladodominicano.sprites.ItemSprite;
@@ -265,7 +266,7 @@ public class RankingsScene extends PixelScene {
 			}
 			
 			classIcon.copy( Icons.get( rec.heroClass ) );
-			if (rec.heroClass == HeroClass.ROGUE){
+			if (rec.heroClass.getType() == PlayerClassType.ROGUE){
 				//cloak of shadows needs to be brightened a bit
 				classIcon.brightness(2f);
 			}

@@ -27,6 +27,7 @@ import com.coz.calabozopixeladodominicano.actors.buffs.ShieldBuff;
 import com.coz.calabozopixeladodominicano.actors.hero.Belongings;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
 import com.coz.calabozopixeladodominicano.actors.hero.HeroClass;
+import com.coz.calabozopixeladodominicano.actors.hero.PlayerClassType;
 import com.coz.calabozopixeladodominicano.actors.hero.Talent;
 import com.coz.calabozopixeladodominicano.items.armor.Armor;
 import com.coz.calabozopixeladodominicano.items.bags.Bag;
@@ -215,7 +216,7 @@ public class BrokenSeal extends Item {
 
 		public synchronized int maxShield() {
 			//metamorphed iron will logic
-			if (((Hero)target).heroClass != HeroClass.WARRIOR && ((Hero) target).hasTalent(Talent.IRON_WILL)){
+			if (((Hero)target).heroClass.getType() != PlayerClassType.WARRIOR && ((Hero) target).hasTalent(Talent.IRON_WILL)){
 				return ((Hero) target).pointsInTalent(Talent.IRON_WILL);
 			}
 

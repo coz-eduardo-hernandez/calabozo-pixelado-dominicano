@@ -43,7 +43,7 @@ import com.watabou.utils.Random;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Set;
-
+/*
 public class ScrollOfMetamorphosis extends ExoticScroll {
 	
 	{
@@ -51,7 +51,7 @@ public class ScrollOfMetamorphosis extends ExoticScroll {
 	}
 
 	protected static boolean identifiedByUse = false;
-	
+
 	@Override
 	public void doRead() {
 		if (!isKnown()) {
@@ -132,13 +132,13 @@ public class ScrollOfMetamorphosis extends ExoticScroll {
 					tier.put(talent, Dungeon.hero.pointsInTalent(talent));
 				}
 			}
-/*
+
 			pane = new TalentsPane(TalentButton.Mode.METAMORPH_CHOOSE, talents);
 			add(pane);
 			pane.setPos(0, top);
 			pane.setSize(120, pane.content().height());
 			resize((int)pane.width(), (int)pane.bottom());
-			pane.setPos(0, top);*/
+			pane.setPos(0, top);
 		}
 
 		@Override
@@ -241,14 +241,14 @@ public class ScrollOfMetamorphosis extends ExoticScroll {
 
 			top = text.bottom() + 2;
 
-			/*TalentsPane.TalentTierPane optionsPane = new TalentsPane.TalentTierPane(replaceOptions, tier, TalentButton.Mode.METAMORPH_REPLACE);
+			TalentsPane.TalentTierPane optionsPane = new TalentsPane.TalentTierPane(replaceOptions, tier, TalentButton.Mode.METAMORPH_REPLACE);
 			add(optionsPane);
 			optionsPane.title.text(" ");
 			optionsPane.setPos(0, top);
 			optionsPane.setSize(120, optionsPane.height());
 			resize((int)optionsPane.width(), (int)optionsPane.bottom());
 
-			resize(120, (int)optionsPane.bottom());*/
+			resize(120, (int)optionsPane.bottom());
 		}
 
 		@Override
@@ -265,3 +265,4 @@ public class ScrollOfMetamorphosis extends ExoticScroll {
 		}
 	}
 }
+*/
