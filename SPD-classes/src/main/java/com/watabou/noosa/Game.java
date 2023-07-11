@@ -291,7 +291,7 @@ public class Game implements ApplicationListener {
 			PrintWriter pw = new PrintWriter(sw);
 			tr.printStackTrace(pw);
 			pw.flush();
-			System.err.println(sw.toString());
+			System.err.println(sw);
 		}
 	}
 	
