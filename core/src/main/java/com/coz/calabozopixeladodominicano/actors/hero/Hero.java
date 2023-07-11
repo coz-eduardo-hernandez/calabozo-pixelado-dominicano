@@ -283,7 +283,8 @@ public class Hero extends Char {
 
 		super.storeInBundle( bundle );
 
-		bundle.put( CLASS, heroClass);
+		bundle.put( CLASS, heroClass.getType().toString());
+
 	//	bundle.put( ABILITY, armorAbility );
 	//	Talent.storeTalentsInBundle( bundle, this );
 		
@@ -310,7 +311,10 @@ public class Hero extends Char {
 
 		super.restoreFromBundle( bundle );
 
-		heroClass = (HeroClass)bundle.get( CLASS );
+		String class_name = bundle.getString(CLASS);
+		PlayerClassType hero_type = PlayerClassType.valueOf(class_name);
+		heroClass = new HeroClassFactory().makeHeroClass(hero_type);
+
 	//	armorAbility = (ArmorAbility)bundle.get( ABILITY );
 		Talent.restoreTalentsFromBundle( bundle, this );
 		
@@ -329,7 +333,11 @@ public class Hero extends Char {
 		info.hp = bundle.getInt( Char.TAG_HP );
 		info.ht = bundle.getInt( Char.TAG_HT );
 		info.shld = bundle.getInt( Char.TAG_SHLD );
-		info.heroClass = (HeroClass) bundle.get( CLASS );
+
+		String class_name = bundle.getString(CLASS);
+		PlayerClassType hero_type = PlayerClassType.valueOf(class_name);
+		info.heroClass = new HeroClassFactory().makeHeroClass(hero_type);
+
 		Belongings.preview( info, bundle );
 	}
 
