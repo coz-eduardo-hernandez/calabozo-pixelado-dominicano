@@ -50,3 +50,9 @@ dependencies {
     implementation "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-ios"
     implementation "com.badlogicgames.gdx-controllers:gdx-controllers-ios:$gdxControllersVersion"
 }
+
+sourceSets {
+    test {
+        java.srcDirs = ['src/test/java', 'src/main/java']
+    }
+}

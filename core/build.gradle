@@ -33,3 +33,9 @@ test {
         jvmArgs '-XstartOnFirstThread'
     }
 }
+
+sourceSets {
+    test {
+        java.srcDirs = ['src/test/java', 'src/main/java']
+    }
+}

@@ -47,8 +47,8 @@ class BelongingsTest {
         });*/
     }
 
-    @Test
+    /*@Test
     void can_get_backpack_image() {
         //int image = ItemSpriteSheet.BACKPACK;
-    }
+    }*/
 }

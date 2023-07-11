@@ -5,8 +5,6 @@ android {
     compileSdkVersion appAndroidCompileSDK
     compileOptions.sourceCompatibility = compileOptions.targetCompatibility = appJavaCompatibility
 
-    sourceSets.main.assets.srcDirs = [new File(project(':core').projectDir, "/src/main/assets")]
-
     defaultConfig {
         manifestPlaceholders = [appName:appName]
         applicationId appPackageName
@@ -47,9 +45,15 @@ android {
         }
     }
 
+    sourceSets.main.assets.srcDirs = [new File(project(':core').projectDir, "/src/main/assets")]
+
     sourceSets {
         main {
             jniLibs.srcDirs = ['libs']
+        }
+
+        test {
+            java.srcDirs = ['src/test/java']
         }
     }
 }

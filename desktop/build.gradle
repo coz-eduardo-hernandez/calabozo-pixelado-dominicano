@@ -130,3 +130,9 @@ dependencies {
     testImplementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
     testImplementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
 }
+
+sourceSets {
+    test {
+        java.srcDirs = ['src/test/java', 'src/main/java']
+    }
+}
