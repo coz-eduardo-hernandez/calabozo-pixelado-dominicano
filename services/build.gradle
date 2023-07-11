@@ -5,6 +5,13 @@ sourceCompatibility = targetCompatibility = appJavaCompatibility
 
 sourceSets {
     test {
-        java.srcDirs = ['src/test/java', 'src/main/java']
+        java.srcDirs = ['src/utest/java', 'src/main/java']
+    }
+
+    integrationTest {
+        java.srcDirs = ['src/itest/java', 'src/main/java']
+        resources.srcDir file("src/itest/resources")
+        compileClasspath += sourceSets.main.output + configurations.testRuntimeClasspath
+        runtimeClasspath += output + compileClasspath
     }
 }

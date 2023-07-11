@@ -13,19 +13,16 @@ processResources {
 
 def osName = System.getProperty('os.name').toLowerCase(Locale.ROOT)
 
-task debug(type: JavaExec) {
-    classpath = sourceSets.main.runtimeClasspath
-    ignoreExitValue = true
-    enableAssertions = true
+sourceSets {
+    test {
+        java.srcDirs = ['src/utest/java']
+    }
 
-    getMainClass().set(appMainClass)
-    systemProperty 'Specification-Title', appName
-    systemProperty 'Implementation-Title', appPackageName
-    systemProperty 'Specification-Version', appVersionName + "-INDEV"
-    systemProperty 'Implementation-Version', appVersionCode
-
-    if (osName.contains('mac')) {
-        jvmArgs '-XstartOnFirstThread'
+    integrationTest {
+        java.srcDirs = ['src/itest/java']
+        resources.srcDir file("src/itest/resources")
+        compileClasspath += sourceSets.main.output + configurations.testRuntimeClasspath
+        runtimeClasspath += output + compileClasspath
     }
 }
 
@@ -47,6 +44,31 @@ task release(type: Jar) {
 installDist.dependsOn release
 startScripts.dependsOn release
 jpackageImage.dependsOn release
+
+task debug(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    ignoreExitValue = true
+    enableAssertions = true
+
+    getMainClass().set(appMainClass)
+    systemProperty 'Specification-Title', appName
+    systemProperty 'Implementation-Title', appPackageName
+    systemProperty 'Specification-Version', appVersionName + "-INDEV"
+    systemProperty 'Implementation-Version', appVersionCode
+
+    if (osName.contains('mac')) {
+        jvmArgs '-XstartOnFirstThread'
+    }
+}
+
+task integrationTest(type: Test) {
+    description = 'Run the integration tests'
+    group = 'verification'
+    testClassesDirs = sourceSets.integrationTest.output.classesDirs
+    classpath = sourceSets.integrationTest.runtimeClasspath
+
+    useJUnitPlatform()
+}
 
 runtime {
     modules = ['java.base',
@@ -129,10 +151,4 @@ dependencies {
 
     testImplementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
     testImplementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
-}
-
-sourceSets {
-    test {
-        java.srcDirs = ['src/test/java', 'src/main/java']
-    }
 }

@@ -20,14 +20,6 @@ android {
     }
 
     buildTypes {
-        debug {
-            applicationIdSuffix ".indev"
-            versionNameSuffix '-INDEV'
-            dependencies {
-                debugImplementation project(':services:updates:debugUpdates')
-                debugImplementation project(':services:news:debugNews')
-            }
-        }
         release {
 
             //These lines enable R8, which is a code shrinker/optimizer/obfuscator.
@@ -43,6 +35,20 @@ android {
                 releaseImplementation project(':services:news:shatteredNews')
             }
         }
+
+        debug {
+            applicationIdSuffix ".indev"
+            versionNameSuffix '-INDEV'
+            dependencies {
+                debugImplementation project(':services:updates:debugUpdates')
+                debugImplementation project(':services:news:debugNews')
+            }
+        }
+
+        integrationTest {
+            description = 'Run the integration tests'
+            group = 'verification'
+        }
     }
 
     sourceSets.main.assets.srcDirs = [new File(project(':core').projectDir, "/src/main/assets")]
@@ -53,7 +59,12 @@ android {
         }
 
         test {
-            java.srcDirs = ['src/test/java']
+            java.srcDirs = ['src/utest/java']
+        }
+
+        integrationTest {
+            java.srcDirs = ['src/itest/java']
+            resources.srcDir file("src/itest/resources")
         }
     }
 }
@@ -74,6 +85,9 @@ dependencies {
     natives "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-x86"
     natives "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-x86_64"
     implementation "com.badlogicgames.gdx-controllers:gdx-controllers-android:$gdxControllersVersion"
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.3'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 // called every time gradle gets executed, takes the native dependencies of

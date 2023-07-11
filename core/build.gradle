@@ -17,6 +17,19 @@ dependencies {
 
 def osName = System.getProperty('os.name').toLowerCase(Locale.ROOT)
 
+sourceSets {
+    test {
+        java.srcDirs = ['src/utest/java']
+    }
+
+    integrationTest {
+        java.srcDirs = ['src/itest/java']
+        resources.srcDir file("src/itest/resources")
+        compileClasspath += sourceSets.main.output + configurations.testRuntimeClasspath
+        runtimeClasspath += output + compileClasspath
+    }
+}
+
 test {
     useJUnitPlatform()
 
@@ -31,11 +44,5 @@ test {
 
     if (osName.contains('mac')) {
         jvmArgs '-XstartOnFirstThread'
-    }
-}
-
-sourceSets {
-    test {
-        java.srcDirs = ['src/test/java', 'src/main/java']
     }
 }

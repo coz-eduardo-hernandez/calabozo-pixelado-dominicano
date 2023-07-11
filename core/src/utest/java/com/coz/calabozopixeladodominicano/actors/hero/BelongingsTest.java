@@ -1,22 +1,12 @@
 package com.coz.calabozopixeladodominicano.actors.hero;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
-import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
-import com.coz.calabozopixeladodominicano.desktop.DesktopLauncher;
 //import com.coz.calabozopixeladodominicano.desktop.DesktopLauncher.SpecificationTitle;
 //import com.coz.calabozopixeladodominicano.desktop.DesktopLauncher.BasePath;
-import com.coz.calabozopixeladodominicano.sprites.ItemSpriteSheet;
-import com.coz.calabozopixeladodominicano.desktop.DesktopPlatformSupport;
-import com.watabou.noosa.Game;
-import com.watabou.utils.FileUtils;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
 class BelongingsTest {
     Lwjgl3Application app = null;
