@@ -8,7 +8,7 @@ import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
-class BelongingsTest {
+class BelongingsUTest {
     Lwjgl3Application app = null;
     CalabozoPixeladoDominicano CPD = null;
 

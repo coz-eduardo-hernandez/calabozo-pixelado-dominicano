@@ -7,7 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 
 //import com.coz.calabozopixeladodominicano.GamesInProgress;
 
-class HeroClassTests {
+class HeroClassUTests {
 
     @BeforeEach
     void setUp () {
