@@ -144,3 +144,8 @@ miembros de la escena a la que se apunta
 
 Para saber más de cómo funciona el juego, revisa el código de la escena que te interesa :)
 
+## Derechos de autor
+Copyright (C) 2023 Eduardo Hernández
+Este es un programa libre bajo la GNU General Public License en su versión 3, o si lo desea una versión posterior
+Para los términos completos vea [LICENCIA.txt](../LICENCIA.txt) o vaya a https://www.gnu.org/licenses
+

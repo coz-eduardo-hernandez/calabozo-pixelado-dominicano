@@ -1,3 +1,4 @@
+# Mensajes de confirmación para control de versiones
 Los mensajes de confirmación tienen que seguir el formato [convencional v1.0.0](https://www.conventionalcommits.org/es/v1.0.0/):
 
 `<tipo>[alcance opcional]: <descripción>`
@@ -33,3 +34,9 @@ Finalmente, hay tipos que se aplican a cualquier archivo o función:
 - sync   : incluye nuevos cambios desde el origen
 
 Las solicitudes de extracción en GitHub siguen el formato de <tipo>: <descripción>
+
+## Derechos de autor
+Copyright (C) 2023 Eduardo Hernández
+Este es un programa libre bajo la GNU General Public License en su versión 3, o si lo desea una versión posterior
+Para los términos completos vea [LICENCIA.txt](../LICENCIA.txt) o vaya a https://www.gnu.org/licenses
+
