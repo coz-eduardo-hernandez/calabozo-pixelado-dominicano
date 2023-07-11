@@ -508,15 +508,15 @@ public class CharSprite extends MovieClip implements Tweener.Listener, MovieClip
 	}
 	
 	@Override
-	public void update() {
+	public void update(final float ELAPSED) {
 		if (paused && ch != null && curAnim != null && !curAnim.looped && !finished){
 			listener.onComplete(curAnim);
 			finished = true;
 		}
 		
-		super.update();
+		super.update(ELAPSED);
 		
-		if (flashTime > 0 && (flashTime -= Game.elapsed) <= 0) {
+		if (flashTime > 0 && (flashTime -= ELAPSED) <= 0) {
 			resetColor();
 		}
 		
@@ -774,9 +774,9 @@ public class CharSprite extends MovieClip implements Tweener.Listener, MovieClip
 		}
 
 		@Override
-		protected void updateValues( float progress ) {
-			float hVal = -height * 4 * progress * (1 - progress);
-			visual.point( PointF.inter( start, end, progress ).offset( 0, hVal ) );
+		protected void updateValues( final float ELAPSED, final float PROGRESS ) {
+			float hVal = -height * 4 * PROGRESS * (1 - PROGRESS);
+			visual.point( PointF.inter( start, end, PROGRESS ).offset( 0, hVal ) );
 			visual.shadowOffset = 0.25f - hVal*0.8f;
 		}
 	}

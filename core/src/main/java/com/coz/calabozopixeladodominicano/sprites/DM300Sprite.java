@@ -152,8 +152,8 @@ public class DM300Sprite extends MobSprite {
 	}
 
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 
 		if (superchargeSparks != null){
 			superchargeSparks.visible = visible;

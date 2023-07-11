@@ -72,8 +72,8 @@ public class EarthParticle extends PixelParticle {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		
 		float p = left / lifespan;
 		size( (p < 0.5f ? p : 1 - p) * size );

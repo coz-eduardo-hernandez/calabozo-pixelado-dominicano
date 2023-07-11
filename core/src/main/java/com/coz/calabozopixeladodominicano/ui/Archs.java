@@ -93,11 +93,11 @@ public class Archs extends Component {
 	}
 
 	@Override
-	public void update() {
+	public void update(final float ELAPSED) {
 
-		super.update();
+		super.update(ELAPSED);
 
-		float shift = Game.elapsed * SCROLL_SPEED;
+		float shift = ELAPSED * SCROLL_SPEED;
 		if (reversed) {
 			shift = -shift;
 		}

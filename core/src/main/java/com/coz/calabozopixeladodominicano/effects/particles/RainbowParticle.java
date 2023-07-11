@@ -70,8 +70,8 @@ public class RainbowParticle extends PixelParticle {
 	}
 
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		// alpha: 1 -> 0; size: 1 -> 5
 		size( 5 - (am = left / lifespan) * 4 );
 	}

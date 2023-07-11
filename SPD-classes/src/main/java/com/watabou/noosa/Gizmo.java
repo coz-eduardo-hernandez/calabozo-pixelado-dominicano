@@ -43,7 +43,7 @@ public class Gizmo {
 		parent = null;
 	}
 	
-	public void update() {
+	public void update(final float ELAPSED) {
 	}
 	
 	public void draw() {

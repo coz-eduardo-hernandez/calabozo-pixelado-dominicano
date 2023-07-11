@@ -165,7 +165,7 @@ abstract public class PixelScene extends Scene {
 	}
 
 	@Override
-	public void update() {
+	public void update(final float ELAPSED) {
 		//we create this here so that it is last in the scene
 		if (DeviceCompat.isDesktop() && fullscreenListener == null){
 			KeyEvent.addKeyListener(fullscreenListener = new Signal.Listener<KeyEvent>() {
@@ -194,7 +194,7 @@ abstract public class PixelScene extends Scene {
 			});
 		}
 
-		super.update();
+		super.update(ELAPSED);
 		//20% deadzone
 		if (!Cursor.isCursorCaptured()) {
 			if (Math.abs(ControllerHandler.rightStickPosition.x) >= 0.2f
@@ -214,8 +214,8 @@ abstract public class PixelScene extends Scene {
 				if (ControllerHandler.rightStickPosition.y < 0) yMove = -yMove;
 
 				PointF virtualCursorPos = ControllerHandler.getControllerPointerPos();
-				virtualCursorPos.x += defaultZoom * sensitivity * Game.elapsed * xMove;
-				virtualCursorPos.y += defaultZoom * sensitivity * Game.elapsed * yMove;
+				virtualCursorPos.x += defaultZoom * sensitivity * ELAPSED * xMove;
+				virtualCursorPos.y += defaultZoom * sensitivity * ELAPSED * yMove;
 
 				PointF cameraShift = new PointF();
 
@@ -415,11 +415,11 @@ abstract public class PixelScene extends Scene {
 		}
 		
 		@Override
-		public void update() {
+		public void update(final float ELAPSED) {
 			
-			super.update();
+			super.update(ELAPSED);
 			
-			if ((time -= Game.elapsed) <= 0) {
+			if ((time -= ELAPSED) <= 0) {
 				alpha( 0f );
 				parent.remove( this );
 				destroy();

@@ -60,8 +60,8 @@ public class FlowParticle extends PixelParticle {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		
 		float p = left / lifespan;
 		am = (p < 0.5f ? p : 1 - p) * 0.6f;
@@ -84,11 +84,11 @@ public class FlowParticle extends PixelParticle {
 		}
 		
 		@Override
-		public void update() {
+		public void update(final float ELAPSED) {
 			
 			if (visible = (pos < Dungeon.level.heroFOV.length && Dungeon.level.heroFOV[pos])) {
 				
-				super.update();
+				super.update(ELAPSED);
 
 			}
 		}

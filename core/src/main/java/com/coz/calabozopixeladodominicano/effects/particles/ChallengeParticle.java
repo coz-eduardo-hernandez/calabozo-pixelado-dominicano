@@ -59,8 +59,8 @@ public class ChallengeParticle extends PixelParticle.Shrinking {
 	}
 
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 
 		am = 1 - left / lifespan;
 	}

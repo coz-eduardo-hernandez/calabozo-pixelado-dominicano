@@ -58,8 +58,8 @@ public class Enchanting extends ItemSprite {
 	}
 
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 
 		if (passed == 0) {
 			x = target.sprite.center().x - width() / 2;
@@ -80,7 +80,7 @@ public class Enchanting extends ItemSprite {
 				break;
 		}
 
-		if ((passed += Game.elapsed) > duration) {
+		if ((passed += ELAPSED) > duration) {
 			switch (phase) {
 				case FADE_IN:
 					phase = Phase.STATIC;

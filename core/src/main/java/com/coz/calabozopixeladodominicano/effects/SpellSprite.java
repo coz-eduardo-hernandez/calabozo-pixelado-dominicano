@@ -81,8 +81,8 @@ public class SpellSprite extends Image {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 
 		if (target != null && target.sprite != null) {
 			x = target.sprite.center().x - SIZE / 2;
@@ -105,7 +105,7 @@ public class SpellSprite extends Image {
 				break;
 		}
 		
-		if ((passed += Game.elapsed) > duration) {
+		if ((passed += ELAPSED) > duration) {
 			switch (phase) {
 			case FADE_IN:
 				phase = Phase.STATIC;

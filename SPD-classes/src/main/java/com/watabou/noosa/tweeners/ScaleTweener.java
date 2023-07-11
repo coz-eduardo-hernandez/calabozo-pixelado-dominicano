@@ -40,7 +40,7 @@ public class ScaleTweener extends Tweener {
 	}
 
 	@Override
-	protected void updateValues( float progress ) {
-		visual.scale = PointF.inter( start, end, progress );
+	protected void updateValues( final float ELAPSED, final float PROGRESS ) {
+		visual.scale = PointF.inter( start, end, PROGRESS );
 	}
 }

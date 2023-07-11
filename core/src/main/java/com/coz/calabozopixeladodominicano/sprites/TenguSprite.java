@@ -82,9 +82,9 @@ public class TenguSprite extends MobSprite {
 	}
 
 	@Override
-	public void update() {
+	public void update(final float ELAPSED) {
 		if (paused) isMoving = false;
-		super.update();
+		super.update(ELAPSED);
 	}
 
 	@Override

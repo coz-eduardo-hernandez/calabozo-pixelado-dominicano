@@ -261,16 +261,16 @@ public class SurfaceScene extends PixelScene {
 
 	private float ratJumpTimer = 0.02f;
 	@Override
-	public void update() {
+	public void update(final float ELAPSED) {
 		if (rats != null) {
-			ratJumpTimer -= Game.elapsed;
+			ratJumpTimer -= ELAPSED;
 			while (ratJumpTimer <= 0f) {
 				ratJumpTimer += 0.02f;
 				Random.element(rats).jump();
 			}
 		}
 
-		super.update();
+		super.update(ELAPSED);
 
 	}
 
@@ -390,8 +390,8 @@ public class SurfaceScene extends PixelScene {
 		}
 		
 		@Override
-		public void update() {
-			super.update();
+		public void update(final float ELAPSED) {
+			super.update(ELAPSED);
 			if (speed.x > 0 && x > SKY_WIDTH) {
 				x = -width();
 			} else if (speed.x < 0 && x < -width()) {
@@ -451,9 +451,9 @@ public class SurfaceScene extends PixelScene {
 		}
 		
 		@Override
-		public void update() {
-			super.update();
-			a += Random.Float( Game.elapsed * 5 );
+		public void update(final float ELAPSED) {
+			super.update(ELAPSED);
+			a += Random.Float( ELAPSED * 5 );
 			angle = (2 + Math.cos( a )) * (forward ? +0.2 : -0.2);
 			
 			scale.y = (float)Math.cos( angle );

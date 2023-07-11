@@ -564,8 +564,8 @@ public class MagesStaff extends MeleeWeapon {
 		}
 
 		@Override
-		public void update() {
-			super.update();
+		public void update(final float ELAPSED) {
+			super.update(ELAPSED);
 			size(minSize + (left / lifespan)*(maxSize-minSize) + Random.Float(sizeJitter));
 		}
 	}

@@ -70,8 +70,8 @@ public class GolemSprite extends MobSprite {
 	}
 
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		if (teleParticles != null){
 			teleParticles.pos( this );
 			teleParticles.visible = visible;

@@ -25,10 +25,10 @@ import com.watabou.noosa.Game;
 
 public class GameMath {
 	
-	public static float speed( float speed, float acc ) {
+	public static float speed( float speed, float acc, final float ELAPSED ) {
 		
 		if (acc != 0) {
-			speed += acc * Game.elapsed;
+			speed += acc * ELAPSED;
 		}
 		
 		return speed;

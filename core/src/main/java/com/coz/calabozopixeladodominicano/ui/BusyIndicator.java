@@ -35,8 +35,8 @@ public class BusyIndicator extends Image {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		visible = Dungeon.hero.isAlive() && !Dungeon.hero.ready;
 	}
 }

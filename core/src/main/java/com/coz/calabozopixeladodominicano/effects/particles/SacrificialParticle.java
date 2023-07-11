@@ -60,8 +60,8 @@ public class SacrificialParticle extends PixelParticle.Shrinking {
 	}
 
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		float p = left / lifespan;
 		am = p > 0.75f ? (1 - p) * 4 : 1;
 	}

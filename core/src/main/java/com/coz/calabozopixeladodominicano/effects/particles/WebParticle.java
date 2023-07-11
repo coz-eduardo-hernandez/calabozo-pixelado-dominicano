@@ -55,8 +55,8 @@ public class WebParticle extends PixelParticle {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		
 		float p = left / lifespan;
 		am = p < 0.5f ? p : 1 - p;

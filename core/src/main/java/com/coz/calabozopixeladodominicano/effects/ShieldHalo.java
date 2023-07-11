@@ -47,11 +47,11 @@ public class ShieldHalo extends Halo {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		
 		if (phase < 1) {
-			if ((phase -= Game.elapsed) <= 0) {
+			if ((phase -= ELAPSED) <= 0) {
 				killAndErase();
 			} else {
 				scale.set( (2 - phase) * radius / RADIUS );

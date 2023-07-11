@@ -39,7 +39,7 @@ public class AlphaTweener extends Tweener {
 	}
 
 	@Override
-	protected void updateValues( float progress ) {
-		image.alpha( start + delta * progress );
+	protected void updateValues( final float ELAPSED, final float PROGRESS ) {
+		image.alpha( start + delta * PROGRESS );
 	}
 }

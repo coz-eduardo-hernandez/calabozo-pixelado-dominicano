@@ -55,10 +55,10 @@ public class CheckedCell extends Image {
 	}
 	
 	@Override
-	public void update() {
-		if ((delay -= Game.elapsed) > 0){
+	public void update(final float ELAPSED) {
+		if ((delay -= ELAPSED) > 0){
 			alpha( 0 );
-		} else if ((alpha -= Game.elapsed) > 0) {
+		} else if ((alpha -= ELAPSED) > 0) {
 			alpha( alpha );
 			scale.set( DungeonTilemap.SIZE * alpha );
 		} else {

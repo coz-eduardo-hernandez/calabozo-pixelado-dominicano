@@ -151,8 +151,8 @@ public class BossHealthBar extends Component {
 	}
 
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		if (boss != null){
 			if (!boss.isAlive() || !Dungeon.level.mobs.contains(boss)){
 				boss = null;

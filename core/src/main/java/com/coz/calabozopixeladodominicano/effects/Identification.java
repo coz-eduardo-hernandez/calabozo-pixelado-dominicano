@@ -51,8 +51,8 @@ public class Identification extends Group {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		if (countLiving() == 0) {
 			killAndErase();
 		}
@@ -94,8 +94,8 @@ public class Identification extends Group {
 		}
 		
 		@Override
-		public void update() {
-			super.update();
+		public void update(final float ELAPSED) {
+			super.update(ELAPSED);
 			
 			am = 1 - Math.abs( left / lifespan - 0.5f ) * 2;
 			am *= am;

@@ -32,8 +32,8 @@ public class PrismaticSprite extends MirrorSprite {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		
 		if (flashTime <= 0){
 			float interval = (Game.timeTotal % 9 ) /3f;

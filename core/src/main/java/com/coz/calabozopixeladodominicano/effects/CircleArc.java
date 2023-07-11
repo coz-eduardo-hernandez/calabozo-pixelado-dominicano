@@ -154,11 +154,11 @@ public class CircleArc extends Visual {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		
 		if (duration > 0) {
-			if ((lifespan -= Game.elapsed) > 0) {
+			if ((lifespan -= ELAPSED) > 0) {
 				sweep = lifespan/duration;
 				dirty = true;
 			

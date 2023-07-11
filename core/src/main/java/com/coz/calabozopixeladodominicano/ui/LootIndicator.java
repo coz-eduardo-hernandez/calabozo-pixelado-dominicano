@@ -83,7 +83,7 @@ public class LootIndicator extends Tag {
 	}
 	
 	@Override
-	public void update() {
+	public void update(final float ELAPSED) {
 		
 		if (Dungeon.hero.ready) {
 			Heap heap = Dungeon.level.heaps.get( Dungeon.hero.pos );
@@ -116,6 +116,6 @@ public class LootIndicator extends Tag {
 		
 		slot.enable( visible && Dungeon.hero.ready );
 		
-		super.update();
+		super.update(ELAPSED);
 	}
 }

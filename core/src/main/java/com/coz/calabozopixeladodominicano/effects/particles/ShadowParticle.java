@@ -86,8 +86,8 @@ public class ShadowParticle extends PixelParticle.Shrinking {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		
 		float p = left / lifespan;
 		// alpha: 0 -> 1 -> 0; size: 6 -> 0; color: 0x660044 -> 0x000000

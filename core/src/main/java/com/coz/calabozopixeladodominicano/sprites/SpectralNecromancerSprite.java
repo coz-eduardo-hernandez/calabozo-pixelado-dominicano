@@ -73,8 +73,8 @@ public class SpectralNecromancerSprite extends MobSprite {
 	}
 
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		if (summoningParticles != null && ((Necromancer) ch).summoningPos != -1){
 			summoningParticles.visible = Dungeon.level.heroFOV[((Necromancer) ch).summoningPos];
 		}

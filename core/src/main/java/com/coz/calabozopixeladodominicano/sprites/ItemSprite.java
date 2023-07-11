@@ -305,8 +305,8 @@ public class ItemSprite extends MovieClip {
 	}
 
 	@Override
-	public synchronized void update() {
-		super.update();
+	public synchronized void update(final float ELAPSED) {
+		super.update(ELAPSED);
 
 		visible = (heap == null || heap.seen);
 
@@ -315,9 +315,9 @@ public class ItemSprite extends MovieClip {
 		}
 
 		if (dropInterval > 0){
-			shadowOffset -= speed.y * Game.elapsed * 0.8f;
+			shadowOffset -= speed.y * ELAPSED * 0.8f;
 
-			if ((dropInterval -= Game.elapsed) <= 0){
+			if ((dropInterval -= ELAPSED) <= 0){
 
 				speed.set(0);
 				acc.set(0);
@@ -348,12 +348,12 @@ public class ItemSprite extends MovieClip {
 		}
 
 		if (visible && glowing != null) {
-			if (glowUp && (phase += Game.elapsed) > glowing.period) {
+			if (glowUp && (phase += ELAPSED) > glowing.period) {
 				
 				glowUp = false;
 				phase = glowing.period;
 				
-			} else if (!glowUp && (phase -= Game.elapsed) < 0) {
+			} else if (!glowUp && (phase -= ELAPSED) < 0) {
 				
 				glowUp = true;
 				phase = 0;

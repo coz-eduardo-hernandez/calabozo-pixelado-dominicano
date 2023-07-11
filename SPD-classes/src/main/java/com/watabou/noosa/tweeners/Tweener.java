@@ -43,26 +43,26 @@ abstract public class Tweener extends Gizmo {
 	}
 	
 	@Override
-	public void update() {
+	public void update(final float ELAPSED) {
 		if (elapsed < 0){
 			onComplete();
 			kill();
 			return;
 		}
-		elapsed += Game.elapsed;
+		elapsed += ELAPSED;
 		
 		//it's better to skip this frame ahead and finish one frame early
 		// if doing one more frame would result in lots of overshoot
-		if ((interval - elapsed) < Game.elapsed/2f){
+		if ((interval - elapsed) < ELAPSED/2f){
 			elapsed = interval;
 		}
 		
 		if (elapsed >= interval) {
-			updateValues( 1 );
+			updateValues(ELAPSED, 1 );
 			onComplete();
 			kill();
 		} else {
-			updateValues( elapsed / interval );
+			updateValues(ELAPSED, elapsed / interval );
 		}
 	}
 	
@@ -76,7 +76,7 @@ abstract public class Tweener extends Gizmo {
 		}
 	}
 	
-	abstract protected void updateValues( float progress );
+	abstract protected void updateValues( final float ELAPSED, final float PROGRESS );
 	
 	public static interface Listener {
 		void onComplete( Tweener tweener );

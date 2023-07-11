@@ -109,14 +109,14 @@ public class Emitter extends Group {
 	}
 	
 	@Override
-	public void update() {
+	public void update(final float ELAPSED) {
 
 		if (isFrozen()){
 			return;
 		}
 		
 		if (on) {
-			time += Game.elapsed;
+			time += ELAPSED;
 			while (time > interval) {
 				time -= interval;
 				emit( count++ );
@@ -129,7 +129,7 @@ public class Emitter extends Group {
 			kill();
 		}
 		
-		super.update();
+		super.update(ELAPSED);
 	}
 
 	@Override

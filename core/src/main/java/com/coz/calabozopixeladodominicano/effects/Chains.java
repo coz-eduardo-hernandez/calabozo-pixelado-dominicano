@@ -80,8 +80,8 @@ public class Chains extends Group {
 	}
 
 	@Override
-	public void update() {
-		if ((spent += Game.elapsed) > duration) {
+	public void update(final float ELAPSED) {
+		if ((spent += ELAPSED) > duration) {
 
 			killAndErase();
 			if (callback != null) {

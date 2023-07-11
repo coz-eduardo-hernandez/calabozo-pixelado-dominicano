@@ -99,11 +99,11 @@ public class Fireball extends Component {
 	}
 	
 	@Override
-	public void update() {
+	public void update(final float ELAPSED) {
 		
-		super.update();
+		super.update(ELAPSED);
 		
-		if (Random.Float() < Game.elapsed) {
+		if (Random.Float() < ELAPSED) {
 			PixelParticle spark = (PixelParticle)sparks.recycle( PixelParticle.Shrinking.class );
 			spark.reset( x, y, ColorMath.random( COLOR, 0x66FF66 ), 2, Random.Float( 0.5f, 1.0f ) );
 			spark.speed.set(
@@ -151,9 +151,9 @@ public class Fireball extends Component {
 		}
 		
 		@Override
-		public void update() {
+		public void update(final float ELAPSED) {
 			
-			super.update();
+			super.update(ELAPSED);
 
 			if (y < heightLimit){
 				y = heightLimit;
@@ -161,7 +161,7 @@ public class Fireball extends Component {
 				acc.set(0, 0);
 			}
 			
-			if ((timeLeft -= Game.elapsed) <= 0) {
+			if ((timeLeft -= ELAPSED) <= 0) {
 				
 				kill();
 				

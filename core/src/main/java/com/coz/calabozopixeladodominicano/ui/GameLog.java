@@ -52,7 +52,7 @@ public class GameLog extends Component implements Signal.Listener<String> {
 	private static ArrayList<String> textsToAdd = new ArrayList<>();
 	
 	@Override
-	public synchronized void update() {
+	public synchronized void update(final float ELAPSED) {
 		int maxLines = SPDSettings.interfaceSize() > 0 ? 5 : 3;
 		for (String text : textsToAdd){
 			if (length != entries.size()){
@@ -128,7 +128,7 @@ public class GameLog extends Component implements Signal.Listener<String> {
 			layout();
 			textsToAdd.clear();
 		}
-		super.update();
+		super.update(ELAPSED);
 	}
 	
 	private synchronized void recreateLines() {

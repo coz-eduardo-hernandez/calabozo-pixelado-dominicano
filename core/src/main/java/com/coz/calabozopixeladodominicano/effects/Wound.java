@@ -59,10 +59,10 @@ public class Wound extends Image {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		
-		if ((time -= Game.elapsed) <= 0) {
+		if ((time -= ELAPSED) <= 0) {
 			kill();
 		} else {
 			float p = time / TIME_TO_FADE;

@@ -91,12 +91,12 @@ public class Camera extends Gizmo {
 		return camera;
 	}
 	
-	public static synchronized void updateAll() {
+	public static synchronized void updateAll(final float ELAPSED) {
 		int length = all.size();
 		for (int i=0; i < length; i++) {
 			Camera c = all.get( i );
 			if (c != null && c.exists && c.active) {
-				c.update();
+				c.update(ELAPSED);
 			}
 		}
 	}
@@ -172,8 +172,8 @@ public class Camera extends Gizmo {
 	float followDeadzone = 0f;
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 
 		float deadX = 0;
 		float deadY = 0;
@@ -205,12 +205,12 @@ public class Camera extends Gizmo {
 				panMove.y = 0;
 			}
 
-			panMove.scale(Math.min(1f, Game.elapsed * panIntensity));
+			panMove.scale(Math.min(1f, ELAPSED * panIntensity));
 
 			scroll.offset(panMove);
 		}
 		
-		if ((shakeTime -= Game.elapsed) > 0) {
+		if ((shakeTime -= ELAPSED) > 0) {
 			float damping = shakeTime / shakeDuration;
 			shakeX = Random.Float( -shakeMagX, +shakeMagX ) * damping;
 			shakeY = Random.Float( -shakeMagY, +shakeMagY ) * damping;

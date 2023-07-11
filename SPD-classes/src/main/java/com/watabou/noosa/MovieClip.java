@@ -43,10 +43,10 @@ public class MovieClip extends Image {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		if (!paused) {
-			updateAnimation();
+			updateAnimation(ELAPSED);
 		}
 	}
 
@@ -54,12 +54,12 @@ public class MovieClip extends Image {
 		return curAnim != null && curAnim.looped;
 	}
 	
-	protected synchronized void updateAnimation() {
+	protected synchronized void updateAnimation(final float ELAPSED) {
 		if (curAnim != null && curAnim.delay > 0 && (curAnim.looped || !finished)) {
 			
 			int lastFrame = curFrame;
 			
-			frameTimer += Game.elapsed;
+			frameTimer += ELAPSED;
 			while (frameTimer > curAnim.delay) {
 				frameTimer -= curAnim.delay;
 				if (curFrame >= curAnim.frames.length - 1) {

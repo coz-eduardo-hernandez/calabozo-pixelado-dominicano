@@ -90,9 +90,9 @@ public class TitleScene extends PixelScene {
 		Image signs = new Image( BannerSprites.get( BannerSprites.Type.PIXEL_DUNGEON_SIGNS ) ) {
 			private float time = -1.2f;
 			@Override
-			public void update() {
-				super.update();
-				am = Math.max(0f, (float)Math.sin( time += Game.elapsed * 0.4f ));
+			public void update(final float ELAPSED) {
+				super.update(ELAPSED);
+				am = Math.max(0f, (float)Math.sin( time += ELAPSED * 0.4f ));
 				if (time >= 1.5f*Math.PI) time = -1.5f;
 			}
 			@Override
@@ -237,8 +237,8 @@ public class TitleScene extends PixelScene {
 		int unreadCount = -1;
 
 		@Override
-		public void update() {
-			super.update();
+		public void update(final float ELAPSED) {
+			super.update(ELAPSED);
 
 			if (unreadCount == -1 && News.articlesAvailable()){
 				long lastRead = SPDSettings.newsLastRead();
@@ -277,8 +277,8 @@ public class TitleScene extends PixelScene {
 		boolean updateShown = false;
 
 		@Override
-		public void update() {
-			super.update();
+		public void update(final float ELAPSED) {
+			super.update(ELAPSED);
 
 			if (!updateShown && (Updates.updateAvailable() || Updates.isInstallable())){
 				updateShown = true;
@@ -338,8 +338,8 @@ public class TitleScene extends PixelScene {
 		}
 
 		@Override
-		public void update() {
-			super.update();
+		public void update(final float ELAPSED) {
+			super.update(ELAPSED);
 
 			if (Messages.lang().status() == Languages.Status.UNFINISHED){
 				textColor(ColorMath.interpolate( 0xFFFFFF, CharSprite.NEGATIVE, 0.5f + (float)Math.sin(Game.timeTotal*5)/2f));

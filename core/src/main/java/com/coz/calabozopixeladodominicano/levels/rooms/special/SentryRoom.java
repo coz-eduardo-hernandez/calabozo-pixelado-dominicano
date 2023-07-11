@@ -423,8 +423,8 @@ public class SentryRoom extends SpecialRoom {
 		}
 
 		@Override
-		public void update() {
-			super.update();
+		public void update(final float ELAPSED) {
+			super.update(ELAPSED);
 			if (chargeParticles != null){
 				chargeParticles.pos( center() );
 				chargeParticles.visible = visible;

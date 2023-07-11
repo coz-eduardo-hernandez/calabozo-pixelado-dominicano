@@ -81,8 +81,8 @@ public class CorrosionParticle extends PixelParticle {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		// alpha: 1 -> 0; size: 1 -> 4
 		size( 4 - (am = left / lifespan) * 3 );
 		// color: 0xAAAAAA -> 0xFF8800

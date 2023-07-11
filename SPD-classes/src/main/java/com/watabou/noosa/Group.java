@@ -57,11 +57,11 @@ public class Group extends Gizmo {
 	}
 	
 	@Override
-	public synchronized void update() {
+	public synchronized void update(final float ELAPSED) {
 		for (int i=0; i < length; i++) {
 			Gizmo g = members.get( i );
 			if (g != null && g.exists && g.active) {
-				g.update();
+				g.update(ELAPSED);
 			}
 		}
 	}

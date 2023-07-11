@@ -182,13 +182,13 @@ public class CavesLevel extends RegularLevel {
 		}
 		
 		@Override
-		public void update() {
+		public void update(final float ELAPSED) {
 			
 			if (visible = (pos < Dungeon.level.heroFOV.length && Dungeon.level.heroFOV[pos])) {
 				
-				super.update();
+				super.update(ELAPSED);
 
-				if ((delay -= Game.elapsed) <= 0) {
+				if ((delay -= ELAPSED) <= 0) {
 
 					//pickaxe can remove the ore, should remove the sparkling too.
 					if (Dungeon.level.map[pos] != Terrain.WALL_DECO){
@@ -219,8 +219,8 @@ public class CavesLevel extends RegularLevel {
 		}
 		
 		@Override
-		public void update() {
-			super.update();
+		public void update(final float ELAPSED) {
+			super.update(ELAPSED);
 			
 			float p = left / lifespan;
 			size( (am = p < 0.5f ? p * 2 : (1 - p) * 2) * 2 );

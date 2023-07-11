@@ -148,8 +148,8 @@ public class WardSprite extends MobSprite {
 	}
 
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		//if tier is greater than 3
 		if (perspectiveRaise >= 6 / 16f && !paused){
 			if (Float.isNaN(baseY)) baseY = y;

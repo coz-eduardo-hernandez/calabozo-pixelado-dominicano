@@ -32,6 +32,6 @@ public class Delayer extends Tweener {
 	}
 
 	@Override
-	protected void updateValues( float progress ) {
+	protected void updateValues( final float ELAPSED, final float PROGRESS ) {
 	}
 }

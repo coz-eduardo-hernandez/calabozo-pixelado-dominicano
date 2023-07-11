@@ -138,10 +138,10 @@ public class BadgesGrid extends Component {
 		}
 
 		@Override
-		public void update() {
-			super.update();
+		public void update(final float ELAPSED) {
+			super.update(ELAPSED);
 
-			if (unlocked && Random.Float() < Game.elapsed * 0.1) {
+			if (unlocked && Random.Float() < ELAPSED * 0.1) {
 				BadgeBanner.highlight( icon, badge.image );
 			}
 		}

@@ -72,8 +72,8 @@ public class PhantomPiranhaSprite extends MobSprite {
 	}
 
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 
 		if (sparkles != null) {
 			sparkles.visible = visible;

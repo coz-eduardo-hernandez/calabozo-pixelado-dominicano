@@ -382,10 +382,10 @@ public class Speck extends Image {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		
-		left -= Game.elapsed;
+		left -= ELAPSED;
 		if (left <= 0) {
 			
 			kill();

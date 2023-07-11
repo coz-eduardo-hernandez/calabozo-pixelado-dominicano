@@ -35,8 +35,8 @@ public class DarkBlock extends Gizmo{
 	}
 
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 
 		target.brightness(0.4f);
 

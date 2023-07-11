@@ -75,8 +75,8 @@ public class Lightning extends Group {
 	private static final double A = 180 / Math.PI;
 	
 	@Override
-	public void update() {
-		if ((life -= Game.elapsed) < 0) {
+	public void update(final float ELAPSED) {
+		if ((life -= ELAPSED) < 0) {
 			
 			killAndErase();
 			if (callback != null) {
@@ -91,7 +91,7 @@ public class Lightning extends Group {
 				arc.alpha(alpha);
 			}
 
-			super.update();
+			super.update(ELAPSED);
 		}
 	}
 	
@@ -138,7 +138,8 @@ public class Lightning extends Group {
 			arc2.origin.set( 0, arc2.height()/2 );
 			add( arc2 );
 
-			update();
+			//TODO: why?
+			//update(ELAPSED);
 		}
 
 		public void alpha(float alpha) {
@@ -146,7 +147,7 @@ public class Lightning extends Group {
 		}
 
 		@Override
-		public void update() {
+		public void update(final float ELAPSED) {
 			float x2 = (start.x + end.x) / 2 + Random.Float( -4, +4 );
 			float y2 = (start.y + end.y) / 2 + Random.Float( -4, +4 );
 

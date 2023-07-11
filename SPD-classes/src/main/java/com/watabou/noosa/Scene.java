@@ -59,8 +59,8 @@ abstract public class Scene extends Group {
 	}
 
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 	}
 	
 	@Override

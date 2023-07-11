@@ -276,10 +276,10 @@ public class MagicMissile extends Emitter {
 	}
 
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		if (on) {
-			float d = Game.elapsed;
+			float d = ELAPSED;
 			x += sx * d;
 			y += sy * d;
 			if ((time -= d) <= 0) {
@@ -343,8 +343,8 @@ public class MagicMissile extends Emitter {
 		}
 		
 		@Override
-		public void update() {
-			super.update();
+		public void update(final float ELAPSED) {
+			super.update(ELAPSED);
 			// alpha: 1 -> 0; size: 1 -> 4
 			size( 4 - (am = left / lifespan) * 3 );
 		}
@@ -465,8 +465,8 @@ public class MagicMissile extends Emitter {
 		}
 		
 		@Override
-		public void update() {
-			super.update();
+		public void update(final float ELAPSED) {
+			super.update(ELAPSED);
 			color( ColorMath.interpolate( endColor, startColor, (left / lifespan) ));
 		}
 	}
@@ -502,8 +502,8 @@ public class MagicMissile extends Emitter {
 		}
 		
 		@Override
-		public void update() {
-			super.update();
+		public void update(final float ELAPSED) {
+			super.update(ELAPSED);
 			// size: 3 -> 0
 			size( (left / lifespan) * 3 );
 		}
@@ -547,8 +547,8 @@ public class MagicMissile extends Emitter {
 		}
 		
 		@Override
-		public void update() {
-			super.update();
+		public void update(final float ELAPSED) {
+			super.update(ELAPSED);
 			
 			am = left / lifespan;
 			acc.set( (emitter.x - x) * 10, (emitter.y - y) * 10 );
@@ -573,8 +573,8 @@ public class MagicMissile extends Emitter {
 		}
 
 		@Override
-		public void update() {
-			super.update();
+		public void update(final float ELAPSED) {
+			super.update(ELAPSED);
 
 			am = (1 - left / lifespan) / 2;
 		}
@@ -629,8 +629,8 @@ public class MagicMissile extends Emitter {
 		}
 		
 		@Override
-		public void update() {
-			super.update();
+		public void update(final float ELAPSED) {
+			super.update(ELAPSED);
 			
 			am = 1 - left / lifespan;
 		}

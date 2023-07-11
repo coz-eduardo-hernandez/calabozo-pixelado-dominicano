@@ -166,11 +166,11 @@ public class NewsScene extends PixelScene {
 	}
 
 	@Override
-	public void update() {
+	public void update(final float ELAPSED) {
 		if (displayingNoArticles && News.articlesAvailable()){
 			CalabozoPixeladoDominicano.seamlessResetScene();
 		}
-		super.update();
+		super.update(ELAPSED);
 	}
 
 	private static class NewsInfo extends Component {

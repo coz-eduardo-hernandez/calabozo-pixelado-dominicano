@@ -40,7 +40,7 @@ public class CameraScrollTweener extends Tweener {
 	}
 
 	@Override
-	protected void updateValues( float progress ) {
-		camera.scroll = PointF.inter( start, end, progress );
+	protected void updateValues( final float ELAPSED, final float PROGRESS ) {
+		camera.scroll = PointF.inter( start, end, PROGRESS );
 	}
 }

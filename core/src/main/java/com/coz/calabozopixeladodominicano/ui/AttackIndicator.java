@@ -87,13 +87,13 @@ public class AttackIndicator extends Tag {
 	}
 	
 	@Override
-	public synchronized void update() {
-		super.update();
+	public synchronized void update(final float ELAPSED) {
+		super.update(ELAPSED);
 
 		if (!bg.visible){
 			if (sprite != null) sprite.visible = false;
 			enable(false);
-			if (delay > 0f) delay -= Game.elapsed;
+			if (delay > 0f) delay -= ELAPSED;
 			if (delay <= 0f) active = false;
 		} else {
 			delay = 0.75f;

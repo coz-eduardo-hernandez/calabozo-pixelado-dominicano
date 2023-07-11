@@ -673,8 +673,8 @@ public class Toolbar extends Component {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		
 		if (lastEnabled != (Dungeon.hero.ready && Dungeon.hero.isAlive())) {
 			lastEnabled = (Dungeon.hero.ready && Dungeon.hero.isAlive());
@@ -996,10 +996,10 @@ public class Toolbar extends Component {
 		}
 		
 		@Override
-		public void update() {
-			super.update();
+		public void update(final float ELAPSED) {
+			super.update(ELAPSED);
 			
-			if ((left -= Game.elapsed) <= 0) {
+			if ((left -= ELAPSED) <= 0) {
 				
 				visible =
 				active =

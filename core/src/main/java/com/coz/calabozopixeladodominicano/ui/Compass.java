@@ -49,8 +49,8 @@ public class Compass extends Image {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		
 		if (cell < 0 || cell >= Dungeon.level.length()){
 			visible = false;

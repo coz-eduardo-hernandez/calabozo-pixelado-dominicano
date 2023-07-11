@@ -108,10 +108,10 @@ public class Swap extends Actor {
 		}
 
 		@Override
-		public void update() {
-			super.update();
+		public void update(final float ELAPSED) {
+			super.update(ELAPSED);
 
-			if ((passed += Game.elapsed) < delay) {
+			if ((passed += ELAPSED) < delay) {
 				sprite.x = x;
 				sprite.y = y;
 

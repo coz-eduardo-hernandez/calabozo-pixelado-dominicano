@@ -95,10 +95,10 @@ public class HeroSelectScene extends PixelScene {
 
 		background = new Image(Assets.Splashes.WARRIOR){
 			@Override
-			public void update() {
+			public void update(final float ELAPSED) {
 				if (GamesInProgress.selectedClass != null) {
 					if (rm > 1f) {
-						rm -= Game.elapsed;
+						rm -= ELAPSED;
 						gm = bm = rm;
 					} else {
 						rm = gm = bm = 1;
@@ -289,8 +289,8 @@ public class HeroSelectScene extends PixelScene {
 					enable(false);
 					parent.add(new Tweener(parent, 0.5f) {
 						@Override
-						protected void updateValues(float progress) {
-							uiAlpha = 1 - progress;
+						protected void updateValues(final float ELAPSED, final float PROGRESS) {
+							uiAlpha = 1 - PROGRESS;
 							updateFade();
 						}
 					});
@@ -341,8 +341,8 @@ public class HeroSelectScene extends PixelScene {
 					if (uiAlpha == 0 && landscape()){
 						parent.add(new Tweener(parent, 0.5f) {
 							@Override
-							protected void updateValues(float progress) {
-								uiAlpha = progress;
+							protected void updateValues(final float ELAPSED, final float PROGRESS) {
+								uiAlpha = PROGRESS;
 								updateFade();
 							}
 
@@ -436,8 +436,8 @@ public class HeroSelectScene extends PixelScene {
 	private float uiAlpha;
 
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		btnExit.visible = btnExit.active = !SPDSettings.intro();
 		//do not fade when a window is open
 		for (Object v : members){
@@ -445,7 +445,7 @@ public class HeroSelectScene extends PixelScene {
 		}
 		if (!PixelScene.landscape() && GamesInProgress.selectedClass != null) {
 			if (uiAlpha > 0f){
-				uiAlpha -= Game.elapsed/4f;
+				uiAlpha -= ELAPSED/4f;
 			}
 			updateFade();
 		}
@@ -528,8 +528,8 @@ public class HeroSelectScene extends PixelScene {
 		}
 
 		@Override
-		public void update() {
-			super.update();
+		public void update(final float ELAPSED) {
+			super.update(ELAPSED);
 			if (cl != GamesInProgress.selectedClass){
 				if (!cl.isUnlocked()){
 					icon.brightness(0.1f);
@@ -689,8 +689,8 @@ public class HeroSelectScene extends PixelScene {
 					}
 
 					@Override
-					public void update() {
-						super.update();
+					public void update(final float ELAPSED) {
+						super.update(ELAPSED);
 
 						if (Game.realTime > timeToUpdate && visible){
 							long diff = (SPDSettings.lastDaily() + DAY) - Game.realTime;

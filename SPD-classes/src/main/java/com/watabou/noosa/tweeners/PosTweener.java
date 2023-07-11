@@ -40,7 +40,7 @@ public class PosTweener extends Tweener {
 	}
 
 	@Override
-	protected void updateValues( float progress ) {
-		visual.point( PointF.inter( start, end, progress ) );
+	protected void updateValues( final float ELAPSED, final float PROGRESS ) {
+		visual.point( PointF.inter( start, end, PROGRESS ) );
 	}
 }

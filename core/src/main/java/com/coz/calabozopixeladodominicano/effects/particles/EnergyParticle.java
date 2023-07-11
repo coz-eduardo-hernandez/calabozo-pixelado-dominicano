@@ -59,8 +59,8 @@ public class EnergyParticle extends PixelParticle {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		
 		float p = left / lifespan;
 		am = p < 0.5f ? p * p * 4 : (1 - p) * 2;

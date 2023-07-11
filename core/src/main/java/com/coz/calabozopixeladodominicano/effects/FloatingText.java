@@ -50,17 +50,17 @@ public class FloatingText extends RenderedTextBlock {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		
 		if (timeLeft > 0) {
-			if ((timeLeft -= Game.elapsed) <= 0) {
+			if ((timeLeft -= ELAPSED) <= 0) {
 				kill();
 			} else {
 				float p = timeLeft / LIFESPAN;
 				alpha( p > 0.5f ? 1 : p * 2 );
 				
-				float yMove = (DISTANCE / LIFESPAN) * Game.elapsed;
+				float yMove = (DISTANCE / LIFESPAN) * ELAPSED;
 				y -= yMove;
 				for (RenderedText t : words){
 					t.y -= yMove;

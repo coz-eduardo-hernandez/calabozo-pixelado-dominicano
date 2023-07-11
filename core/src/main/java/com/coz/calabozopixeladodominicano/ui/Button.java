@@ -148,12 +148,12 @@ public class Button extends Component {
 	}
 
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		
 		hotArea.active = visible;
 		
-		if (pressedButton == this && (pressTime += Game.elapsed) >= longClick) {
+		if (pressedButton == this && (pressTime += ELAPSED) >= longClick) {
 			pressedButton = null;
 			if (onLongClick()) {
 

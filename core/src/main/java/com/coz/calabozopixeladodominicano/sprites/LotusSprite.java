@@ -92,9 +92,9 @@ public class LotusSprite extends MobSprite {
 	}
 
 	@Override
-	public void update() {
+	public void update(final float ELAPSED) {
 		visible = true;
-		super.update();
+		super.update(ELAPSED);
 	}
 
 	@Override

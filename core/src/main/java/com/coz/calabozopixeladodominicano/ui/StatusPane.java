@@ -236,8 +236,8 @@ public class StatusPane extends Component {
 	private static final int[] warningColors = new int[]{0x660000, 0xCC0000, 0x660000};
 
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		
 		int health = Dungeon.hero.HP;
 		int shield = Dungeon.hero.shielding();
@@ -246,11 +246,11 @@ public class StatusPane extends Component {
 		if (!Dungeon.hero.isAlive()) {
 			avatar.tint(0x000000, 0.5f);
 		} else if ((health/(float)max) < 0.3f) {
-			warning += Game.elapsed * 5f *(0.4f - (health/(float)max));
+			warning += ELAPSED * 5f *(0.4f - (health/(float)max));
 			warning %= 1f;
 			avatar.tint(ColorMath.interpolate(warning, warningColors), 0.5f );
 		} else if (talentBlink > 0.33f){ //stops early so it doesn't end in the middle of a blink
-			talentBlink -= Game.elapsed;
+			talentBlink -= ELAPSED;
 			avatar.tint(1, 1, 0, (float)Math.abs(Math.cos(talentBlink*FLASH_RATE))/2f);
 		} else {
 			avatar.resetColor();

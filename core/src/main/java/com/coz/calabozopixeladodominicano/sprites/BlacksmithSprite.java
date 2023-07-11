@@ -63,8 +63,8 @@ public class BlacksmithSprite extends MobSprite {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		
 		if (emitter != null) {
 			emitter.visible = visible;

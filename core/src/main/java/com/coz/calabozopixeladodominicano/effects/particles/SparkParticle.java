@@ -84,8 +84,8 @@ public class SparkParticle extends PixelParticle {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		size( Random.Float( size * left / lifespan ) );
 	}
 }

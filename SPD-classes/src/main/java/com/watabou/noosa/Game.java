@@ -77,7 +77,7 @@ public class Game implements ApplicationListener {
 	private static Class<? extends Scene> sceneClass;
 	
 	public static float timeScale = 1f;
-	public static float elapsed = 0f;
+	private static float elapsed = 0f;
 	public static float timeTotal = 0f;
 	public static long realTime = 0;
 
@@ -270,16 +270,16 @@ public class Game implements ApplicationListener {
 	}
 
 	protected void update() {
-		Game.elapsed = Game.timeScale * Gdx.graphics.getDeltaTime();
-		Game.timeTotal += Game.elapsed;
+		elapsed = Game.timeScale * Gdx.graphics.getDeltaTime();
+		Game.timeTotal += elapsed;
 		
 		Game.realTime = TimeUtils.millis();
 
 		inputHandler.processAllEvents();
 
-		Sample.INSTANCE.update();
-		scene.update();
-		Camera.updateAll();
+		Sample.INSTANCE.update(elapsed);
+		scene.update(elapsed);
+		Camera.updateAll(elapsed);
 	}
 	
 	public static void reportException( Throwable tr ) {

@@ -118,9 +118,9 @@ public class WelcomeScene extends PixelScene {
 		Image signs = new Image( BannerSprites.get( BannerSprites.Type.PIXEL_DUNGEON_SIGNS ) ) {
 			private float time = 0;
 			@Override
-			public void update() {
-				super.update();
-				am = Math.max(0f, (float)Math.sin( time += Game.elapsed ));
+			public void update(final float ELAPSED) {
+				super.update(ELAPSED);
+				am = Math.max(0f, (float)Math.sin( time += ELAPSED ));
 				if (time >= 1.5f*Math.PI) time = 0;
 			}
 			@Override

@@ -59,8 +59,8 @@ public class BlastParticle extends PixelParticle.Shrinking {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		am = left > 0.8f ? (1 - left) * 5 : 1;
 	}
 }

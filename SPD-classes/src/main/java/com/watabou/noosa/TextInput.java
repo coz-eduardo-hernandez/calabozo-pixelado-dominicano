@@ -193,9 +193,9 @@ public class TextInput extends Component {
 	}
 
 	@Override
-	public void update() {
-		super.update();
-		stage.act(Game.elapsed);
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
+		stage.act(ELAPSED);
 	}
 
 	@Override

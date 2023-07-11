@@ -83,8 +83,8 @@ public class Transmuting extends Component {
 	}
 
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 
 		if (passed == 0) {
 			oldSprite.x = target.sprite.center().x - oldSprite.width() / 2;
@@ -109,7 +109,7 @@ public class Transmuting extends Component {
 				break;
 		}
 
-		if ((passed += Game.elapsed) > duration) {
+		if ((passed += ELAPSED) > duration) {
 			switch (phase) {
 				case FADE_IN:
 					phase = Phase.TRANSMUTING;

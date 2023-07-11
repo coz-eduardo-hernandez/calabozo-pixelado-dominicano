@@ -196,9 +196,9 @@ public class CityLevel extends RegularLevel {
 		}
 		
 		@Override
-		public void update() {
+		public void update(final float ELAPSED) {
 			if (visible = (pos < Dungeon.level.heroFOV.length && Dungeon.level.heroFOV[pos])) {
-				super.update();
+				super.update(ELAPSED);
 			}
 		}
 	}
@@ -222,8 +222,8 @@ public class CityLevel extends RegularLevel {
 		}
 		
 		@Override
-		public void update() {
-			super.update();
+		public void update(final float ELAPSED) {
+			super.update(ELAPSED);
 			float p = left / lifespan;
 			am = p > 0.8f ? 1 - p : p * 0.25f;
 			size( 6 - p * 3 );

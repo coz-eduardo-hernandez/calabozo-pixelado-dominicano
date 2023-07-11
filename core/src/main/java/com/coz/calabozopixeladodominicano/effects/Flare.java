@@ -136,11 +136,11 @@ public class Flare extends Visual {
 	}
 
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		
 		if (duration > 0) {
-			if ((lifespan -= Game.elapsed) > 0) {
+			if ((lifespan -= ELAPSED) > 0) {
 				
 				float p = 1 - lifespan / duration;	// 0 -> 1
 				p =  p < 0.25f ? p * 4 : (1 - p) * 1.333f;

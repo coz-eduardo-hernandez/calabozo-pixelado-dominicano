@@ -65,12 +65,12 @@ public class CurrencyIndicator extends Component {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		
 		if (gold.visible) {
 			
-			goldTime -= Game.elapsed;
+			goldTime -= ELAPSED;
 			if (goldTime > 0) {
 				gold.alpha( goldTime > TIME / 2 ? 1f : goldTime * 2 / TIME );
 			} else {
@@ -81,7 +81,7 @@ public class CurrencyIndicator extends Component {
 
 		if (energy.visible) {
 
-			energyTime -= Game.elapsed;
+			energyTime -= ELAPSED;
 			if (energyTime > 0) {
 				energy.alpha( energyTime > TIME / 2 ? 1f : energyTime * 2 / TIME );
 			} else {

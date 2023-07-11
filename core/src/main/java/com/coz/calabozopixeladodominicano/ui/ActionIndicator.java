@@ -83,8 +83,8 @@ public class ActionIndicator extends Tag {
 	private boolean needsRefresh = false;
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 
 		synchronized (ActionIndicator.class) {
 			if (!visible && action != null) {

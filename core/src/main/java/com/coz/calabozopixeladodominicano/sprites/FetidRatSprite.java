@@ -64,9 +64,9 @@ public class FetidRatSprite extends MobSprite {
 	}
 	
 	@Override
-	public void update() {
+	public void update(final float ELAPSED) {
 		
-		super.update();
+		super.update(ELAPSED);
 		
 		if (cloud != null) {
 			cloud.visible = visible;

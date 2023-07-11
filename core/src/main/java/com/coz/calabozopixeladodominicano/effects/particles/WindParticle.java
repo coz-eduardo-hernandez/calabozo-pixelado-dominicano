@@ -67,8 +67,8 @@ public class WindParticle extends PixelParticle {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		
 		float p = left / lifespan;
 		am = (p < 0.5f ? p : 1 - p) * size * 0.2f;
@@ -89,11 +89,11 @@ public class WindParticle extends PixelParticle {
 		}
 		
 		@Override
-		public void update() {
+		public void update(final float ELAPSED) {
 			
 			if (visible = (pos < Dungeon.level.heroFOV.length && Dungeon.level.heroFOV[pos])) {
 				
-				super.update();
+				super.update(ELAPSED);
 
 			}
 		}

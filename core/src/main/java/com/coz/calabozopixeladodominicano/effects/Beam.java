@@ -73,14 +73,14 @@ public class Beam extends Image {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		
 		float p = timeLeft / duration;
 		alpha( p );
 		scale.set( scale.x, p );
 		
-		if ((timeLeft -= Game.elapsed) <= 0) {
+		if ((timeLeft -= ELAPSED) <= 0) {
 			killAndErase();
 		}
 	}

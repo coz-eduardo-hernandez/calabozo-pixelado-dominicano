@@ -78,7 +78,7 @@ public class ResumeIndicator extends Tag {
 	}
 
 	@Override
-	public void update() {
+	public void update(final float ELAPSED) {
 		if (!Dungeon.hero.isAlive())
 			visible = false;
 		else if (visible != (Dungeon.hero.lastAction != null)){
@@ -86,6 +86,6 @@ public class ResumeIndicator extends Tag {
 			if (visible)
 				flash();
 		}
-		super.update();
+		super.update(ELAPSED);
 	}
 }

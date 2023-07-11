@@ -69,9 +69,9 @@ public class Chasm implements Hero.Doom {
 							private float elapsed = 0f;
 
 							@Override
-							public synchronized void update() {
-								super.update();
-								elapsed += Game.elapsed;
+							public synchronized void update(final float ELAPSED) {
+								super.update(ELAPSED);
+								elapsed += ELAPSED;
 							}
 
 							@Override

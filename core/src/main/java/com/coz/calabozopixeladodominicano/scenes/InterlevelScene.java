@@ -186,9 +186,9 @@ public class InterlevelScene extends PixelScene {
 			}
 			
 			@Override
-			public void update() {
-				super.update();
-				offset(0, Game.elapsed * scrollSpeed);
+			public void update(final float ELAPSED) {
+				super.update(ELAPSED);
+				offset(0, ELAPSED * scrollSpeed);
 			}
 		};
 		bg.scale(4, 4);
@@ -197,8 +197,8 @@ public class InterlevelScene extends PixelScene {
 		
 		Image im = new Image(TextureCache.createGradient(0xAA000000, 0xBB000000, 0xCC000000, 0xDD000000, 0xFF000000)){
 			@Override
-			public void update() {
-				super.update();
+			public void update(final float ELAPSED) {
+				super.update(ELAPSED);
 				if (phase == Phase.FADE_IN)         aa = Math.max( 0, (timeLeft - (fadeTime - 0.333f)));
 				else if (phase == Phase.FADE_OUT)   aa = Math.max( 0, (0.333f - timeLeft));
 				else                                aa = 0;
@@ -223,8 +223,8 @@ public class InterlevelScene extends PixelScene {
 		if (Updates.isInstallable()){
 			StyledButton install = new StyledButton(Chrome.Type.GREY_BUTTON_TR, Messages.get(this, "install")){
 				@Override
-				public void update() {
-					super.update();
+				public void update(final float ELAPSED) {
+					super.update(ELAPSED);
 					float p = timeLeft / fadeTime;
 					if (phase == Phase.FADE_IN)         alpha(1 - p);
 					else if (phase == Phase.FADE_OUT)   alpha(p);
@@ -300,10 +300,10 @@ public class InterlevelScene extends PixelScene {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 
-		waitingTime += Game.elapsed;
+		waitingTime += ELAPSED;
 		
 		float p = timeLeft / fadeTime;
 		
@@ -311,7 +311,7 @@ public class InterlevelScene extends PixelScene {
 		
 		case FADE_IN:
 			message.alpha( 1 - p );
-			if ((timeLeft -= Game.elapsed) <= 0) {
+			if ((timeLeft -= ELAPSED) <= 0) {
 				synchronized (thread) {
 					if (!thread.isAlive() && error == null) {
 						phase = Phase.FADE_OUT;
@@ -326,7 +326,7 @@ public class InterlevelScene extends PixelScene {
 		case FADE_OUT:
 			message.alpha( p );
 			
-			if ((timeLeft -= Game.elapsed) <= 0) {
+			if ((timeLeft -= ELAPSED) <= 0) {
 				Game.switchScene( GameScene.class );
 				thread = null;
 				error = null;

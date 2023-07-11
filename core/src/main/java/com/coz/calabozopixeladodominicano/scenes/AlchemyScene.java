@@ -285,9 +285,9 @@ public class AlchemyScene extends PixelScene {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
-		water.offset( 0, -5 * Game.elapsed );
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
+		water.offset( 0, -5 * ELAPSED );
 	}
 	
 	@Override

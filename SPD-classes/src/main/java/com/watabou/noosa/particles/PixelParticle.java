@@ -50,18 +50,18 @@ public class PixelParticle extends PseudoPixel {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 
-		if ((left -= Game.elapsed) <= 0) {
+		if ((left -= ELAPSED) <= 0) {
 			kill();
 		}
 	}
 	
 	public static class Shrinking extends PixelParticle {
 		@Override
-		public void update() {
-			super.update();
+		public void update(final float ELAPSED) {
+			super.update(ELAPSED);
 			size( size * left / lifespan );
 		}
 	}

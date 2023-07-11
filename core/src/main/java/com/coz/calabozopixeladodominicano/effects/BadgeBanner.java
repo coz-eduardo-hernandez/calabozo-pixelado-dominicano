@@ -83,10 +83,10 @@ public class BadgeBanner extends Image {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		
-		time -= Game.elapsed;
+		time -= ELAPSED;
 		if (time >= 0) {
 			
 			switch (state) {

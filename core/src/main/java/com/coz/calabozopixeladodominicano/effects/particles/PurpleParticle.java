@@ -77,8 +77,8 @@ public class PurpleParticle extends PixelParticle {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		// alpha: 1 -> 0; size: 1 -> 5
 		size( 5 - (am = left / lifespan) * 4 );
 		// color: 0xFF0044 -> 0x220066

@@ -86,7 +86,7 @@ public class DangerIndicator extends Tag {
 	}
 	
 	@Override
-	public void update() {
+	public void update(final float ELAPSED) {
 		
 		if (Dungeon.hero.isAlive()) {
 			int v =  Dungeon.hero.visibleEnemies();
@@ -104,7 +104,7 @@ public class DangerIndicator extends Tag {
 			visible = false;
 		}
 		
-		super.update();
+		super.update(ELAPSED);
 	}
 	
 	@Override

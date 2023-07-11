@@ -114,10 +114,10 @@ public class ScrollPane extends Component {
 	}
 
 	@Override
-	public synchronized void update() {
-		super.update();
+	public synchronized void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		if (keyScroll != 0){
-			scrollTo(content.camera.scroll.x, content.camera.scroll.y + (keyScroll * 150 * Game.elapsed));
+			scrollTo(content.camera.scroll.x, content.camera.scroll.y + (keyScroll * 150 * ELAPSED));
 		}
 	}
 

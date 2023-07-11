@@ -97,17 +97,17 @@ public class WndStory extends Window {
 	}
 
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		
 		if (appearDelay > 0) {
-			appearDelay -= Game.elapsed;
+			appearDelay -= ELAPSED;
 			if (appearDelay <= 0) {
 				shadow.visible = chrome.visible = tf.visible = true;
 				if (ttl != null) ttl.visible = true;
 			}
 		} else if (disappearDelay > 0){
-			disappearDelay -= Game.elapsed;
+			disappearDelay -= ELAPSED;
 		}
 	}
 }

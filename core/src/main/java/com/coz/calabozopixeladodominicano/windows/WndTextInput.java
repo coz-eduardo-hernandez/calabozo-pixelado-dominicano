@@ -201,8 +201,8 @@ public class WndTextInput extends Window {
 	}
 
 	@Override
-	public synchronized void update() {
-		super.update();
+	public synchronized void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		btnCopy.enable(!textBox.getText().isEmpty());
 		btnPaste.enable(Gdx.app.getClipboard().hasContents());
 	}

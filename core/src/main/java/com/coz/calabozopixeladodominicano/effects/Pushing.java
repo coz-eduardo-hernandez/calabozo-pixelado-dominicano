@@ -107,10 +107,10 @@ public class Pushing extends Actor {
 		}
 		
 		@Override
-		public void update() {
-			super.update();
+		public void update(final float ELAPSED) {
+			super.update(ELAPSED);
 			
-			if ((delay += Game.elapsed) < DELAY) {
+			if ((delay += ELAPSED) < DELAY) {
 				
 				sprite.x = x;
 				sprite.y = y;

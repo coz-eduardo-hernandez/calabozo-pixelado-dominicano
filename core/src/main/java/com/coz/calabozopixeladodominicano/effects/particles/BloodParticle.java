@@ -81,8 +81,8 @@ public class BloodParticle extends PixelParticle.Shrinking {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		float p = left / lifespan;
 		am = p > 0.6f ? (1 - p) * 2.5f : 1;
 	}

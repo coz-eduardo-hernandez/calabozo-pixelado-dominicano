@@ -73,8 +73,8 @@ public class Visual extends Gizmo {
 	}
 	
 	@Override
-	public void update() {
-		updateMotion();
+	public void update(final float ELAPSED) {
+		updateMotion(ELAPSED);
 	}
 	
 	@Override
@@ -167,20 +167,20 @@ public class Visual extends Gizmo {
 		return height * scale.y;
 	}
 	
-	protected void updateMotion() {
+	protected void updateMotion(final float ELAPSED) {
 
 		if (acc.x != 0)
-			speed.x += acc.x * Game.elapsed;
+			speed.x += acc.x * ELAPSED;
 		if (speed.x != 0)
-			x += speed.x * Game.elapsed;
+			x += speed.x * ELAPSED;
 
 		if (acc.y != 0)
-			speed.y += acc.y * Game.elapsed;
+			speed.y += acc.y * ELAPSED;
 		if (speed.y != 0)
-			y += speed.y * Game.elapsed;
+			y += speed.y * ELAPSED;
 
 		if (angularSpeed != 0)
-			angle += angularSpeed * Game.elapsed;
+			angle += angularSpeed * ELAPSED;
 	}
 	
 	public void alpha( float value ) {

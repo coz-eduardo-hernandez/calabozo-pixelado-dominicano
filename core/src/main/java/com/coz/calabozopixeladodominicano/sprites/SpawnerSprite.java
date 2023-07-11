@@ -62,8 +62,8 @@ public class SpawnerSprite extends MobSprite {
 	}
 
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		if (!paused){
 			if (Float.isNaN(baseY)) baseY = y;
 			y = baseY + (float)(Math.sin(Game.timeTotal)/3f);

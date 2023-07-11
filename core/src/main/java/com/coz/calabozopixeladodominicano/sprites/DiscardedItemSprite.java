@@ -37,13 +37,13 @@ public class DiscardedItemSprite extends ItemSprite {
 	}
 	
 	@Override
-	public void update() {
+	public void update(final float ELAPSED) {
 		
-		super.update();
+		super.update(ELAPSED);
 		
-		scale.set( scale.x -= Game.elapsed );
-		y += 12 * Game.elapsed;
-		if ((am -= Game.elapsed) <= 0) {
+		scale.set( scale.x -= ELAPSED );
+		y += 12 * ELAPSED;
+		if ((am -= ELAPSED) <= 0) {
 			remove();
 		}
 	}

@@ -186,12 +186,12 @@ public class SewerLevel extends RegularLevel {
 		}
 		
 		@Override
-		public void update() {
+		public void update(final float ELAPSED) {
 			if (visible = (pos < Dungeon.level.heroFOV.length && Dungeon.level.heroFOV[pos])) {
 				
-				super.update();
+				super.update(ELAPSED);
 				
-				if (!isFrozen() && (rippleDelay -= Game.elapsed) <= 0) {
+				if (!isFrozen() && (rippleDelay -= ELAPSED) <= 0) {
 					Ripple ripple = GameScene.ripple( pos + Dungeon.level.width() );
 					if (ripple != null) {
 						ripple.y -= DungeonTilemap.SIZE / 2;

@@ -152,8 +152,8 @@ public class BuffIndicator extends Component {
 	}
 
 	@Override
-	public synchronized void update() {
-		super.update();
+	public synchronized void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		if (needsRefresh){
 			needsRefresh = false;
 			layout();
@@ -183,9 +183,9 @@ public class BuffIndicator extends Component {
 				add( icon );
 				add( new AlphaTweener( icon, 0, 0.6f ) {
 					@Override
-					protected void updateValues( float progress ) {
-						super.updateValues( progress );
-						image.scale.set( 1 + 5 * progress );
+					protected void updateValues( final float ELAPSED, final float PROGRESS ) {
+						super.updateValues( ELAPSED, PROGRESS );
+						image.scale.set( 1 + 5 * PROGRESS );
 					}
 					
 					@Override

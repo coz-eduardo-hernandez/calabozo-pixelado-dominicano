@@ -148,10 +148,10 @@ public class HeroSprite extends CharSprite {
 	}
 
 	@Override
-	public void update() {
+	public void update(final float ELAPSED) {
 		sleeping = ch.isAlive() && ((Hero)ch).resting;
 		
-		super.update();
+		super.update(ELAPSED);
 	}
 	
 	public void sprint( float speed ) {

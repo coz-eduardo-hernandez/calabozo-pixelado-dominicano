@@ -176,9 +176,9 @@ public class PrisonLevel extends RegularLevel {
 		}
 		
 		@Override
-		public void update() {
+		public void update(final float ELAPSED) {
 			if (visible = (pos < Dungeon.level.heroFOV.length && Dungeon.level.heroFOV[pos])) {
-				super.update();
+				super.update(ELAPSED);
 			}
 		}
 	}

@@ -352,8 +352,8 @@ public class CellSelector extends ScrollArea {
 	private GameAction leftStickAction = SPDAction.NONE;
 
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 
 		if (GameScene.interfaceBlockingHero()){
 			return;
@@ -374,7 +374,7 @@ public class CellSelector extends ScrollArea {
 		}
 
 		if (heldDelay > 0){
-			heldDelay -= Game.elapsed;
+			heldDelay -= ELAPSED;
 		}
 
 		if ((heldAction1 != SPDAction.NONE || leftStickAction != SPDAction.NONE) && Dungeon.hero.ready){

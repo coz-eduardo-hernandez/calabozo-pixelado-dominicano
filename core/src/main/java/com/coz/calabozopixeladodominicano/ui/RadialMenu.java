@@ -159,8 +159,8 @@ public class RadialMenu extends Window {
 	private boolean first = true; //ignore the first mouse input as it's caused by hiding mouse
 
 	@Override
-	public synchronized void update() {
-		super.update();
+	public synchronized void update(final float ELAPSED) {
+		super.update(ELAPSED);
 
 		PointF movement = Cursor.getCursorDelta();
 		//40% deadzone for controller input here

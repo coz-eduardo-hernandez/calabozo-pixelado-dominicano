@@ -202,7 +202,7 @@ public class HallsLevel extends RegularLevel {
 		}
 		
 		@Override
-		public void update() {
+		public void update(final float ELAPSED) {
 
 			if (!Dungeon.level.water[pos]){
 				killAndErase();
@@ -211,9 +211,9 @@ public class HallsLevel extends RegularLevel {
 			
 			if (visible = (pos < Dungeon.level.heroFOV.length && Dungeon.level.heroFOV[pos])) {
 				
-				super.update();
+				super.update(ELAPSED);
 				
-				if ((delay -= Game.elapsed) <= 0) {
+				if ((delay -= ELAPSED) <= 0) {
 					
 					delay = Random.Float( 2 );
 					
@@ -257,8 +257,8 @@ public class HallsLevel extends RegularLevel {
 		}
 		
 		@Override
-		public void update() {
-			super.update();
+		public void update(final float ELAPSED) {
+			super.update(ELAPSED);
 			float p = left / lifespan;
 			am = p > 0.8f ? (1 - p) * 5 : 1;
 		}

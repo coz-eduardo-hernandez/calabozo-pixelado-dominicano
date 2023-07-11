@@ -81,7 +81,7 @@ public class Tooltip extends Component {
 	}
 
 	@Override
-	public synchronized void update() {
+	public synchronized void update(final float ELAPSED) {
 		//kill this tooltip if the parent is removed or moved in any way
 		if (!parent.exists ||
 				!parent.isActive() ||
@@ -94,8 +94,8 @@ public class Tooltip extends Component {
 			return;
 		}
 
-		super.update();
-		tooltipAlpha = Math.min(1f, tooltipAlpha + 10f*Game.elapsed);
+		super.update(ELAPSED);
+		tooltipAlpha = Math.min(1f, tooltipAlpha + 10f*ELAPSED);
 		lastUsedTime = Game.timeTotal;
 
 		bg.alpha(GameMath.gate(0, tooltipAlpha, 1));

@@ -35,9 +35,9 @@ public class MobSprite extends CharSprite {
 	private static final float FALL_TIME	= 1f;
 	
 	@Override
-	public void update() {
+	public void update(final float ELAPSED) {
 		sleeping = ch != null && ch.isAlive() && ((Mob)ch).state == ((Mob)ch).SLEEPING;
-		super.update();
+		super.update(ELAPSED);
 	}
 	
 	@Override
@@ -74,10 +74,10 @@ public class MobSprite extends CharSprite {
 				parent.erase( this );
 			}
 			@Override
-			protected void updateValues( float progress ) {
-				super.updateValues( progress );
-				y += 12 * Game.elapsed;
-				am = 1 - progress;
+			protected void updateValues( final float ELAPSED, final float PROGRESS ) {
+				super.updateValues( ELAPSED, PROGRESS );
+				y += 12 * ELAPSED;
+				am = 1 - PROGRESS;
 			}
 		} );
 	}

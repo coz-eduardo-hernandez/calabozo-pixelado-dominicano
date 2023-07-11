@@ -661,7 +661,7 @@ public class GameScene extends PixelScene {
 	public static boolean updateItemDisplays = false;
 	
 	@Override
-	public synchronized void update() {
+	public synchronized void update(final float ELAPSED) {
 		lastOffset = null;
 
 		if (updateItemDisplays){
@@ -674,11 +674,11 @@ public class GameScene extends PixelScene {
 			return;
 		}
 
-		super.update();
+		super.update(ELAPSED);
 
-		if (notifyDelay > 0) notifyDelay -= Game.elapsed;
+		if (notifyDelay > 0) notifyDelay -= ELAPSED;
 
-		if (!Emitter.freezeEmitters) water.offset( 0, -5 * Game.elapsed );
+		if (!Emitter.freezeEmitters) water.offset( 0, -5 * ELAPSED );
 
 		if (!Actor.processing() && Dungeon.hero.isAlive()) {
 			if (actorThread == null || !actorThread.isAlive()) {
@@ -1046,20 +1046,20 @@ public class GameScene extends PixelScene {
 			SPDSettings.intro(false);
 			scene.add(new Tweener(scene, 2f){
 				@Override
-				protected void updateValues(float progress) {
-					if (progress <= 0.5f) {
-						scene.status.alpha(2*progress);
+				protected void updateValues(final float ELAPSED, final float PROGRESS) {
+					if (PROGRESS <= 0.5f) {
+						scene.status.alpha(2*PROGRESS);
 						scene.status.visible = scene.status.active = true;
 						scene.toolbar.visible = scene.toolbar.active = false;
 						if (scene.inventory != null) scene.inventory.visible = scene.inventory.active = false;
 					} else {
 						scene.status.alpha(1f);
 						scene.status.visible = scene.status.active = true;
-						scene.toolbar.alpha((progress - 0.5f)*2);
+						scene.toolbar.alpha((PROGRESS - 0.5f)*2);
 						scene.toolbar.visible = scene.toolbar.active = true;
 						if (scene.inventory != null){
 							scene.inventory.visible = scene.inventory.active = true;
-							scene.inventory.alpha((progress - 0.5f)*2);
+							scene.inventory.alpha((PROGRESS - 0.5f)*2);
 						}
 					}
 				}
@@ -1267,9 +1267,9 @@ public class GameScene extends PixelScene {
 			}
 
 			@Override
-			public void update() {
+			public void update(final float ELAPSED) {
 				alpha(gameOver.am);
-				super.update();
+				super.update(ELAPSED);
 			}
 		};
 		restart.icon(Icons.get(Icons.ENTER));
@@ -1290,9 +1290,9 @@ public class GameScene extends PixelScene {
 			}
 
 			@Override
-			public void update() {
+			public void update(final float ELAPSED) {
 				alpha(gameOver.am);
-				super.update();
+				super.update(ELAPSED);
 			}
 		};
 		menu.icon(Icons.get(Icons.PREFS));

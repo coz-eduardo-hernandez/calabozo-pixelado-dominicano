@@ -60,8 +60,8 @@ public class ElmoParticle extends PixelParticle.Shrinking {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
+	public void update(final float ELAPSED) {
+		super.update(ELAPSED);
 		float p = left / lifespan;
 		am = p > 0.8f ? (1 - p) * 5 : 1;
 	}

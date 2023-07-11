@@ -263,11 +263,11 @@ public class MenuPane extends Component {
 		private float time;
 
 		@Override
-		public void update() {
-			super.update();
+		public void update(final float ELAPSED) {
+			super.update(ELAPSED);
 
 			if (flashingPage != null){
-				journalIcon.am = (float)Math.abs(Math.cos( StatusPane.FLASH_RATE * (time += Game.elapsed) ));
+				journalIcon.am = (float)Math.abs(Math.cos( StatusPane.FLASH_RATE * (time += ELAPSED) ));
 				keyIcon.am = journalIcon.am;
 				bg.brightness(0.5f + journalIcon.am);
 				if (time >= Math.PI/StatusPane.FLASH_RATE) {
