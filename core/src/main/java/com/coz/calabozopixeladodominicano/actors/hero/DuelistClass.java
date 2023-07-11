@@ -35,7 +35,7 @@ import com.watabou.utils.Bundle;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public final class DuelistClass extends HeroClass {
+final class DuelistClass extends HeroClass {
 
     @Override
     public void initHero (Hero hero) {

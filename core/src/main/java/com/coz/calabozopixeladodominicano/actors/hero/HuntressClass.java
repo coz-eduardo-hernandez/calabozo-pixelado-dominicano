@@ -32,7 +32,7 @@ import com.watabou.noosa.Image;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public final class HuntressClass extends HeroClass {
+final class HuntressClass extends HeroClass {
 
     @Override public void initHero(Hero hero) {
         super.initHero(hero);

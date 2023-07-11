@@ -33,7 +33,7 @@ import com.watabou.utils.Bundle;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public final class RogueClass extends HeroClass {
+final class RogueClass extends HeroClass {
 
     @Override public void initHero(Hero hero) {
         super.initHero(hero);

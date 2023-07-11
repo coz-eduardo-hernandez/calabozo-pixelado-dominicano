@@ -34,7 +34,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-public final class WarriorClass extends HeroClass {
+final class WarriorClass extends HeroClass {
 
     @Override
     public void initHero (Hero hero) {

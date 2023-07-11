@@ -35,7 +35,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-public final class MageClass extends HeroClass{
+final class MageClass extends HeroClass{
 
     @Override public void initHero(Hero hero) {
         super.initHero(hero);

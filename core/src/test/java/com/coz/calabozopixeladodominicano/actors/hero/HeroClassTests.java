@@ -18,9 +18,9 @@ class HeroClassTests {
     void tearDown () {
     }
 
-    @Test
+    /*@Test
     void init_hero_for_warrior_hp () {
-        HeroClass hero_class = HeroClass.WARRIOR;
+        //HeroClass hero_class = HeroClass.WARRIOR;
         //Hero hero = new Hero();
         //hero.live();
 
@@ -28,5 +28,5 @@ class HeroClassTests {
 
         //assertEquals(hero.HP,25);
         //assertEquals(1,1);
-    }
+    }*/
 }
