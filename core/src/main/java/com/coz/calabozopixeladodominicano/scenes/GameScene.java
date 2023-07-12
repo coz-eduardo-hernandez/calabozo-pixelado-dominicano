@@ -1446,7 +1446,7 @@ public class GameScene extends PixelScene {
 	private static ArrayList<String> getObjectNames( ArrayList<Object> objects ){
 		ArrayList<String> names = new ArrayList<>();
 		for (Object obj : objects){
-			if (obj instanceof Hero)        names.add(((Hero) obj).className().toUpperCase(Locale.ENGLISH));
+			if (obj instanceof Hero)        names.add(((Hero) obj).name().toUpperCase(Locale.ENGLISH));
 			else if (obj instanceof Mob)    names.add(Messages.titleCase( ((Mob)obj).name() ));
 			else if (obj instanceof Heap)   names.add(Messages.titleCase( ((Heap)obj).title() ));
 			else if (obj instanceof Plant)  names.add(Messages.titleCase( ((Plant) obj).name() ));

@@ -159,7 +159,7 @@ public class WndRanking extends WndTabbed {
 			
 			String heroClass = record.heroClass.getName();
 			if (Dungeon.hero != null){
-				heroClass = Dungeon.hero.className();
+				heroClass = Dungeon.hero.name();
 			}
 			
 			IconTitle title = new IconTitle();

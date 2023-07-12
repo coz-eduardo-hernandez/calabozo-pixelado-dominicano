@@ -187,6 +187,13 @@ public class Hero extends Char {
 	public int attackSkill = 10;
 	public int defenseSkill = 5;
 
+	public int STR;
+
+	public int lvl = 1;
+	public int exp = 0;
+
+	public int HTBoost = 0;
+
 	public boolean ready = false;
 	public boolean damageInterrupt = true;
 	public HeroAction curAction = null;
@@ -196,14 +203,7 @@ public class Hero extends Char {
 
 	public Belongings belongings;
 
-	public int STR;
-
 	//public float awareness;
-
-	public int lvl = 1;
-	public int exp = 0;
-
-	public int HTBoost = 0;
 
 	//This list is maintained so that some logic checks can be skipped
 	// for enemies we know we aren't seeing normally, resulting in better performance
@@ -269,7 +269,7 @@ public class Hero extends Char {
 	}
 
 	private static final String CLASS       = "class";
-	private static final String ABILITY     = "armorAbility";
+	//private static final String ABILITY     = "armorAbility";
 
 	private static final String ATTACK		= "attackSkill";
 	private static final String DEFENSE		= "defenseSkill";
@@ -399,15 +399,10 @@ public class Hero extends Char {
 			return 0;
 		}
 	}*/
-	
-	public String className() {
-		//return subClass == null || subClass == HeroSubClass.NONE ? heroClass.title() : subClass.title();
-		return heroClass.title();
-	}
 
 	@Override
 	public String name(){
-		return className();
+		return heroClass.title();
 	}
 
 	@Override
