@@ -33,6 +33,7 @@ import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.coz.calabozopixeladodominicano.scenes.AmuletScene;
 import com.coz.calabozopixeladodominicano.sprites.ItemSpriteSheet;
 import com.watabou.noosa.Game;
+import com.watabou.noosa.SceneChangeCallback;
 import com.watabou.utils.CPDExceptionManager;
 
 import java.io.IOException;
@@ -96,7 +97,7 @@ public class Amulet extends Item {
 	
 	private void showAmuletScene( boolean showText ) {
 		AmuletScene.noText = !showText;
-		Game.switchScene( AmuletScene.class, new Game.SceneChangeCallback() {
+		Game.switchScene( AmuletScene.class, new SceneChangeCallback() {
 			@Override
 			public void beforeCreate() {
 

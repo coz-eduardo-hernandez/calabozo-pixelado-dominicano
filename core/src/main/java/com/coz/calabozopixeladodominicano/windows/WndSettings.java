@@ -44,6 +44,7 @@ import com.watabou.input.ControllerHandler;
 import com.watabou.noosa.ColorBlock;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.Image;
+import com.watabou.noosa.SceneChangeCallback;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.noosa.ui.Component;
 import com.watabou.utils.DeviceCompat;
@@ -203,7 +204,7 @@ public class WndSettings extends WndTabbed {
 	public void hide() {
 		super.hide();
 		//resets generators because there's no need to retain chars for languages not selected
-		CalabozoPixeladoDominicano.seamlessResetScene(new Game.SceneChangeCallback() {
+		CalabozoPixeladoDominicano.seamlessResetScene(new SceneChangeCallback() {
 			@Override
 			public void beforeCreate() {
 				Game.platform.resetGenerators();
@@ -615,7 +616,7 @@ public class WndSettings extends WndTabbed {
 				@Override
 				protected void onClick() {
 					super.onClick();
-					CalabozoPixeladoDominicano.seamlessResetScene(new Game.SceneChangeCallback() {
+					CalabozoPixeladoDominicano.seamlessResetScene(new SceneChangeCallback() {
 						@Override
 						public void beforeCreate() {
 							SPDSettings.systemFont(checked());
@@ -1107,7 +1108,7 @@ public class WndSettings extends WndTabbed {
 					protected void onClick() {
 						super.onClick();
 						Messages.setup(langs.get(langIndex));
-						CalabozoPixeladoDominicano.seamlessResetScene(new Game.SceneChangeCallback() {
+						CalabozoPixeladoDominicano.seamlessResetScene(new SceneChangeCallback() {
 							@Override
 							public void beforeCreate() {
 								SPDSettings.language(langs.get(langIndex));

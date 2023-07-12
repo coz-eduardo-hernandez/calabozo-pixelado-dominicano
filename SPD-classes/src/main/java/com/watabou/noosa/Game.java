@@ -291,10 +291,4 @@ public class Game implements ApplicationListener {
 	public static void vibrate( int milliseconds ) {
 		platform.vibrate( milliseconds );
 	}
-
-	public interface SceneChangeCallback{
-		void beforeCreate();
-		void afterCreate();
-	}
-	
 }

@@ -26,6 +26,7 @@ import com.coz.calabozopixeladodominicano.scenes.PixelScene;
 import com.coz.calabozopixeladodominicano.scenes.TitleScene;
 import com.coz.calabozopixeladodominicano.scenes.WelcomeScene;
 import com.watabou.noosa.Game;
+import com.watabou.noosa.SceneChangeCallback;
 import com.watabou.noosa.audio.Music;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.DeviceCompat;
