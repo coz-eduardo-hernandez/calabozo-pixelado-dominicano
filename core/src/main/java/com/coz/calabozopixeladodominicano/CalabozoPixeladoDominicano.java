@@ -124,8 +124,8 @@ public class CalabozoPixeladoDominicano extends Game {
 	@Override
 	protected void switchScene() {
 		super.switchScene();
-		if (scene instanceof PixelScene){
-			((PixelScene) scene).restoreWindows();
+		if (scene() instanceof PixelScene){
+			((PixelScene) scene()).restoreWindows();
 		}
 	}
 	
@@ -135,10 +135,10 @@ public class CalabozoPixeladoDominicano extends Game {
 			return;
 		}
 
-		if (scene instanceof PixelScene &&
+		if (scene() instanceof PixelScene &&
 				(height != Game.height || width != Game.width)) {
 			PixelScene.noFade = true;
-			((PixelScene) scene).saveWindows();
+			((PixelScene) scene()).saveWindows();
 		}
 
 		super.resize( width, height );

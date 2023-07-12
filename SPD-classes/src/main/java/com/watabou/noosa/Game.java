@@ -39,7 +39,6 @@ import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Callback;
 import com.watabou.utils.DeviceCompat;
 import com.watabou.utils.PlatformSupport;
-import com.watabou.utils.Reflection;
 
 public class Game implements ApplicationListener {
 
@@ -61,19 +60,8 @@ public class Game implements ApplicationListener {
 	
 	public static String version;
 	public static int versionCode;
-	
-	// Current scene
-	protected Scene scene;
-	// New scene we are going to switch to
-	protected Scene requestedScene;
-	// true if scene switch is requested
-	protected boolean requestedReset = true;
-	// callback to perform logic during scene change
-	protected SceneChangeCallback onChange;
-	// New scene class
-	private static Class<? extends Scene> sceneClass;
-	
-	public static float timeScale = 1f;
+
+	private static float timeScale = 1f;
 	private static float elapsed = 0f;
 	public static float timeTotal = 0f;
 	public static long realTime = 0;
@@ -81,9 +69,11 @@ public class Game implements ApplicationListener {
 	public static InputHandler inputHandler;
 	
 	public static PlatformSupport platform;
+
+	private SceneManager scene_manager;
 	
 	public Game(Class<? extends Scene> c, PlatformSupport platform) {
-		sceneClass = c;
+		scene_manager = new SceneManager(c);
 		
 		instance = this;
 		this.platform = platform;
@@ -175,11 +165,9 @@ public class Game implements ApplicationListener {
 	@Override
 	public void pause() {
 		PointerEvent.clearPointerEvents();
-		
-		if (scene != null) {
-			scene.onPause();
-		}
-		
+
+		scene_manager.pause();
+
 		Script.reset();
 	}
 	
@@ -194,12 +182,8 @@ public class Game implements ApplicationListener {
 	}
 	
 	public void destroy(){
-		if (scene != null) {
-			scene.destroy();
-			scene = null;
-		}
-		
-		sceneClass = null;
+		scene_manager.destroy();
+
 		Music.INSTANCE.stop();
 		Sample.INSTANCE.reset();
 	}
@@ -210,7 +194,7 @@ public class Game implements ApplicationListener {
 	}
 	
 	public static void resetScene() {
-		switchScene( instance.sceneClass );
+		instance.scene_manager.resetScene();
 	}
 
 	public static void switchScene(Class<? extends Scene> c) {
@@ -218,48 +202,29 @@ public class Game implements ApplicationListener {
 	}
 	
 	public static void switchScene(Class<? extends Scene> c, SceneChangeCallback callback) {
-		instance.sceneClass = c;
-		instance.requestedReset = true;
-		instance.onChange = callback;
+		instance.scene_manager.switchScene(c,callback);
 	}
 
 	public static Scene scene() {
-		return instance.scene;
+		return instance.scene_manager.scene();
 	}
 	
 	protected void step() {
-		
-		if (requestedReset) {
-			requestedReset = false;
-			
-			requestedScene = Reflection.newInstance(sceneClass);
-			if (requestedScene != null){
-				switchScene();
-			}
 
-		}
-		
+		scene_manager.step();
+
 		update();
 	}
 	
 	protected void draw() {
-		if (scene != null) scene.draw();
+		scene_manager.draw();
 	}
 
 	protected void switchScene() {
 
 		Camera.reset();
 
-		if (scene != null) {
-			scene.destroy();
-		}
-		//clear any leftover vertex buffers
-		Vertexbuffer.clear();
-		scene = requestedScene;
-		if (onChange != null) onChange.beforeCreate();
-		scene.build();
-		if (onChange != null) onChange.afterCreate();
-		onChange = null;
+		scene_manager.switchScene();
 
 		Game.elapsed = 0f;
 		Game.timeScale = 1f;
@@ -275,7 +240,9 @@ public class Game implements ApplicationListener {
 		inputHandler.processAllEvents();
 
 		Sample.INSTANCE.update(elapsed);
-		scene.update(elapsed);
+
+		scene_manager.update(elapsed);
+
 		Camera.updateAll(elapsed);
 	}
 
