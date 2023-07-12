@@ -21,6 +21,7 @@
 
 package com.coz.calabozopixeladodominicano.levels.rooms.standard;
 
+import com.coz.calabozopixeladodominicano.Assets;
 import com.coz.calabozopixeladodominicano.Dungeon;
 import com.coz.calabozopixeladodominicano.actors.mobs.npcs.Blacksmith;
 import com.coz.calabozopixeladodominicano.items.Generator;
@@ -29,7 +30,9 @@ import com.coz.calabozopixeladodominicano.levels.Terrain;
 import com.coz.calabozopixeladodominicano.levels.features.LevelTransition;
 import com.coz.calabozopixeladodominicano.levels.painters.Painter;
 import com.coz.calabozopixeladodominicano.levels.traps.BurningTrap;
+import com.coz.calabozopixeladodominicano.tiles.CustomTilemap;
 
+import com.watabou.noosa.Tilemap;
 import com.watabou.utils.Point;
 import com.watabou.utils.Random;
 
@@ -83,6 +86,10 @@ public class BlacksmithRoom extends StandardRoom {
 			} while (level.heaps.get( npc.pos ) != null || entrancePos == npc.pos);
 		Random.popGenerator();
 
+		QuestEntrance vis = new QuestEntrance();
+		vis.pos(entrancePos, level);
+		level.customTiles.add(vis);
+
 		level.transitions.add(new LevelTransition(level,
 				entrancePos,
 				LevelTransition.Type.BRANCH_EXIT,
@@ -97,5 +104,23 @@ public class BlacksmithRoom extends StandardRoom {
 				level.setTrap(new BurningTrap().reveal(), cell);
 			}
 		}
+	}
+
+	public static class QuestEntrance extends CustomTilemap {
+
+		{
+			texture = Assets.Environment.CAVES_QUEST;
+
+			tileW = tileH = 1;
+		}
+
+		@Override
+		public Tilemap create() {
+			Tilemap v = super.create();
+			v.map( new int[]{0}, 1 );
+			return v;
+		}
+
+		//TODO add some text here in v2.2.0
 	}
 }

@@ -13,7 +13,7 @@ allprojects {
         appName = 'Calabozo Pixelado Dominicano'
         appPackageName = 'com.coz.calabozopixeladodominicano'
 
-        appVersionCode = 734
+        appVersionCode = 736
         appVersionName = '0.1.0'
 
         appJavaCompatibility = JavaVersion.VERSION_17

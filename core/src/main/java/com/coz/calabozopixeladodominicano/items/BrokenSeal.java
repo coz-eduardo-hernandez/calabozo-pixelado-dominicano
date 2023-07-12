@@ -23,6 +23,7 @@ package com.coz.calabozopixeladodominicano.items;
 
 import com.coz.calabozopixeladodominicano.Assets;
 import com.coz.calabozopixeladodominicano.Dungeon;
+import com.coz.calabozopixeladodominicano.actors.buffs.Regeneration;
 import com.coz.calabozopixeladodominicano.actors.buffs.ShieldBuff;
 import com.coz.calabozopixeladodominicano.actors.hero.Belongings;
 import com.coz.calabozopixeladodominicano.actors.hero.Hero;
@@ -187,7 +188,7 @@ public class BrokenSeal extends Item {
 
 		@Override
 		public synchronized boolean act() {
-			if (shielding() < maxShield()) {
+			if (Regeneration.regenOn() && shielding() < maxShield()) {
 				partialShield += 1/30f;
 			}
 			

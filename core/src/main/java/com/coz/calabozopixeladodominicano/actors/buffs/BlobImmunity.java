@@ -38,7 +38,6 @@ import com.coz.calabozopixeladodominicano.actors.blobs.Web;
 import com.coz.calabozopixeladodominicano.actors.mobs.Tengu;
 import com.coz.calabozopixeladodominicano.levels.rooms.special.MagicalFireRoom;
 import com.coz.calabozopixeladodominicano.ui.BuffIndicator;
-
 public class BlobImmunity extends FlavourBuff {
 	
 	{

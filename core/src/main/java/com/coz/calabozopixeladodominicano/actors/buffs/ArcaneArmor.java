@@ -60,8 +60,7 @@ public class ArcaneArmor extends Buff {
 	}
 	
 	public void set( int value, int time ) {
-		//decide whether to override, preferring high value + low interval
-		if (Math.sqrt(interval)*level < Math.sqrt(time)*value) {
+		if (level <= value) {
 			level = value;
 			interval = time;
 			spend(time - cooldown() - 1);

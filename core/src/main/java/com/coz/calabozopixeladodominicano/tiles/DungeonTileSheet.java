@@ -21,6 +21,7 @@
 
 package com.coz.calabozopixeladodominicano.tiles;
 
+import com.coz.calabozopixeladodominicano.Dungeon;
 import com.coz.calabozopixeladodominicano.levels.Terrain;
 import com.watabou.utils.Random;
 import com.watabou.utils.SparseArray;
@@ -301,7 +302,8 @@ public class DungeonTileSheet {
 		int result;
 
 		if (tile == Terrain.BOOKSHELF || below == Terrain.BOOKSHELF)        result = WALL_INTERNAL_WOODEN;
-		else if (tile == Terrain.WALL_DECO || below == Terrain.WALL_DECO)   result = WALL_INTERNAL_DECO;
+		else if (Dungeon.branch == 1 &&
+				(tile == Terrain.WALL_DECO || below == Terrain.WALL_DECO))   result = WALL_INTERNAL_DECO;
 		else                                                                result = WALL_INTERNAL;
 
 		if (!wallStitcheable(right))        result += 1;
