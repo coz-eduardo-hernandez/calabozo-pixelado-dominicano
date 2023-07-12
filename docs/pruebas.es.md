@@ -15,6 +15,8 @@ Una forma de crear las pruebas para código que no esta preparado para las misma
 3. Crea pruebas unitarias para lo que quieres, inyectando cualquier dependencia con una imitación
 4. Crea pruebas de integración
 
+Las pruebas usan la librería JUnit que facilita el crear pruebas, y Mockito que facilita simular objetos y grabar las interacciones con el objeto simulado lo que permite hacer una mayor variedad de pruebas
+
 ## Derechos de autor
 Copyright (C) 2023 Eduardo Hernández
 Este es un programa libre bajo la GNU General Public License en su versión 3, o si lo desea una versión posterior
