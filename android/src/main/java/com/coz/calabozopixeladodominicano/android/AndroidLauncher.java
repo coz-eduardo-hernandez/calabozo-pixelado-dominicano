@@ -40,8 +40,8 @@ import com.badlogic.gdx.utils.GdxNativesLoader;
 import com.coz.calabozopixeladodominicano.SPDSettings;
 import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.services.news.News;
-import com.coz.calabozopixeladodominicano.services.news.NewsImpl;
-import com.coz.calabozopixeladodominicano.services.updates.UpdateImpl;
+//import com.coz.calabozopixeladodominicano.services.news.NewsImpl;
+//import com.coz.calabozopixeladodominicano.services.updates.UpdateImpl;
 import com.coz.calabozopixeladodominicano.services.updates.Updates;
 import com.coz.calabozopixeladodominicano.ui.Button;
 import com.watabou.noosa.Game;
@@ -84,13 +84,13 @@ public class AndroidLauncher extends AndroidApplication {
 			} catch (PackageManager.NameNotFoundException e) {
 				Game.versionCode = 0;
 			}
-
+/*
 			if (UpdateImpl.supportsUpdates()) {
 				Updates.service = UpdateImpl.getUpdateService();
 			}
 			if (NewsImpl.supportsNews()) {
 				News.service = NewsImpl.getNewsService();
-			}
+			}*/
 
 			FileUtils.setDefaultFileProperties(Files.FileType.Local, "");
 
