@@ -10,7 +10,13 @@ dependencies {
 
     //noinspection GradleDependency , later JSON versions cause crashes on old versions of android
     implementation "org.json:json:20170516"
+
+    testImplementation "org.mockito:mockito-core:5.4.0"
+    testImplementation "org.junit.jupiter:junit-jupiter:5.9.3"
+    testRuntimeOnly "org.junit.platform:junit-platform-launcher"
 }
+
+def osName = System.getProperty('os.name').toLowerCase(Locale.ROOT)
 
 sourceSets {
     test {
@@ -18,6 +24,21 @@ sourceSets {
     }
 
     integrationTest {
-        java.srcDirs = ['src/itest/java', 'src/main/java']
+        java.srcDirs = ['src/itest/java']
+        resources.srcDir file("src/itest/resources")
+        compileClasspath += sourceSets.main.output + configurations.testRuntimeClasspath
+        runtimeClasspath += output + compileClasspath
+    }
+}
+
+test {
+    useJUnitPlatform()
+
+    maxHeapSize = '1G'
+    maxParallelForks = 8
+    failFast = true
+
+    if (osName.contains('mac')) {
+        jvmArgs '-XstartOnFirstThread'
     }
 }

@@ -7,6 +7,7 @@ import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class BelongingsUTest {
     Lwjgl3Application app = null;
