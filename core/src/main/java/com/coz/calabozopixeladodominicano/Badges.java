@@ -28,6 +28,7 @@ import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.coz.calabozopixeladodominicano.scenes.PixelScene;
 import com.coz.calabozopixeladodominicano.utils.GLog;
 import com.watabou.utils.Bundle;
+import com.watabou.utils.CPDExceptionManager;
 import com.watabou.utils.FileUtils;
 
 import java.io.IOException;
@@ -240,7 +241,7 @@ public class Badges {
 					badges.add( Badge.valueOf( names[i] ) );
 				}
 			} catch (Exception e) {
-				CalabozoPixeladoDominicano.reportException(e);
+				CPDExceptionManager.report(e);
 			}
 		}
 
@@ -295,7 +296,7 @@ public class Badges {
 				FileUtils.bundleToFile(BADGES_FILE, bundle);
 				saveNeeded = false;
 			} catch (IOException e) {
-				CalabozoPixeladoDominicano.reportException(e);
+				CPDExceptionManager.report(e);
 			}
 		}
 	}

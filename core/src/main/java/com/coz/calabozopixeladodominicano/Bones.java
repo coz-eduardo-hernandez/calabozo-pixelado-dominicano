@@ -28,6 +28,7 @@ import com.coz.calabozopixeladodominicano.items.Item;
 import com.coz.calabozopixeladodominicano.items.artifacts.Artifact;
 import com.coz.calabozopixeladodominicano.items.weapon.missiles.MissileWeapon;
 import com.watabou.utils.Bundle;
+import com.watabou.utils.CPDExceptionManager;
 import com.watabou.utils.FileUtils;
 import com.watabou.utils.Random;
 import com.watabou.utils.Reflection;
@@ -71,7 +72,7 @@ public class Bones {
 		try {
 			FileUtils.bundleToFile( BONES_FILE, bundle );
 		} catch (IOException e) {
-			CalabozoPixeladoDominicano.reportException(e);
+			CPDExceptionManager.report(e);
 		}
 	}
 
@@ -177,7 +178,7 @@ public class Bones {
 				try {
 					FileUtils.bundleToFile( BONES_FILE, emptyBones );
 				} catch (IOException e) {
-					CalabozoPixeladoDominicano.reportException(e);
+					CPDExceptionManager.report(e);
 				}
 				depth = 0;
 

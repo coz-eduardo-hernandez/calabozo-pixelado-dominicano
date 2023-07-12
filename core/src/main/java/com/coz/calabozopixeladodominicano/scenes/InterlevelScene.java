@@ -54,6 +54,7 @@ import com.watabou.noosa.Image;
 import com.watabou.noosa.NoosaScript;
 import com.watabou.noosa.NoosaScriptNoLighting;
 import com.watabou.noosa.SkinnedBlock;
+import com.watabou.utils.CPDExceptionManager;
 import com.watabou.utils.DeviceCompat;
 
 import java.io.FileNotFoundException;
@@ -359,7 +360,7 @@ public class InterlevelScene extends PixelScene {
 					s += "\n";
 					s += t.toString();
 				}
-				CalabozoPixeladoDominicano.reportException(
+				CPDExceptionManager.report(
 						new RuntimeException("waited more than 10 seconds on levelgen. " +
 								"Seed:" + Dungeon.seed + " depth:" + Dungeon.depth + " trace:" +
 								s)

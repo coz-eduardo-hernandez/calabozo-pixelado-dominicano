@@ -24,6 +24,7 @@ package com.coz.calabozopixeladodominicano;
 import com.coz.calabozopixeladodominicano.actors.hero.HeroClass;
 import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.watabou.utils.Bundle;
+import com.watabou.utils.CPDExceptionManager;
 import com.watabou.utils.FileUtils;
 
 import java.io.IOException;
@@ -114,7 +115,7 @@ public class GamesInProgress {
 			} catch (IOException e) {
 				info = null;
 			} catch (Exception e){
-				CalabozoPixeladoDominicano.reportException( e );
+				CPDExceptionManager.report( e );
 				info = null;
 			}
 			

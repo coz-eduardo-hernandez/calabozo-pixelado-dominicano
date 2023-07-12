@@ -39,7 +39,7 @@ public class Reflection {
 		try {
 			return ClassReflection.newInstance(cls);
 		} catch (Exception e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 			return null;
 		}
 	}
@@ -52,7 +52,7 @@ public class Reflection {
 		try {
 			return ClassReflection.forName( name );
 		} catch (Exception e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 			return null;
 		}
 	}

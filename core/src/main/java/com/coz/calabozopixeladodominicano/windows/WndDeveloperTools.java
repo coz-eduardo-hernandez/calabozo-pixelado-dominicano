@@ -353,6 +353,7 @@ import com.watabou.noosa.ColorBlock;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.Image;
 import com.watabou.noosa.ui.Component;
+import com.watabou.utils.CPDExceptionManager;
 import com.watabou.utils.Callback;
 
 import java.text.DecimalFormat;
@@ -538,7 +539,7 @@ public class WndDeveloperTools extends WndTabbed {
 					mob = MobClass.getDeclaredConstructor().newInstance();
 				} catch (Exception e)
 				{
-					Game.reportException(e);
+					CPDExceptionManager.report(e);
 					return;
 				}
 
@@ -563,7 +564,7 @@ public class WndDeveloperTools extends WndTabbed {
 							try {
 								mob = MobClass.getDeclaredConstructor().newInstance();
 							} catch (Exception e) {
-								Game.reportException(e);
+								CPDExceptionManager.report(e);
 								return;
 							}
 
@@ -923,7 +924,7 @@ public class WndDeveloperTools extends WndTabbed {
 					item = ItemClass.getDeclaredConstructor().newInstance();
 				} catch (Exception e)
 				{
-					Game.reportException(e);
+					CPDExceptionManager.report(e);
 					return;
 				}
 
@@ -940,7 +941,7 @@ public class WndDeveloperTools extends WndTabbed {
 							try {
 								item = ItemClass.getDeclaredConstructor().newInstance();
 							} catch (Exception e) {
-								Game.reportException(e);
+								CPDExceptionManager.report(e);
 								return;
 							}
 

@@ -57,6 +57,7 @@ import com.coz.calabozopixeladodominicano.items.spells.TelekineticGrab;
 import com.coz.calabozopixeladodominicano.items.spells.WildEnergy;
 import com.coz.calabozopixeladodominicano.items.wands.Wand;
 import com.coz.calabozopixeladodominicano.items.weapon.missiles.MissileWeapon;
+import com.watabou.utils.CPDExceptionManager;
 import com.watabou.utils.Reflection;
 
 import java.util.ArrayList;
@@ -154,7 +155,7 @@ public abstract class Recipe {
 				result.quantity(outQuantity);
 				return result;
 			} catch (Exception e) {
-				CalabozoPixeladoDominicano.reportException( e );
+				CPDExceptionManager.report( e );
 				return null;
 			}
 		}

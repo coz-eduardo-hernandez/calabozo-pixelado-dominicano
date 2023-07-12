@@ -36,6 +36,7 @@ import com.coz.calabozopixeladodominicano.ui.Icons;
 import com.coz.calabozopixeladodominicano.ui.RedButton;
 import com.coz.calabozopixeladodominicano.ui.Window;
 import com.watabou.noosa.Game;
+import com.watabou.utils.CPDExceptionManager;
 
 import java.io.IOException;
 
@@ -117,7 +118,7 @@ public class WndGame extends Window {
 				try {
 					Dungeon.saveAll();
 				} catch (IOException e) {
-					CalabozoPixeladoDominicano.reportException(e);
+					CPDExceptionManager.report(e);
 				}
 				Game.switchScene(TitleScene.class);
 			}

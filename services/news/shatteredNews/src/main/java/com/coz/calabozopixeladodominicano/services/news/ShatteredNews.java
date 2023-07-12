@@ -26,6 +26,7 @@ import com.badlogic.gdx.Net;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.XmlReader;
 import com.watabou.noosa.Game;
+import com.watabou.utils.CPDExceptionManager;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -66,7 +67,7 @@ public class ShatteredNews extends NewsService {
 					try {
 						article.date = dateParser.parse(xmlArticle.get("published"));
 					} catch (ParseException e) {
-						Game.reportException(e);
+						CPDExceptionManager.report(e);
 					}
 					article.summary = xmlArticle.get("summary");
 					article.URL = xmlArticle.getChildByName("link").getAttribute("href");

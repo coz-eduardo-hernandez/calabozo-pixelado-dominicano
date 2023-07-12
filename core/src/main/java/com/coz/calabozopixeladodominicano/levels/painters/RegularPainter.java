@@ -35,6 +35,7 @@ import com.coz.calabozopixeladodominicano.levels.rooms.standard.EntranceRoom;
 import com.coz.calabozopixeladodominicano.levels.rooms.standard.StandardRoom;
 import com.coz.calabozopixeladodominicano.levels.traps.Trap;
 import com.watabou.noosa.Game;
+import com.watabou.utils.CPDExceptionManager;
 import com.watabou.utils.Graph;
 import com.watabou.utils.PathFinder;
 import com.watabou.utils.Point;
@@ -119,7 +120,7 @@ public abstract class RegularPainter extends Painter {
 		
 		for (Room r : rooms.toArray(new Room[0])) {
 			if (r.connected.isEmpty()){
-				Game.reportException( new RuntimeException("Painting a room with no connections! Room:" + r.getClass().getSimpleName() + " Seed:" + Dungeon.seed + " Depth:" + Dungeon.depth));
+				CPDExceptionManager.report( new RuntimeException("Painting a room with no connections! Room:" + r.getClass().getSimpleName() + " Seed:" + Dungeon.seed + " Depth:" + Dungeon.depth));
 				if (r instanceof SpecialRoom) return false;
 			}
 			placeDoors( r );
@@ -159,7 +160,7 @@ public abstract class RegularPainter extends Painter {
 						doorSpots.add(p);
 				}
 				if (doorSpots.isEmpty()){
-					CalabozoPixeladoDominicano.reportException(
+					CPDExceptionManager.report(
 							new RuntimeException("Could not place a door! " +
 									"r=" + r.getClass().getSimpleName() +
 									" n=" + n.getClass().getSimpleName()));

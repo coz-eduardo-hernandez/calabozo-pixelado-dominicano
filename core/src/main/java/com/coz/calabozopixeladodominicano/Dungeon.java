@@ -77,6 +77,7 @@ import com.coz.calabozopixeladodominicano.windows.WndResurrect;
 import com.watabou.noosa.Game;
 import com.watabou.utils.Bundlable;
 import com.watabou.utils.Bundle;
+import com.watabou.utils.CPDExceptionManager;
 import com.watabou.utils.FileUtils;
 import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
@@ -484,7 +485,7 @@ public class Dungeon {
 		try {
 			saveAll();
 		} catch (IOException e) {
-			CalabozoPixeladoDominicano.reportException(e);
+			CPDExceptionManager.report(e);
 			/*This only catches IO errors. Yes, this means things can go wrong, and they can go wrong catastrophically.
 			But when they do the user will get a nice 'report this issue' dialogue, and I can fix the bug.*/
 		}
@@ -632,7 +633,7 @@ public class Dungeon {
 			
 		} catch (IOException e) {
 			GamesInProgress.setUnknown( save );
-			CalabozoPixeladoDominicano.reportException(e);
+			CPDExceptionManager.report(e);
 		}
 	}
 	

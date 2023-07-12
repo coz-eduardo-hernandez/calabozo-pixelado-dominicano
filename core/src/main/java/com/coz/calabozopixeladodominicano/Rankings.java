@@ -41,6 +41,7 @@ import com.coz.calabozopixeladodominicano.utils.DungeonSeed;
 import com.watabou.noosa.Game;
 import com.watabou.utils.Bundlable;
 import com.watabou.utils.Bundle;
+import com.watabou.utils.CPDExceptionManager;
 import com.watabou.utils.FileUtils;
 
 import java.io.IOException;
@@ -388,7 +389,7 @@ public class Rankings {
 		try {
 			FileUtils.bundleToFile( RANKINGS_FILE, bundle);
 		} catch (IOException e) {
-			CalabozoPixeladoDominicano.reportException(e);
+			CPDExceptionManager.report(e);
 		}
 
 	}

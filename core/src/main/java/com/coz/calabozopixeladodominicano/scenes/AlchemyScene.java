@@ -62,6 +62,7 @@ import com.watabou.noosa.SkinnedBlock;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.noosa.particles.Emitter;
 import com.watabou.noosa.ui.Component;
+import com.watabou.utils.CPDExceptionManager;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -280,7 +281,7 @@ public class AlchemyScene extends PixelScene {
 			Badges.saveGlobal();
 			Journal.saveGlobal();
 		} catch (IOException e) {
-			CalabozoPixeladoDominicano.reportException(e);
+			CPDExceptionManager.report(e);
 		}
 	}
 	
@@ -446,7 +447,7 @@ public class AlchemyScene extends PixelScene {
 			try {
 				Dungeon.saveAll();
 			} catch (IOException e) {
-				CalabozoPixeladoDominicano.reportException(e);
+				CPDExceptionManager.report(e);
 			}
 			
 			synchronized (inputs) {
@@ -509,7 +510,7 @@ public class AlchemyScene extends PixelScene {
 			Badges.saveGlobal();
 			Journal.saveGlobal();
 		} catch (IOException e) {
-			CalabozoPixeladoDominicano.reportException(e);
+			CPDExceptionManager.report(e);
 		}
 		super.destroy();
 	}

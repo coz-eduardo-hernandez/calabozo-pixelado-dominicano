@@ -26,6 +26,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Net;
 import com.watabou.noosa.Game;
 import com.watabou.utils.Bundle;
+import com.watabou.utils.CPDExceptionManager;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -96,7 +97,7 @@ public class GitHubUpdates extends UpdateService {
 						callback.onUpdateAvailable(update);
 					}
 				} catch (Exception e) {
-					Game.reportException( e );
+					CPDExceptionManager.report( e );
 					callback.onConnectionFailed();
 				}
 			}
@@ -109,7 +110,7 @@ public class GitHubUpdates extends UpdateService {
 				if (t instanceof SSLProtocolException){
 					callback.onNoUpdateFound();
 				} else {
-					Game.reportException(t);
+					CPDExceptionManager.report(t);
 					callback.onConnectionFailed();
 				}
 			}

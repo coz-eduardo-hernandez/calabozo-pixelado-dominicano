@@ -52,6 +52,7 @@ import com.watabou.noosa.Group;
 import com.watabou.noosa.Image;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.noosa.ui.Component;
+import com.watabou.utils.CPDExceptionManager;
 import com.watabou.utils.DeviceCompat;
 
 import java.text.NumberFormat;
@@ -85,7 +86,7 @@ public class WndRanking extends WndTabbed {
 			Rankings.INSTANCE.loadGameData( rec );
 			createControls();
 		} catch ( Exception e ) {
-			Game.reportException( new RuntimeException("Rankings Display Failed!",e));
+			CPDExceptionManager.report( new RuntimeException("Rankings Display Failed!",e));
 			Dungeon.hero = null;
 			createControls();
 		}

@@ -47,6 +47,7 @@ import com.watabou.noosa.ColorBlock;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.Image;
 import com.watabou.noosa.audio.Music;
+import com.watabou.utils.CPDExceptionManager;
 import com.watabou.utils.FileUtils;
 
 import java.util.Collections;
@@ -255,7 +256,7 @@ public class WelcomeScene extends PixelScene {
 					} catch (Exception e) {
 						//if we encounter a fatal per-record error, then clear that record's data
 						rec.gameData = null;
-						Game.reportException( new RuntimeException("Rankings Updating Failed!",e));
+						CPDExceptionManager.report( new RuntimeException("Rankings Updating Failed!",e));
 					}
 				}
 				if (Rankings.INSTANCE.latestDaily != null){
@@ -265,7 +266,7 @@ public class WelcomeScene extends PixelScene {
 					} catch (Exception e) {
 						//if we encounter a fatal per-record error, then clear that record's data
 						Rankings.INSTANCE.latestDaily.gameData = null;
-						Game.reportException( new RuntimeException("Rankings Updating Failed!",e));
+						CPDExceptionManager.report( new RuntimeException("Rankings Updating Failed!",e));
 					}
 				}
 				Collections.sort(Rankings.INSTANCE.records, Rankings.scoreComparator);
@@ -273,7 +274,7 @@ public class WelcomeScene extends PixelScene {
 			} catch (Exception e) {
 				//if we encounter a fatal error, then just clear the rankings
 				FileUtils.deleteFile( Rankings.RANKINGS_FILE );
-				Game.reportException( new RuntimeException("Rankings Updating Failed!",e));
+				CPDExceptionManager.report( new RuntimeException("Rankings Updating Failed!",e));
 			}
 			Dungeon.daily = Dungeon.dailyReplay = false;
 

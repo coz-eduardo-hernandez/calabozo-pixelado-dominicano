@@ -33,6 +33,7 @@ import com.coz.calabozopixeladodominicano.messages.Messages;
 import com.coz.calabozopixeladodominicano.scenes.AmuletScene;
 import com.coz.calabozopixeladodominicano.sprites.ItemSpriteSheet;
 import com.watabou.noosa.Game;
+import com.watabou.utils.CPDExceptionManager;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -109,7 +110,7 @@ public class Amulet extends Item {
 					Dungeon.saveAll();
 					Badges.saveGlobal();
 				} catch (IOException e) {
-					CalabozoPixeladoDominicano.reportException(e);
+					CPDExceptionManager.report(e);
 				}
 			}
 		});

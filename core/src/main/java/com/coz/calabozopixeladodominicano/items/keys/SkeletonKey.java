@@ -51,7 +51,7 @@ public class SkeletonKey extends Key {
 					}
 				});
 			} catch (IOException e) {
-				CalabozoPixeladoDominicano.reportException(e);
+				CPDExceptionManager.report(e);
 			}
 			
 		}*/

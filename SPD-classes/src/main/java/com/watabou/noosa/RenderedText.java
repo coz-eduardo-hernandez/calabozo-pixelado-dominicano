@@ -32,6 +32,7 @@ import com.badlogic.gdx.math.Affine2;
 import com.badlogic.gdx.math.Matrix4;
 import com.watabou.glwrap.Matrix;
 import com.watabou.glwrap.Quad;
+import com.watabou.utils.CPDExceptionManager;
 
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
@@ -106,7 +107,7 @@ public class RenderedText extends Image {
 					}
 					//reduces logspam
 					if (!alreadyReported.contains(c)) {
-						Game.reportException(new Throwable("font file " + font.toString() + " could not render " + c + " from string: " + toException));
+						CPDExceptionManager.report(new Throwable("font file " + font.toString() + " could not render " + c + " from string: " + toException));
 						alreadyReported.add(c);
 					}
 				}

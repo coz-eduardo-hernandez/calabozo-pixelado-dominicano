@@ -56,7 +56,7 @@ public class BitmapCache {
 				layer.put( assetName, bmp );
 				return bmp;
 			} catch (Exception e) {
-				Game.reportException( e );
+				CPDExceptionManager.report( e );
 				return null;
 			}
 			

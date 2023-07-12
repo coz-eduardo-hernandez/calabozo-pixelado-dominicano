@@ -26,6 +26,7 @@ import com.badlogic.gdx.utils.I18NBundle;
 import com.coz.calabozopixeladodominicano.Assets;
 import com.coz.calabozopixeladodominicano.SPDSettings;
 import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
+import com.watabou.utils.CPDExceptionManager;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -159,7 +160,7 @@ public class Messages {
 		try {
 			return String.format(Locale.ENGLISH, format, args);
 		} catch (IllegalFormatException e) {
-			CalabozoPixeladoDominicano.reportException( new Exception("formatting error for the string: " + format, e) );
+			CPDExceptionManager.report( new Exception("formatting error for the string: " + format, e) );
 			return format;
 		}
 	}

@@ -171,10 +171,10 @@ public class Bundle {
 		try {
 			return Enum.valueOf( enumClass, data.getString( key ) );
 		} catch (JSONException e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 			return enumClass.getEnumConstants()[0];
 		} catch (IllegalArgumentException e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 			return enumClass.getEnumConstants()[0];
 		}
 	}
@@ -189,7 +189,7 @@ public class Bundle {
 			}
 			return result;
 		} catch (JSONException e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 			return null;
 		}
 	}
@@ -204,7 +204,7 @@ public class Bundle {
 			}
 			return result;
 		} catch (JSONException e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 			return null;
 		}
 	}
@@ -219,7 +219,7 @@ public class Bundle {
 			}
 			return result;
 		} catch (JSONException e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 			return null;
 		}
 	}
@@ -234,7 +234,7 @@ public class Bundle {
 			}
 			return result;
 		} catch (JSONException e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 			return null;
 		}
 	}
@@ -249,7 +249,7 @@ public class Bundle {
 			}
 			return result;
 		} catch (JSONException e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 			return null;
 		}
 	}
@@ -269,7 +269,7 @@ public class Bundle {
 			}
 			return result;
 		} catch (JSONException e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 			return null;
 		}
 	}
@@ -288,7 +288,7 @@ public class Bundle {
 			}
 			return result;
 		} catch (JSONException e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 			return null;
 		}
 	}
@@ -304,7 +304,7 @@ public class Bundle {
 				if (O != null) list.add( O );
 			}
 		} catch (JSONException e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 		}
 
 		return list;
@@ -314,7 +314,7 @@ public class Bundle {
 		try {
 			data.put( key, value );
 		} catch (JSONException e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 		}
 	}
 
@@ -322,7 +322,7 @@ public class Bundle {
 		try {
 			data.put( key, value );
 		} catch (JSONException e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 		}
 	}
 
@@ -330,7 +330,7 @@ public class Bundle {
 		try {
 			data.put( key, value );
 		} catch (JSONException e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 		}
 	}
 
@@ -338,7 +338,7 @@ public class Bundle {
 		try {
 			data.put( key, value );
 		} catch (JSONException e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 		}
 	}
 
@@ -346,7 +346,7 @@ public class Bundle {
 		try {
 			data.put( key, value );
 		} catch (JSONException e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 		}
 	}
 
@@ -354,7 +354,7 @@ public class Bundle {
 		try {
 			data.put( key, value );
 		} catch (JSONException e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 		}
 	}
 
@@ -362,7 +362,7 @@ public class Bundle {
 		try {
 			data.put( key, bundle.data );
 		} catch (JSONException e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 		}
 	}
 
@@ -374,7 +374,7 @@ public class Bundle {
 				object.storeInBundle( bundle );
 				data.put( key, bundle.data );
 			} catch (JSONException e) {
-				Game.reportException(e);
+				CPDExceptionManager.report(e);
 			}
 		}
 	}
@@ -384,7 +384,7 @@ public class Bundle {
 			try {
 				data.put( key, value.name() );
 			} catch (JSONException e) {
-				Game.reportException(e);
+				CPDExceptionManager.report(e);
 			}
 		}
 	}
@@ -397,7 +397,7 @@ public class Bundle {
 			}
 			data.put( key, jsonArray );
 		} catch (JSONException e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 		}
 	}
 
@@ -409,7 +409,7 @@ public class Bundle {
 			}
 			data.put( key, jsonArray );
 		} catch (JSONException e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 		}
 	}
 
@@ -421,7 +421,7 @@ public class Bundle {
 			}
 			data.put( key, jsonArray );
 		} catch (JSONException e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 		}
 	}
 
@@ -433,7 +433,7 @@ public class Bundle {
 			}
 			data.put( key, jsonArray );
 		} catch (JSONException e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 		}
 	}
 
@@ -445,7 +445,7 @@ public class Bundle {
 			}
 			data.put( key, jsonArray );
 		} catch (JSONException e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 		}
 	}
 
@@ -457,7 +457,7 @@ public class Bundle {
 			}
 			data.put( key, jsonArray );
 		} catch (JSONException e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 		}
 	}
 
@@ -479,7 +479,7 @@ public class Bundle {
 		try {
 			data.put( key, array );
 		} catch (JSONException e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 		}
 	}
 
@@ -525,7 +525,7 @@ public class Bundle {
 				// Some of these are written in a 'minified' format, some have duplicate keys.
 				// We read them in with the libGDX JSON code, fix duplicates, write as full JSON
 				// and then try to read again with org.json
-				Game.reportException(e);
+				CPDExceptionManager.report(e);
 				JsonValue gdxJSON = new JsonReader().parse(jsonString);
 				killDuplicateKeysInLibGDXJSON(gdxJSON);
 				json = new JSONTokener(gdxJSON.prettyPrint(JsonWriter.OutputType.json, 0)).nextValue();
@@ -539,7 +539,7 @@ public class Bundle {
 
 			return new Bundle( (JSONObject) json );
 		} catch (Exception e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 			throw new IOException();
 		}
 	}
@@ -578,7 +578,7 @@ public class Bundle {
 
 			return true;
 		} catch (IOException e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 			return false;
 		}
 	}

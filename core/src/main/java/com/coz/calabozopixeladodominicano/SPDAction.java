@@ -26,6 +26,7 @@ import com.watabou.input.ControllerHandler;
 import com.watabou.input.GameAction;
 import com.watabou.input.KeyBindings;
 import com.watabou.utils.Bundle;
+import com.watabou.utils.CPDExceptionManager;
 import com.watabou.utils.FileUtils;
 
 import java.io.IOException;
@@ -454,7 +455,7 @@ public class SPDAction extends GameAction {
 		try {
 			FileUtils.bundleToFile(BINDINGS_FILE, b);
 		} catch (IOException e) {
-			CalabozoPixeladoDominicano.reportException(e);
+			CPDExceptionManager.report(e);
 		}
 
 	}

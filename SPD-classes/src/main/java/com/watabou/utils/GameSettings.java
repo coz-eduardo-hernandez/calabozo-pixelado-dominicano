@@ -62,7 +62,7 @@ public class GameSettings {
 				return i;
 			}
 		} catch (Exception e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 			put(key, defValue);
 			return defValue;
 		}
@@ -83,7 +83,7 @@ public class GameSettings {
 				return i;
 			}
 		} catch (Exception e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 			put(key, defValue);
 			return defValue;
 		}
@@ -93,7 +93,7 @@ public class GameSettings {
 		try {
 			return get().getBoolean(key, defValue);
 		} catch (Exception e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 			return defValue;
 		}
 	}
@@ -112,7 +112,7 @@ public class GameSettings {
 				return s;
 			}
 		} catch (Exception e) {
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 			put(key, defValue);
 			return defValue;
 		}

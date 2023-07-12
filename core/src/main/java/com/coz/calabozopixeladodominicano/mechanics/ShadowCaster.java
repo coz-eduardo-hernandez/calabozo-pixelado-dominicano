@@ -24,6 +24,7 @@ package com.coz.calabozopixeladodominicano.mechanics;
 import com.coz.calabozopixeladodominicano.Dungeon;
 import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.utils.BArray;
+import com.watabou.utils.CPDExceptionManager;
 
 //based on: http://www.roguebasin.com/index.php?title=FOV_using_recursive_shadowcasting
 public final class ShadowCaster {
@@ -68,7 +69,7 @@ public final class ShadowCaster {
 			scanOctant(distance, fieldOfView, blocking, 1, x, y, 0.0, 1.0, -1, -1, true);
 			scanOctant(distance, fieldOfView, blocking, 1, x, y, 0.0, 1.0, -1, -1, false);
 		} catch (Exception e){
-			CalabozoPixeladoDominicano.reportException(e);
+			CPDExceptionManager.report(e);
 			BArray.setFalse(fieldOfView);
 		}
 

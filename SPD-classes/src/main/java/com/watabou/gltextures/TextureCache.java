@@ -25,6 +25,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.watabou.glwrap.Texture;
 import com.watabou.noosa.Game;
+import com.watabou.utils.CPDExceptionManager;
 
 import java.util.HashMap;
 
@@ -166,7 +167,7 @@ public class TextureCache {
 			}
 		} catch (Exception e) {
 			
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 			return null;
 			
 		}

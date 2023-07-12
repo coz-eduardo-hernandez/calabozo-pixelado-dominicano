@@ -41,9 +41,6 @@ import com.watabou.utils.DeviceCompat;
 import com.watabou.utils.PlatformSupport;
 import com.watabou.utils.Reflection;
 
-import java.io.PrintWriter;
-import java.io.StringWriter;
-
 public class Game implements ApplicationListener {
 
 	public static Game instance;
@@ -281,28 +278,7 @@ public class Game implements ApplicationListener {
 		scene.update(elapsed);
 		Camera.updateAll(elapsed);
 	}
-	
-	public static void reportException( Throwable tr ) {
-		if (instance != null && Gdx.app != null) {
-			instance.logException(tr);
-		} else {
-			//fallback if error happened in initialization
-			StringWriter sw = new StringWriter();
-			PrintWriter pw = new PrintWriter(sw);
-			tr.printStackTrace(pw);
-			pw.flush();
-			System.err.println(sw);
-		}
-	}
-	
-	protected void logException( Throwable tr ){
-		StringWriter sw = new StringWriter();
-		PrintWriter pw = new PrintWriter(sw);
-		tr.printStackTrace(pw);
-		pw.flush();
-		Gdx.app.error("GAME", sw.toString());
-	}
-	
+
 	public static void runOnRenderThread(Callback c){
 		Gdx.app.postRunnable(new Runnable() {
 			@Override

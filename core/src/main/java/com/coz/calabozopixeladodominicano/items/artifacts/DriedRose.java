@@ -74,6 +74,7 @@ import com.coz.calabozopixeladodominicano.windows.WndUseItem;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
+import com.watabou.utils.CPDExceptionManager;
 import com.watabou.utils.Callback;
 import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
@@ -278,7 +279,7 @@ public class DriedRose extends Artifact {
 					ghostID = 0;
 				}
 			} catch ( ClassCastException e ){
-				CalabozoPixeladoDominicano.reportException(e);
+				CPDExceptionManager.report(e);
 				ghostID = 0;
 			}
 		}

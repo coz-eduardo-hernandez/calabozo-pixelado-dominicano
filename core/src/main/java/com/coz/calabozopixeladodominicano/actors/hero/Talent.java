@@ -69,6 +69,7 @@ import com.coz.calabozopixeladodominicano.ui.BuffIndicator;
 import com.watabou.noosa.Image;
 import com.watabou.noosa.particles.Emitter;
 import com.watabou.utils.Bundle;
+import com.watabou.utils.CPDExceptionManager;
 import com.watabou.utils.GameMath;
 import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
@@ -900,7 +901,7 @@ public enum Talent {
 					try {
 						hero.metamorphedTalents.put(Talent.valueOf(key), Talent.valueOf(value));
 					} catch (Exception e) {
-						CalabozoPixeladoDominicano.reportException(e);
+						CPDExceptionManager.report(e);
 					}
 				}
 			}
@@ -925,7 +926,7 @@ public enum Talent {
 								tier.put(talent, Math.min(points, talent.maxPoints()));
 							}
 						} catch (Exception e) {
-							CalabozoPixeladoDominicano.reportException(e);
+							CPDExceptionManager.report(e);
 						}
 					}
 				}

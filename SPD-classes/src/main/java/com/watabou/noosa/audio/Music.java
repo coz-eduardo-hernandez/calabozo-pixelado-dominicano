@@ -23,6 +23,7 @@ package com.watabou.noosa.audio;
 
 import com.badlogic.gdx.Gdx;
 import com.watabou.noosa.Game;
+import com.watabou.utils.CPDExceptionManager;
 import com.watabou.utils.DeviceCompat;
 import com.watabou.utils.Random;
 
@@ -173,7 +174,7 @@ public enum Music {
 				player.setOnCompletionListener(listener);
 			}
 		} catch (Exception e){
-			Game.reportException(e);
+			CPDExceptionManager.report(e);
 			player = null;
 		}
 	}

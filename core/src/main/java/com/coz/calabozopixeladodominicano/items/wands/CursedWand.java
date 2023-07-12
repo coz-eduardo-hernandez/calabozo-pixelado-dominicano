@@ -70,6 +70,7 @@ import com.coz.calabozopixeladodominicano.utils.GLog;
 import com.coz.calabozopixeladodominicano.windows.WndOptions;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.audio.Sample;
+import com.watabou.utils.CPDExceptionManager;
 import com.watabou.utils.Callback;
 import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
@@ -411,7 +412,7 @@ public class CursedWand {
 						return false;
 					}
 				} catch(IOException e){
-					CalabozoPixeladoDominicano.reportException(e);
+					CPDExceptionManager.report(e);
 					//maybe don't kill the game if the save failed.
 					return cursedEffect(origin, user, targetPos);
 				}

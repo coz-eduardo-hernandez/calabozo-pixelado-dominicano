@@ -34,6 +34,7 @@ import com.coz.calabozopixeladodominicano.services.news.NewsImpl;
 import com.coz.calabozopixeladodominicano.services.updates.UpdateImpl;
 import com.coz.calabozopixeladodominicano.services.updates.Updates;
 import com.watabou.noosa.Game;
+import com.watabou.utils.CPDExceptionManager;
 import com.watabou.utils.FileUtils;
 import com.watabou.utils.Point;
 
@@ -137,10 +138,12 @@ public final class DesktopLauncher {
 		DesktopLauncher launcher = new DesktopLauncher();
 		SpecificationTitle title = launcher.new SpecificationTitle();
 
+		//TODO: maybe this would be better suited for the CPDExceptionHandler
+
 		Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
 			@Override
 			public void uncaughtException(Thread thread, Throwable throwable) {
-				Game.reportException(throwable);
+				CPDExceptionManager.report(throwable);
 				StringWriter sw = new StringWriter();
 				PrintWriter pw = new PrintWriter(sw);
 				throwable.printStackTrace(pw);

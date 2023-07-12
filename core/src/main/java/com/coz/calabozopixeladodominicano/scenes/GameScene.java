@@ -132,6 +132,7 @@ import com.watabou.noosa.Visual;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.noosa.particles.Emitter;
 import com.watabou.noosa.tweeners.Tweener;
+import com.watabou.utils.CPDExceptionManager;
 import com.watabou.utils.DeviceCompat;
 import com.watabou.utils.GameMath;
 import com.watabou.utils.Point;
@@ -631,7 +632,7 @@ public class GameScene extends PixelScene {
 			try {
 				actorThread.wait(msToWait);
 			} catch (InterruptedException e) {
-				CalabozoPixeladoDominicano.reportException(e);
+				CPDExceptionManager.report(e);
 			}
 			return !Actor.processing();
 		}
@@ -644,7 +645,7 @@ public class GameScene extends PixelScene {
 			Badges.saveGlobal();
 			Journal.saveGlobal();
 		} catch (IOException e) {
-			CalabozoPixeladoDominicano.reportException(e);
+			CPDExceptionManager.report(e);
 		}
 	}
 

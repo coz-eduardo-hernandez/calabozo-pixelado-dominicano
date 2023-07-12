@@ -28,6 +28,7 @@ import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.sprites.ItemSprite;
 import com.coz.calabozopixeladodominicano.ui.Icons;
 import com.watabou.noosa.Image;
+import com.watabou.utils.CPDExceptionManager;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -116,7 +117,7 @@ public class News {
 
 		//if we run into any formatting errors (or icon is null), default to the news icon
 		} catch (Exception e){
-			if (article.icon != null) CalabozoPixeladoDominicano.reportException(e);
+			if (article.icon != null) CPDExceptionManager.report(e);
 			return Icons.get(Icons.NEWS);
 		}
 	}

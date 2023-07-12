@@ -25,6 +25,7 @@ import com.coz.calabozopixeladodominicano.Dungeon;
 import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.levels.rooms.Room;
 import com.watabou.utils.Bundle;
+import com.watabou.utils.CPDExceptionManager;
 import com.watabou.utils.Random;
 import com.watabou.utils.Reflection;
 
@@ -199,7 +200,7 @@ public abstract class SpecialRoom extends Room {
 			}
 		} else {
 			initForRun();
-			CalabozoPixeladoDominicano.reportException(new Exception("specials array didn't exist!"));
+			CPDExceptionManager.report(new Exception("specials array didn't exist!"));
 		}
 		pitNeededDepth = bundle.getInt(PIT);
 	}

@@ -24,6 +24,7 @@ package com.coz.calabozopixeladodominicano.levels.rooms.secret;
 import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.coz.calabozopixeladodominicano.levels.rooms.special.SpecialRoom;
 import com.watabou.utils.Bundle;
+import com.watabou.utils.CPDExceptionManager;
 import com.watabou.utils.Random;
 import com.watabou.utils.Reflection;
 
@@ -115,7 +116,7 @@ public abstract class SecretRoom extends SpecialRoom {
 			regionSecretsThisRun = bundle.getIntArray(REGIONS);
 		} else {
 			initForRun();
-			CalabozoPixeladoDominicano.reportException(new Exception("secrets array didn't exist!"));
+			CPDExceptionManager.report(new Exception("secrets array didn't exist!"));
 		}
 	}
 	

@@ -146,7 +146,7 @@ public abstract class PlatformSupport {
 				font.getData().missingGlyph = font.getData().getGlyph('�');
 				fonts.get(generator).put(key, font);
 			} catch ( Exception e ){
-				Game.reportException(e);
+				CPDExceptionManager.report(e);
 				return null;
 			}
 		}

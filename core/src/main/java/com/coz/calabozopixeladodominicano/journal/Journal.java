@@ -23,6 +23,7 @@ package com.coz.calabozopixeladodominicano.journal;
 
 import com.coz.calabozopixeladodominicano.CalabozoPixeladoDominicano;
 import com.watabou.utils.Bundle;
+import com.watabou.utils.CPDExceptionManager;
 import com.watabou.utils.FileUtils;
 
 import java.io.IOException;
@@ -73,7 +74,7 @@ public class Journal {
 			FileUtils.bundleToFile( JOURNAL_FILE, bundle );
 			saveNeeded = false;
 		} catch (IOException e) {
-			CalabozoPixeladoDominicano.reportException(e);
+			CPDExceptionManager.report(e);
 		}
 		
 	}
